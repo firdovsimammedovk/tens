@@ -26,6 +26,7 @@
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/tt_signature_copy.js"></script>
     <script src="../../_static/tt_dropdown.js"></script>
+    <script src="../../_static/tt_version_dropdown.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="ttnn.eq_" href="ttnn.eq_.html" />
@@ -77,15 +78,20 @@
       <div class="tt-topnav__inner">
 
          <!-- Version (styled capsule dropdown) -->
-        <button
-          class="tt-topnav__version"
-          type="button"
-          id="tt-version-toggle"
-          aria-expanded="false"
-        ><span class="tt-topnav__version-text">
-                   <span class="tt-topnav__channel">v2.10.0 (stable)</span>
-                </span><span class="tt-topnav__chev" aria-hidden="true">^</span>
-            </button>
+        <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+          <button
+            class="tt-topnav__version tt-topnav__version--dropdown"
+            type="button"
+            id="tt-version-toggle"
+            aria-expanded="false"
+          ><span class="tt-topnav__version-text">
+                    
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+              </button>
+              <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                <!-- Version links will be populated here by JavaScript -->
+              </div>
+        </div>
 
         <!-- Secondary links -->
         <nav class="tt-topnav__subnav" aria-label="Section navigation">
@@ -128,25 +134,6 @@
 
   </header>
 
-  <!-- small toggle for the existing RTD versions panel -->
-  <script>
-    (function () {
-      function toggleVersions() {
-        var panel = document.querySelector('.rst-versions');
-        var btn = document.getElementById('tt-version-toggle');
-        if (!panel || !btn) return;
-        panel.classList.toggle('shift-up');
-        var expanded = panel.classList.contains('shift-up');
-        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-      }
-      document.addEventListener('click', function (e) {
-        if (e.target && e.target.closest && e.target.closest('#tt-version-toggle')) {
-          e.preventDefault();
-          toggleVersions();
-        }
-      });
-    })();
-  </script>
   <!-- ===== /Top Navbar ===== -->
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">

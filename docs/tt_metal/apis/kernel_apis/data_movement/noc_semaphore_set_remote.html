@@ -24,6 +24,7 @@
     <script src="../../../../_static/js/theme.js"></script>
     <script src="../../../../_static/tt_signature_copy.js"></script>
     <script src="../../../../_static/tt_dropdown.js"></script>
+    <script src="../../../../_static/tt_version_dropdown.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html" />
     <link rel="search" title="Search" href="../../../../search.html" />
     <link rel="next" title="noc_semaphore_set_multicast" href="noc_semaphore_set_multicast.html" />
@@ -75,15 +76,20 @@
       <div class="tt-topnav__inner">
 
          <!-- Version (styled capsule dropdown) -->
-        <button
-          class="tt-topnav__version"
-          type="button"
-          id="tt-version-toggle"
-          aria-expanded="false"
-        ><span class="tt-topnav__version-text">
-                   <span class="tt-topnav__channel">v2.10.0 (stable)</span>
-                </span><span class="tt-topnav__chev" aria-hidden="true">^</span>
-            </button>
+        <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+          <button
+            class="tt-topnav__version tt-topnav__version--dropdown"
+            type="button"
+            id="tt-version-toggle"
+            aria-expanded="false"
+          ><span class="tt-topnav__version-text">
+                    
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+              </button>
+              <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                <!-- Version links will be populated here by JavaScript -->
+              </div>
+        </div>
 
         <!-- Secondary links (TT-Metalium specific) -->
         <nav class="tt-topnav__subnav" aria-label="Section navigation">

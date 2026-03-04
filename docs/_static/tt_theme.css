@@ -591,6 +591,11 @@ https://github.com/readthedocs/sphinx_rtd_theme/issues/1301
 }
 
 /* ===== Secondary bar content ===== */
+.tt-topnav__version-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
 .tt-topnav__version {
   display: inline-flex;
   align-items: center;
@@ -605,6 +610,7 @@ https://github.com/readthedocs/sphinx_rtd_theme/issues/1301
   color: #fff;
   cursor: pointer;
   font-family: var(--font-main);
+  transition: background 0.2s ease;
 }
 
 .tt-topnav__version:hover {
@@ -617,8 +623,37 @@ https://github.com/readthedocs/sphinx_rtd_theme/issues/1301
 }
 
 .tt-topnav__chev {
-  font-size: 12px;
+  font-size: 10px;
   line-height: 1;
+  margin-left: 3px;
+}
+
+.tt-topnav__version-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  min-width: 200px;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+.tt-topnav__version-menu .tt-topnav__dropdown-item {
+  display: block;
+  padding: 10px 16px;
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.tt-topnav__version-menu .tt-topnav__dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--color-foreground);
 }
 
 .tt-topnav__subnav {
