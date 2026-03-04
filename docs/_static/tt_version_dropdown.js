@@ -4,13 +4,13 @@
 
   // Default versions (fallback if versions.json is not available)
   var defaultVersions = [
-    { version: 'v2.10.0', url: 'get_started.html', label: 'v2.10.0 (stable)' },
-    { version: 'v0.59.0', url: 'get_started.html', label: 'v0.59.0' },
-    { version: 'v0.58.0', url: 'get_started.html', label: 'v0.58.0' },
-    { version: 'v0.57.0', url: 'get_started.html', label: 'v0.57.0' },
-    { version: 'v0.56.0', url: 'get_started.html', label: 'v0.56.0' },
-    { version: 'v0.55.0', url: 'get_started.html', label: 'v0.55.0' },
-    { version: 'v0.54.0', url: 'get_started.html', label: 'v0.54.0' }
+    { version: 'v2.10.0', url: '/tens/ttnn/get_started.html', label: 'v2.10.0 (stable)' },
+    { version: 'v0.59.0', url: 'v0.59.0/get_started.html', label: 'v0.59.0' },
+    { version: 'v0.58.0', url: 'v0.58.0/get_started.html', label: 'v0.58.0' },
+    { version: 'v0.57.0', url: 'v0.57.0/about.html', label: 'v0.57.0' },
+    { version: 'v0.56.0', url: 'v0.56.0/get_started.html', label: 'v0.56.0' },
+    { version: 'v0.55.0', url: 'v0.55.0/get_started.html', label: 'v0.55.0' },
+    { version: 'v0.54.0', url: 'v0.54.0/get_started.html', label: 'v0.54.0' }
   ];
 
   function getCurrentVersion() {
