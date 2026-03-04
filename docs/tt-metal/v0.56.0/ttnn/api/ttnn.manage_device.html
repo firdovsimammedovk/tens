@@ -42,23 +42,34 @@
       <div class="tt-topnav__inner">
 
         <!-- Logo -->
-        <a class="tt-topnav__logo" href="../../index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
+        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
 
         <!-- Primary links (hardcoded like the mock) -->
         <nav class="tt-topnav__links" aria-label="Primary navigation">
           <a class="tt-topnav__link" href="../../index.html">Get Started</a>
           <a class="tt-topnav__link" href="../../index.html">Guides</a>
+
+          <!-- Hardware Guides dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Cards</a>
+              <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+            </div>
+          </div>
+
+          <!-- Software dropdown -->
           <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
             <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
             <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
-              <a class="tt-topnav__dropdown-item" href="../about.html">TT-NN</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/tt-metal.html">TT-Metal</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/runtime.html">Runtime</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/sdk.html">SDK</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/tools.html">Tools</a>
+              <a class="tt-topnav__dropdown-item" href="../../forge/index.html">TT-Forge</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../../getting-started/manual-software-install.html">Manual Software Installation</a>
+              <a class="tt-topnav__dropdown-item" href="../../tools/index.html">Tools</a>
             </div>
           </div>
-          <a class="tt-topnav__link" href="../../index.html">Hardware</a>
+
           <a class="tt-topnav__link" href="../../index.html">Models</a>
           <a class="tt-topnav__link" href="../../index.html">Support</a>
         </nav>
@@ -220,30 +231,86 @@
 <span class="sig-prename descclassname"><span class="pre">ttnn.</span></span><span class="sig-name descname"><span class="pre">manage_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">MeshDevice</span></span></span><a class="headerlink" href="#ttnn.manage_device" title="Permalink to this definition"></a>
 </dt>
 <dd>
-<p>Context manager for opening and closing a device.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span>
-</dt>
-<dd class="field-odd">
-<p><strong>device_id</strong> (<em>int</em>) – The device ID to open.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span>
-</dt>
-<dd class="field-even">
-<p><em>ttnn.device.Device</em> – the opened device. The device will be closed automatically when the block is exited, even if an error occurs.</p>
-</dd>
-</dl>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<div class="doctest highlight-default notranslate">
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">manage_device</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">device</span><span class="p">:</span>
-<span class="go">    &gt;&gt;&gt; # Perform operations with the device</span>
-<span class="go">    &gt;&gt;&gt; tensor = ttnn.zeros((2, 3), device=device)</span>
-<span class="go">    &gt;&gt;&gt; print(tensor)</span>
-<span class="go">ttnn.Tensor([[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]])</span>
+<p>Open a device and automatically close it when leaving a context block.</p>
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading"></a>
+</h2>
+<div class="highlight-python notranslate">
+<div class="highlight"><pre><span></span><span class="n">ttnn</span><span class="o">.</span><span class="n">manage_device</span><span class="p">(</span><span class="n">device_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ContextManager</span><span class="p">[</span><span class="n">ttnn</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">Device</span><span class="p">]</span>
 </pre></div>
 </div>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a>
+</h2>
+<p>Creates a context manager for safe device lifecycle handling.
+The device is opened when entering the <code class="docutils literal notranslate"><span class="pre">with</span></code> block and closed on exit,
+including exception paths.</p>
+<p>This is the recommended pattern for most scripts because it prevents
+leaked device handles when failures happen mid-execution.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>device_id: int - Numeric device identifier passed to <a class="reference internal" href="ttnn.open_device.html#ttnn.open_device" title="ttnn.open_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">ttnn.open_device()</span></code></a>.</p></li>
+</ul>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>ContextManager[<code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.device.Device</span></code>] - Yields the opened device inside the <code class="docutils literal notranslate"><span class="pre">with</span></code> block.</p></li>
+</ul>
+</section>
+<section id="raises">
+<h2>Raises<a class="headerlink" href="#raises" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>RuntimeError - Propagated from <a class="reference internal" href="ttnn.open_device.html#ttnn.open_device" title="ttnn.open_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">ttnn.open_device()</span></code></a> if the device cannot be opened.</p></li>
+<li><p>RuntimeError - Propagated from <a class="reference internal" href="ttnn.close_device.html#ttnn.close_device" title="ttnn.close_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">ttnn.close_device()</span></code></a> if close fails during context teardown.</p></li>
+</ul>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>The device is always closed in a <code class="docutils literal notranslate"><span class="pre">finally</span></code> block.</p></li>
+<li><p>Exceptions raised inside the user block are not swallowed and continue to propagate.</p></li>
+<li><p>Prefer this API over manual open/close pairs to avoid resource leaks.</p></li>
+</ul>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a>
+</h2>
+<p>Basic usage with automatic cleanup:</p>
+<div class="doctest highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">ttnn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">manage_device</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">as</span> <span class="n">device</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">tensor</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">tensor</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
 </div>
+<p>Equivalent manual lifecycle (not recommended for most code):</p>
+<div class="doctest highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">ttnn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">device</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">open_device</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">output</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span class="gp">... </span><span class="k">finally</span><span class="p">:</span>
+<span class="gp">... </span>    <span class="n">ttnn</span><span class="o">.</span><span class="n">close_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="ttnn.open_device.html#id1"><span class="std std-ref">ttnn.open_device</span></a> - Open a device explicitly without context management.</p></li>
+<li><p><a class="reference internal" href="ttnn.close_device.html#id1"><span class="std std-ref">ttnn.close_device</span></a> - Close and release a previously opened device.</p></li>
+<li><p><a class="reference internal" href="ttnn.synchronize_device.html#id1"><span class="std std-ref">ttnn.synchronize_device</span></a> - Synchronize queued work before teardown when needed.</p></li>
+</ul>
+</section>
 </dd>
 </dl>
 

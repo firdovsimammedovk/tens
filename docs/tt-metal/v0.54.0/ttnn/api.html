@@ -42,23 +42,34 @@
       <div class="tt-topnav__inner">
 
         <!-- Logo -->
-        <a class="tt-topnav__logo" href="../index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="../_static/tt_logo.svg" alt="TT-NN" /></a>
+        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../_static/tt_logo.svg" alt="TT-NN" /></a>
 
         <!-- Primary links (hardcoded like the mock) -->
         <nav class="tt-topnav__links" aria-label="Primary navigation">
           <a class="tt-topnav__link" href="../index.html">Get Started</a>
           <a class="tt-topnav__link" href="../index.html">Guides</a>
+
+          <!-- Hardware Guides dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../aibs/index.html">Cards</a>
+              <a class="tt-topnav__dropdown-item" href="../systems/index.html">Systems</a>
+            </div>
+          </div>
+
+          <!-- Software dropdown -->
           <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
             <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
             <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
-              <a class="tt-topnav__dropdown-item" href="about.html">TT-NN</a>
-              <a class="tt-topnav__dropdown-item" href="../software/tt-metal.html">TT-Metal</a>
-              <a class="tt-topnav__dropdown-item" href="../software/runtime.html">Runtime</a>
-              <a class="tt-topnav__dropdown-item" href="../software/sdk.html">SDK</a>
-              <a class="tt-topnav__dropdown-item" href="../software/tools.html">Tools</a>
+              <a class="tt-topnav__dropdown-item" href="../forge/index.html">TT-Forge</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../getting-started/manual-software-install.html">Manual Software Installation</a>
+              <a class="tt-topnav__dropdown-item" href="../tools/index.html">Tools</a>
             </div>
           </div>
-          <a class="tt-topnav__link" href="../index.html">Hardware</a>
+
           <a class="tt-topnav__link" href="../index.html">Models</a>
           <a class="tt-topnav__link" href="../index.html">Support</a>
         </nav>
@@ -760,7 +771,7 @@
 <tbody>
 <tr class="row-odd">
 <td><p><a class="reference internal" href="api/ttnn.open_device.html#ttnn.open_device" title="ttnn.open_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ttnn.open_device</span></code></a></p></td>
-<td><p>int, l1_small_size: int, trace_region_size: int, dispatch_core_config: ttnn.device.DispatchCoreConfig, worker_l1_size: int)</p></td>
+<td><p>Open a TT device for running operations.</p></td>
 </tr>
 <tr class="row-even">
 <td><p><a class="reference internal" href="api/ttnn.close_device.html#ttnn.close_device" title="ttnn.close_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ttnn.close_device</span></code></a></p></td>
@@ -768,23 +779,23 @@
 </tr>
 <tr class="row-odd">
 <td><p><a class="reference internal" href="api/ttnn.manage_device.html#ttnn.manage_device" title="ttnn.manage_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ttnn.manage_device</span></code></a></p></td>
-<td><p>Context manager for opening and closing a device.</p></td>
+<td><p>Open a device and automatically close it when leaving a context block.</p></td>
 </tr>
 <tr class="row-even">
 <td><p><a class="reference internal" href="api/ttnn.synchronize_device.html#ttnn.synchronize_device" title="ttnn.synchronize_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ttnn.synchronize_device</span></code></a></p></td>
-<td><p>ttnn._ttnn.multi_device.MeshDevice, cq_id: ttnn._ttnn.types.QueueId | None = None, sub_device_ids: collections.abc.Sequence[ttnn._ttnn.device.SubDeviceId] = []) -&gt; None</p></td>
+<td><p>Block until pending operations on a device are completed.</p></td>
 </tr>
 <tr class="row-odd">
 <td><p><a class="reference internal" href="api/ttnn.SetDefaultDevice.html#ttnn.SetDefaultDevice" title="ttnn.SetDefaultDevice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ttnn.SetDefaultDevice</span></code></a></p></td>
-<td><p>ttnn._ttnn.multi_device.MeshDevice | None = None) -&gt; None</p></td>
+<td><p>Set the process default device.</p></td>
 </tr>
 <tr class="row-even">
 <td><p><a class="reference internal" href="api/ttnn.GetDefaultDevice.html#ttnn.GetDefaultDevice" title="ttnn.GetDefaultDevice"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ttnn.GetDefaultDevice</span></code></a></p></td>
-<td><p>GetDefaultDevice() -&gt; ttnn._ttnn.multi_device.MeshDevice</p></td>
+<td><p>Return the current process default device.</p></td>
 </tr>
 <tr class="row-odd">
 <td><p><a class="reference internal" href="api/ttnn.pad_to_tile_shape.html#ttnn.pad_to_tile_shape" title="ttnn.pad_to_tile_shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ttnn.pad_to_tile_shape</span></code></a></p></td>
-<td><p>collections.abc.Sequence[int]) -&gt; list</p></td>
+<td><p>Pad an input shape to tile-aligned dimensions.</p></td>
 </tr>
 </tbody>
 </table>
@@ -796,7 +807,7 @@
 <tbody>
 <tr class="row-odd">
 <td><p><a class="reference internal" href="api/ttnn.create_sharded_memory_config.html#ttnn.create_sharded_memory_config" title="ttnn.create_sharded_memory_config"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ttnn.create_sharded_memory_config</span></code></a></p></td>
-<td><p>Creates a MemoryConfig object with a sharding spec, required for sharded ops.</p></td>
+<td><p>Create a sharded <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.MemoryConfig</span></code> for sharded tensor operations.</p></td>
 </tr>
 </tbody>
 </table>

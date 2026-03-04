@@ -42,23 +42,34 @@
       <div class="tt-topnav__inner">
 
         <!-- Logo -->
-        <a class="tt-topnav__logo" href="../../index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
+        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
 
         <!-- Primary links (hardcoded like the mock) -->
         <nav class="tt-topnav__links" aria-label="Primary navigation">
           <a class="tt-topnav__link" href="../../index.html">Get Started</a>
           <a class="tt-topnav__link" href="../../index.html">Guides</a>
+
+          <!-- Hardware Guides dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Cards</a>
+              <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+            </div>
+          </div>
+
+          <!-- Software dropdown -->
           <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
             <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
             <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
-              <a class="tt-topnav__dropdown-item" href="../about.html">TT-NN</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/tt-metal.html">TT-Metal</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/runtime.html">Runtime</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/sdk.html">SDK</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/tools.html">Tools</a>
+              <a class="tt-topnav__dropdown-item" href="../../forge/index.html">TT-Forge</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../../getting-started/manual-software-install.html">Manual Software Installation</a>
+              <a class="tt-topnav__dropdown-item" href="../../tools/index.html">Tools</a>
             </div>
           </div>
-          <a class="tt-topnav__link" href="../../index.html">Hardware</a>
+
           <a class="tt-topnav__link" href="../../index.html">Models</a>
           <a class="tt-topnav__link" href="../../index.html">Support</a>
         </nav>
@@ -164,7 +175,7 @@
 <li class="toctree-l3"><a class="reference internal" href="ttnn.SetDefaultDevice.html">ttnn.SetDefaultDevice</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ttnn.GetDefaultDevice.html">ttnn.GetDefaultDevice</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">ttnn.pad_to_tile_shape</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ttnn.pad_to_tile_shape"><code class="docutils literal notranslate"><span class="pre">pad_to_tile_shape</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ttnn.pad_to_tile_shape"><code class="docutils literal notranslate"><span class="pre">pad_to_tile_shape()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -215,43 +226,70 @@
   <section id="ttnn-pad-to-tile-shape">
 <h1>ttnn.pad_to_tile_shape<a class="headerlink" href="#ttnn-pad-to-tile-shape" title="Permalink to this heading"></a>
 </h1>
-<span class="target" id="id1"></span><dl class="py data">
+<span class="target" id="id1"></span><dl class="py function">
 <dt class="sig sig-object py" id="ttnn.pad_to_tile_shape">
-<span class="sig-prename descclassname"><span class="pre">ttnn.</span></span><span class="sig-name descname"><span class="pre">pad_to_tile_shape</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;nanobind.nb_func</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#ttnn.pad_to_tile_shape" title="Permalink to this definition"></a>
+<span class="sig-prename descclassname"><span class="pre">ttnn.</span></span><span class="sig-name descname"><span class="pre">pad_to_tile_shape</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ttnn.pad_to_tile_shape" title="Permalink to this definition"></a>
 </dt>
 <dd>
-<p>collections.abc.Sequence[int]) -&gt; list</p>
-<p>Pads the given shape to tile shape based on specified padding options.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span>
-</dt>
-<dd class="field-odd">
-<p><strong>unpadded_shape</strong> (<em>List</em><em> of </em><em>[</em><em>int</em><em>]</em>) – The original shape of the tensor to pad.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span>
-</dt>
-<dd class="field-even">
-<p><em>List of [int]</em> – The padded shape.</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This functionality is planned for deprecation in the future.</p>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<div class="doctest highlight-default notranslate">
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">padded_shape</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">pad_to_tile_shape</span><span class="p">(</span><span class="n">unpadded_shape</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<p>Pad an input shape to tile-aligned dimensions.</p>
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading"></a>
+</h2>
+<div class="highlight-python notranslate">
+<div class="highlight"><pre><span></span><span class="n">ttnn</span><span class="o">.</span><span class="n">pad_to_tile_shape</span><span class="p">(</span><span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
 </pre></div>
 </div>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a>
+</h2>
+<p>Returns a tile-aligned version of a tensor shape according to backend tile rules.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>shape: tuple[int, …] | list[int] - Input logical shape.</p></li>
+</ul>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>tuple[int, …] - Padded shape aligned for tiled execution.</p></li>
+</ul>
+</section>
+<section id="raises">
+<h2>Raises<a class="headerlink" href="#raises" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>RuntimeError - If shape is invalid for backend alignment logic.</p></li>
+</ul>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>This helper is commonly used when preparing shapes for tiled layouts.</p></li>
+</ul>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a>
+</h2>
+<div class="doctest highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">ttnn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">padded</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">pad_to_tile_shape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">))</span>
+</pre></div>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span>
-</dt>
-<dd class="field-odd">
-<p>pad_to_tile_shape(unpadded_shape</p>
-</dd>
-</dl>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="ttnn.to_layout.html#id1"><span class="std std-ref">ttnn.to_layout</span></a> - Convert tensors between layouts.</p></li>
+<li><p><a class="reference internal" href="ttnn.to_device.html#id1"><span class="std std-ref">ttnn.to_device</span></a> - Move tensors to device memory.</p></li>
+</ul>
+</section>
 </dd>
 </dl>
 

@@ -42,23 +42,34 @@
       <div class="tt-topnav__inner">
 
         <!-- Logo -->
-        <a class="tt-topnav__logo" href="../../../index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="../../../_static/tt_logo.svg" alt="TT-NN" /></a>
+        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../../_static/tt_logo.svg" alt="TT-NN" /></a>
 
         <!-- Primary links (hardcoded like the mock) -->
         <nav class="tt-topnav__links" aria-label="Primary navigation">
           <a class="tt-topnav__link" href="../../../index.html">Get Started</a>
           <a class="tt-topnav__link" href="../../../index.html">Guides</a>
+
+          <!-- Hardware Guides dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../../../aibs/index.html">Cards</a>
+              <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Systems</a>
+            </div>
+          </div>
+
+          <!-- Software dropdown -->
           <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
             <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
             <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
-              <a class="tt-topnav__dropdown-item" href="../../about.html">TT-NN</a>
-              <a class="tt-topnav__dropdown-item" href="../../../software/tt-metal.html">TT-Metal</a>
-              <a class="tt-topnav__dropdown-item" href="../../../software/runtime.html">Runtime</a>
-              <a class="tt-topnav__dropdown-item" href="../../../software/sdk.html">SDK</a>
-              <a class="tt-topnav__dropdown-item" href="../../../software/tools.html">Tools</a>
+              <a class="tt-topnav__dropdown-item" href="../../../forge/index.html">TT-Forge</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../../../getting-started/manual-software-install.html">Manual Software Installation</a>
+              <a class="tt-topnav__dropdown-item" href="../../../tools/index.html">Tools</a>
             </div>
           </div>
-          <a class="tt-topnav__link" href="../../../index.html">Hardware</a>
+
           <a class="tt-topnav__link" href="../../../index.html">Models</a>
           <a class="tt-topnav__link" href="../../../index.html">Support</a>
         </nav>

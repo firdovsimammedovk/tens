@@ -41,23 +41,34 @@
       <div class="tt-topnav__inner">
 
         <!-- Logo -->
-        <a class="tt-topnav__logo" href="#" aria-label="Home"><img class="tt-topnav__logo-img" src="_static/tt_logo.svg" alt="TT-NN" /></a>
+        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="_static/tt_logo.svg" alt="TT-NN" /></a>
 
         <!-- Primary links (hardcoded like the mock) -->
         <nav class="tt-topnav__links" aria-label="Primary navigation">
           <a class="tt-topnav__link" href="#">Get Started</a>
           <a class="tt-topnav__link" href="#">Guides</a>
+
+          <!-- Hardware Guides dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="aibs/index.html">Cards</a>
+              <a class="tt-topnav__dropdown-item" href="systems/index.html">Systems</a>
+            </div>
+          </div>
+
+          <!-- Software dropdown -->
           <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
             <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
             <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
-              <a class="tt-topnav__dropdown-item" href="ttnn/about.html">TT-NN</a>
-              <a class="tt-topnav__dropdown-item" href="software/tt-metal.html">TT-Metal</a>
-              <a class="tt-topnav__dropdown-item" href="software/runtime.html">Runtime</a>
-              <a class="tt-topnav__dropdown-item" href="software/sdk.html">SDK</a>
-              <a class="tt-topnav__dropdown-item" href="software/tools.html">Tools</a>
+              <a class="tt-topnav__dropdown-item" href="forge/index.html">TT-Forge</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="getting-started/manual-software-install.html">Manual Software Installation</a>
+              <a class="tt-topnav__dropdown-item" href="tools/index.html">Tools</a>
             </div>
           </div>
-          <a class="tt-topnav__link" href="#">Hardware</a>
+
           <a class="tt-topnav__link" href="#">Models</a>
           <a class="tt-topnav__link" href="#">Support</a>
         </nav>
@@ -355,7 +366,7 @@
 <a class="reference internal" href="ttnn/api.html#device">Device</a><ul>
 <li class="toctree-l3">
 <a class="reference internal" href="ttnn/api/ttnn.open_device.html">ttnn.open_device</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ttnn/api/ttnn.open_device.html#ttnn.open_device"><code class="docutils literal notranslate"><span class="pre">open_device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/api/ttnn.open_device.html#ttnn.open_device"><code class="docutils literal notranslate"><span class="pre">open_device()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3">
@@ -370,22 +381,22 @@
 </li>
 <li class="toctree-l3">
 <a class="reference internal" href="ttnn/api/ttnn.synchronize_device.html">ttnn.synchronize_device</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ttnn/api/ttnn.synchronize_device.html#ttnn.synchronize_device"><code class="docutils literal notranslate"><span class="pre">synchronize_device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/api/ttnn.synchronize_device.html#ttnn.synchronize_device"><code class="docutils literal notranslate"><span class="pre">synchronize_device()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3">
 <a class="reference internal" href="ttnn/api/ttnn.SetDefaultDevice.html">ttnn.SetDefaultDevice</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ttnn/api/ttnn.SetDefaultDevice.html#ttnn.SetDefaultDevice"><code class="docutils literal notranslate"><span class="pre">SetDefaultDevice</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/api/ttnn.SetDefaultDevice.html#ttnn.SetDefaultDevice"><code class="docutils literal notranslate"><span class="pre">SetDefaultDevice()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3">
 <a class="reference internal" href="ttnn/api/ttnn.GetDefaultDevice.html">ttnn.GetDefaultDevice</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ttnn/api/ttnn.GetDefaultDevice.html#ttnn.GetDefaultDevice"><code class="docutils literal notranslate"><span class="pre">GetDefaultDevice</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/api/ttnn.GetDefaultDevice.html#ttnn.GetDefaultDevice"><code class="docutils literal notranslate"><span class="pre">GetDefaultDevice()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3">
 <a class="reference internal" href="ttnn/api/ttnn.pad_to_tile_shape.html">ttnn.pad_to_tile_shape</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ttnn/api/ttnn.pad_to_tile_shape.html#ttnn.pad_to_tile_shape"><code class="docutils literal notranslate"><span class="pre">pad_to_tile_shape</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttnn/api/ttnn.pad_to_tile_shape.html#ttnn.pad_to_tile_shape"><code class="docutils literal notranslate"><span class="pre">pad_to_tile_shape()</span></code></a></li>
 </ul>
 </li>
 </ul>

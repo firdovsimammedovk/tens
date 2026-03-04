@@ -42,23 +42,34 @@
       <div class="tt-topnav__inner">
 
         <!-- Logo -->
-        <a class="tt-topnav__logo" href="../../index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
+        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
 
         <!-- Primary links (hardcoded like the mock) -->
         <nav class="tt-topnav__links" aria-label="Primary navigation">
           <a class="tt-topnav__link" href="../../index.html">Get Started</a>
           <a class="tt-topnav__link" href="../../index.html">Guides</a>
+
+          <!-- Hardware Guides dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Cards</a>
+              <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+            </div>
+          </div>
+
+          <!-- Software dropdown -->
           <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
             <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
             <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
-              <a class="tt-topnav__dropdown-item" href="../about.html">TT-NN</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/tt-metal.html">TT-Metal</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/runtime.html">Runtime</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/sdk.html">SDK</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/tools.html">Tools</a>
+              <a class="tt-topnav__dropdown-item" href="../../forge/index.html">TT-Forge</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../../getting-started/manual-software-install.html">Manual Software Installation</a>
+              <a class="tt-topnav__dropdown-item" href="../../tools/index.html">Tools</a>
             </div>
           </div>
-          <a class="tt-topnav__link" href="../../index.html">Hardware</a>
+
           <a class="tt-topnav__link" href="../../index.html">Models</a>
           <a class="tt-topnav__link" href="../../index.html">Support</a>
         </nav>
@@ -214,36 +225,104 @@
 <span class="sig-prename descclassname"><span class="pre">ttnn.</span></span><span class="sig-name descname"><span class="pre">create_sharded_memory_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../tensor.html#ttnn.Shape" title="ttnn._ttnn.types.Shape"><span class="pre">Shape</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">core_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CoreGrid</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">CoreRangeSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ShardStrategy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ShardOrientation</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_height_and_width_as_shard_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">MemoryConfig</span></span></span><a class="headerlink" href="#ttnn.create_sharded_memory_config" title="Permalink to this definition"></a>
 </dt>
 <dd>
-<p>Creates a MemoryConfig object with a sharding spec, required for sharded ops.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span>
-</dt>
-<dd class="field-odd">
-<ul class="simple">
-<li><p><strong>shape</strong> (<a class="reference internal" href="../tensor.html#ttnn.Shape" title="ttnn.Shape"><em>ttnn.Shape</em></a><em> | </em><em>Tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>] </em><em>| </em><em>List</em><em>[</em><em>int</em><em>]</em>) – the shape of the tensor.</p></li>
-<li><p><strong>core_grid</strong> (<em>ttnn.CoreGrid</em><em> | </em><em>ttnn.CoreRangeSet</em>) – the core_grid on which to distribute the sharded tensor on (writes to the cores L1s).</p></li>
-<li><p><strong>strategy</strong> (<em>ttnn.ShardStrategy</em>) – the sharding strategy of either height, width or block.</p></li>
-<li><p><strong>orientation</strong> (<em>ttnn.ShardOrientation</em><em>, </em><em>optional</em>) – the order in which to traverse the cores when reading/writing shards. Defaults to <cite>None</cite>.</p></li>
-<li><p><strong>use_height_and_width_as_shard_shape</strong> (<em>bool</em><em>, </em><em>optional</em>) – if True, the height and width of the tensor will be used as the shard shape. Defaults to <cite>False</cite>. If is False, the shard shape will be calculated based on the core_grid and the tensor shape where tensor shape is seen as [math.prod(dims), width]</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span>
-</dt>
-<dd class="field-even">
-<p><em>ttnn.MemoryConfig</em> – the MemoryConfig object.</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Currently sharding only supports L1 tensors.</p>
-</div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<div class="doctest highlight-default notranslate">
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">tensor</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">create_sharded_memory_config</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="p">(</span><span class="mi">320</span><span class="p">,</span><span class="mi">64</span><span class="p">),</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">ShardStrategy</span><span class="o">.</span><span class="n">BLOCK</span><span class="p">,</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">ShardOrientation</span><span class="o">.</span><span class="n">ROW_MAJOR</span><span class="p">)</span>
+<p>Create a sharded <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.MemoryConfig</span></code> for sharded tensor operations.</p>
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading"></a>
+</h2>
+<div class="highlight-python notranslate">
+<div class="highlight"><pre><span></span><span class="n">ttnn</span><span class="o">.</span><span class="n">create_sharded_memory_config</span><span class="p">(</span>
+    <span class="n">shape</span><span class="p">:</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">Shape</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+    <span class="n">core_grid</span><span class="p">:</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">CoreGrid</span> <span class="o">|</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">CoreRangeSet</span><span class="p">,</span>
+    <span class="n">strategy</span><span class="p">:</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">ShardStrategy</span><span class="p">,</span>
+    <span class="n">orientation</span><span class="p">:</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">ShardOrientation</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_height_and_width_as_shard_shape</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">MemoryConfig</span>
 </pre></div>
 </div>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a>
+</h2>
+<p>Builds a <code class="docutils literal notranslate"><span class="pre">MemoryConfig</span></code> with a <code class="docutils literal notranslate"><span class="pre">ShardSpec</span></code> describing how tensor data is
+partitioned across compute cores in L1.</p>
+<p>The helper validates input shape, converts <code class="docutils literal notranslate"><span class="pre">core_grid</span></code> into a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.CoreRangeSet</span></code>, computes shard shape according to the selected
+sharding strategy, and returns a ready-to-use configuration object.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>shape: <a class="reference internal" href="../tensor.html#ttnn.Shape" title="ttnn.Shape"><code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.Shape</span></code></a> | tuple[int, …] | list[int] - Logical tensor shape.</p></li>
+<li><p>core_grid: <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.CoreGrid</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.CoreRangeSet</span></code> - Core topology used for sharding.</p></li>
+<li><p>strategy: <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.ShardStrategy</span></code> - One of HEIGHT, WIDTH, or BLOCK.</p></li>
+<li><p>orientation: <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.ShardOrientation</span></code> | None - Core traversal order; defaults to <code class="docutils literal notranslate"><span class="pre">ROW_MAJOR</span></code> when <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p>use_height_and_width_as_shard_shape: bool - If <code class="docutils literal notranslate"><span class="pre">True</span></code>, uses <code class="docutils literal notranslate"><span class="pre">(height,</span> <span class="pre">width)</span></code> directly as shard shape.</p></li>
+</ul>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.MemoryConfig</span></code> - Memory configuration with L1 buffer type and computed shard spec.</p></li>
+</ul>
+</section>
+<section id="raises">
+<h2>Raises<a class="headerlink" href="#raises" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>RuntimeError - If <code class="docutils literal notranslate"><span class="pre">shape</span></code> or <code class="docutils literal notranslate"><span class="pre">core_grid</span></code> has an unsupported type or invalid structure.</p></li>
+<li><p>RuntimeError - If <code class="docutils literal notranslate"><span class="pre">strategy</span></code> or <code class="docutils literal notranslate"><span class="pre">orientation</span></code> is invalid.</p></li>
+<li><p>RuntimeError - If shard geometry is not divisible by the selected core topology.</p></li>
+<li><p>RuntimeError - If <code class="docutils literal notranslate"><span class="pre">core_grid</span></code> is a <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.CoreRangeSet</span></code> while <code class="docutils literal notranslate"><span class="pre">use_height_and_width_as_shard_shape</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>This helper creates L1 sharded configs only.</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">use_height_and_width_as_shard_shape</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, shape is interpreted as <code class="docutils literal notranslate"><span class="pre">[prod(batch_dims),</span> <span class="pre">height,</span> <span class="pre">width]</span></code> for shard computation.</p></li>
+<li><p>For advanced/non-divisible sharding flows, see <code class="xref py py-func docutils literal notranslate"><span class="pre">ttnn.create_sharded_memory_config_()</span></code>.</p></li>
+</ul>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a>
+</h2>
+<p>Block sharding over a rectangular grid:</p>
+<div class="doctest highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">ttnn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">CoreGrid</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mem_cfg</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">create_sharded_memory_config</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">core_grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">strategy</span><span class="o">=</span><span class="n">ttnn</span><span class="o">.</span><span class="n">ShardStrategy</span><span class="o">.</span><span class="n">BLOCK</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">orientation</span><span class="o">=</span><span class="n">ttnn</span><span class="o">.</span><span class="n">ShardOrientation</span><span class="o">.</span><span class="n">ROW_MAJOR</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
 </div>
+<p>Using explicit shard shape from tensor height/width:</p>
+<div class="doctest highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">ttnn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">CoreGrid</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mem_cfg</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">create_sharded_memory_config</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">core_grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">strategy</span><span class="o">=</span><span class="n">ttnn</span><span class="o">.</span><span class="n">ShardStrategy</span><span class="o">.</span><span class="n">HEIGHT</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">use_height_and_width_as_shard_shape</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">ttnn.create_sharded_memory_config_()</span></code> - Extended helper with additional shard-shape handling.</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.ShardSpec</span></code> - Describes shard grid, shape, and orientation.</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.MemoryConfig</span></code> - Container for tensor memory layout and placement metadata.</p></li>
+</ul>
+</section>
 </dd>
 </dl>
 

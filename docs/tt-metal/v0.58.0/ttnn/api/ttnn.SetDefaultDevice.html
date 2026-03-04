@@ -42,23 +42,34 @@
       <div class="tt-topnav__inner">
 
         <!-- Logo -->
-        <a class="tt-topnav__logo" href="../../index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
+        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
 
         <!-- Primary links (hardcoded like the mock) -->
         <nav class="tt-topnav__links" aria-label="Primary navigation">
           <a class="tt-topnav__link" href="../../index.html">Get Started</a>
           <a class="tt-topnav__link" href="../../index.html">Guides</a>
+
+          <!-- Hardware Guides dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Cards</a>
+              <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+            </div>
+          </div>
+
+          <!-- Software dropdown -->
           <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
             <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
             <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
-              <a class="tt-topnav__dropdown-item" href="../about.html">TT-NN</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/tt-metal.html">TT-Metal</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/runtime.html">Runtime</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/sdk.html">SDK</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/tools.html">Tools</a>
+              <a class="tt-topnav__dropdown-item" href="../../forge/index.html">TT-Forge</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../../getting-started/manual-software-install.html">Manual Software Installation</a>
+              <a class="tt-topnav__dropdown-item" href="../../tools/index.html">Tools</a>
             </div>
           </div>
-          <a class="tt-topnav__link" href="../../index.html">Hardware</a>
+
           <a class="tt-topnav__link" href="../../index.html">Models</a>
           <a class="tt-topnav__link" href="../../index.html">Support</a>
         </nav>
@@ -162,7 +173,7 @@
 <li class="toctree-l3"><a class="reference internal" href="ttnn.manage_device.html">ttnn.manage_device</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ttnn.synchronize_device.html">ttnn.synchronize_device</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">ttnn.SetDefaultDevice</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ttnn.SetDefaultDevice"><code class="docutils literal notranslate"><span class="pre">SetDefaultDevice</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ttnn.SetDefaultDevice"><code class="docutils literal notranslate"><span class="pre">SetDefaultDevice()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ttnn.GetDefaultDevice.html">ttnn.GetDefaultDevice</a></li>
@@ -215,40 +226,73 @@
   <section id="ttnn-setdefaultdevice">
 <h1>ttnn.SetDefaultDevice<a class="headerlink" href="#ttnn-setdefaultdevice" title="Permalink to this heading"></a>
 </h1>
-<span class="target" id="id1"></span><dl class="py data">
+<span class="target" id="id1"></span><dl class="py function">
 <dt class="sig sig-object py" id="ttnn.SetDefaultDevice">
-<span class="sig-prename descclassname"><span class="pre">ttnn.</span></span><span class="sig-name descname"><span class="pre">SetDefaultDevice</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;nanobind.nb_func</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#ttnn.SetDefaultDevice" title="Permalink to this definition"></a>
+<span class="sig-prename descclassname"><span class="pre">ttnn.</span></span><span class="sig-name descname"><span class="pre">SetDefaultDevice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MeshDevice</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ttnn.SetDefaultDevice" title="Permalink to this definition"></a>
 </dt>
 <dd>
-<p>ttnn._ttnn.multi_device.MeshDevice | None = None) -&gt; None</p>
-<p>Sets the default device to use for operations when inputs are not on the device.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span>
-</dt>
-<dd class="field-odd">
-<p><strong>device</strong> (<em>ttnn.Device</em>) – The TT device to use.</p>
-</dd>
-</dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This functionality is planned for deprecation in the future.</p>
+<p>Set the process default device.</p>
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading"></a>
+</h2>
+<div class="highlight-python notranslate">
+<div class="highlight"><pre><span></span><span class="n">ttnn</span><span class="o">.</span><span class="n">SetDefaultDevice</span><span class="p">(</span><span class="n">device</span><span class="p">:</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">Device</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</pre></div>
 </div>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a>
+</h2>
+<p>Updates process-level default device state used by APIs that support
+implicit device context.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>device: <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.device.Device</span></code> - Device to set as default.</p></li>
+</ul>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>None - Default device state is updated.</p></li>
+</ul>
+</section>
+<section id="raises">
+<h2>Raises<a class="headerlink" href="#raises" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>RuntimeError - If the provided device is invalid.</p></li>
+</ul>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>Affects only the current process.</p></li>
+</ul>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a>
+</h2>
 <div class="doctest highlight-default notranslate">
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">device_id</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">device</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">open_device</span><span class="p">(</span><span class="n">device_id</span> <span class="o">=</span> <span class="n">device_id</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">ttnn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">device</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">open_device</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ttnn</span><span class="o">.</span><span class="n">SetDefaultDevice</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span>
-</dt>
-<dd class="field-odd">
-<p>SetDefaultDevice(device</p>
-</dd>
-</dl>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="ttnn.GetDefaultDevice.html#id1"><span class="std std-ref">ttnn.GetDefaultDevice</span></a> - Query current default device.</p></li>
+<li><p><a class="reference internal" href="ttnn.open_device.html#id1"><span class="std std-ref">ttnn.open_device</span></a> - Open a device handle.</p></li>
+<li><p><a class="reference internal" href="ttnn.close_device.html#id1"><span class="std std-ref">ttnn.close_device</span></a> - Close device handles.</p></li>
+</ul>
+</section>
 </dd>
 </dl>
 

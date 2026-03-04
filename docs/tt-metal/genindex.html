@@ -39,23 +39,34 @@
       <div class="tt-topnav__inner">
 
         <!-- Logo -->
-        <a class="tt-topnav__logo" href="index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="_static/tt_logo.svg" alt="TT-NN" /></a>
+        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="_static/tt_logo.svg" alt="TT-NN" /></a>
 
         <!-- Primary links (hardcoded like the mock) -->
         <nav class="tt-topnav__links" aria-label="Primary navigation">
           <a class="tt-topnav__link" href="index.html">Get Started</a>
           <a class="tt-topnav__link" href="index.html">Guides</a>
+
+          <!-- Hardware Guides dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="aibs/index.html">Cards</a>
+              <a class="tt-topnav__dropdown-item" href="systems/index.html">Systems</a>
+            </div>
+          </div>
+
+          <!-- Software dropdown -->
           <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
             <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
             <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
-              <a class="tt-topnav__dropdown-item" href="ttnn/about.html">TT-NN</a>
-              <a class="tt-topnav__dropdown-item" href="software/tt-metal.html">TT-Metal</a>
-              <a class="tt-topnav__dropdown-item" href="software/runtime.html">Runtime</a>
-              <a class="tt-topnav__dropdown-item" href="software/sdk.html">SDK</a>
-              <a class="tt-topnav__dropdown-item" href="software/tools.html">Tools</a>
+              <a class="tt-topnav__dropdown-item" href="forge/index.html">TT-Forge</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="getting-started/manual-software-install.html">Manual Software Installation</a>
+              <a class="tt-topnav__dropdown-item" href="tools/index.html">Tools</a>
             </div>
           </div>
-          <a class="tt-topnav__link" href="index.html">Hardware</a>
+
           <a class="tt-topnav__link" href="index.html">Models</a>
           <a class="tt-topnav__link" href="index.html">Support</a>
         </nav>
@@ -671,7 +682,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ttnn/api/ttnn.get_device_tensors.html#ttnn.get_device_tensors">get_device_tensors (in module ttnn)</a>
 </li>
-      <li><a href="ttnn/api/ttnn.GetDefaultDevice.html#ttnn.GetDefaultDevice">GetDefaultDevice (in module ttnn)</a>
+      <li><a href="ttnn/api/ttnn.GetDefaultDevice.html#ttnn.GetDefaultDevice">GetDefaultDevice() (in module ttnn)</a>
 </li>
       <li><a href="ttnn/api/ttnn.gez.html#ttnn.gez">gez() (in module ttnn)</a>
 </li>
@@ -1003,7 +1014,7 @@
 </li>
       <li><a href="ttnn/api/ttnn.ones_like.html#ttnn.ones_like">ones_like() (in module ttnn)</a>
 </li>
-      <li><a href="ttnn/api/ttnn.open_device.html#ttnn.open_device">open_device (in module ttnn)</a>
+      <li><a href="ttnn/api/ttnn.open_device.html#ttnn.open_device">open_device() (in module ttnn)</a>
 </li>
       <li><a href="ttnn/api/ttnn.MatmulMultiCoreReuseMultiCast1DProgramConfig.html#ttnn.MatmulMultiCoreReuseMultiCast1DProgramConfig.out_block_h">out_block_h (ttnn.MatmulMultiCoreReuseMultiCast1DProgramConfig property)</a>
 
@@ -1051,7 +1062,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="ttnn/api/ttnn.pad.html#ttnn.pad">pad() (in module ttnn)</a>
 </li>
-      <li><a href="ttnn/api/ttnn.pad_to_tile_shape.html#ttnn.pad_to_tile_shape">pad_to_tile_shape (in module ttnn)</a>
+      <li><a href="ttnn/api/ttnn.pad_to_tile_shape.html#ttnn.pad_to_tile_shape">pad_to_tile_shape() (in module ttnn)</a>
 </li>
       <li><a href="ttnn/api/ttnn.transformer.paged_flash_multi_latent_attention_decode.html#ttnn.transformer.paged_flash_multi_latent_attention_decode">paged_flash_multi_latent_attention_decode() (in module ttnn.transformer)</a>
 </li>
@@ -1261,7 +1272,7 @@
 </li>
       <li><a href="ttnn/api/ttnn.set_printoptions.html#ttnn.set_printoptions">set_printoptions (in module ttnn)</a>
 </li>
-      <li><a href="ttnn/api/ttnn.SetDefaultDevice.html#ttnn.SetDefaultDevice">SetDefaultDevice (in module ttnn)</a>
+      <li><a href="ttnn/api/ttnn.SetDefaultDevice.html#ttnn.SetDefaultDevice">SetDefaultDevice() (in module ttnn)</a>
 </li>
       <li><a href="ttnn/tensor.html#ttnn.Shape">Shape (class in ttnn)</a>
 </li>
@@ -1371,7 +1382,7 @@
 </li>
       <li><a href="ttnn/api/ttnn.swish.html#ttnn.swish">swish() (in module ttnn)</a>
 </li>
-      <li><a href="ttnn/api/ttnn.synchronize_device.html#ttnn.synchronize_device">synchronize_device (in module ttnn)</a>
+      <li><a href="ttnn/api/ttnn.synchronize_device.html#ttnn.synchronize_device">synchronize_device() (in module ttnn)</a>
 </li>
   </ul></td>
 </tr></table>

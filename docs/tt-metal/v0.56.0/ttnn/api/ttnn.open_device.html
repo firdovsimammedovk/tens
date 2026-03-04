@@ -42,23 +42,34 @@
       <div class="tt-topnav__inner">
 
         <!-- Logo -->
-        <a class="tt-topnav__logo" href="../../index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
+        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
 
         <!-- Primary links (hardcoded like the mock) -->
         <nav class="tt-topnav__links" aria-label="Primary navigation">
           <a class="tt-topnav__link" href="../../index.html">Get Started</a>
           <a class="tt-topnav__link" href="../../index.html">Guides</a>
+
+          <!-- Hardware Guides dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Cards</a>
+              <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+            </div>
+          </div>
+
+          <!-- Software dropdown -->
           <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
             <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
             <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
-              <a class="tt-topnav__dropdown-item" href="../about.html">TT-NN</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/tt-metal.html">TT-Metal</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/runtime.html">Runtime</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/sdk.html">SDK</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/tools.html">Tools</a>
+              <a class="tt-topnav__dropdown-item" href="../../forge/index.html">TT-Forge</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../../getting-started/manual-software-install.html">Manual Software Installation</a>
+              <a class="tt-topnav__dropdown-item" href="../../tools/index.html">Tools</a>
             </div>
           </div>
-          <a class="tt-topnav__link" href="../../index.html">Hardware</a>
+
           <a class="tt-topnav__link" href="../../index.html">Models</a>
           <a class="tt-topnav__link" href="../../index.html">Support</a>
         </nav>
@@ -158,7 +169,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">APIs</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../api.html#device">Device</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#">ttnn.open_device</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#ttnn.open_device"><code class="docutils literal notranslate"><span class="pre">open_device</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ttnn.open_device"><code class="docutils literal notranslate"><span class="pre">open_device()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="ttnn.close_device.html">ttnn.close_device</a></li>
@@ -215,49 +226,75 @@
   <section id="ttnn-open-device">
 <h1>ttnn.open_device<a class="headerlink" href="#ttnn-open-device" title="Permalink to this heading"></a>
 </h1>
-<span class="target" id="id1"></span><dl class="py data">
+<span class="target" id="id1"></span><dl class="py function">
 <dt class="sig sig-object py" id="ttnn.open_device">
-<span class="sig-prename descclassname"><span class="pre">ttnn.</span></span><span class="sig-name descname"><span class="pre">open_device</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">&lt;nanobind.nb_func</span> <span class="pre">object&gt;</span></em><a class="headerlink" href="#ttnn.open_device" title="Permalink to this definition"></a>
+<span class="sig-prename descclassname"><span class="pre">ttnn.</span></span><span class="sig-name descname"><span class="pre">open_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ttnn.open_device" title="Permalink to this definition"></a>
 </dt>
 <dd>
-<p>int, l1_small_size: int, trace_region_size: int, dispatch_core_config: ttnn.device.DispatchCoreConfig, worker_l1_size: int)</p>
-<p>Open a device with the given device_id. If the device is already open, return the existing device.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Keyword Arguments<span class="colon">:</span>
-</dt>
-<dd class="field-odd">
-<ul class="simple">
-<li><p><strong>device_id</strong> (<em>int</em>) – The device ID to open.</p></li>
-<li><p><strong>l1_small_size</strong> (<em>int</em><em>, </em><em>optional</em>) – The size of the L1 small buffer. Defaults to <cite>ttnn.device.DEFAULT_L1_SMALL_SIZE</cite>.</p></li>
-<li><p><strong>trace_region_size</strong> (<em>int</em><em>, </em><em>optional</em>) – The size of the trace region. Defaults to <cite>ttnn.device.DEFAULT_TRACE_REGION_SIZE</cite>.</p></li>
-<li><p><strong>num_command_queues</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of command queues to open. Defaults to 1.</p></li>
-<li><p><strong>dispatch_core_config</strong> (<em>ttnn.device.DispatchCoreConfig</em><em>, </em><em>optional</em>) – The dispatch core config to use. Defaults to a hardware-specific value.</p></li>
-<li><p><strong>worker_l1_size</strong> (<em>int</em><em>, </em><em>optional</em>) – The size of the user-allocatable L1 buffer. Defaults to a hardware-specific value.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span>
-</dt>
-<dd class="field-even">
-<p><em>ttnn.Device</em> – The device with the given device_id.</p>
-</dd>
-</dl>
-<div class="admonition-example admonition">
-<p class="admonition-title">Example</p>
-<div class="doctest highlight-default notranslate">
-<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">device_id</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">device</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">open_device</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="n">device_id</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-<span class="go">&lt;ttnn._ttnn.device.Device object at 0x7fbac5bfc1b0&gt;</span>
+<p>Open a TT device for running operations.</p>
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading"></a>
+</h2>
+<div class="highlight-python notranslate">
+<div class="highlight"><pre><span></span><span class="n">ttnn</span><span class="o">.</span><span class="n">open_device</span><span class="p">(</span><span class="n">device_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">Device</span>
 </pre></div>
 </div>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a>
+</h2>
+<p>Opens a hardware device and returns a handle used by TT-NN tensor and operation APIs.
+Additional keyword arguments are forwarded to the backend device-open implementation.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>args: tuple - Positional arguments forwarded to the backend.</p></li>
+<li><p>kwargs: dict - Keyword arguments forwarded to the backend.</p></li>
+</ul>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.device.Device</span></code> - Opened device handle.</p></li>
+</ul>
+</section>
+<section id="raises">
+<h2>Raises<a class="headerlink" href="#raises" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>RuntimeError - If device initialization fails or the selected device is unavailable.</p></li>
+</ul>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>Pair with <a class="reference internal" href="ttnn.close_device.html#ttnn.close_device" title="ttnn.close_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">ttnn.close_device()</span></code></a> to release resources.</p></li>
+<li><p>Prefer <a class="reference internal" href="ttnn.manage_device.html#ttnn.manage_device" title="ttnn.manage_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">ttnn.manage_device()</span></code></a> for automatic cleanup.</p></li>
+</ul>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a>
+</h2>
+<div class="doctest highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">ttnn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">device</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">open_device</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ttnn</span><span class="o">.</span><span class="n">close_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span>
-</dt>
-<dd class="field-odd">
-<p>open_device(*, device_id</p>
-</dd>
-</dl>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="ttnn.manage_device.html#id1"><span class="std std-ref">ttnn.manage_device</span></a> - Context manager for automatic open/close.</p></li>
+<li><p><a class="reference internal" href="ttnn.close_device.html#id1"><span class="std std-ref">ttnn.close_device</span></a> - Explicit device teardown.</p></li>
+<li><p><a class="reference internal" href="ttnn.synchronize_device.html#id1"><span class="std std-ref">ttnn.synchronize_device</span></a> - Drain pending work on a device.</p></li>
+</ul>
+</section>
 </dd>
 </dl>
 

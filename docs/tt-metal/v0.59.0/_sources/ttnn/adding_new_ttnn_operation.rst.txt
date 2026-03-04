@@ -7,6 +7,11 @@ Adding New TT-NN Operation
    Not all operations may be functional on all Tenstorrent hardware (Grayskull,
    Wormhole, or others).
 
+.. note::
+   To keep API page UI consistent for Python wrappers over C++ operations,
+   prefer this docstring section order for user-facing functions:
+   ``Signature``, ``Description``, ``Parameters``, ``Returns``, ``Raises``,
+   ``Notes``, ``Examples``, ``See Also``.
 
 FAQ
 ***

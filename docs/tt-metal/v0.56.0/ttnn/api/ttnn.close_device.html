@@ -42,23 +42,34 @@
       <div class="tt-topnav__inner">
 
         <!-- Logo -->
-        <a class="tt-topnav__logo" href="../../index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
+        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
 
         <!-- Primary links (hardcoded like the mock) -->
         <nav class="tt-topnav__links" aria-label="Primary navigation">
           <a class="tt-topnav__link" href="../../index.html">Get Started</a>
           <a class="tt-topnav__link" href="../../index.html">Guides</a>
+
+          <!-- Hardware Guides dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Cards</a>
+              <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+            </div>
+          </div>
+
+          <!-- Software dropdown -->
           <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
             <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
             <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
-              <a class="tt-topnav__dropdown-item" href="../about.html">TT-NN</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/tt-metal.html">TT-Metal</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/runtime.html">Runtime</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/sdk.html">SDK</a>
-              <a class="tt-topnav__dropdown-item" href="../../software/tools.html">Tools</a>
+              <a class="tt-topnav__dropdown-item" href="../../forge/index.html">TT-Forge</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../../getting-started/manual-software-install.html">Manual Software Installation</a>
+              <a class="tt-topnav__dropdown-item" href="../../tools/index.html">Tools</a>
             </div>
           </div>
-          <a class="tt-topnav__link" href="../../index.html">Hardware</a>
+
           <a class="tt-topnav__link" href="../../index.html">Models</a>
           <a class="tt-topnav__link" href="../../index.html">Support</a>
         </nav>
@@ -300,9 +311,9 @@ which handles opening and closing automatically.</p></li>
 <h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading"></a>
 </h2>
 <ul class="simple">
-<li><p><a class="reference internal" href="ttnn.open_device.html#ttnn.open_device" title="ttnn.open_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">ttnn.open_device()</span></code></a> - Open a hardware device for executing TT-NN operations. This is the counterpart to close_device and should be called before performing any tensor operations.</p></li>
-<li><p><a class="reference internal" href="ttnn.manage_device.html#ttnn.manage_device" title="ttnn.manage_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">ttnn.manage_device()</span></code></a> - Context manager for automatic device lifecycle management. Automatically opens a device at the start of a context block and closes it upon exit, even if exceptions occur. Recommended for most use cases.</p></li>
-<li><p><a class="reference internal" href="ttnn.synchronize_device.html#ttnn.synchronize_device" title="ttnn.synchronize_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">ttnn.synchronize_device()</span></code></a> - Synchronize all pending operations on a device. Called internally by close_device to ensure all operations complete before releasing resources.</p></li>
+<li><p><a class="reference internal" href="ttnn.open_device.html#id1"><span class="std std-ref">ttnn.open_device</span></a> - Open a hardware device for executing TT-NN operations.</p></li>
+<li><p><a class="reference internal" href="ttnn.manage_device.html#id1"><span class="std std-ref">ttnn.manage_device</span></a> - Context manager for automatic device lifecycle management.</p></li>
+<li><p><a class="reference internal" href="ttnn.synchronize_device.html#id1"><span class="std std-ref">ttnn.synchronize_device</span></a> - Synchronize pending operations before close.</p></li>
 </ul>
 </section>
 </dd>

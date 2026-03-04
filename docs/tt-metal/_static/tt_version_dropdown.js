@@ -7,7 +7,7 @@
     { version: 'v2.10.0', url: '/tens/ttnn/get_started.html', label: 'v2.10.0 (stable)' },
     { version: 'v0.59.0', url: '/tens/v0.59.0/ttnn/get_started.html', label: 'v0.59.0' },
     { version: 'v0.58.0', url: '/tens/v0.58.0/ttnn/get_started.html', label: 'v0.58.0' },
-    { version: 'v0.57.0', url: '/tens/v0.57.0/ttnn/about.html', label: 'v0.57.0' },
+    { version: 'v0.57.0', url: '/tens/v0.57.0/ttnn/get_started.html', label: 'v0.57.0' },
     { version: 'v0.56.0', url: '/tens/v0.56.0/ttnn/get_started.html', label: 'v0.56.0' },
     { version: 'v0.55.0', url: '/tens/v0.55.0/ttnn/get_started.html', label: 'v0.55.0' },
     { version: 'v0.54.0', url: '/tens/v0.54.0/ttnn/get_started.html', label: 'v0.54.0' }
@@ -15,8 +15,17 @@
 
   function getCurrentVersion() {
     var path = window.location.pathname;
-    var match = path.match(/\/tt-metal\/([\w.-]+)\//);
-    return match ? match[1] : 'v2.10.0'; // Default to v2.10.0 instead of 'latest'
+    var versionedMatch = path.match(/^\/tens\/(v\d+\.\d+\.\d+)\//);
+    if (versionedMatch) {
+      return versionedMatch[1];
+    }
+
+    // Stable docs URL format: /tens/ttnn/...
+    if (/^\/tens\/ttnn\//.test(path)) {
+      return 'v2.10.0';
+    }
+
+    return 'v2.10.0';
   }
 
   function getCurrentSection() {
@@ -148,4 +157,3 @@
     setupVersionDropdown();
   }
 })();
-
