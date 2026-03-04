@@ -4,13 +4,13 @@
 
   // Default versions (fallback if versions.json is not available)
   var defaultVersions = [
-    { version: 'v2.10.0', url: '/tt-metal/v2.10.0/', label: 'v2.10.0 (stable)' },
-    { version: 'v0.59.0', url: '/tt-metal/v0.59.0/', label: 'v0.59.0' },
-    { version: 'v0.58.0', url: '/tt-metal/v0.58.0/', label: 'v0.58.0' },
-    { version: 'v0.57.0', url: '/tt-metal/v0.57.0/', label: 'v0.57.0' },
-    { version: 'v0.56.0', url: '/tt-metal/v0.56.0/', label: 'v0.56.0' },
-    { version: 'v0.55.0', url: '/tt-metal/v0.55.0/', label: 'v0.55.0' },
-    { version: 'v0.54.0', url: '/tt-metal/v0.54.0/', label: 'v0.54.0' }
+    { version: 'v2.10.0', url: 'tens/ttnn/get_started.html', label: 'v2.10.0 (stable)' },
+    { version: 'v0.59.0', url: 'tens/ttnn/get_started.html', label: 'v0.59.0' },
+    { version: 'v0.58.0', url: 'tens/ttnn/get_started.html', label: 'v0.58.0' },
+    { version: 'v0.57.0', url: 'tens/ttnn/get_started.html', label: 'v0.57.0' },
+    { version: 'v0.56.0', url: 'tens/ttnn/get_started.html', label: 'v0.56.0' },
+    { version: 'v0.55.0', url: 'tens/ttnn/get_started.html', label: 'v0.55.0' },
+    { version: 'v0.54.0', url: 'tens/ttnn/get_started.html', label: 'v0.54.0' }
   ];
 
   function getCurrentVersion() {
@@ -32,19 +32,8 @@
   }
 
   function buildVersionUrl(version, section, currentPage) {
-    var baseUrl = '/tt-metal/' + version + '/';
-
-    // If we have a section (ttnn or tt-metalium), append it
-    if (section) {
-      baseUrl += section + '/';
-    }
-
-    // Append the current page if available
-    if (currentPage) {
-      baseUrl += currentPage;
-    }
-
-    return baseUrl;
+    // Always redirect to tens/ttnn/get_started.html when switching versions
+    return 'tens/ttnn/get_started.html';
   }
 
   function populateVersionMenu(versions) {
@@ -52,8 +41,6 @@
     if (!menu) return;
 
     var currentVersion = getCurrentVersion();
-    var currentSection = getCurrentSection();
-    var currentPage = getCurrentPage();
     var versionButton = document.querySelector('.tt-topnav__version-text');
 
     // Clear existing menu items
@@ -68,7 +55,7 @@
     versions.forEach(function(v) {
       var link = document.createElement('a');
       link.className = 'tt-topnav__dropdown-item';
-      link.href = buildVersionUrl(v.version, currentSection, currentPage);
+      link.href = v.url; // Use URL directly from versions.json
       link.textContent = v.label;
 
       // Mark current version and update button text
