@@ -1,37 +1,48 @@
-.. TT-NN documentation master file, created by
-   sphinx-quickstart on Tue Jan  3 21:37:34 2023.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+Tenstorrent
+==============================
+.. meta::
+   :hide_feedback: true
 
-Welcome to TT-NN documentation!
-===============================
+.. raw:: html
+   :file: _templates/home.html
 
 .. toctree::
-   :caption: TTNN
+   :hidden:
+   :caption: Software Guides
 
-   ttnn/about
-   ttnn/get_started
-   ttnn/installing
-   ttnn/tutorials/tutorials/ttnn_intro.ipynb
-   ttnn/tensor
-   ttnn/api
-   ttnn/tutorials
-   ttnn/onboarding
-   ttnn/converting_torch_model_to_ttnn
-   ttnn/adding_new_ttnn_operation
-   ttnn/profiling_ttnn_operations
-   ttnn/demos
+   getting-started/README
+   getting-started/model-demos
+   getting-started/vLLM-servers
+   getting-started/tt-software-stack
+
+.. toctree::
+   :hidden:
+   :caption: Hardware Guides
+
+   aibs/index
+   systems/index
+
+.. toctree::
+   :hidden:
+   :caption: Software
+   :maxdepth: 2
+
+   forge/index
+   TT-Metalium <https://firdovsimammedovk.github.io/tens/>
+   TT-NN <https://firdovsimammedovk.github.io/tens/ttnn/about.html>
+   Manual Software Installation <getting-started/manual-software-install>
    tools/index
 
 .. toctree::
-   :caption: Resources
+   :hidden:
+   :caption: Support
+   :maxdepth: 2
 
-   resources/support
-   resources/contributing
+   support/README
 
-Indices and tables
-==================
+.. toctree::
+   :hidden:
+   :caption: Legal
+   :maxdepth: 2
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   Bounty Program Terms <https://docs.tenstorrent.com/bounty_terms.html>

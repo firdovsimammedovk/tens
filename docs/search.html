@@ -3,12 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Search &mdash; TT-NN  documentation</title>
+  <title>Search &mdash; Home 1.0 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/tt_theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/home.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
-    <link rel="canonical" href="/tt-metal/latest/ttnn/search.html" />
     
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -16,11 +18,19 @@
   
         <script src="_static/jquery.js?v=5d32c60e"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="_static/posthog.js?v=aa5946f9"></script>
+        <script src="_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="_static/doctools.js?v=9bcbadda"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=fd3dd8dd"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="_static/togglebutton.js?v=1ae7504c"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="_static/custom.js?v=0ccd5bc4"></script>
+        <script src="_static/posthog.js?v=a97abc7e"></script>
     <script src="_static/js/theme.js"></script>
     <script src="_static/tt_signature_copy.js"></script>
     <script src="_static/tt_dropdown.js"></script>
@@ -42,7 +52,7 @@
       <div class="tt-topnav__inner">
 
         <!-- Logo -->
-        <a class="tt-topnav__logo" href="index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="_static/tt_logo.svg" alt="TT-NN" /></a>
+        <a class="tt-topnav__logo" href="index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="_static/tt_logo.svg" alt="Home" /></a>
 
         <!-- Primary links (hardcoded like the mock) -->
         <nav class="tt-topnav__links" aria-label="Primary navigation">
@@ -83,7 +93,7 @@
             id="tt-version-toggle"
             aria-expanded="false"
           ><span class="tt-topnav__version-text">
-                    
+                    1.0
                   </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
               </button>
               <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
@@ -148,26 +158,33 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">TTNN</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/about.html">What is TT-NN?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/get_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/installing.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/tutorials/tutorials/ttnn_intro.html">TT-NN Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/tensor.html">Tensor</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/api.html">APIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/onboarding.html">Onboarding New Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/adding_new_ttnn_operation.html">Adding New TT-NN Operation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/profiling_ttnn_operations.html">Profiling TT-NN Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/demos.html">Building and Uplifting Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/README.html">Installing the Tenstorrent Software Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/vLLM-servers.html">Deploying LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="aibs/index.html">Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://firdovsimammedovk.github.io/tens/">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://firdovsimammedovk.github.io/tens/ttnn/about.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting-started/manual-software-install.html">Manual Software Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tools</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="resources/support.html">Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources/contributing.html">Contributing as a developer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
 </ul>
 
         </div>
@@ -176,7 +193,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">TT-NN</a>
+          <a href="index.html">Home</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -185,6 +202,8 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Search</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
   </ul>
   <hr/>
 </div>
@@ -211,7 +230,9 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright Tenstorrent.</p>
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Mar 04, 2026.
+      </span></p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

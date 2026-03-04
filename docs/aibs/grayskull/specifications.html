@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Specifications/Requirements &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tt_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/home.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../../_static/copybutton.js?v=fd3dd8dd"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../../_static/custom.js?v=0ccd5bc4"></script>
+        <script src="../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/tt_signature_copy.js"></script>
+    <script src="../../_static/tt_dropdown.js"></script>
+    <script src="../../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+    <!-- ===== Top Navbar (NEW) ===== -->
+  
+
+  <header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+      <div class="tt-topnav__inner">
+
+        <!-- Logo -->
+        <a class="tt-topnav__logo" href="../../index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="Home" /></a>
+
+        <!-- Primary links (hardcoded like the mock) -->
+        <nav class="tt-topnav__links" aria-label="Primary navigation">
+          <a class="tt-topnav__link" href="../../index.html">Get Started</a>
+          <a class="tt-topnav__link" href="../../index.html">Guides</a>
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../../ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../../software/tt-metal.html">TT-Metal</a>
+              <a class="tt-topnav__dropdown-item" href="../../software/runtime.html">Runtime</a>
+              <a class="tt-topnav__dropdown-item" href="../../software/sdk.html">SDK</a>
+              <a class="tt-topnav__dropdown-item" href="../../software/tools.html">Tools</a>
+            </div>
+          </div>
+          <a class="tt-topnav__link" href="../../index.html">Hardware</a>
+          <a class="tt-topnav__link" href="../../index.html">Models</a>
+          <a class="tt-topnav__link" href="../../index.html">Support</a>
+        </nav>
+
+        <!-- CTA -->
+        <div class="tt-topnav__cta">
+          <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+      <div class="tt-topnav__inner">
+
+         <!-- Version (styled capsule dropdown) -->
+        <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+          <button
+            class="tt-topnav__version tt-topnav__version--dropdown"
+            type="button"
+            id="tt-version-toggle"
+            aria-expanded="false"
+          ><span class="tt-topnav__version-text">
+                    1.0
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+              </button>
+              <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                <!-- Version links will be populated here by JavaScript -->
+              </div>
+        </div>
+
+        <!-- Secondary links -->
+        <nav class="tt-topnav__subnav" aria-label="Section navigation">
+          <div class="tt-topnav__dropdown" style="margin-left: 230px">
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="../../ttnn/get_started.html">Getting Started</a>
+            <div class="tt-topnav__dropdown-menu">
+              <a class="tt-topnav__dropdown-item" href="../../ttnn/about.html">What is TT-NN?</a>
+              <a class="tt-topnav__dropdown-item" href="../../ttnn/get_started.html">Getting Started</a>
+              <a class="tt-topnav__dropdown-item" href="../../ttnn/installing.html">Install</a>
+              <a class="tt-topnav__dropdown-item" href="../../ttnn/tutorials/tutorials/ttnn_intro.html">TT-NN Introduction</a>
+            </div>
+          </div>
+          <a class="tt-topnav__sublink" href="../../index.html">Guides</a>
+          <a class="tt-topnav__sublink" href="../../ttnn/tutorials.html">Tutorials</a>
+          <a class="tt-topnav__sublink" href="../../ttnn/api.html">API Reference</a>
+          <div class="tt-topnav__dropdown">
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Advanced Topics</a>
+            <div class="tt-topnav__dropdown-menu">
+              <a class="tt-topnav__dropdown-item" href="../../ttnn/onboarding.html">Onboarding New Functionality</a>
+              <a class="tt-topnav__dropdown-item" href="../../ttnn/converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../../ttnn/adding_new_ttnn_operation.html">Adding New TT-NN Operation</a>
+              <a class="tt-topnav__dropdown-item" href="../../ttnn/profiling_ttnn_operations.html">Profiling TT-NN Operations</a>
+              <a class="tt-topnav__dropdown-item" href="../../ttnn/demos.html">Building and Uplifting Demos</a>
+            </div>
+          </div>
+          <div class="tt-topnav__dropdown">
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Resources</a>
+            <div class="tt-topnav__dropdown-menu">
+              <a class="tt-topnav__dropdown-item" href="../../resources/support.html">Support</a>
+              <a class="tt-topnav__dropdown-item" href="../../resources/contributing.html">Contributing as a Developer</a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+        <div class="tt-topnav__edit"><a class="tt-topnav__editlink" href="../../_sources/aibs/grayskull/specifications.md.txt">Edit on GitHub</a></div>
+
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ===== /Top Navbar ===== -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/README.html">Installing the Tenstorrent Software Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/vLLM-servers.html">Deploying LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://firdovsimammedovk.github.io/tens/">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://firdovsimammedovk.github.io/tens/ttnn/about.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/manual-software-install.html">Manual Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Specifications/Requirements</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/aibs/grayskull/specifications.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="specifications-requirements">
+<h1>Specifications/Requirements<a class="headerlink" href="#specifications-requirements" title="Link to this heading"></a></h1>
+<section id="grayskull-tensix-processor">
+<h2>Grayskull™ Tensix Processor<a class="headerlink" href="#grayskull-tensix-processor" title="Link to this heading"></a></h2>
+<p>The Grayskull™ e75 and e150 Tensix Processor add-in boards are built using the Tenstorrent Grayskull™ Tensix Processor:</p>
+<ul class="simple">
+<li><p><strong>Tensix Core Count:</strong> 120</p></li>
+<li><p><strong>SRAM:</strong> 120 MB (1MB per Tensix Core)</p></li>
+<li><p><strong>Memory:</strong> 8 GB LPDDR4, 256-bit memory bus</p></li>
+</ul>
+</section>
+<section id="e75-e150-comparison-table">
+<h2>e75/e150 Comparison Table<a class="headerlink" href="#e75-e150-comparison-table" title="Link to this heading"></a></h2>
+<p><strong>NOTE:</strong> The <strong>e150 add-in card</strong> comes with a heatsink for passive cooling in systems which can provide sufficient forced airflow to the card. If your system does not (for example, a desktop workstation), installing the <a class="reference internal" href="#../ack.md"><span class="xref myst">Active Cooling Kit</span></a> is <strong>required</strong>. If the card isn’t sufficiently cooled, performance will be substantially reduced to stay in a safe operating temperature range and you risk damage to the card.</p>
+<p><strong>NOTE:</strong> Software support for Grayskull has been discontinued. The last supported versions of Tenstorrent’s software for Grayskull are as follows:</p>
+<ul class="simple">
+<li><p><strong>TT-System-Firmware:</strong> <code class="docutils literal notranslate"><span class="pre">fw_pack-80.14.0.0.fwbundle</span></code></p></li>
+<li><p><strong>TT-KMD:</strong> <code class="docutils literal notranslate"><span class="pre">ttkmd_1.31</span></code></p></li>
+<li><p><strong>TT-Metalium:</strong> <code class="docutils literal notranslate"><span class="pre">v0.55</span></code></p></li>
+</ul>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Specification</p></th>
+<th class="head"><p>e75</p></th>
+<th class="head"><p>e150</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Part Number</p></td>
+<td><p>TC-01001</p></td>
+<td><p>TC-01002</p></td>
+</tr>
+<tr class="row-odd"><td><p>Tensix Cores</p></td>
+<td><p>96</p></td>
+<td><p>120</p></td>
+</tr>
+<tr class="row-even"><td><p>AI Clock</p></td>
+<td><p>1 GHz</p></td>
+<td><p>1.2 GHz</p></td>
+</tr>
+<tr class="row-odd"><td><p>SRAM</p></td>
+<td><p>96 MB</p></td>
+<td><p>120 MB</p></td>
+</tr>
+<tr class="row-even"><td><p>Memory</p></td>
+<td><p>8 GB LPDDR4</p></td>
+<td><p>8 GB LPDDR4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Memory Speed</p></td>
+<td><p>3.2 GT/sec</p></td>
+<td><p>3.7 GT/sec</p></td>
+</tr>
+<tr class="row-even"><td><p>Memory Bandwidth</p></td>
+<td><p>102 GB/sec</p></td>
+<td><p>118 GB/sec</p></td>
+</tr>
+<tr class="row-odd"><td><p>TeraFLOPS (FP8)</p></td>
+<td><p>221</p></td>
+<td><p>332</p></td>
+</tr>
+<tr class="row-even"><td><p>TeraFLOPS (FP16)</p></td>
+<td><p>55</p></td>
+<td><p>83</p></td>
+</tr>
+<tr class="row-odd"><td><p>TeraFLOPS (BLOCKFP8)</p></td>
+<td><p>55</p></td>
+<td><p>83</p></td>
+</tr>
+<tr class="row-even"><td><p>TBP (Total Board Power)</p></td>
+<td><p>75W</p></td>
+<td><p>200W</p></td>
+</tr>
+<tr class="row-odd"><td><p>External Power</p></td>
+<td><p>1x 6-pin PCIe <em>(required for powering fan)</em></p></td>
+<td><p>1x 6+2-pin PCIe<br />1x 6-pin PCIe</p></td>
+</tr>
+<tr class="row-even"><td><p>System Interface</p></td>
+<td><p>PCI Express 4.0 x16</p></td>
+<td><p>PCI Express 4.0 x16</p></td>
+</tr>
+<tr class="row-odd"><td><p>Cooling</p></td>
+<td><p>Active <em>(blower fan pre-installed)</em></p></td>
+<td><p>Passive <em>(Active Cooling Kit sold separately)</em></p></td>
+</tr>
+<tr class="row-even"><td><p>Dimensions (w/o Cooling Kit) (WxDxH)</p></td>
+<td><p>18mm x 167.5mm x 69mm</p></td>
+<td><p>36mm x 259.8mm x 111.25mm</p></td>
+</tr>
+<tr class="row-odd"><td><p>Dimensions (w/ Cooling Kit) (WxDxH)</p></td>
+<td><p>18mm x 257mm x 98mm</p></td>
+<td><p>36mm x 399mm x 114mm</p></td>
+</tr>
+</tbody>
+</table>
+<p><img alt="" src="../../_images/e150_dimensions.png" /></p>
+<p><em>e150 without Active Cooling Kit</em></p>
+</section>
+<section id="data-precision-formats">
+<h2>Data Precision Formats<a class="headerlink" href="#data-precision-formats" title="Link to this heading"></a></h2>
+<p>The e75/e150 support the following data precision formats:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Bit Depth</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Floating point</p></td>
+<td><p>FP8, FP16, BFLOAT16</p></td>
+</tr>
+<tr class="row-odd"><td><p>Block floating point</p></td>
+<td><p>BLOCKFP2, BLOCKFP4, BLOCKFP8</p></td>
+</tr>
+<tr class="row-even"><td><p>Vector</p></td>
+<td><p>VTF19</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="minimum-system-requirements">
+<h2>Minimum System Requirements<a class="headerlink" href="#minimum-system-requirements" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Part</p></th>
+<th class="head"><p>Requirement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>CPU</p></td>
+<td><p>x86_64 architecture*</p></td>
+</tr>
+<tr class="row-odd"><td><p>Motherboard</p></td>
+<td><p>PCI Express 4.0 x16 slot<br />- Single-slot-width (e75)<br />- Dual-slot-width (e150)</p></td>
+</tr>
+<tr class="row-even"><td><p>Memory</p></td>
+<td><p>64 GB</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage</p></td>
+<td><p>100 GB (≥2 TB recommended)</p></td>
+</tr>
+<tr class="row-even"><td><p>Power Connectors</p></td>
+<td><p>PCIe 6-pin (e75)<br />PCIe 6+2-pin and PCIe 6-pin (e150)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Total Board Power</p></td>
+<td><p>Up to 75W (e75) / 200W (e150)</p></td>
+</tr>
+<tr class="row-even"><td><p>Operating Temperature Range (Die)</p></td>
+<td><p>0C - 75C</p></td>
+</tr>
+<tr class="row-odd"><td><p>Operating System</p></td>
+<td><p>Ubuntu version 20.04 (Focal Fossa) **</p></td>
+</tr>
+<tr class="row-even"><td><p>Internet Connection</p></td>
+<td><p>Required for driver and stack installation.</p></td>
+</tr>
+</tbody>
+</table>
+<p>** CPU core count and number of sockets will depend on the amount of host preprocessing and post-processing required before and after the accelerator processing.*</p>
+<p>**<em>To check your version, type</em> <code class="docutils literal notranslate"><span class="pre">cat</span> <span class="pre">/etc/os-release</span></code>.</p>
+</section>
+<section id="environment-specifications">
+<h2>Environment Specifications<a class="headerlink" href="#environment-specifications" title="Link to this heading"></a></h2>
+<p>The Grayskull™ e75 and e150 Tensix Processor add-in boards are designed to meet these environmental specifications:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Specification</p></th>
+<th class="head"><p>Requirement</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Operating Temperature Range</p></td>
+<td><p>10°C/50°F - 35°C/95°F</p></td>
+</tr>
+<tr class="row-odd"><td><p>Storage Temperature Range</p></td>
+<td><p>-40°C/-40°F - 75°C/167°F</p></td>
+</tr>
+<tr class="row-even"><td><p>Elevation</p></td>
+<td><p>-5 ft. to 10,000 ft.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Air Flow (without Active Cooling Kit)</p></td>
+<td><p>≥30 CFM &#64; up to 35°C/95°F</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Mar 04, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

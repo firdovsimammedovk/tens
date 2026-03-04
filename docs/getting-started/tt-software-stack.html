@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="TT-Metalium™, TT-NN™, TT-Forge™, Tensix core" name="product-name" />
+<meta content="Machine Learning, High-Performance Computing, Neural Networks, Compilers, Multi-Level Intermediate Representation (MLIR), RISC-V, Network-on-Chip (NoC), Kernels, Jax, TensorFlow, PyTorch" name="technology-concepts" />
+<meta content="Explanation" name="document-type" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Understanding the Tenstorrent Software Stack &mdash; Home 1.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tt_theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/home.css" type="text/css" />
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+        <script src="../_static/doctools.js?v=9bcbadda"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=fd3dd8dd"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script src="../_static/custom.js?v=0ccd5bc4"></script>
+        <script src="../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/tt_signature_copy.js"></script>
+    <script src="../_static/tt_dropdown.js"></script>
+    <script src="../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Cards" href="../aibs/index.html" />
+    <link rel="prev" title="Deploying LLMs" href="vLLM-servers.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+    <!-- ===== Top Navbar (NEW) ===== -->
+  
+
+  <header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+      <div class="tt-topnav__inner">
+
+        <!-- Logo -->
+        <a class="tt-topnav__logo" href="../index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="../_static/tt_logo.svg" alt="Home" /></a>
+
+        <!-- Primary links (hardcoded like the mock) -->
+        <nav class="tt-topnav__links" aria-label="Primary navigation">
+          <a class="tt-topnav__link" href="../index.html">Get Started</a>
+          <a class="tt-topnav__link" href="../index.html">Guides</a>
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../software/tt-metal.html">TT-Metal</a>
+              <a class="tt-topnav__dropdown-item" href="../software/runtime.html">Runtime</a>
+              <a class="tt-topnav__dropdown-item" href="../software/sdk.html">SDK</a>
+              <a class="tt-topnav__dropdown-item" href="../software/tools.html">Tools</a>
+            </div>
+          </div>
+          <a class="tt-topnav__link" href="../index.html">Hardware</a>
+          <a class="tt-topnav__link" href="../index.html">Models</a>
+          <a class="tt-topnav__link" href="../index.html">Support</a>
+        </nav>
+
+        <!-- CTA -->
+        <div class="tt-topnav__cta">
+          <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+      <div class="tt-topnav__inner">
+
+         <!-- Version (styled capsule dropdown) -->
+        <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+          <button
+            class="tt-topnav__version tt-topnav__version--dropdown"
+            type="button"
+            id="tt-version-toggle"
+            aria-expanded="false"
+          ><span class="tt-topnav__version-text">
+                    1.0
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+              </button>
+              <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                <!-- Version links will be populated here by JavaScript -->
+              </div>
+        </div>
+
+        <!-- Secondary links -->
+        <nav class="tt-topnav__subnav" aria-label="Section navigation">
+          <div class="tt-topnav__dropdown" style="margin-left: 230px">
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="../ttnn/get_started.html">Getting Started</a>
+            <div class="tt-topnav__dropdown-menu">
+              <a class="tt-topnav__dropdown-item" href="../ttnn/about.html">What is TT-NN?</a>
+              <a class="tt-topnav__dropdown-item" href="../ttnn/get_started.html">Getting Started</a>
+              <a class="tt-topnav__dropdown-item" href="../ttnn/installing.html">Install</a>
+              <a class="tt-topnav__dropdown-item" href="../ttnn/tutorials/tutorials/ttnn_intro.html">TT-NN Introduction</a>
+            </div>
+          </div>
+          <a class="tt-topnav__sublink" href="../index.html">Guides</a>
+          <a class="tt-topnav__sublink" href="../ttnn/tutorials.html">Tutorials</a>
+          <a class="tt-topnav__sublink" href="../ttnn/api.html">API Reference</a>
+          <div class="tt-topnav__dropdown">
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Advanced Topics</a>
+            <div class="tt-topnav__dropdown-menu">
+              <a class="tt-topnav__dropdown-item" href="../ttnn/onboarding.html">Onboarding New Functionality</a>
+              <a class="tt-topnav__dropdown-item" href="../ttnn/converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../ttnn/adding_new_ttnn_operation.html">Adding New TT-NN Operation</a>
+              <a class="tt-topnav__dropdown-item" href="../ttnn/profiling_ttnn_operations.html">Profiling TT-NN Operations</a>
+              <a class="tt-topnav__dropdown-item" href="../ttnn/demos.html">Building and Uplifting Demos</a>
+            </div>
+          </div>
+          <div class="tt-topnav__dropdown">
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Resources</a>
+            <div class="tt-topnav__dropdown-menu">
+              <a class="tt-topnav__dropdown-item" href="../resources/support.html">Support</a>
+              <a class="tt-topnav__dropdown-item" href="../resources/contributing.html">Contributing as a Developer</a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+        <div class="tt-topnav__edit"><a class="tt-topnav__editlink" href="../_sources/getting-started/tt-software-stack.md.txt">Edit on GitHub</a></div>
+
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ===== /Top Navbar ===== -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">Installing the Tenstorrent Software Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vLLM-servers.html">Deploying LLMs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Understanding the Tenstorrent Software Stack</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tt-metalium-programming-tenstorrent-hardware"><strong>TT-Metalium™: Programming Tenstorrent Hardware</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tt-nn-a-python-c-neural-network-op-library"><strong>TT-NN™: A Python &amp; C++ Neural Network OP library</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tt-forge-the-mlir-based-compiler"><strong>TT-Forge™: The MLIR-Based Compiler</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exploring-our-developer-hub"><strong>Exploring our Developer Hub</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#engaging-with-our-community"><strong>Engaging with our Community</strong></a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../aibs/index.html">Cards</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://firdovsimammedovk.github.io/tens/">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://firdovsimammedovk.github.io/tens/ttnn/about.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="manual-software-install.html">Manual Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Home</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Understanding the Tenstorrent Software Stack</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/getting-started/tt-software-stack.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="understanding-the-tenstorrent-software-stack">
+<h1>Understanding the Tenstorrent Software Stack<a class="headerlink" href="#understanding-the-tenstorrent-software-stack" title="Link to this heading"></a></h1>
+<p>This document provides developers and researchers with an overview of the main components of the Tenstorrent software stack: TT-Metalium™, TT-NN™, and TT-Forge™. You will learn about each tool’s purpose, use cases, and where to find its source code.</p>
+<hr class="docutils" />
+<section id="tt-metalium-programming-tenstorrent-hardware">
+<h2><strong>TT-Metalium™: Programming Tenstorrent Hardware</strong><a class="headerlink" href="#tt-metalium-programming-tenstorrent-hardware" title="Link to this heading"></a></h2>
+<p>TT-Metalium™ is the low-level, open-source software development kit (SDK) that provides developers direct access to Tenstorrent hardware. It is a bare-metal programming environment designed for users who must write custom C++ kernels for machine learning or other high-performance computing workloads.</p>
+<p>Use TT-Metalium™ when you require complete control over the hardware to optimize code for performance, explicitly manage memory, or implement novel operations not found in standard libraries. This environment exposes the RISC-V processors, the Network-on-Chip (NoC), and the matrix and vector engines within each Tensix core.</p>
+<p>The main project is available in the <a class="reference external" href="https://github.com/tenstorrent/tt-metal">tt-metal</a> GitHub repository.</p>
+</section>
+<hr class="docutils" />
+<section id="tt-nn-a-python-c-neural-network-op-library">
+<h2><strong>TT-NN™: A Python &amp; C++ Neural Network OP library</strong><a class="headerlink" href="#tt-nn-a-python-c-neural-network-op-library" title="Link to this heading"></a></h2>
+<p>TT-NN™ is a library of neural network operations that provides a user-friendly interface for running models on Tenstorrent hardware. It is designed to be intuitive for developers familiar with <a class="reference external" href="https://pytorch.org">PyTorch</a>.</p>
+<p>Use TT-NN™ to run AI models using a familiar, high-level Python API without managing the complexities of the underlying hardware. TT-NN™ builds upon TT-Metalium™ and provides a stable set of pre-packaged, optimized operations. It is also available with a C++ API.</p>
+<p>The TT-NN™ library is part of the <a class="reference external" href="https://github.com/tenstorrent/tt-metal">tt-metal</a> GitHub repository.</p>
+</section>
+<hr class="docutils" />
+<section id="tt-forge-the-mlir-based-compiler">
+<h2><strong>TT-Forge™: The MLIR-Based Compiler</strong><a class="headerlink" href="#tt-forge-the-mlir-based-compiler" title="Link to this heading"></a></h2>
+<p>TT-Forge™ is Tenstorrent’s Multi-Level Intermediate Representation (MLIR)-based compiler. It bridges high-level machine learning frameworks with the Tenstorrent software stack.</p>
+<p>Use TT-Forge™ to compile models from frameworks such as <a class="reference external" href="https://pytorch.org">PyTorch</a>, <a class="reference external" href="https://docs.jax.dev/en/latest/">JAX</a>, and <a class="reference external" href="https://www.tensorflow.org">TensorFlow</a> for execution on Tenstorrent hardware. It offers an automated, general path to run many types of model architectures without requiring custom kernel development. TT-Forge™ integrates with and lowers to TT-Metalium for hardware execution.</p>
+<p>The main project is located in the <a class="reference external" href="https://github.com/tenstorrent/tt-forge">tt-forge</a> GitHub repository.</p>
+</section>
+<hr class="docutils" />
+<section id="exploring-our-developer-hub">
+<h2><strong>Exploring our Developer Hub</strong><a class="headerlink" href="#exploring-our-developer-hub" title="Link to this heading"></a></h2>
+<p>To continue learning, visit and explore our <a class="reference external" href="https://tenstorrent.com/developers">Developer Hub</a>. There you will find in-depth articles, and information on our software bounty program. You can also find tutorials and technical overviews on our <a class="reference external" href="https://www.youtube.com/&#64;tenstorrentinc">YouTube channel</a>.</p>
+</section>
+<hr class="docutils" />
+<section id="engaging-with-our-community">
+<h2><strong>Engaging with our Community</strong><a class="headerlink" href="#engaging-with-our-community" title="Link to this heading"></a></h2>
+<p>For real-time discussions, community Q&amp;A, and to share your latest projects, we invite you to join our <a class="reference external" href="https://discord.gg/tenstorrent">Discord channel</a>. It’s a great place to engage directly with other developers and members of the Tenstorrent community.</p>
+<p>As always, if you have any questions, please <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">raise a support request</a> with our team. We’re here to help, and are excited to see what you build.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="vLLM-servers.html" class="btn btn-neutral float-left" title="Deploying LLMs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../aibs/index.html" class="btn btn-neutral float-right" title="Cards" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Mar 04, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
