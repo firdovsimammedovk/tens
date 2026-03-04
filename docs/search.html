@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Search &mdash; TT-Metalium  documentation</title>
+  <title>Search &mdash; TT-NN  documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/tt_theme.css" type="text/css" />
     <link rel="shortcut icon" href="_static/favicon.png"/>
-    <link rel="canonical" href="/tt-metal/latest/tt-metalium/search.html" />
+    <link rel="canonical" href="/tt-metal/latest/ttnn/search.html" />
     
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
@@ -42,7 +42,7 @@
       <div class="tt-topnav__inner">
 
         <!-- Logo -->
-        <a class="tt-topnav__logo" href="index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="_static/tt_logo.svg" alt="TT-Metalium" /></a>
+        <a class="tt-topnav__logo" href="index.html" aria-label="Home"><img class="tt-topnav__logo-img" src="_static/tt_logo.svg" alt="TT-NN" /></a>
 
         <!-- Primary links (hardcoded like the mock) -->
         <nav class="tt-topnav__links" aria-label="Primary navigation">
@@ -91,41 +91,35 @@
               </div>
         </div>
 
-        <!-- Secondary links (TT-Metalium specific) -->
+        <!-- Secondary links -->
         <nav class="tt-topnav__subnav" aria-label="Section navigation">
           <div class="tt-topnav__dropdown" style="margin-left: 230px">
-            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="get_started/get_started.html">Getting Started</a>
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="ttnn/get_started.html">Getting Started</a>
             <div class="tt-topnav__dropdown-menu">
-              <a class="tt-topnav__dropdown-item" href="get_started/get_started.html">Overview & Setup</a>
-              <a class="tt-topnav__dropdown-item" href="installing.html">Installation Guide</a>
-              <a class="tt-topnav__dropdown-item" href="tt_metal/examples/index.html">First Example</a>
+              <a class="tt-topnav__dropdown-item" href="ttnn/about.html">What is TT-NN?</a>
+              <a class="tt-topnav__dropdown-item" href="ttnn/get_started.html">Getting Started</a>
+              <a class="tt-topnav__dropdown-item" href="ttnn/installing.html">Install</a>
+              <a class="tt-topnav__dropdown-item" href="ttnn/tutorials/tutorials/ttnn_intro.html">TT-NN Introduction</a>
             </div>
           </div>
-          <a class="tt-topnav__sublink" href="tt_metal/programming_model/index.html">Architecture</a>
-          <a class="tt-topnav__sublink" href="tt_metal/apis/index.html">APIs</a>
+          <a class="tt-topnav__sublink" href="index.html">Guides</a>
+          <a class="tt-topnav__sublink" href="ttnn/tutorials.html">Tutorials</a>
+          <a class="tt-topnav__sublink" href="ttnn/api.html">API Reference</a>
           <div class="tt-topnav__dropdown">
-            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="tt_metal/examples/index.html">Examples & Labs</a>
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Advanced Topics</a>
             <div class="tt-topnav__dropdown-menu">
-              <a class="tt-topnav__dropdown-item" href="tt_metal/examples/index.html">Code Examples</a>
-              <a class="tt-topnav__dropdown-item" href="tt_metal/labs/index.html">Lab Exercises</a>
-              <a class="tt-topnav__dropdown-item" href="tt_metal/examples/dram_loopback.html">DRAM Loopback (Start Here)</a>
-            </div>
-          </div>
-          <div class="tt-topnav__dropdown">
-            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="tools/index.html">Tools & Debug</a>
-            <div class="tt-topnav__dropdown-menu">
-              <a class="tt-topnav__dropdown-item" href="tools/index.html">All Tools</a>
-              <a class="tt-topnav__dropdown-item" href="tools/tracy_profiler.html">Tracy Profiler</a>
-              <a class="tt-topnav__dropdown-item" href="tools/device_program_profiler.html">Device Profiler</a>
-              <a class="tt-topnav__dropdown-item" href="tools/kernel_print.html">Kernel Print (DPRINT)</a>
+              <a class="tt-topnav__dropdown-item" href="ttnn/onboarding.html">Onboarding New Functionality</a>
+              <a class="tt-topnav__dropdown-item" href="ttnn/converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="ttnn/adding_new_ttnn_operation.html">Adding New TT-NN Operation</a>
+              <a class="tt-topnav__dropdown-item" href="ttnn/profiling_ttnn_operations.html">Profiling TT-NN Operations</a>
+              <a class="tt-topnav__dropdown-item" href="ttnn/demos.html">Building and Uplifting Demos</a>
             </div>
           </div>
           <div class="tt-topnav__dropdown">
             <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Resources</a>
             <div class="tt-topnav__dropdown-menu">
               <a class="tt-topnav__dropdown-item" href="resources/support.html">Support</a>
-              <a class="tt-topnav__dropdown-item" href="resources/contributing.html">Contributing</a>
-              <a class="tt-topnav__dropdown-item" href="https://github.com/tenstorrent/tt-metal">GitHub</a>
+              <a class="tt-topnav__dropdown-item" href="resources/contributing.html">Contributing as a Developer</a>
             </div>
           </div>
         </nav>
@@ -138,25 +132,6 @@
 
   </header>
 
-  <!-- small toggle for the existing RTD versions panel -->
-  <script>
-    (function () {
-      function toggleVersions() {
-        var panel = document.querySelector('.rst-versions');
-        var btn = document.getElementById('tt-version-toggle');
-        if (!panel || !btn) return;
-        panel.classList.toggle('shift-up');
-        var expanded = panel.classList.contains('shift-up');
-        btn.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-      }
-      document.addEventListener('click', function (e) {
-        if (e.target && e.target.closest && e.target.closest('#tt-version-toggle')) {
-          e.preventDefault();
-          toggleVersions();
-        }
-      });
-    })();
-  </script>
   <!-- ===== /Top Navbar ===== -->
   <div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
@@ -173,19 +148,20 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
+              <p class="caption" role="heading"><span class="caption-text">TTNN</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="get_started/get_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installing.html">Install</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">TT-Metalium</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="tt_metal/programming_model/index.html">Programming Model</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tt_metal/examples/index.html">Programming Examples</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tt_metal/labs/index.html">Lab Exercises</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tt_metal/advanced_topics/index.html">Advanced Topics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tt_metal/apis/index.html">APIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tt_metal/environment_variables/index.html">Environment Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/about.html">What is TT-NN?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/installing.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/tutorials/tutorials/ttnn_intro.html">TT-NN Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/tensor.html">Tensor</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/api.html">APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/onboarding.html">Onboarding New Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/adding_new_ttnn_operation.html">Adding New TT-NN Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/profiling_ttnn_operations.html">Profiling TT-NN Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn/demos.html">Building and Uplifting Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tools</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Resources</span></p>
@@ -200,7 +176,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">TT-Metalium</a>
+          <a href="index.html">TT-NN</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -209,8 +185,6 @@
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Search</li>
-      <li class="wy-breadcrumbs-aside">
-      </li>
   </ul>
   <hr/>
 </div>
@@ -250,60 +224,7 @@
       </div>
     </section>
   </div>
-  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-        Version: <span id="current-version">latest</span>
-        <span class="fa fa-caret-down"></span>
-    </span>
-    <div class="rst-other-versions">
-        <dl id="version-list">
-            <dt>Versions</dt>
-        </dl>
-        <br>
-        </dl>
-    </div>
-</div>
-
-<script>
-const VERSIONS_URL = 'https://raw.githubusercontent.com/tenstorrent/tt-metal/refs/heads/main/docs/published_versions.json';
-
-async function loadVersions() {
-    try {
-        const response = await fetch(VERSIONS_URL);
-        const data = await response.json();
-        const versionList = document.getElementById('version-list');
-        const projectCode = location.pathname.split('/')[3];
-
-        data.versions.forEach(version => {
-            const dd = document.createElement('dd');
-            const link = document.createElement('a');
-            link.href = `https://docs.tenstorrent.com/tt-metal/${version}/${projectCode}/index.html`;
-            link.textContent = version;
-            dd.appendChild(link);
-            versionList.appendChild(dd);
-        });
-    } catch (error) {
-        console.error('Error loading versions:', error);
-    }
-}
-
-loadVersions();
-
-function getCurrentVersion() {
-    return window.location.pathname.split('/')[2];
-}
-document.getElementById('current-version').textContent = getCurrentVersion();
-
-const versionEl = document.createElement("span");
-versionEl.innerText = getCurrentVersion();
-versionEl.className = "project-versions";
-const wySideSearchEl = document.getElementsByClassName("wy-side-nav-search").item(0);
-if (wySideSearchEl) {
-    const projectNameEl = wySideSearchEl.children.item(1);
-    if (projectNameEl) projectNameEl.appendChild(versionEl);
-}
-
-</script><script>
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
