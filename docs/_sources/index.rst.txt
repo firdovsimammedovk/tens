@@ -28,8 +28,8 @@ Tenstorrent
    :maxdepth: 2
 
    forge/index
-   TT-Metalium <https://firdovsimammedovk.github.io/tens/>
-   TT-NN <https://firdovsimammedovk.github.io/tens/ttnn/about.html>
+   TT-Metalium <https://firdovsimammedovk.github.io/tens/tt-metal/>
+   TT-NN <https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html>
    Manual Software Installation <getting-started/manual-software-install>
    tools/index
 
