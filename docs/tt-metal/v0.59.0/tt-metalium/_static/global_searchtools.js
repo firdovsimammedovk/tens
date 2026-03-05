@@ -146,7 +146,8 @@
 
   Search.loadIndex = function () {
     const base = getBaseUrl();
-    const urls = [base + "/ttnn/searchindex.js", base + "/tt-metalium/searchindex.js"];
+    // searchindex.js files are at the root level, not in subdirectories
+    const urls = [base + "/searchindex.js"];
 
     let scriptsFinished = 0;
     const captured = [];
@@ -158,15 +159,13 @@
 
     function finishOne() {
       scriptsFinished += 1;
-      if (scriptsFinished < 2) {
+      if (scriptsFinished < 1) {
         return;
       }
 
       Search.setIndex = originalSetIndex;
 
-      if (captured.length === 2) {
-        originalSetIndex(mergeIndexes(captured[0], captured[1]));
-      } else if (captured.length === 1) {
+      if (captured.length >= 1) {
         originalSetIndex(captured[0]);
       }
 
