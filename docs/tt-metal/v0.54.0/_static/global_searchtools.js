@@ -14,24 +14,25 @@ if (typeof Search !== "undefined") {
   Search.loadIndex = function(url) {
     // Determine base path dynamically
     const currentPath = window.location.pathname;
-    const pathParts = currentPath.split('/').filter(p => p); // Remove empty parts
+    const pathParts = currentPath.split('/'); // Keep empty parts
 
     // Find the base URL (everything before /ttnn/ or /tt-metalium/)
     let baseUrl = '';
     let foundDoc = false;
+
     for (let i = 0; i < pathParts.length; i++) {
       if (pathParts[i] === 'ttnn' || pathParts[i] === 'tt-metalium') {
-        baseUrl = '/' + pathParts.slice(0, i).join('/');
+        // Everything before this part is the base URL
+        baseUrl = pathParts.slice(0, i).join('/');
         foundDoc = true;
         break;
       }
     }
 
     // If we didn't find ttnn or tt-metalium in path, assume search.html is at root
-    // and base is the directory containing ttnn and tt-metalium folders
+    // For path like /tens/tt-metal/search.html, base should be /tens/tt-metal
     if (!foundDoc) {
-      // For path like /tens/tt-metal/search.html, base should be /tens/tt-metal
-      baseUrl = '/' + pathParts.slice(0, -1).join('/');
+      baseUrl = pathParts.slice(0, -1).join('/');
     }
 
     const TTNN_INDEX_URL = baseUrl + '/ttnn/searchindex.js';
@@ -95,25 +96,25 @@ if (typeof Search !== "undefined") {
   Search._mergeIndexes = function(index1, index2) {
     // Determine base path dynamically - same logic as loadIndex
     const currentPath = window.location.pathname;
-    const pathParts = currentPath.split('/').filter(p => p); // Remove empty parts
+    const pathParts = currentPath.split('/'); // Keep empty parts
 
     // Find current doc type (ttnn or tt-metalium)
     let currentDoc = '';
     let baseUrl = '';
     let foundDoc = false;
+
     for (let i = 0; i < pathParts.length; i++) {
       if (pathParts[i] === 'ttnn' || pathParts[i] === 'tt-metalium') {
         currentDoc = pathParts[i];
-        baseUrl = '/' + pathParts.slice(0, i).join('/');
+        baseUrl = pathParts.slice(0, i).join('/');
         foundDoc = true;
         break;
       }
     }
 
     // If we didn't find ttnn or tt-metalium in path, we're in root (search.html)
-    // Assume we need to go to sibling folders
     if (!foundDoc) {
-      baseUrl = '/' + pathParts.slice(0, -1).join('/');
+      baseUrl = pathParts.slice(0, -1).join('/');
     }
 
     // Calculate relative paths based on where we are
