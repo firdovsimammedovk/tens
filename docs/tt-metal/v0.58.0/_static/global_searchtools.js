@@ -12,8 +12,26 @@ if (typeof Search !== "undefined") {
 
   // Override loadIndex to load both indexes
   Search.loadIndex = function(url) {
-    const TTNN_INDEX_URL = '../ttnn/searchindex.js';
-    const METALIUM_INDEX_URL = '../tt-metalium/searchindex.js';
+    // Determine base path dynamically
+    const currentPath = window.location.pathname;
+    const pathParts = currentPath.split('/');
+
+    // Find the base URL (everything before /ttnn/ or /tt-metalium/)
+    let baseUrl = '';
+    for (let i = 0; i < pathParts.length; i++) {
+      if (pathParts[i] === 'ttnn' || pathParts[i] === 'tt-metalium') {
+        baseUrl = pathParts.slice(0, i).join('/');
+        break;
+      }
+    }
+
+    const TTNN_INDEX_URL = baseUrl + '/ttnn/searchindex.js';
+    const METALIUM_INDEX_URL = baseUrl + '/tt-metalium/searchindex.js';
+
+    console.log('[Global Search] Current path:', currentPath);
+    console.log('[Global Search] Base URL:', baseUrl);
+    console.log('[Global Search] Loading TT-NN index from:', TTNN_INDEX_URL);
+    console.log('[Global Search] Loading TT-Metalium index from:', METALIUM_INDEX_URL);
 
     // Load first index (TT-NN)
     $.ajax({
@@ -22,11 +40,14 @@ if (typeof Search !== "undefined") {
       cache: true,
       complete: function(jqxhr, textstatus) {
         if (textstatus === "success") {
+          console.log('[Global Search] TT-NN index loaded successfully');
           // Temporarily capture the index
           Search._ttnnIndex = Search._index;
           Search._index = null;
           Search._indexesLoaded++;
           Search._checkBothLoaded();
+        } else {
+          console.error('[Global Search] Failed to load TT-NN index:', textstatus, jqxhr.status);
         }
       }
     });
@@ -38,10 +59,13 @@ if (typeof Search !== "undefined") {
       cache: true,
       complete: function(jqxhr, textstatus) {
         if (textstatus === "success") {
+          console.log('[Global Search] TT-Metalium index loaded successfully');
           Search._metaliumIndex = Search._index;
           Search._index = null;
           Search._indexesLoaded++;
           Search._checkBothLoaded();
+        } else {
+          console.error('[Global Search] Failed to load TT-Metalium index:', textstatus, jqxhr.status);
         }
       }
     });
@@ -49,14 +73,36 @@ if (typeof Search !== "undefined") {
 
   // Check if both indexes are loaded and merge them
   Search._checkBothLoaded = function() {
+    console.log('[Global Search] Check loaded:', Search._indexesLoaded, 'indexes loaded');
     if (Search._indexesLoaded === 2 && Search._ttnnIndex && Search._metaliumIndex) {
+      console.log('[Global Search] Both indexes loaded, merging...');
       Search._index = Search._mergeIndexes(Search._ttnnIndex, Search._metaliumIndex);
+      console.log('[Global Search] Merge complete, index has', Search._index.docnames.length, 'documents');
       Search.deferQuery(Search._queued_query);
     }
   };
 
   // Merge two search indexes
   Search._mergeIndexes = function(index1, index2) {
+    // Determine base path dynamically
+    const currentPath = window.location.pathname;
+    const pathParts = currentPath.split('/');
+
+    // Find current doc type (ttnn or tt-metalium)
+    let currentDoc = '';
+    let baseUrl = '';
+    for (let i = 0; i < pathParts.length; i++) {
+      if (pathParts[i] === 'ttnn' || pathParts[i] === 'tt-metalium') {
+        currentDoc = pathParts[i];
+        baseUrl = pathParts.slice(0, i).join('/');
+        break;
+      }
+    }
+
+    // Calculate relative paths
+    const ttnnPrefix = currentDoc === 'ttnn' ? '' : '../ttnn/';
+    const metaliumPrefix = currentDoc === 'tt-metalium' ? '' : '../tt-metalium/';
+
     const merged = {
       docnames: [],
       filenames: [],
@@ -79,7 +125,7 @@ if (typeof Search !== "undefined") {
     index1.docnames.forEach((docname, idx) => {
       docnameMap1[idx] = merged.docnames.length;
       merged.docnames.push(docname);
-      merged.filenames.push('../ttnn/' + index1.filenames[idx]);
+      merged.filenames.push(ttnnPrefix + index1.filenames[idx]);
       merged.titles.push('[TT-NN] ' + index1.titles[idx]);
     });
 
@@ -87,7 +133,7 @@ if (typeof Search !== "undefined") {
     index2.docnames.forEach((docname, idx) => {
       docnameMap2[idx] = merged.docnames.length;
       merged.docnames.push(docname);
-      merged.filenames.push('../tt-metalium/' + index2.filenames[idx]);
+      merged.filenames.push(metaliumPrefix + index2.filenames[idx]);
       merged.titles.push('[TT-Metalium] ' + index2.titles[idx]);
     });
 
@@ -172,4 +218,3 @@ if (typeof Search !== "undefined") {
     return merged;
   };
 }
-
