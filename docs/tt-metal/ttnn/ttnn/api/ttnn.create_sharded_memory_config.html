@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ttnn.create_sharded_memory_config &mdash; TT-NN  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tt_theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="canonical" href="/tt-metal/latest/ttnn/ttnn/api/ttnn.create_sharded_memory_config.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="../../_static/posthog.js?v=aa5946f9"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/tt_signature_copy.js"></script>
+    <script src="../../_static/tt_dropdown.js"></script>
+    <script src="../../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ttnn.as_tensor" href="ttnn.as_tensor.html" />
+    <link rel="prev" title="ttnn.pad_to_tile_shape" href="ttnn.pad_to_tile_shape.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+    <!-- ===== Top Navbar (NEW) ===== -->
+  
+
+  <header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+      <div class="tt-topnav__inner">
+
+        <!-- Logo -->
+        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
+
+        <!-- Primary links (hardcoded like the mock) -->
+        <nav class="tt-topnav__links" aria-label="Primary navigation">
+          <a class="tt-topnav__link" href="../../index.html">Get Started</a>
+          <a class="tt-topnav__link" href="../../index.html">Guides</a>
+
+          <!-- Hardware Guides dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Cards</a>
+              <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+            </div>
+          </div>
+
+          <!-- Software dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../../forge/index.html">TT-Forge</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../../getting-started/manual-software-install.html">Manual Software Installation</a>
+              <a class="tt-topnav__dropdown-item" href="../../tools/index.html">Tools</a>
+            </div>
+          </div>
+
+          <a class="tt-topnav__link" href="../../index.html">Models</a>
+          <a class="tt-topnav__link" href="../../index.html">Support</a>
+        </nav>
+
+        <!-- CTA -->
+        <div class="tt-topnav__cta">
+          <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+      <div class="tt-topnav__inner">
+
+         <!-- Version (styled capsule dropdown) -->
+        <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+          <button
+            class="tt-topnav__version tt-topnav__version--dropdown"
+            type="button"
+            id="tt-version-toggle"
+            aria-expanded="false"
+          ><span class="tt-topnav__version-text">
+                    
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+              </button>
+              <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                <!-- Version links will be populated here by JavaScript -->
+              </div>
+        </div>
+
+        <!-- Secondary links -->
+        <nav class="tt-topnav__subnav" aria-label="Section navigation">
+          <div class="tt-topnav__dropdown" style="margin-left: 230px">
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="../get_started.html">Getting Started</a>
+            <div class="tt-topnav__dropdown-menu">
+              <a class="tt-topnav__dropdown-item" href="../about.html">What is TT-NN?</a>
+              <a class="tt-topnav__dropdown-item" href="../get_started.html">Getting Started</a>
+              <a class="tt-topnav__dropdown-item" href="../installing.html">Install</a>
+              <a class="tt-topnav__dropdown-item" href="../tutorials/tutorials/ttnn_intro.html">TT-NN Introduction</a>
+            </div>
+          </div>
+          <a class="tt-topnav__sublink" href="../../index.html">Guides</a>
+          <a class="tt-topnav__sublink" href="../tutorials.html">Tutorials</a>
+          <a class="tt-topnav__sublink" href="../api.html">API Reference</a>
+          <div class="tt-topnav__dropdown">
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Advanced Topics</a>
+            <div class="tt-topnav__dropdown-menu">
+              <a class="tt-topnav__dropdown-item" href="../onboarding.html">Onboarding New Functionality</a>
+              <a class="tt-topnav__dropdown-item" href="../converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../adding_new_ttnn_operation.html">Adding New TT-NN Operation</a>
+              <a class="tt-topnav__dropdown-item" href="../profiling_ttnn_operations.html">Profiling TT-NN Operations</a>
+              <a class="tt-topnav__dropdown-item" href="../demos.html">Building and Uplifting Demos</a>
+            </div>
+          </div>
+          <div class="tt-topnav__dropdown">
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Resources</a>
+            <div class="tt-topnav__dropdown-menu">
+              <a class="tt-topnav__dropdown-item" href="../../resources/support.html">Support</a>
+              <a class="tt-topnav__dropdown-item" href="../../resources/contributing.html">Contributing as a Developer</a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+        <div class="tt-topnav__edit"><a class="tt-topnav__editlink" href="../../_sources/ttnn/api/ttnn.create_sharded_memory_config.rst.txt">Edit on GitHub</a></div>
+
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ===== /Top Navbar ===== -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get" onsubmit="return ttGlobalSearchRedirect(this);">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+function ttGlobalSearchRedirect(form) {
+  var queryInput = form.querySelector('input[name="q"]');
+  var query = queryInput ? queryInput.value : '';
+  var path = window.location.pathname;
+  var base = '';
+
+  var docMatch = path.match(/^(.*)\/(ttnn|tt-metalium)\/.*$/);
+  if (docMatch) {
+    base = docMatch[1];
+  } else {
+    base = path.replace(/\/[^/]*$/, '');
+  }
+
+  window.location.href = base + '/search.html?q=' + encodeURIComponent(query) + '&check_keywords=yes&area=default';
+  return false;
+}
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">TTNN</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">What is TT-NN?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials/ttnn_intro.html">TT-NN Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor.html">Tensor</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">APIs</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api.html#device">Device</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#memory-config">Memory Config</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ttnn.create_sharded_memory_config</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ttnn.create_sharded_memory_config"><code class="docutils literal notranslate"><span class="pre">create_sharded_memory_config()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#operations">Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#model-conversion">Model Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#reports">Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#operation-hooks">Operation Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onboarding.html">Onboarding New Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_new_ttnn_operation.html">Adding New TT-NN Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../profiling_ttnn_operations.html">Profiling TT-NN Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos.html">Building and Uplifting Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/contributing.html">Contributing as a developer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TT-NN</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">APIs</a></li>
+      <li class="breadcrumb-item active">ttnn.create_sharded_memory_config</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ttnn-create-sharded-memory-config">
+<h1>ttnn.create_sharded_memory_config<a class="headerlink" href="#ttnn-create-sharded-memory-config" title="Permalink to this heading"></a>
+</h1>
+<span class="target" id="id1"></span><dl class="py function">
+<dt class="sig sig-object py" id="ttnn.create_sharded_memory_config">
+<span class="sig-prename descclassname"><span class="pre">ttnn.</span></span><span class="sig-name descname"><span class="pre">create_sharded_memory_config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../tensor.html#ttnn.Shape" title="ttnn._ttnn.types.Shape"><span class="pre">Shape</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">core_grid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">CoreGrid</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">CoreRangeSet</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strategy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ShardStrategy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ShardOrientation</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_height_and_width_as_shard_shape</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">MemoryConfig</span></span></span><a class="headerlink" href="#ttnn.create_sharded_memory_config" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Create a sharded <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.MemoryConfig</span></code> for sharded tensor operations.</p>
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading"></a>
+</h2>
+<div class="highlight-python notranslate">
+<div class="highlight"><pre><span></span><span class="n">ttnn</span><span class="o">.</span><span class="n">create_sharded_memory_config</span><span class="p">(</span>
+    <span class="n">shape</span><span class="p">:</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">Shape</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+    <span class="n">core_grid</span><span class="p">:</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">CoreGrid</span> <span class="o">|</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">CoreRangeSet</span><span class="p">,</span>
+    <span class="n">strategy</span><span class="p">:</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">ShardStrategy</span><span class="p">,</span>
+    <span class="n">orientation</span><span class="p">:</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">ShardOrientation</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">use_height_and_width_as_shard_shape</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">MemoryConfig</span>
+</pre></div>
+</div>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a>
+</h2>
+<p>Builds a <code class="docutils literal notranslate"><span class="pre">MemoryConfig</span></code> with a <code class="docutils literal notranslate"><span class="pre">ShardSpec</span></code> describing how tensor data is
+partitioned across compute cores in L1.</p>
+<p>The helper validates input shape, converts <code class="docutils literal notranslate"><span class="pre">core_grid</span></code> into a
+<code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.CoreRangeSet</span></code>, computes shard shape according to the selected
+sharding strategy, and returns a ready-to-use configuration object.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>shape: <a class="reference internal" href="../tensor.html#ttnn.Shape" title="ttnn.Shape"><code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.Shape</span></code></a> | tuple[int, …] | list[int] - Logical tensor shape.</p></li>
+<li><p>core_grid: <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.CoreGrid</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.CoreRangeSet</span></code> - Core topology used for sharding.</p></li>
+<li><p>strategy: <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.ShardStrategy</span></code> - One of HEIGHT, WIDTH, or BLOCK.</p></li>
+<li><p>orientation: <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.ShardOrientation</span></code> | None - Core traversal order; defaults to <code class="docutils literal notranslate"><span class="pre">ROW_MAJOR</span></code> when <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p>use_height_and_width_as_shard_shape: bool - If <code class="docutils literal notranslate"><span class="pre">True</span></code>, uses <code class="docutils literal notranslate"><span class="pre">(height,</span> <span class="pre">width)</span></code> directly as shard shape.</p></li>
+</ul>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.MemoryConfig</span></code> - Memory configuration with L1 buffer type and computed shard spec.</p></li>
+</ul>
+</section>
+<section id="raises">
+<h2>Raises<a class="headerlink" href="#raises" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>RuntimeError - If <code class="docutils literal notranslate"><span class="pre">shape</span></code> or <code class="docutils literal notranslate"><span class="pre">core_grid</span></code> has an unsupported type or invalid structure.</p></li>
+<li><p>RuntimeError - If <code class="docutils literal notranslate"><span class="pre">strategy</span></code> or <code class="docutils literal notranslate"><span class="pre">orientation</span></code> is invalid.</p></li>
+<li><p>RuntimeError - If shard geometry is not divisible by the selected core topology.</p></li>
+<li><p>RuntimeError - If <code class="docutils literal notranslate"><span class="pre">core_grid</span></code> is a <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.CoreRangeSet</span></code> while <code class="docutils literal notranslate"><span class="pre">use_height_and_width_as_shard_shape</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>This helper creates L1 sharded configs only.</p></li>
+<li><p>When <code class="docutils literal notranslate"><span class="pre">use_height_and_width_as_shard_shape</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, shape is interpreted as <code class="docutils literal notranslate"><span class="pre">[prod(batch_dims),</span> <span class="pre">height,</span> <span class="pre">width]</span></code> for shard computation.</p></li>
+<li><p>For advanced/non-divisible sharding flows, see <code class="xref py py-func docutils literal notranslate"><span class="pre">ttnn.create_sharded_memory_config_()</span></code>.</p></li>
+</ul>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a>
+</h2>
+<p>Block sharding over a rectangular grid:</p>
+<div class="doctest highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">ttnn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">CoreGrid</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mem_cfg</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">create_sharded_memory_config</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">core_grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">strategy</span><span class="o">=</span><span class="n">ttnn</span><span class="o">.</span><span class="n">ShardStrategy</span><span class="o">.</span><span class="n">BLOCK</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">orientation</span><span class="o">=</span><span class="n">ttnn</span><span class="o">.</span><span class="n">ShardOrientation</span><span class="o">.</span><span class="n">ROW_MAJOR</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Using explicit shard shape from tensor height/width:</p>
+<div class="doctest highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">ttnn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grid</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">CoreGrid</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mem_cfg</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">create_sharded_memory_config</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">),</span>
+<span class="gp">... </span>    <span class="n">core_grid</span><span class="o">=</span><span class="n">grid</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">strategy</span><span class="o">=</span><span class="n">ttnn</span><span class="o">.</span><span class="n">ShardStrategy</span><span class="o">.</span><span class="n">HEIGHT</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">use_height_and_width_as_shard_shape</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p><code class="xref py py-func docutils literal notranslate"><span class="pre">ttnn.create_sharded_memory_config_()</span></code> - Extended helper with additional shard-shape handling.</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.ShardSpec</span></code> - Describes shard grid, shape, and orientation.</p></li>
+<li><p><code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.MemoryConfig</span></code> - Container for tensor memory layout and placement metadata.</p></li>
+</ul>
+</section>
+</dd>
+</dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ttnn.pad_to_tile_shape.html" class="btn btn-neutral float-left" title="ttnn.pad_to_tile_shape" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ttnn.as_tensor.html" class="btn btn-neutral float-right" title="ttnn.as_tensor" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

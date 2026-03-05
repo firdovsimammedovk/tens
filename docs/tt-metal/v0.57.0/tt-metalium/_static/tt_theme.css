@@ -1,0 +1,1167 @@
+@font-face {
+  font-family: "Degular";
+  src: url("./fonts/DegularText-Medium.woff") format("woff"),
+    url("./fonts/DegularText-Medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Degular";
+  src: url("./fonts/DegularText-Bold.woff") format("woff"),
+    url("./fonts/DegularText-Bold.woff2") format("woff2");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Degular";
+  src: url("./fonts/DegularText-MediumItalic.woff") format("woff"),
+    url("./fonts/DegularText-MediumItalic.woff2") format("woff2");
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "DegularDisplay";
+  src: url("./fonts/DegularDisplay-Light.woff") format("woff"),
+    url("./fonts/DegularDisplay-Light.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "RMMono";
+  src: url("./fonts/RMMono-Regular.woff") format("woff"),
+    url("./fonts/RMMono-Regular.woff2") format("woff2");
+}
+
+:root {
+  --color-background: #edeff9;
+  --color-background-alt: #d7dbeb;
+  --color-background-alt2: #ccd2f9;
+  --color-foreground: #202020;
+  --color-accent: #5164e0;
+
+  --color-purple: var(--color-accent);
+  --color-dark-purple: #7584e6;
+  --color-red: #EE4C2C;
+  --color-orange: var(--color-red);
+  --color-green: #6faba0;
+  --color-dark-green: #3a3433;
+  --color-yellow: #f9c80e;
+
+  --color-main: var(--color-foreground);
+
+  --color-background-20: #d7dbeb33;
+  --color-background-40: #d7dbeb66;
+  --color-background-60: #d7dbeb99;
+  --color-background-80: #d7dbebcc;
+  --color-background-100: #d7dbebff;
+
+  --base-text-size: 16px;
+
+  --font-main: "Degular", sans-serif;
+  --font-display: "DegularDisplay", sans-serif;
+  --font-mono: "RMMono", monospace;
+
+  --transition-duration: 150ms;
+  --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --transition-color: color var(--transition-duration) var(--transition-timing);
+  --transition-background: background var(--transition-duration)
+    var(--transition-timing);
+  --transition-all: all var(--transition-duration) var(--transition-timing);
+}
+
+body {
+  font-family: var(--font-main);
+  font-size: var(--base-text-size); /* 1rem */
+  font-weight: 400;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+}
+
+.rst-content .toctree-wrapper > p.caption,
+h4,
+h5,
+h6,
+legend {
+  margin-top: 0;
+  font-family: var(--font-main);
+}
+
+.caption-text {
+  font-family: var(--font-main);
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+}
+
+a {
+  color: var(--color-accent);
+  transition: color 150ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+a:visited {
+  color: var(--color-dark-purple);
+}
+
+i {
+  font-style: italic;
+}
+
+/* Nav */
+.wy-nav-side {
+  background-color: var(--color-background);
+}
+
+.wy-nav-content {
+  max-width: 1200px !important;
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 1100px) {
+  .wy-nav-content-wrap {
+    background: none;
+  }
+}
+
+.wy-side-nav-search {
+  background-color: transparent !important;
+  text-align: unset;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.wy-side-nav-search img {
+  /* logo */
+  width: 200px !important;
+  height: auto;
+  padding: 0;
+}
+
+.wy-side-nav-search a {
+  color: var(--color-foreground);
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 100%;
+}
+
+.wy-side-nav-search a:hover {
+  background-color: transparent;
+  font-weight: 400;
+}
+
+.wy-side-nav-search a:nth-child(2) {
+  /* give the repository title some space */
+  margin-top: 1rem;
+}
+
+.wy-side-nav-search .wy-dropdown > a,
+.wy-side-nav-search > a {
+  margin-bottom: 0;
+}
+
+.wy-side-nav-search > div, /* search container */
+  .wy-side-nav-search > div > form /* search form */ {
+  width: 100%;
+}
+
+.wy-menu-vertical {
+  padding-bottom: 2rem; /* add space to accommodate version bar */
+}
+
+.wy-menu-vertical header,
+.wy-menu-vertical p.caption {
+  color: var(--color-main);
+}
+
+.wy-menu-vertical a {
+  color: var(--color-foreground);
+}
+
+/* Search input */
+#rtd-search-form > input[type="text"] {
+  background-color: transparent;
+  border: 2px solid var(--color-dark-purple);
+  border-radius: 0;
+  color: var(--color-foreground);
+  font-family: var(--font-main);
+  padding: 0.5rem;
+  font-size: 1rem;
+  font-weight: 400;
+  outline: none;
+  font-family: var(--font-main);
+  font-weight: 400;
+}
+
+#rtd-search-form > input[type="text"]:focus {
+  border-color: var(--color-accent);
+}
+
+/* Nav: open headers */
+
+.wy-menu-vertical li.current > a,
+.wy-menu-vertical li.on a {
+  font-weight: bold;
+}
+
+.toctree-l1 a:hover {
+  background: var(--color-background-alt2);
+  color: var(--color-foreground);
+  transition: var(--transition-all);
+}
+
+.wy-menu-vertical li.current a,
+li.toctree-l1.current > a {
+  background-color: var(--color-background-20);
+  border-bottom: none !important;
+  border-top: none !important;
+  border-left: none !important;
+  border-right: none !important;
+  color: var(--color-main);
+}
+
+.wy-menu-vertical li.current,
+.wy-menu-vertical li.toctree-l2.current > a,
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a {
+  background: var(--color-background-40);
+}
+
+.wy-menu-vertical li.current,
+.wy-menu-vertical li.toctree-l3.current > a,
+.wy-menu-vertical li.toctree-l3.current li.toctree-l4 > a {
+  background: var(--color-background-60);
+}
+
+.wy-menu-vertical li.current,
+.wy-menu-vertical li.toctree-l4.current > a,
+.wy-menu-vertical li.toctree-l4.current li.toctree-l5 > a {
+  background: var(--color-background-80);
+}
+
+.wy-menu-vertical li.current a:hover,
+.wy-menu-vertical li.toctree-l2.current > a:hover,
+.wy-menu-vertical li.toctree-l2.current li.toctree-l3 > a:hover,
+.wy-menu-vertical li.toctree-l3.current > a:hover,
+.wy-menu-vertical li.toctree-l3.current li.toctree-l4 > a:hover,
+.wy-menu-vertical li.toctree-l4.current > a:hover,
+.wy-menu-vertical li.toctree-l4.current li.toctree-l5 > a:hover,
+.wy-menu-vertical li.on a:hover {
+  background: var(--color-background-alt2);
+  transition: var(--transition-background);
+}
+
+/* Nav: footer (version) */
+.rst-versions,
+.rst-versions * {
+  background-color: var(--color-background);
+  font-family: var(--font-mono);
+  color: var(--color-main) !important;
+}
+
+.rst-versions .rst-current-version {
+  background-color: var(--color-background-40);
+  color: var(--color-main);
+}
+
+.fa .fa-caret-down {
+  color: var(--color-accent);
+}
+
+/* Nav: mobile */
+
+@media screen and (max-width: 768px) {
+  .wy-nav-top {
+    background: var(--color-background);
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+  }
+}
+
+.wy-nav-top > i {
+  position: absolute;
+  top: 0;
+  left: 1.5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 0;
+  color: var(--color-main);
+}
+
+.wy-nav-top > .fa,
+.wy-nav-top > .fa-bars {
+  color: var(--color-main);
+}
+
+.wy-nav-top > .fa:before,
+.wy-nav-top > .fa-bars:before {
+  font-weight: 300 !important;
+}
+
+.wy-nav-top > a {
+  color: var(--color-main);
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.wy-nav-content > .rst-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
+}
+
+.rst-content > .document {
+  /* grow document to push footer to bottom of page */
+  flex-grow: 1;
+}
+
+.rst-footer-buttons {
+  margin-top: 2rem; /* give footer buttons a little bit of space */
+}
+
+/* Document styling */
+
+.document * h1,
+.document * h2,
+.document * h3,
+.document * h4 {
+  /* vertically center document header links */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+/* Code and codeblock styling */
+
+/* inline codeblocks */
+.rst-content code.literal,
+.rst-content tt.literal {
+  color: var(--color-red);
+}
+
+pre {
+  overflow-x: scroll;
+  font-family: var(--font-mono);
+}
+
+dt {
+  padding: 0.5rem !important;
+}
+
+dt,
+dt * {
+  font-family: var(--font-mono);
+}
+
+dl.cpp.function {
+  /* allow function tables to scroll overflowed content */
+  width: fit-content;
+  max-width: 100%;
+}
+
+html.writer-html4 .rst-content dl:not(.docutils) > dt,
+html.writer-html5
+  .rst-content
+  dl[class]:not(.option-list):not(.field-list):not(.footnote):not(
+    .citation
+  ):not(.glossary):not(.simple)
+  > dt {
+  background: var(--color-background-alt);
+  color: var(--color-accent);
+  border-top: 3px solid var(--color-accent);
+  display: block;
+  max-width: 100%;
+  overflow-x: scroll;
+}
+
+/* inline links */
+.rst-content p a {
+  border-bottom: 2px solid var(--color-accent);
+}
+
+/* buttons at the bottom of pages */
+.btn,
+.btn-neutral {
+  background-color: var(--color-foreground) !important;
+  background: var(--color-foreground) !important;
+  color: var(--color-background) !important;
+  border: none;
+  border-radius: 4rem;
+  padding: 0.5rem 1rem;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: var(--transition-all);
+  box-shadow: none;
+}
+
+.btn > .fa {
+  /* hide arrows */
+  display: none;
+}
+
+.btn-neutral:visited {
+  color: var(--color-background) !important;
+}
+
+.btn:active {
+  box-shadow: none;
+  padding: 0.5rem 1rem;
+}
+
+.btn-neutral:hover {
+  background-color: var(--color-background-alt2) !important;
+  background: var(--color-background-alt2) !important;
+  color: var(--color-foreground) !important;
+}
+
+.rst-versions.shift-up {
+  overflow-y: auto;
+}
+
+.project-versions {
+  font-size: small;
+}
+
+/*
+Fix for horizontal stacking weirdness in the RTD theme with Python properties:
+https://github.com/readthedocs/sphinx_rtd_theme/issues/1301
+*/
+.py.property {
+  display: block !important;
+}
+
+/* =========================
+   Top Navbar (two-tier)
+   ========================= */
+
+:root {
+  --tt-topnav-h1: 66px; /* white bar */
+  --tt-topnav-h2: 66px; /* red bar */
+  --tt-topnav-total: calc(var(--tt-topnav-h1) + var(--tt-topnav-h2));
+  --tt-max-width: 1200px;
+}
+
+/* Make room for the fixed header */
+.wy-nav-content-wrap {
+  padding-top: var(--tt-topnav-total);
+}
+
+/* Hide RTD mobile top bar on desktop (we use our own navbar) */
+@media screen and (min-width: 769px) {
+  .wy-nav-top {
+    display: none !important;
+  }
+}
+
+.tt-topnav {
+  width: 100%;
+  z-index: 1000;
+  font-family: var(--font-main);
+}
+
+.tt-topnav--fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.tt-topnav__bar {
+  width: 100%;
+}
+
+.tt-topnav__bar--primary {
+  background: #ffffff;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  height: var(--tt-topnav-h1);
+}
+
+.tt-topnav__bar--secondary {
+  background: var(--color-red);
+  height: var(--tt-topnav-h2);
+}
+
+.tt-topnav__inner {
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ===== Primary bar content ===== */
+.tt-topnav__logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.tt-topnav__logo-img {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.tt-topnav__logo-text {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--color-foreground);
+}
+
+.tt-topnav__links {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-left: auto; /* push links to the right of logo */
+}
+
+.tt-topnav__link {
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 15px;
+  padding: 8px 0;
+}
+
+.tt-topnav__link:hover {
+  opacity: 0.85;
+}
+
+.tt-topnav__cta {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.tt-topnav__btn {
+  background: var(--color-red);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  padding: 10px 16px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.tt-topnav__btn:hover {
+  opacity: 0.92;
+}
+
+/* ===== Secondary bar content ===== */
+.tt-topnav__version-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.tt-topnav__version {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 30px;
+  padding: 0 10px;
+
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+
+  color: #fff;
+  cursor: pointer;
+  font-family: var(--font-main);
+  transition: background 0.2s ease;
+}
+
+.tt-topnav__version:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.tt-topnav__version-text {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.tt-topnav__chev {
+  font-size: 10px;
+  line-height: 1;
+  margin-left: 3px;
+}
+
+.tt-topnav__version-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  min-width: 200px;
+  padding: 8px 0;
+  z-index: 1000;
+}
+
+.tt-topnav__version-menu .tt-topnav__dropdown-item {
+  display: block;
+  padding: 10px 16px;
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.tt-topnav__version-menu .tt-topnav__dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  color: var(--color-foreground);
+}
+
+.tt-topnav__subnav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  margin-left: auto;
+}
+
+.tt-topnav__sublink {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 0;
+  white-space: nowrap;
+}
+
+.tt-topnav__sublink:hover {
+  color: #fff;
+}
+
+.tt-topnav__edit {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+}
+
+.tt-topnav__editlink {
+  color: rgba(255, 255, 255, 0.92);
+  text-decoration: none;
+  font-size: 16px;
+  white-space: nowrap;
+}
+
+.tt-topnav__editlink:hover {
+  color: #fff;
+}
+
+.tt-topnav__editspacer {
+  display: none;
+}
+
+/* ===== Dropdown Menu Styles ===== */
+.tt-topnav__dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.tt-topnav__sublink--dropdown {
+  cursor: pointer;
+  position: relative;
+}
+
+.tt-topnav__dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  min-width: 280px;
+  padding: 8px 0;
+  margin-top: 8px;
+  z-index: 1000;
+}
+
+.tt-topnav__dropdown:hover .tt-topnav__dropdown-menu {
+  display: block;
+}
+
+.tt-topnav__dropdown-item {
+  display: block;
+  padding: 10px 20px;
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-size: 15px;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+}
+
+.tt-topnav__dropdown-item:hover {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+}
+
+.tt-topnav__dropdown-item:visited {
+  color: var(--color-foreground);
+}
+
+/* ===== Responsive ===== */
+@media screen and (max-width: 1024px) {
+  .tt-topnav__links {
+    display: none; /* hide top links on smaller screens */
+  }
+  .tt-topnav__subnav {
+    gap: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --tt-topnav-h1: 52px;
+    --tt-topnav-h2: 44px;
+  }
+  .tt-topnav__subnav {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tt-topnav__subnav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ===== Grid Layout with Flexbox ===== */
+/* ===== Navbar Link Colors ===== */
+
+/* WHITE NAVBAR (Primary bar) - Black text colors */
+.tt-topnav__bar--primary .tt-topnav__link {
+  color: var(--color-foreground);
+  transition: var(--transition-color);
+}
+
+.tt-topnav__bar--primary .tt-topnav__link:hover {
+  color: var(--color-foreground);
+  opacity: 0.7;
+}
+
+.tt-topnav__bar--primary .tt-topnav__link:visited {
+  color: var(--color-foreground);
+}
+
+.tt-topnav__bar--primary .tt-topnav__link:active {
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+
+/* ORANGE NAVBAR (Secondary bar) - White text colors */
+.tt-topnav__bar--secondary .tt-topnav__sublink {
+  color: rgba(255, 255, 255, 0.92);
+  transition: var(--transition-color);
+}
+
+.tt-topnav__bar--secondary .tt-topnav__sublink:hover {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.tt-topnav__bar--secondary .tt-topnav__sublink:visited {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.tt-topnav__bar--secondary .tt-topnav__sublink:active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.tt-topnav__bar--secondary .tt-topnav__version {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.tt-topnav__bar--secondary .tt-topnav__version:hover {
+  color: #ffffff;
+}
+
+/* SIDE NAV LINKS */
+.wy-nav-side .wy-menu-vertical a {
+  color: var(--color-foreground);
+  transition: var(--transition-color);
+}
+
+.wy-nav-side .wy-menu-vertical a:hover {
+  color: var(--color-foreground);
+  background-color: var(--color-background-alt2);
+}
+
+.wy-nav-side .wy-menu-vertical a:visited {
+  color: var(--color-foreground);
+}
+
+.wy-nav-side .wy-menu-vertical a:active {
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+
+
+/* ===== Grid Layout with Flexbox ===== */
+.wy-grid-for-nav {
+  display: flex;
+  width: 100%;
+}
+
+.wy-nav-side {
+  flex: 0 0 auto;
+  width: 300px;
+  margin-top: 130px;
+}
+
+.wy-nav-content-wrap {
+  flex: 1 1 auto;
+  width: 1px; /* Ensures the flex item doesn't overflow */
+}
+
+.rst-content dl dd {
+    margin-left: 0;
+}
+.rst-content dl dt {
+    margin-left: 40px;
+}
+
+.rst-content dl dd {
+    margin-left: 0;
+}
+.rst-content dl dt {
+    margin-left: 40px;
+}
+
+
+.function * h1, .function * h2, .function * h3, .function * h4 {
+  font-size: 20px;
+  background-color: #D9D9D9;
+  padding: 2px 9px;
+  border-radius: 2px;
+  margin-bottom: 0;
+}
+
+.function .simple li {
+  margin-left: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.function section {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* ===== Signature Copy Button ===== */
+.tt-signature .highlight {
+  position: relative;
+}
+
+.tt-signature .tt-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ffffff;
+  color: #202020;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tt-signature .tt-copy-btn:hover {
+  background: #f2f2f2;
+}
+
+.function .sig-object {
+  display: none !important;
+}
+
+/* =========================
+   Advanced Topics dropdown
+   ========================= */
+
+/* anchor for absolute menu */
+.tt-topnav__dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* show a caret (optional) */
+.tt-topnav__sublink--dropdown::after {
+  content: "▾";
+  display: inline-block;
+  margin-left: 0.5rem;
+  transform: translateY(-1px);
+  font-size: 0.9em;
+  opacity: 0.9;
+}
+
+/* menu base */
+.tt-topnav__dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+
+  min-width: 320px;
+  max-width: min(520px, 90vw);
+
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-radius: 10px;
+
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  padding: 10px;
+
+  z-index: 1000;
+
+  /* hidden by default */
+  transform: translateY(-6px);
+}
+
+/* small "arrow" */
+.tt-topnav__dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 18px;
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border-left: 1px solid rgba(0, 0, 0, 0.10);
+  border-top: 1px solid rgba(0, 0, 0, 0.10);
+  transform: rotate(45deg);
+}
+
+/* show on hover OR focus (keyboard accessible) */
+.tt-topnav__dropdown:hover .tt-topnav__dropdown-menu,
+.tt-topnav__dropdown:focus-within .tt-topnav__dropdown-menu {
+  display: block;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+/* items */
+.tt-topnav__dropdown-item {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+
+  color: var(--color-foreground);
+  text-decoration: none;
+
+  line-height: 1.25;
+  white-space: normal; /* allow wrap */
+}
+
+/* hover/focus states */
+.tt-topnav__dropdown-item:hover,
+.tt-topnav__dropdown-item:focus {
+  background: var(--color-background-alt2);
+  outline: none;
+}
+
+/* keep dropdown open while moving mouse from trigger to menu */
+.tt-topnav__dropdown::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 14px; /* hover-bridge */
+}
+
+/* =========================
+   Primary Bar (White) Dropdown Styles
+   ========================= */
+
+/* Primary dropdown container */
+.tt-topnav__dropdown--primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Primary link with dropdown indicator */
+.tt-topnav__link--dropdown {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tt-topnav__link--dropdown::after {
+  content: "▼";
+  font-size: 10px;
+  transition: transform 0.2s ease;
+  opacity: 0.7;
+}
+
+.tt-topnav__dropdown--primary:hover .tt-topnav__link--dropdown::after {
+  transform: rotate(180deg);
+}
+
+/* Primary dropdown menu */
+.tt-topnav__dropdown-menu--primary {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+
+  min-width: 200px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+  padding: 8px;
+  z-index: 10000;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+}
+
+.tt-topnav__dropdown--primary:hover .tt-topnav__dropdown-menu--primary {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Arrow indicator for primary menu */
+.tt-topnav__dropdown-menu--primary::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 6px solid #ffffff;
+}
+
+/* Primary dropdown items styling */
+.tt-topnav__dropdown-menu--primary .tt-topnav__dropdown-item {
+  display: block;
+  padding: 10px 16px;
+  border-radius: 6px;
+
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+
+  transition: background-color 0.15s ease;
+  border-left: 3px solid transparent;
+}
+
+.tt-topnav__dropdown-menu--primary .tt-topnav__dropdown-item:hover {
+  background-color: var(--color-background);
+  border-left-color: var(--color-accent);
+}
+
+.tt-topnav__dropdown-menu--primary .tt-topnav__dropdown-item:visited {
+  color: var(--color-foreground);
+}
+
+/* Invisible bridge for primary dropdown */
+.tt-topnav__dropdown--primary::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: transparent;
+  z-index: 9999;
+}
+
+/* =========================
+   Mobile / touch behavior
+   ========================= */
+@media (max-width: 900px) {
+  .tt-topnav__dropdown,
+  .tt-topnav__dropdown--primary {
+    position: static;
+  }
+
+  .tt-topnav__dropdown-menu,
+  .tt-topnav__dropdown-menu--primary {
+    position: static;
+    top: auto;
+    left: auto;
+
+    min-width: 0;
+    max-width: 100%;
+
+    margin-top: 8px;
+
+    display: inline-block;
+
+    box-shadow: none;
+    border-radius: 10px;
+
+    /* If you want it collapsible on mobile, we can toggle with JS later */
+  }
+
+  .tt-topnav__dropdown-menu::before,
+  .tt-topnav__dropdown-menu--primary::before {
+    display: none;
+  }
+
+  .tt-topnav__dropdown::after,
+  .tt-topnav__dropdown--primary::after {
+    display: none;
+  }
+}
+.tt-topnav__btn:visited {
+  color: var(--color-background)
+}
+.wy-nav-side {
+  background-color: #f8f8f8;
+}

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ttnn.SetDefaultDevice &mdash; TT-NN  documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/tt_theme.css" type="text/css" />
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <link rel="canonical" href="/tt-metal/latest/ttnn/ttnn/api/ttnn.SetDefaultDevice.html" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+        <script src="../../_static/doctools.js?v=888ff710"></script>
+        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script src="../../_static/posthog.js?v=aa5946f9"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/tt_signature_copy.js"></script>
+    <script src="../../_static/tt_dropdown.js"></script>
+    <script src="../../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="ttnn.GetDefaultDevice" href="ttnn.GetDefaultDevice.html" />
+    <link rel="prev" title="ttnn.synchronize_device" href="ttnn.synchronize_device.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+    <!-- ===== Top Navbar (NEW) ===== -->
+  
+
+  <header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+      <div class="tt-topnav__inner">
+
+        <!-- Logo -->
+        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
+
+        <!-- Primary links (hardcoded like the mock) -->
+        <nav class="tt-topnav__links" aria-label="Primary navigation">
+          <a class="tt-topnav__link" href="../../index.html">Get Started</a>
+          <a class="tt-topnav__link" href="../../index.html">Guides</a>
+
+          <!-- Hardware Guides dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Cards</a>
+              <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+            </div>
+          </div>
+
+          <!-- Software dropdown -->
+          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+              <a class="tt-topnav__dropdown-item" href="../../forge/index.html">TT-Forge</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../../getting-started/manual-software-install.html">Manual Software Installation</a>
+              <a class="tt-topnav__dropdown-item" href="../../tools/index.html">Tools</a>
+            </div>
+          </div>
+
+          <a class="tt-topnav__link" href="../../index.html">Models</a>
+          <a class="tt-topnav__link" href="../../index.html">Support</a>
+        </nav>
+
+        <!-- CTA -->
+        <div class="tt-topnav__cta">
+          <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+      <div class="tt-topnav__inner">
+
+         <!-- Version (styled capsule dropdown) -->
+        <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+          <button
+            class="tt-topnav__version tt-topnav__version--dropdown"
+            type="button"
+            id="tt-version-toggle"
+            aria-expanded="false"
+          ><span class="tt-topnav__version-text">
+                    
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+              </button>
+              <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                <!-- Version links will be populated here by JavaScript -->
+              </div>
+        </div>
+
+        <!-- Secondary links -->
+        <nav class="tt-topnav__subnav" aria-label="Section navigation">
+          <div class="tt-topnav__dropdown" style="margin-left: 230px">
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="../get_started.html">Getting Started</a>
+            <div class="tt-topnav__dropdown-menu">
+              <a class="tt-topnav__dropdown-item" href="../about.html">What is TT-NN?</a>
+              <a class="tt-topnav__dropdown-item" href="../get_started.html">Getting Started</a>
+              <a class="tt-topnav__dropdown-item" href="../installing.html">Install</a>
+              <a class="tt-topnav__dropdown-item" href="../tutorials/tutorials/ttnn_intro.html">TT-NN Introduction</a>
+            </div>
+          </div>
+          <a class="tt-topnav__sublink" href="../../index.html">Guides</a>
+          <a class="tt-topnav__sublink" href="../tutorials.html">Tutorials</a>
+          <a class="tt-topnav__sublink" href="../api.html">API Reference</a>
+          <div class="tt-topnav__dropdown">
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Advanced Topics</a>
+            <div class="tt-topnav__dropdown-menu">
+              <a class="tt-topnav__dropdown-item" href="../onboarding.html">Onboarding New Functionality</a>
+              <a class="tt-topnav__dropdown-item" href="../converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a>
+              <a class="tt-topnav__dropdown-item" href="../adding_new_ttnn_operation.html">Adding New TT-NN Operation</a>
+              <a class="tt-topnav__dropdown-item" href="../profiling_ttnn_operations.html">Profiling TT-NN Operations</a>
+              <a class="tt-topnav__dropdown-item" href="../demos.html">Building and Uplifting Demos</a>
+            </div>
+          </div>
+          <div class="tt-topnav__dropdown">
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Resources</a>
+            <div class="tt-topnav__dropdown-menu">
+              <a class="tt-topnav__dropdown-item" href="../../resources/support.html">Support</a>
+              <a class="tt-topnav__dropdown-item" href="../../resources/contributing.html">Contributing as a Developer</a>
+            </div>
+          </div>
+        </nav>
+
+        <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+        <div class="tt-topnav__edit"><a class="tt-topnav__editlink" href="../../_sources/ttnn/api/ttnn.SetDefaultDevice.rst.txt">Edit on GitHub</a></div>
+
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ===== /Top Navbar ===== -->
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get" onsubmit="return ttGlobalSearchRedirect(this);">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+<script>
+function ttGlobalSearchRedirect(form) {
+  var queryInput = form.querySelector('input[name="q"]');
+  var query = queryInput ? queryInput.value : '';
+  var path = window.location.pathname;
+  var base = '';
+
+  var docMatch = path.match(/^(.*)\/(ttnn|tt-metalium)\/.*$/);
+  if (docMatch) {
+    base = docMatch[1];
+  } else {
+    base = path.replace(/\/[^/]*$/, '');
+  }
+
+  window.location.href = base + '/search.html?q=' + encodeURIComponent(query) + '&check_keywords=yes&area=default';
+  return false;
+}
+</script>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">TTNN</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../about.html">What is TT-NN?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../get_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installing.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/tutorials/ttnn_intro.html">TT-NN Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tensor.html">Tensor</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api.html">APIs</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api.html#device">Device</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="ttnn.open_device.html">ttnn.open_device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ttnn.close_device.html">ttnn.close_device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ttnn.manage_device.html">ttnn.manage_device</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ttnn.synchronize_device.html">ttnn.synchronize_device</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">ttnn.SetDefaultDevice</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ttnn.SetDefaultDevice"><code class="docutils literal notranslate"><span class="pre">SetDefaultDevice()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ttnn.GetDefaultDevice.html">ttnn.GetDefaultDevice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ttnn.pad_to_tile_shape.html">ttnn.pad_to_tile_shape</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#memory-config">Memory Config</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#operations">Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#model-conversion">Model Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#reports">Reports</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api.html#operation-hooks">Operation Hooks</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../onboarding.html">Onboarding New Functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../adding_new_ttnn_operation.html">Adding New TT-NN Operation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../profiling_ttnn_operations.html">Profiling TT-NN Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../demos.html">Building and Uplifting Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/support.html">Support</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../resources/contributing.html">Contributing as a developer</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">TT-NN</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../api.html">APIs</a></li>
+      <li class="breadcrumb-item active">ttnn.SetDefaultDevice</li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ttnn-setdefaultdevice">
+<h1>ttnn.SetDefaultDevice<a class="headerlink" href="#ttnn-setdefaultdevice" title="Permalink to this heading"></a>
+</h1>
+<span class="target" id="id1"></span><dl class="py function">
+<dt class="sig sig-object py" id="ttnn.SetDefaultDevice">
+<span class="sig-prename descclassname"><span class="pre">ttnn.</span></span><span class="sig-name descname"><span class="pre">SetDefaultDevice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MeshDevice</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ttnn.SetDefaultDevice" title="Permalink to this definition"></a>
+</dt>
+<dd>
+<p>Set the process default device.</p>
+<section id="signature">
+<h2>Signature<a class="headerlink" href="#signature" title="Permalink to this heading"></a>
+</h2>
+<div class="highlight-python notranslate">
+<div class="highlight"><pre><span></span><span class="n">ttnn</span><span class="o">.</span><span class="n">SetDefaultDevice</span><span class="p">(</span><span class="n">device</span><span class="p">:</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">Device</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</pre></div>
+</div>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a>
+</h2>
+<p>Updates process-level default device state used by APIs that support
+implicit device context.</p>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>device: <code class="xref py py-class docutils literal notranslate"><span class="pre">ttnn.device.Device</span></code> - Device to set as default.</p></li>
+</ul>
+</section>
+<section id="returns">
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>None - Default device state is updated.</p></li>
+</ul>
+</section>
+<section id="raises">
+<h2>Raises<a class="headerlink" href="#raises" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>RuntimeError - If the provided device is invalid.</p></li>
+</ul>
+</section>
+<section id="notes">
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p>Affects only the current process.</p></li>
+</ul>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a>
+</h2>
+<div class="doctest highlight-default notranslate">
+<div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">ttnn</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">device</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">open_device</span><span class="p">(</span><span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ttnn</span><span class="o">.</span><span class="n">SetDefaultDevice</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Permalink to this heading"></a>
+</h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="ttnn.GetDefaultDevice.html#id1"><span class="std std-ref">ttnn.GetDefaultDevice</span></a> - Query current default device.</p></li>
+<li><p><a class="reference internal" href="ttnn.open_device.html#id1"><span class="std std-ref">ttnn.open_device</span></a> - Open a device handle.</p></li>
+<li><p><a class="reference internal" href="ttnn.close_device.html#id1"><span class="std std-ref">ttnn.close_device</span></a> - Close device handles.</p></li>
+</ul>
+</section>
+</dd>
+</dl>
+
+</section>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ttnn.synchronize_device.html" class="btn btn-neutral float-left" title="ttnn.synchronize_device" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ttnn.GetDefaultDevice.html" class="btn btn-neutral float-right" title="ttnn.GetDefaultDevice" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Tenstorrent.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
