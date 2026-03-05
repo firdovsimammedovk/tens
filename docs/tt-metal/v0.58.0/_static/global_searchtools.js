@@ -43,42 +43,80 @@ if (typeof Search !== "undefined") {
     console.log('[Global Search] Loading TT-NN index from:', TTNN_INDEX_URL);
     console.log('[Global Search] Loading TT-Metalium index from:', METALIUM_INDEX_URL);
 
-    // Load first index (TT-NN)
-    $.ajax({
-      url: TTNN_INDEX_URL,
-      dataType: "script",
-      cache: true,
-      complete: function(jqxhr, textstatus) {
-        if (textstatus === "success") {
-          console.log('[Global Search] TT-NN index loaded successfully');
-          // Temporarily capture the index
-          Search._ttnnIndex = Search._index;
-          Search._index = null;
-          Search._indexesLoaded++;
-          Search._checkBothLoaded();
-        } else {
-          console.error('[Global Search] Failed to load TT-NN index:', textstatus, jqxhr.status);
-        }
-      }
-    });
+    // Load first index (TT-NN) with fallback paths
+    const ttnnUrls = [
+      TTNN_INDEX_URL,
+      baseUrl + '/../ttnn/searchindex.js',  // Parent directory
+      '/ttnn/searchindex.js'  // Root level
+    ];
 
-    // Load second index (TT-Metalium)
-    $.ajax({
-      url: METALIUM_INDEX_URL,
-      dataType: "script",
-      cache: true,
-      complete: function(jqxhr, textstatus) {
-        if (textstatus === "success") {
-          console.log('[Global Search] TT-Metalium index loaded successfully');
-          Search._metaliumIndex = Search._index;
-          Search._index = null;
-          Search._indexesLoaded++;
-          Search._checkBothLoaded();
-        } else {
-          console.error('[Global Search] Failed to load TT-Metalium index:', textstatus, jqxhr.status);
-        }
+    let ttnnLoaded = false;
+    function loadTtnnIndex(urls, index) {
+      if (index >= urls.length || ttnnLoaded) {
+        Search._indexesLoaded++;
+        Search._checkBothLoaded();
+        return;
       }
-    });
+
+      const currentUrl = urls[index];
+      $.ajax({
+        url: currentUrl,
+        dataType: "script",
+        cache: true,
+        complete: function(jqxhr, textstatus) {
+          if (textstatus === "success") {
+            console.log('[Global Search] TT-NN index loaded successfully from:', currentUrl);
+            ttnnLoaded = true;
+            Search._ttnnIndex = Search._index;
+            Search._index = null;
+            Search._indexesLoaded++;
+            Search._checkBothLoaded();
+          } else {
+            console.log('[Global Search] TT-NN not found at:', currentUrl, '- trying next...');
+            loadTtnnIndex(urls, index + 1);
+          }
+        }
+      });
+    }
+
+    // Load second index (TT-Metalium) with fallback paths
+    const metaliumUrls = [
+      METALIUM_INDEX_URL,
+      baseUrl + '/../tt-metalium/searchindex.js',  // Parent directory
+      '/tt-metalium/searchindex.js'  // Root level
+    ];
+
+    let metaliumLoaded = false;
+    function loadMetaliumIndex(urls, index) {
+      if (index >= urls.length || metaliumLoaded) {
+        Search._indexesLoaded++;
+        Search._checkBothLoaded();
+        return;
+      }
+
+      const currentUrl = urls[index];
+      $.ajax({
+        url: currentUrl,
+        dataType: "script",
+        cache: true,
+        complete: function(jqxhr, textstatus) {
+          if (textstatus === "success") {
+            console.log('[Global Search] TT-Metalium index loaded successfully from:', currentUrl);
+            metaliumLoaded = true;
+            Search._metaliumIndex = Search._index;
+            Search._index = null;
+            Search._indexesLoaded++;
+            Search._checkBothLoaded();
+          } else {
+            console.log('[Global Search] TT-Metalium not found at:', currentUrl, '- trying next...');
+            loadMetaliumIndex(urls, index + 1);
+          }
+        }
+      });
+    }
+
+    loadTtnnIndex(ttnnUrls, 0);
+    loadMetaliumIndex(metaliumUrls, 0);
   };
 
   // Check if both indexes are loaded and merge them
