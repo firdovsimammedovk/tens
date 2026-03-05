@@ -154,12 +154,30 @@
           
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get" onsubmit="return ttGlobalSearchRedirect(this);">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
+<script>
+function ttGlobalSearchRedirect(form) {
+  var queryInput = form.querySelector('input[name="q"]');
+  var query = queryInput ? queryInput.value : '';
+  var path = window.location.pathname;
+  var base = '';
+
+  var docMatch = path.match(/^(.*)\/(ttnn|tt-metalium)\/.*$/);
+  if (docMatch) {
+    base = docMatch[1];
+  } else {
+    base = path.replace(/\/[^/]*$/, '');
+  }
+
+  window.location.href = base + '/search.html?q=' + encodeURIComponent(query) + '&check_keywords=yes&area=default';
+  return false;
+}
+</script>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">TTNN</span></p>
 <ul class="current">
