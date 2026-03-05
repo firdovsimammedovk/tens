@@ -146,8 +146,17 @@
 
   Search.loadIndex = function () {
     const base = getBaseUrl();
-    // searchindex.js files are at the root level, not in subdirectories
-    const urls = [base + "/searchindex.js"];
+
+    // Try multiple possible locations for searchindex files
+    const ttnnUrls = [
+      base + "/ttnn/searchindex.js",
+      base + "/searchindex.js"  // Fallback to root level
+    ];
+
+    const metaliumUrls = [
+      base + "/tt-metalium/searchindex.js",
+      base + "/searchindex.js"  // Fallback to root level
+    ];
 
     let scriptsFinished = 0;
     const captured = [];
@@ -159,13 +168,17 @@
 
     function finishOne() {
       scriptsFinished += 1;
-      if (scriptsFinished < 1) {
+      if (scriptsFinished < 2) {
         return;
       }
 
       Search.setIndex = originalSetIndex;
 
-      if (captured.length >= 1) {
+      // If both indexes loaded, merge them
+      if (captured.length === 2) {
+        originalSetIndex(mergeIndexes(captured[0], captured[1]));
+      } else if (captured.length === 1) {
+        // Fallback: if only one loaded, use it
         originalSetIndex(captured[0]);
       }
 
@@ -174,12 +187,27 @@
       }
     }
 
-    urls.forEach((url) => {
-      const script = document.createElement("script");
-      script.src = url;
-      script.onload = finishOne;
-      script.onerror = finishOne;
-      document.body.appendChild(script);
-    });
+    function loadWithFallback(urlList, callback) {
+      function tryUrl(index) {
+        if (index >= urlList.length) {
+          callback();
+          return;
+        }
+
+        const url = urlList[index];
+        const script = document.createElement("script");
+        script.src = url;
+        script.onload = callback;
+        script.onerror = function () {
+          tryUrl(index + 1);
+        };
+        document.body.appendChild(script);
+      }
+
+      tryUrl(0);
+    }
+
+    loadWithFallback(ttnnUrls, finishOne);
+    loadWithFallback(metaliumUrls, finishOne);
   };
 })();
