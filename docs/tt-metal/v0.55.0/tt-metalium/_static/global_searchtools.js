@@ -175,8 +175,9 @@
       Search.setIndex = originalSetIndex;
 
       // If both indexes loaded, merge them
+      // Note: captured[0] is TT-Metalium, captured[1] is TT-NN
       if (captured.length === 2) {
-        originalSetIndex(mergeIndexes(captured[0], captured[1]));
+        originalSetIndex(mergeIndexes(captured[1], captured[0]));
       } else if (captured.length === 1) {
         // Fallback: if only one loaded, use it
         originalSetIndex(captured[0]);
@@ -207,7 +208,7 @@
       tryUrl(0);
     }
 
-    loadWithFallback(ttnnUrls, finishOne);
     loadWithFallback(metaliumUrls, finishOne);
+    loadWithFallback(ttnnUrls, finishOne);
   };
 })();
