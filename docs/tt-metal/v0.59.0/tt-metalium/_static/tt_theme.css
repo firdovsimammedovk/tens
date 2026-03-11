@@ -797,6 +797,13 @@ https://github.com/readthedocs/sphinx_rtd_theme/issues/1301
   transition: var(--transition-color);
 }
 
+.tt-topnav__bar--secondary .tt-topnav__sublink--active,
+.tt-topnav__bar--secondary .tt-topnav__dropdown--active > .tt-topnav__sublink {
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 #ffffff;
+}
+
 .tt-topnav__bar--secondary .tt-topnav__sublink:hover {
   color: #ffffff;
   opacity: 1;

@@ -29,6 +29,11 @@ Welcome to TT-Metalium documentation!
    resources/support
    resources/contributing
 
+.. toctree::
+   :hidden:
+
+   resources/nav/index
+
 Indices and tables
 ==================
 

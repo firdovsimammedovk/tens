@@ -1,0 +1,9 @@
+Resources
+=========
+
+.. toctree::
+   :hidden:
+
+   ../support
+   ../contributing
+

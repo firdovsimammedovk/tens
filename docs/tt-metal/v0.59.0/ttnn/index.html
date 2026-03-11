@@ -112,11 +112,11 @@
               <a class="tt-topnav__dropdown-item" href="ttnn/tutorials/tutorials/ttnn_intro.html">TT-NN Introduction</a>
             </div>
           </div>
-          <a class="tt-topnav__sublink" href="#">Guides</a>
+          <a class="tt-topnav__sublink" href="ttnn/tensor.html">Guides</a>
           <a class="tt-topnav__sublink" href="ttnn/tutorials.html">Tutorials</a>
           <a class="tt-topnav__sublink" href="ttnn/api.html">API Reference</a>
           <div class="tt-topnav__dropdown">
-            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Advanced Topics</a>
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="ttnn/onboarding.html">Advanced Topics</a>
             <div class="tt-topnav__dropdown-menu">
               <a class="tt-topnav__dropdown-item" href="ttnn/onboarding.html">Onboarding New Functionality</a>
               <a class="tt-topnav__dropdown-item" href="ttnn/converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a>
@@ -126,12 +126,13 @@
             </div>
           </div>
           <div class="tt-topnav__dropdown">
-            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Resources</a>
+            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="resources/support.html">Resources</a>
             <div class="tt-topnav__dropdown-menu">
               <a class="tt-topnav__dropdown-item" href="resources/support.html">Support</a>
               <a class="tt-topnav__dropdown-item" href="resources/contributing.html">Contributing as a Developer</a>
             </div>
           </div>
+          <a class="tt-topnav__sublink" href="tools/index.html">Tools</a>
         </nav>
 
         <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
@@ -185,17 +186,7 @@ function ttGlobalSearchRedirect(form) {
 <li class="toctree-l1"><a class="reference internal" href="ttnn/tensor.html">Tensor</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ttnn/api.html">APIs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ttnn/tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/onboarding.html">Onboarding New Functionality</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/adding_new_ttnn_operation.html">Adding New TT-NN Operation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/profiling_ttnn_operations.html">Profiling TT-NN Operations</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/demos.html">Building and Uplifting Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tools</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="resources/support.html">Support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="resources/contributing.html">Contributing as a developer</a></li>
 </ul>
 
         </div>
@@ -3115,66 +3106,12 @@ function ttGlobalSearchRedirect(form) {
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/onboarding.html">Onboarding New Functionality</a></li>
-<li class="toctree-l1">
-<a class="reference internal" href="ttnn/converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ttnn/converting_torch_model_to_ttnn.html#step-1-rewriting-the-model">Step 1 - Rewriting the Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn/converting_torch_model_to_ttnn.html#step-2-switching-to-ttnn-operations">Step 2 - Switching to ttnn Operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn/converting_torch_model_to_ttnn.html#step-3-optimizing-the-model">Step 3 - Optimizing the Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn/converting_torch_model_to_ttnn.html#more-examples">More examples</a></li>
-</ul>
-</li>
-<li class="toctree-l1">
-<a class="reference internal" href="ttnn/adding_new_ttnn_operation.html">Adding New TT-NN Operation</a><ul>
-<li class="toctree-l2">
-<a class="reference internal" href="ttnn/adding_new_ttnn_operation.html#faq">FAQ</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ttnn/adding_new_ttnn_operation.html#what-is-a-tt-nn-operation">What is a TT-NN operation?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ttnn/adding_new_ttnn_operation.html#what-steps-are-needed-to-add-tt-nn-operation-in-c">What steps are needed to add TT-NN operation in C++?</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ttnn/adding_new_ttnn_operation.html#what-steps-are-needed-to-add-tt-nn-operation-in-python">What steps are needed to add TT-NN operation in Python?</a></li>
-</ul>
-</li>
-<li class="toctree-l2">
-<a class="reference internal" href="ttnn/adding_new_ttnn_operation.html#example-of-adding-a-new-device-operation">Example of Adding a new Device Operation</a><ul>
-<li class="toctree-l3">
-<a class="reference internal" href="ttnn/adding_new_ttnn_operation.html#c-implementation">C++ Implementation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ttnn/adding_new_ttnn_operation.html#step-1-implement-device-operation">Step 1: Implement device operation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ttnn/adding_new_ttnn_operation.html#step-2-implement-the-operation-in-c">Step 2: Implement the operation in C++</a></li>
-</ul>
-</li>
-<li class="toctree-l3">
-<a class="reference internal" href="ttnn/adding_new_ttnn_operation.html#python-implementation">Python Implementation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="ttnn/adding_new_ttnn_operation.html#step-1-add-python-binding">Step 1: Add Python binding</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ttnn/adding_new_ttnn_operation.html#step-2-optional-add-golden-function-for-the-operation-in-python">Step 2: (Optional) Add golden function for the operation in Python</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ttnn/adding_new_ttnn_operation.html#step-3-optional-add-example-usage-to-docs">Step 3: (Optional) Add example usage to docs</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1">
-<a class="reference internal" href="ttnn/profiling_ttnn_operations.html">Profiling TT-NN Operations</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ttnn/profiling_ttnn_operations.html#perf-report-headers">Perf Report Headers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn/profiling_ttnn_operations.html#profile-this-description">profile_this description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn/profiling_ttnn_operations.html#using-the-performance-report-with-tt-nn-visualizer">Using the Performance Report with TT-NN Visualizer</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ttnn/demos.html">Building and Uplifting Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tools/index.html">Tools</a></li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul>
-<li class="toctree-l1">
-<a class="reference internal" href="resources/support.html">Support</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="resources/support.html#reporting-bugs-feature-proposals-or-support-requests">Reporting bugs, feature proposals, or support requests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="resources/support.html#troubleshooting-and-debugging-tips">Troubleshooting and debugging tips</a></li>
-<li class="toctree-l2"><a class="reference internal" href="resources/support.html#community">Community</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="resources/contributing.html">Contributing as a developer</a></li>
-</ul>
+</div>
+<div class="toctree-wrapper compound">
 </div>
 </section>
 
