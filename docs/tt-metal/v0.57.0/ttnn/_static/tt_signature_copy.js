@@ -26,7 +26,7 @@
     }
   }
 
-  function addCopyButton(section, codeBlock) {
+  function addCopyButton(section, codeBlock, ariaLabel) {
     var highlight = codeBlock.closest(".highlight");
     if (!highlight || highlight.querySelector(".tt-copy-btn")) {
       return;
@@ -36,7 +36,7 @@
     button.type = "button";
     button.className = "tt-copy-btn";
     button.textContent = "Copy";
-    button.setAttribute("aria-label", "Copy signature");
+    button.setAttribute("aria-label", ariaLabel || "Copy code");
 
     button.addEventListener("click", function () {
       var text = codeBlock.textContent.replace(/\s+$/g, "");
@@ -52,6 +52,16 @@
     highlight.appendChild(button);
   }
 
+  function getHeadingText(heading) {
+    // Clone the heading and remove the headerlink element
+    var clone = heading.cloneNode(true);
+    var link = clone.querySelector(".headerlink");
+    if (link) {
+      link.remove();
+    }
+    return clone.textContent.trim().toLowerCase();
+  }
+
   function initSignatureCopyButtons() {
     var sections = document.querySelectorAll(".section");
     sections.forEach(function (section) {
@@ -59,15 +69,23 @@
       if (!heading) {
         return;
       }
-      var title = heading.textContent.trim().toLowerCase();
-      if (title !== "signature") {
+
+      var title = getHeadingText(heading);
+
+      if (title === "signature") {
+        var codeBlock = section.querySelector("div.highlight pre");
+        if (codeBlock) {
+          addCopyButton(section, codeBlock, "Copy signature");
+        }
         return;
       }
-      var codeBlock = section.querySelector("div.highlight pre");
-      if (!codeBlock) {
-        return;
+
+      if (title === "examples") {
+        var codeBlocks = section.querySelectorAll("div.highlight pre");
+        codeBlocks.forEach(function (codeBlock) {
+          addCopyButton(section, codeBlock, "Copy example");
+        });
       }
-      addCopyButton(section, codeBlock);
     });
   }
 

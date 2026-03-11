@@ -9,34 +9,17 @@ Welcome to TT-NN documentation!
 .. toctree::
    :caption: TTNN
 
-   ttnn/about
-   ttnn/get_started
-   ttnn/installing
-   ttnn/tutorials/tutorials/ttnn_intro.ipynb
-   ttnn/tensor
-   ttnn/api
-   ttnn/tutorials
-   tools/index
-
-.. toctree::
-   :hidden:
-
-   ttnn/onboarding
-   ttnn/converting_torch_model_to_ttnn
-   ttnn/adding_new_ttnn_operation
-   ttnn/profiling_ttnn_operations
-   ttnn/demos
-
-.. toctree::
-   :hidden:
-
    ttnn/nav/getting_started
    ttnn/nav/guides
    ttnn/nav/tutorials
    ttnn/nav/api_reference
    ttnn/nav/advanced_topics
-   resources/nav/index
    tools/nav/index
+
+.. toctree::
+   :caption: Resources
+
+   resources/nav/index
 
 Indices and tables
 ==================
