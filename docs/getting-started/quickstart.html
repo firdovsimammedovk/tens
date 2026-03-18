@@ -2,12 +2,9 @@
 <html class="writer-html5" lang="en">
 <head>
     <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta content="tt-installer, TT-Metalium™" name="product-name" />
-<meta content="model-demos, container, Podman" name="technology-concepts" />
-<meta content="how-to" name="document-type" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Running Model Demos &mdash; Home 1.0 documentation</title>
+    <title>Quickstart &mdash; Home 1.0 documentation</title>
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css"/>
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css"/>
     <link rel="stylesheet" href="../_static/copybutton.css" type="text/css"/>
@@ -40,8 +37,8 @@
     <script src="../_static/tt_version_dropdown.js"></script>
     <link rel="index" title="Index" href="../genindex.html"/>
     <link rel="search" title="Search" href="../search.html"/>
-    <link rel="next" title="Deploying LLMs" href="vLLM-servers.html"/>
-    <link rel="prev" title="Quickstart" href="quickstart.html"/> 
+    <link rel="next" title="Running Model Demos" href="model-demos.html"/>
+    <link rel="prev" title="Installing the Tenstorrent Software Stack" href="README.html"/> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -65,8 +62,8 @@
                         <a class="tt-topnav__dropdown-item" href="../Overview.html">Overview</a>
                         <a class="tt-topnav__dropdown-item" href="../systems/index.html">Software Stack</a>
                         <a class="tt-topnav__dropdown-item" href="README.html">Installation</a>
-                        <a class="tt-topnav__dropdown-item" href="#">Run Your First Model</a>
-                        <a class="tt-topnav__dropdown-item" href="quickstart.html">Quickstart</a>
+                        <a class="tt-topnav__dropdown-item" href="model-demos.html">Run Your First Model</a>
+                        <a class="tt-topnav__dropdown-item" href="#">Quickstart</a>
                     </div>
                 </div>
                 <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
@@ -234,17 +231,18 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../Overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="README.html">Installing the Tenstorrent Software Stack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="quickstart.html">Quickstart</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Running Model Demos</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#before-you-begin"><strong>Before You Begin</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-1-download-and-installing-the-demos-container"><strong>Step 1: Download and Installing the Demos Container</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-2-starting-the-container"><strong>Step 2: Starting the Container</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-3-run-a-simple-program"><strong>Step 3: Run a simple program</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-4-explore-more-model-demos"><strong>Step 4: Explore More Model Demos</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#step-5-exit-the-container"><strong>Step 5: Exit the Container</strong></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#need-additional-support"><strong>Need Additional Support?</strong></a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-install-the-software-stack">Step 1 — Install the Software Stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-verify-installation">Step 2 — Verify Installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-3-run-your-first-model">Step 3 — Run Your First Model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-4-inspect-performance-optional">Step 4 — Inspect Performance (Optional)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s Next</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#common-issues">Common Issues</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="model-demos.html">Running Model Demos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vLLM-servers.html">Deploying LLMs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
 </ul>
@@ -285,7 +283,7 @@
                     <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Running Model Demos</li>
+      <li class="breadcrumb-item active">Quickstart</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -294,73 +292,136 @@
                     <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
                         <div itemprop="articleBody">
                             
-  <section id="running-model-demos">
-<h1>Running Model Demos<a class="headerlink" href="#running-model-demos" title="Link to this heading"></a></h1>
-<p>This guide is for users who have installed the base Tenstorrent Software Stack. You’ll learn how to download and enter the containerized environment for model demos, run a basic operation to verify the environment is working, and find more complex model examples.</p>
-<p>This guide demonstrates how to run the tt-metalium model demos using the <a class="reference external" href="https://github.com/tenstorrent/tt-installer">tt-installer</a> tool. The tt-installer can be used to download a <a class="reference external" href="https://github.com/tenstorrent/tt-installer?tab=readme-ov-file#using-tt-metalium">container for running the tt-metalium demos</a>. This container possesses a full build of the tt-metalium project, including the demo source code.</p>
-<hr class="docutils" />
-<section id="before-you-begin">
-<h2><strong>Before You Begin</strong><a class="headerlink" href="#before-you-begin" title="Link to this heading"></a></h2>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>This guide assumes you have already installed the necessary system dependencies and drivers by following the <a class="reference internal" href="README.html"><span class="std std-doc">Installing the Tenstorrent Software Stack</span></a> guide.</p>
-</div>
-</section>
-<hr class="docutils" />
-<section id="step-1-download-and-installing-the-demos-container">
-<h2><strong>Step 1: Download and Installing the Demos Container</strong><a class="headerlink" href="#step-1-download-and-installing-the-demos-container" title="Link to this heading"></a></h2>
-<p>The model demos are packaged in a dedicated container. This keeps the demo environment and its specific dependencies separate from your system.</p>
-<p>Run the following command to add the models container to your existing Tenstorrent software installation.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://github.com/tenstorrent/tt-installer/releases/latest/download/install.sh<span class="k">)</span><span class="s2">&quot;</span><span class="w"> </span>--<span class="w"> </span>--no-install-kmd<span class="w"> </span>--no-install-hugepages<span class="w"> </span>--no-install-metalium-container<span class="w"> </span>--install-metalium-models-container<span class="w"> </span>--no-install-tt-flash<span class="w"> </span>--no-install-tt-topology<span class="w"> </span>--update-firmware<span class="o">=</span><span class="s2">&quot;off&quot;</span><span class="w"> </span>--reboot-option<span class="o">=</span><span class="s2">&quot;never&quot;</span><span class="w"> </span>--mode-non-interactive
-</pre></div>
-</div>
-</section>
-<section id="step-2-starting-the-container">
-<h2><strong>Step 2: Starting the Container</strong><a class="headerlink" href="#step-2-starting-the-container" title="Link to this heading"></a></h2>
-<p>To use the models container, execute this command to create an interactive shell with all configuration taken care of:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tt-metalium-models
-</pre></div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This container is ephemeral so all changes made inside will be lost when the container is stopped</p>
-</div>
-</section>
-<section id="step-3-run-a-simple-program">
-<h2><strong>Step 3: Run a simple program</strong><a class="headerlink" href="#step-3-run-a-simple-program" title="Link to this heading"></a></h2>
-<p>To confirm that the environment is configured correctly and can access the hardware, run the simple test program. This program performs an exponentiation and a matrix multiplication operation on the device:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># this should be run inside the container</span>
-python<span class="w"> </span>ttnn/ttnn/examples/usage/run_op_on_device.py
-</pre></div>
-</div>
-<p>Successful execution will complete without errors, confirming your setup is correct.</p>
-</section>
-<section id="step-4-explore-more-model-demos">
-<h2><strong>Step 4: Explore More Model Demos</strong><a class="headerlink" href="#step-4-explore-more-model-demos" title="Link to this heading"></a></h2>
-<p>This container includes demos for a wide variety of models. You can find instructions for each one in the <a class="reference external" href="https://github.com/tenstorrent/tt-metal/tree/main">tt-metal GitHub repository.</a></p>
-<p>See <a class="reference external" href="https://github.com/tenstorrent/tt-metal/blob/main/models/README.md">the tt-metal models page</a> for a full list and links to individual guides for models covering:</p>
+  <section id="quickstart">
+<h1>Quickstart<a class="headerlink" href="#quickstart" title="Link to this heading"></a></h1>
+<p>This guide will help you get started with Tenstorrent in just a few minutes.</p>
+<p>By the end of this guide, you will:</p>
 <ul class="simple">
-<li><p>Large Language Models (LLMs)</p></li>
-<li><p>Speech-To-Text</p></li>
-<li><p>Diffusion</p></li>
-<li><p>Image Classification</p></li>
-<li><p>Vision Transformers</p></li>
-<li><p>Object Detection</p></li>
-<li><p>Image Segmentation</p></li>
-<li><p>Natural Language Processors (NLPs)</p></li>
+<li><p>Install the Tenstorrent software stack</p></li>
+<li><p>Verify your environment</p></li>
+<li><p>Run your first model</p></li>
+</ul>
+<hr class="docutils" />
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>Before you begin, make sure you have:</p>
+<ul class="simple">
+<li><p>A Linux system (Ubuntu is recommended)</p></li>
+<li><p>Python 3.8 or newer</p></li>
+<li><p>Access to Tenstorrent hardware (local machine or remote system)</p></li>
+<li><p>Internet connection to download dependencies</p></li>
 </ul>
 </section>
-<section id="step-5-exit-the-container">
-<h2><strong>Step 5: Exit the Container</strong><a class="headerlink" href="#step-5-exit-the-container" title="Link to this heading"></a></h2>
-<p>When you are finished, exit the interactive shell.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">exit</span>
+<hr class="docutils" />
+<section id="step-1-install-the-software-stack">
+<h2>Step 1 — Install the Software Stack<a class="headerlink" href="#step-1-install-the-software-stack" title="Link to this heading"></a></h2>
+<p>Clone the Tenstorrent repository and install the required components:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/tenstorrent/tt-metal.git
+<span class="nb">cd</span><span class="w"> </span>tt-metal
+./install.sh
 </pre></div>
 </div>
+<p>This process may take several minutes depending on your system.</p>
 </section>
 <hr class="docutils" />
-<section id="need-additional-support">
-<h2><strong>Need Additional Support?</strong><a class="headerlink" href="#need-additional-support" title="Link to this heading"></a></h2>
-<p>If you encounter any issues, or have a question that isn’t covered in the documentation, please <a class="reference external" href="https://tenstorrent.atlassian.net/servicedesk/customer/portal/1">raise a support request.</a> Our team will review your request and provide assistance.</p>
+<section id="step-2-verify-installation">
+<h2>Step 2 — Verify Installation<a class="headerlink" href="#step-2-verify-installation" title="Link to this heading"></a></h2>
+<p>After installation, verify that your system detects Tenstorrent devices:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tt-smi
+</pre></div>
+</div>
+<p>Expected result:</p>
+<ul class="simple">
+<li><p>One or more devices are listed</p></li>
+<li><p>No errors are shown</p></li>
+</ul>
+<p>If no devices appear:</p>
+<ul class="simple">
+<li><p>Check hardware connections</p></li>
+<li><p>Ensure drivers are installed</p></li>
+<li><p>Verify remote access setup if using a remote system</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-3-run-your-first-model">
+<h2>Step 3 — Run Your First Model<a class="headerlink" href="#step-3-run-your-first-model" title="Link to this heading"></a></h2>
+<p>Navigate to the demo directory and run a sample model:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>demos
+python<span class="w"> </span>run_demo.py
+</pre></div>
+</div>
+<p>You should see:</p>
+<ul class="simple">
+<li><p>Model loading logs</p></li>
+<li><p>Execution progress</p></li>
+<li><p>Output results or predictions</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="step-4-inspect-performance-optional">
+<h2>Step 4 — Inspect Performance (Optional)<a class="headerlink" href="#step-4-inspect-performance-optional" title="Link to this heading"></a></h2>
+<p>To analyze performance, run the demo with profiling enabled:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>run_demo.py<span class="w"> </span>--profile
+</pre></div>
+</div>
+<p>This will generate:</p>
+<ul class="simple">
+<li><p>Execution timeline</p></li>
+<li><p>Kernel-level performance metrics</p></li>
+<li><p>Insights into compute and memory usage</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="what-s-next">
+<h2>What’s Next<a class="headerlink" href="#what-s-next" title="Link to this heading"></a></h2>
+<p>Now that you have successfully run your first model, you can explore further:</p>
+<ul class="simple">
+<li><p>Running more models and demos</p></li>
+<li><p>Optimizing performance</p></li>
+<li><p>Scaling across multiple devices</p></li>
+<li><p>Writing custom operations and kernels</p></li>
+</ul>
+<p>Recommended next steps:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="model-demos.html"><span class="std std-doc">Explore model demos</span></a></p></li>
+<li><p><a class="reference external" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">Learn the TT-NN API</a></p></li>
+<li><p><a class="reference external" href="https://firdovsimammedovk.github.io/tens/tt-metal/">Dive into TT-Metalium for low-level control</a></p></li>
+<li><p><a class="reference internal" href="../tools/index.html"><span class="std std-doc">Use profiling tools to understand performance</span></a></p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="common-issues">
+<h2>Common Issues<a class="headerlink" href="#common-issues" title="Link to this heading"></a></h2>
+<p><strong>No devices detected:</strong></p>
+<ul class="simple">
+<li><p>Check cables and hardware setup</p></li>
+<li><p>Ensure correct drivers are installed</p></li>
+<li><p>Confirm access permissions</p></li>
+</ul>
+<p><strong>Installation fails:</strong></p>
+<ul class="simple">
+<li><p>Verify Python version</p></li>
+<li><p>Check system dependencies</p></li>
+<li><p>Re-run installation with proper permissions</p></li>
+</ul>
+<p><strong>Model execution fails:</strong></p>
+<ul class="simple">
+<li><p>Ensure environment variables are set correctly</p></li>
+<li><p>Try running a simpler demo</p></li>
+<li><p>Check logs for specific errors</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Link to this heading"></a></h2>
+<p>You have now:</p>
+<ul class="simple">
+<li><p>Installed the Tenstorrent software stack</p></li>
+<li><p>Verified your system setup</p></li>
+<li><p>Successfully executed a model</p></li>
+</ul>
+<p>You are ready to start building and optimizing workloads on Tenstorrent.</p>
+<p>Continue by exploring <a class="reference internal" href="README.html"><span class="std std-doc">guides</span></a>, <a class="reference internal" href="../tools/index.html"><span class="std std-doc">tools</span></a>, and deeper layers of the platform.</p>
 </section>
 </section>
 
@@ -368,12 +429,12 @@ python<span class="w"> </span>ttnn/ttnn/examples/usage/run_op_on_device.py
                         </div>
                     </div>
                     <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="quickstart.html" class="btn btn-neutral float-left" title="Quickstart" accesskey="p" rel="prev">
-          <span class="tt-pagination-topic">Quickstart</span>
+        <a href="README.html" class="btn btn-neutral float-left" title="Installing the Tenstorrent Software Stack" accesskey="p" rel="prev">
+          <span class="tt-pagination-topic">Installing the Tenstorrent Software Stack</span>
           <span class="tt-pagination-label">Previous</span>
         </a>
-        <a href="vLLM-servers.html" class="btn btn-neutral float-right" title="Deploying LLMs" accesskey="n" rel="next">
-          <span class="tt-pagination-topic">Deploying LLMs</span>
+        <a href="model-demos.html" class="btn btn-neutral float-right" title="Running Model Demos" accesskey="n" rel="next">
+          <span class="tt-pagination-topic">Running Model Demos</span>
           <span class="tt-pagination-label">Next</span>
         </a>
     </div>

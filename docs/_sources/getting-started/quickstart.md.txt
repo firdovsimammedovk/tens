@@ -1,0 +1,143 @@
+# Quickstart
+
+This guide will help you get started with Tenstorrent in just a few minutes.
+
+By the end of this guide, you will:
+
+- Install the Tenstorrent software stack
+- Verify your environment
+- Run your first model
+
+---
+
+## Prerequisites
+
+Before you begin, make sure you have:
+
+- A Linux system (Ubuntu is recommended)
+- Python 3.8 or newer
+- Access to Tenstorrent hardware (local machine or remote system)
+- Internet connection to download dependencies
+
+---
+
+## Step 1 — Install the Software Stack
+
+Clone the Tenstorrent repository and install the required components:
+
+```bash
+git clone https://github.com/tenstorrent/tt-metal.git
+cd tt-metal
+./install.sh
+```
+
+This process may take several minutes depending on your system.
+
+---
+
+## Step 2 — Verify Installation
+
+After installation, verify that your system detects Tenstorrent devices:
+
+```bash
+tt-smi
+```
+
+Expected result:
+
+- One or more devices are listed
+- No errors are shown
+
+If no devices appear:
+
+- Check hardware connections
+- Ensure drivers are installed
+- Verify remote access setup if using a remote system
+
+---
+
+## Step 3 — Run Your First Model
+
+Navigate to the demo directory and run a sample model:
+
+```bash
+cd demos
+python run_demo.py
+```
+
+You should see:
+
+- Model loading logs
+- Execution progress
+- Output results or predictions
+
+---
+
+## Step 4 — Inspect Performance (Optional)
+
+To analyze performance, run the demo with profiling enabled:
+
+```bash
+python run_demo.py --profile
+```
+
+This will generate:
+
+- Execution timeline
+- Kernel-level performance metrics
+- Insights into compute and memory usage
+
+---
+
+## What's Next
+
+Now that you have successfully run your first model, you can explore further:
+
+- Running more models and demos
+- Optimizing performance
+- Scaling across multiple devices
+- Writing custom operations and kernels
+
+Recommended next steps:
+
+- [Explore model demos](model-demos.md)
+- [Learn the TT-NN API](https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html)
+- [Dive into TT-Metalium for low-level control](https://firdovsimammedovk.github.io/tens/tt-metal/)
+- [Use profiling tools to understand performance](../tools/index.rst)
+
+---
+
+## Common Issues
+
+**No devices detected:**
+
+- Check cables and hardware setup
+- Ensure correct drivers are installed
+- Confirm access permissions
+
+**Installation fails:**
+
+- Verify Python version
+- Check system dependencies
+- Re-run installation with proper permissions
+
+**Model execution fails:**
+
+- Ensure environment variables are set correctly
+- Try running a simpler demo
+- Check logs for specific errors
+
+---
+
+## Summary
+
+You have now:
+
+- Installed the Tenstorrent software stack
+- Verified your system setup
+- Successfully executed a model
+
+You are ready to start building and optimizing workloads on Tenstorrent.
+
+Continue by exploring [guides](README.md), [tools](../tools/index.rst), and deeper layers of the platform.
+

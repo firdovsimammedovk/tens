@@ -1,0 +1,129 @@
+# Overview
+
+Welcome to Tenstorrent - a high-performance computing platform designed for modern AI workloads, from model development to large-scale deployment.
+
+Tenstorrent provides a vertically integrated stack that combines specialized hardware, low-level programming interfaces, and high-level APIs to enable efficient execution of machine learning models.
+
+---
+
+## What You Can Do
+
+With Tenstorrent, you can:
+
+- Run and deploy machine learning models on Tenstorrent hardware
+- Optimize performance for inference and training workloads
+- Develop custom kernels and operations
+- Scale workloads across multiple devices and systems
+- Analyze and debug execution using built-in tools
+
+---
+
+## Platform Overview
+
+Tenstorrent consists of four main layers:
+
+### Hardware
+
+Custom AI accelerators and systems designed for high-throughput computation.
+
+- Tensix cores
+- High-bandwidth memory architecture
+- Network-on-Chip (NoC)
+- Multi-chip systems
+
+Learn more: [Hardware Overview](aibs/index.rst)
+
+---
+
+### Software Stack
+
+A layered software platform that provides different levels of abstraction:
+
+- **TT-NN** - high-level API for model development
+- **TT-Metalium** - low-level programming model for kernels and execution
+- **Compiler / Runtime** - execution and optimization layer
+
+Learn more: [Software Overview](software/Overview.md)
+
+---
+
+### Tools
+
+Utilities for monitoring, debugging, and optimizing workloads:
+
+- `tt-smi` - system monitoring
+- Profiler - performance analysis
+- Topology Explorer - device layout
+- Visualizer - execution insights
+
+Learn more: [Tools](tools/index.rst)
+
+---
+
+### Models and Guides
+
+Prebuilt examples and workflows to help you get started quickly:
+
+- Model demos
+- LLM deployment
+- Performance optimization guides
+- Multi-device execution
+
+Learn more: [Model Demos](getting-started/model-demos.md)
+
+---
+
+## Quick Start
+
+New to Tenstorrent? Start here:
+
+1. Install the Tenstorrent software stack
+2. Run your first model
+3. Explore performance and scaling
+
+Get started: [Getting Started](getting-started/README.md)
+
+---
+
+## Choose Your Path
+
+Depending on your role, you may want to explore:
+
+- **ML Engineer** -> Running Models, TT-NN
+- **Systems / Performance Engineer** -> TT-Metalium, Profiling
+- **Hardware / Low-Level Developer** -> Tensix, Memory, NoC
+- **DevOps / Infra** -> Installation, Multi-device setup
+
+---
+
+## Additional Resources
+
+- Architecture Overview
+- Glossary
+- Release Notes
+- Roadmap
+
+Explore: [Support](support/README.md)
+
+---
+
+## Support
+
+Need help?
+
+- FAQ
+- Troubleshooting
+- Community (Discord)
+- Contact
+
+Get support: [Support Page](support/README.md)
+
+---
+
+## Next Steps
+
+Start building with Tenstorrent:
+
+- [Install the software stack](getting-started/README.md)
+- [Run your first model](getting-started/model-demos.md)
+- [Explore guides](getting-started/README.md)
