@@ -16,7 +16,10 @@ Tenstorrent provides a full software stack that enables developers to run and op
 
 ## Software Stack Diagram
 
-![Wormhole vs Blackhole](../images/wormhole_vs_blackhole.png)
+```{image} ../images/stack_diagram.png
+:alt: Wormhole vs Blackhole
+:width: 650px
+```
 
 This layered architecture separates high-level model development from low-level hardware execution.
 
@@ -26,7 +29,11 @@ This layered architecture separates high-level model development from low-level 
 
 Tenstorrent software transforms a machine learning model into executable kernels that run on Tensix compute cores. The process typically follows these steps:
 
-**model definition → graph compilation → neural network operations → kernel scheduling → hardware execution**
+```{image} ../images/how_stack_works.png
+:alt: Wormhole vs Blackhole
+:width: 650px
+```
+
 
 Each layer of the stack is responsible for a different stage of this pipeline.
 

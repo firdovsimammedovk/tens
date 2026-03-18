@@ -311,14 +311,16 @@
 <hr class="docutils" />
 <section id="software-stack-diagram">
 <h2>Software Stack Diagram<a class="headerlink" href="#software-stack-diagram" title="Link to this heading"></a></h2>
-<p><img alt="Wormhole vs Blackhole" src="../_images/wormhole_vs_blackhole.png" /></p>
+<a class="reference internal image-reference" href="../_images/stack_diagram.png"><img alt="Wormhole vs Blackhole" src="../_images/stack_diagram.png" style="width: 650px;" />
+</a>
 <p>This layered architecture separates high-level model development from low-level hardware execution.</p>
 </section>
 <hr class="docutils" />
 <section id="how-the-stack-works">
 <h2>How the Stack Works<a class="headerlink" href="#how-the-stack-works" title="Link to this heading"></a></h2>
 <p>Tenstorrent software transforms a machine learning model into executable kernels that run on Tensix compute cores. The process typically follows these steps:</p>
-<p><strong>model definition → graph compilation → neural network operations → kernel scheduling → hardware execution</strong></p>
+<a class="reference internal image-reference" href="../_images/how_stack_works.png"><img alt="Wormhole vs Blackhole" src="../_images/how_stack_works.png" style="width: 650px;" />
+</a>
 <p>Each layer of the stack is responsible for a different stage of this pipeline.</p>
 </section>
 <hr class="docutils" />
