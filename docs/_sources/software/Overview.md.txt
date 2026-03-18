@@ -16,17 +16,7 @@ Tenstorrent provides a full software stack that enables developers to run and op
 
 ## Software Stack Diagram
 
-```
-ML Frameworks (PyTorch / JAX / TensorFlow)
-    ↓
-TT-Forge (compiler)
-    ↓
-TT-NN (neural network API)
-    ↓
-TT-Metalium (device runtime)
-    ↓
-Tensix Hardware
-```
+![Tenstorrent software stack diagram](./tenstorrent_stack_diagram.svg)
 
 This layered architecture separates high-level model development from low-level hardware execution.
 
@@ -108,5 +98,3 @@ To learn more about individual components of the stack:
 - [TT-NN Overview](https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html) - Explore neural network operations
 - [TT-Metalium Overview](https://firdovsimammedovk.github.io/tens/tt-metal/) - Understand low-level hardware programming
 - [Hardware Architecture](../aibs/index.rst) - Deep dive into Tensix core design
-
-

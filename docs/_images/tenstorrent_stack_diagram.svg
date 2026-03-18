@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="560" viewBox="0 0 960 560" role="img" aria-labelledby="title desc">
+  <title id="title">Tenstorrent Software Stack Diagram</title>
+  <desc id="desc">Layered diagram from ML frameworks down to Tensix hardware.</desc>
+
+  <defs>
+    <style>
+      .box { fill: #f7f9fc; stroke: #26415f; stroke-width: 2; rx: 12; }
+      .label { fill: #12263a; font-family: Arial, Helvetica, sans-serif; font-size: 24px; font-weight: 600; text-anchor: middle; dominant-baseline: middle; }
+      .arrow { stroke: #4a6fa5; stroke-width: 4; fill: none; marker-end: url(#arrowhead); }
+      .subtitle { fill: #2e4057; font-family: Arial, Helvetica, sans-serif; font-size: 18px; text-anchor: middle; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="8" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4a6fa5"/>
+    </marker>
+  </defs>
+
+  <rect x="180" y="32" width="600" height="64" class="box"/>
+  <text x="480" y="64" class="label">ML Frameworks (PyTorch / JAX / TensorFlow)</text>
+
+  <line x1="480" y1="98" x2="480" y2="138" class="arrow"/>
+
+  <rect x="250" y="144" width="460" height="64" class="box"/>
+  <text x="480" y="176" class="label">TT-Forge (compiler)</text>
+
+  <line x1="480" y1="210" x2="480" y2="250" class="arrow"/>
+
+  <rect x="250" y="256" width="460" height="64" class="box"/>
+  <text x="480" y="288" class="label">TT-NN (neural network API)</text>
+
+  <line x1="480" y1="322" x2="480" y2="362" class="arrow"/>
+
+  <rect x="250" y="368" width="460" height="64" class="box"/>
+  <text x="480" y="400" class="label">TT-Metalium (device runtime)</text>
+
+  <line x1="480" y1="434" x2="480" y2="474" class="arrow"/>
+
+  <rect x="290" y="480" width="380" height="64" class="box"/>
+  <text x="480" y="512" class="label">Tensix Hardware</text>
+
+  <text x="480" y="22" class="subtitle">Tenstorrent Software Stack</text>
+</svg>
+
