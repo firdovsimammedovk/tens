@@ -27,6 +27,7 @@ Tenstorrent
    :caption: Software
    :maxdepth: 2
 
+   software/index
    forge/index
    TT-Metalium <https://firdovsimammedovk.github.io/tens/tt-metal/>
    TT-NN <https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html>
