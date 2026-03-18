@@ -355,6 +355,89 @@ li.toctree-l1.current > a {
   margin-top: 2rem; /* give footer buttons a little bit of space */
 }
 
+.rst-footer-buttons::after,
+.rst-breadcrumbs-buttons::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.rst-footer-buttons .tt-page-nav,
+.rst-breadcrumbs-buttons .tt-page-nav {
+  display: inline-flex !important;
+  flex-direction: column;
+  gap: 0.15rem;
+  max-width: min(42%, 20rem);
+  min-width: 10.5rem;
+  padding: 0.55rem 0.8rem;
+  line-height: 1.2;
+  white-space: normal;
+  text-transform: none;
+  background: #7c68fa !important;
+  color: #ffffff !important;
+}
+
+.rst-footer-buttons .tt-page-nav:visited,
+.rst-breadcrumbs-buttons .tt-page-nav:visited,
+.rst-footer-buttons .tt-page-nav:hover,
+.rst-breadcrumbs-buttons .tt-page-nav:hover,
+.rst-footer-buttons .tt-page-nav:focus,
+.rst-breadcrumbs-buttons .tt-page-nav:focus {
+  background: #7c68fa !important;
+  color: #ffffff !important;
+}
+
+.rst-footer-buttons .tt-page-nav--next,
+.rst-breadcrumbs-buttons .tt-page-nav--next {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.rst-footer-buttons .tt-page-nav--prev,
+.rst-breadcrumbs-buttons .tt-page-nav--prev {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.tt-page-nav__eyebrow {
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  opacity: 0.75;
+  text-transform: uppercase;
+}
+
+.tt-page-nav__title {
+  display: -webkit-box;
+  overflow: hidden;
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  text-wrap: balance;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+@media screen and (max-width: 768px) {
+  .rst-footer-buttons .tt-page-nav,
+  .rst-breadcrumbs-buttons .tt-page-nav {
+    float: none !important;
+    display: flex !important;
+    max-width: 100%;
+    min-width: 0;
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .rst-footer-buttons .tt-page-nav--next,
+  .rst-breadcrumbs-buttons .tt-page-nav--next {
+    align-items: flex-start;
+    text-align: left;
+  }
+}
+
 /* Document styling */
 
 .document * h1,
