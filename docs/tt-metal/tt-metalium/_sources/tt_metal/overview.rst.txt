@@ -79,8 +79,7 @@ Next Steps
 
 To learn more about TT-Metalium:
 
-* TT-Metalium Getting Started
-* Architecture Overview
-* Kernel Programming Guide
-* API Reference
-
+* :doc:`TT-Metalium Getting Started <../get_started/get_started>`
+* :doc:`Architecture Overview <advanced_topics/index>`
+* :doc:`Kernel Programming Guide <programming_model/index>`
+* :doc:`API Reference <apis/index>`
