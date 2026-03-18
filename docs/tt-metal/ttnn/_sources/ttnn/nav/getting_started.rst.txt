@@ -4,6 +4,7 @@ Getting Started
 .. toctree::
    :hidden:
 
+   ../overview
    ../about
    ../get_started
    ../installing

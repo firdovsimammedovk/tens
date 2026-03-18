@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+    <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Active Cooling Kit &mdash; Home 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css"/>
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../_static/tt_theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../_static/home.css" type="text/css"/>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=fd3dd8dd"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/tt_signature_copy.js"></script>
+    <script src="../../_static/tt_dropdown.js"></script>
+    <script src="../../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html"/>
+    <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="next" title="Systems" href="../../systems/index.html"/>
+    <link rel="prev" title="Warp 100 Bridge" href="warp100.html"/> 
+</head>
+
+<body class="wy-body-for-nav"> 
+<!-- ===== Top Navbar (NEW) ===== -->
+
+
+<header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+        <div class="tt-topnav__inner">
+
+            <!-- Logo -->
+            <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="Home"/></a>
+
+            <!-- Primary links (hardcoded like the mock) -->
+            <nav class="tt-topnav__links" aria-label="Primary navigation">
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Get Started</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Software Stack</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Installation</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Run Your First
+                            model</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Quickstart</a>
+                    </div>
+                </div>
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Guides</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../index.html">Running Models</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Performance
+                            Optimizations</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Multi-Device Setup</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Debugging Workflows</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Developing Custom
+                            Ops</a>
+                    </div>
+                </div>
+
+                <!-- Software dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../software/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../forge/index.html">TT-Forge</a>
+                        <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+                    </div>
+                </div>
+
+                <!-- Hardware dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../index.html">Tensix Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Memory Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Network on Chip</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Chips</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+                    </div>
+                </div>
+
+                <!-- Tools dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Tools</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../index.html">tt-smi</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Profiler</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Topology Explorer</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Visualizer</a>
+                    </div>
+                </div>
+                <a class="tt-topnav__link" href="../../index.html">Models</a>
+                <!-- Resource dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Resource</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../index.html">Architecture Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../index.html">Glossary</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Release Notes</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Roadmap</a>
+                    </div>
+                </div>
+                <!-- Support dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Support</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../index.html">FAQ</a>
+                        <a class="tt-topnav__dropdown-item" href="../index.html">Troubleshooting</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Community</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA -->
+            <div class="tt-topnav__cta">
+                <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+        <div class="tt-topnav__inner">
+
+            <!-- Version (styled capsule dropdown) -->
+            <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+                <button
+                        class="tt-topnav__version tt-topnav__version--dropdown"
+                        type="button"
+                        id="tt-version-toggle"
+                        aria-expanded="false"
+                ><span class="tt-topnav__version-text">
+                    1.0
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+                </button>
+                <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                    <!-- Version links will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Secondary links -->
+            <nav class="tt-topnav__subnav" aria-label="Section navigation">
+                <a class="tt-topnav__sublink" href="../../index.html" style="margin-left: 230px">Tutorials</a>
+                <a class="tt-topnav__sublink" href="../../index.html">Guides</a>
+                <div class="tt-topnav__dropdown">
+                    <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Hardware</a>
+                    <div class="tt-topnav__dropdown-menu">
+                        <a class="tt-topnav__dropdown-item" href="../index.html">Cards</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+                    </div>
+                </div>
+                <div class="tt-topnav__dropdown">
+                    <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Software</a>
+                    <div class="tt-topnav__dropdown-menu">
+                        <a class="tt-topnav__dropdown-item" href="../../software/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../forge/index.html">TT-Forge</a>
+                        <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="../../getting-started/manual-software-install.html">Manual Software
+                            Installation</a>
+                    </div>
+                </div>
+                <a class="tt-topnav__sublink" href="../../tools/index.html">Tools</a>
+                <a class="tt-topnav__sublink" href="../../index.html">API Reference</a>
+                <div class="tt-topnav__dropdown">
+                    <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Resources</a>
+                    <div class="tt-topnav__dropdown-menu">
+                        <a class="tt-topnav__dropdown-item" href="../../resources/support.html">Support</a>
+                        <a class="tt-topnav__dropdown-item" href="../../resources/contributing.html">Contributing
+                            as a Developer</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+            <div class="tt-topnav__edit"><a class="tt-topnav__editlink" href="../../_sources/aibs/wormhole/ack.md.txt">Edit on GitHub</a></div>
+
+        </div>
+    </div>
+
+</header>
+
+<!-- ===== /Top Navbar ===== -->
+<div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search" >
+
+                
+                
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+            </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+                 aria-label="Navigation menu">
+                <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/README.html">Installing the Tenstorrent Software Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/vLLM-servers.html">Deploying LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Cards</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../blackhole/index.html">Blackhole™ PCIe Cards</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Wormhole™ PCIe Cards</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="index.html#getting-started">Getting Started</a></li>
+<li class="toctree-l3"><a class="reference internal" href="index.html#reference-materials">Reference Materials</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html#accessories">Accessories</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="warp100.html">Warp 100 Bridge</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Active Cooling Kit</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../software/index.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting-started/manual-software-install.html">Manual Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="../../index.html">Home</a>
+        </nav>
+
+        <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Cards</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Wormhole™ PCIe Cards</a></li>
+      <li class="breadcrumb-item active">Active Cooling Kit</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/aibs/wormhole/ack.md.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div itemprop="articleBody">
+                            
+  <section id="active-cooling-kit">
+<h1>Active Cooling Kit<a class="headerlink" href="#active-cooling-kit" title="Link to this heading"></a></h1>
+<section id="compatibility">
+<h2>Compatibility<a class="headerlink" href="#compatibility" title="Link to this heading"></a></h2>
+<p>The Active Cooling Kit (TX-01001) is compatible with the following Tenstorrent Tensix Processor cards:</p>
+<ul class="simple">
+<li><p>Grayskull™ e150 (TC-01002)</p></li>
+<li><p>Wormhole™ n150s with Passive Cooler (TC-02001)</p></li>
+<li><p>Wormhole™ n300s with Passive Cooler (TC-02003)</p></li>
+</ul>
+</section>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<p>If your Grayskull™ e150, Wormhole™ n150s, or Wormhole™ n300s Tensix Processor card requires active cooling in your system (for example, in a desktop workstation), follow these steps to install the Active Cooling Kit.</p>
+<section id="step-1-attach-the-duct">
+<h3>Step 1. Attach the Duct<a class="headerlink" href="#step-1-attach-the-duct" title="Link to this heading"></a></h3>
+<p>Attach the provided <strong>duct</strong> to the card via three (3) <strong>M3 screws</strong>.</p>
+<p><img alt="" src="../../_images/gs_ack1.png" /></p>
+</section>
+<section id="step-2-insert-blower-fan">
+<h3>Step 2. Insert Blower Fan<a class="headerlink" href="#step-2-insert-blower-fan" title="Link to this heading"></a></h3>
+<p>Insert the <strong>blower fan</strong> into the <strong>duct</strong>.</p>
+<p><img alt="" src="../../_images/gs_ack2.png" /></p>
+</section>
+<section id="step-3-fasten-the-blower-fan">
+<h3>Step 3. Fasten the Blower Fan<a class="headerlink" href="#step-3-fasten-the-blower-fan" title="Link to this heading"></a></h3>
+<p>Fasten the <strong>blower fan</strong> to the <strong>duct plate</strong> through the top of the fan with two (2) <strong>M4 screws</strong>.</p>
+<p><img alt="" src="../../_images/gs_ack3.png" /></p>
+</section>
+<section id="step-4-connect-fan-power">
+<h3>Step 4. Connect Fan Power<a class="headerlink" href="#step-4-connect-fan-power" title="Link to this heading"></a></h3>
+<p>The blower fan includes a <strong>passthrough 6-pin PCIe harness</strong>. Connection will depend on the card.</p>
+<section id="grayskull-e150">
+<h4>Grayskull™ e150<a class="headerlink" href="#grayskull-e150" title="Link to this heading"></a></h4>
+<p>The <strong>male end</strong> connects to the <strong>6-pin PCIe plug</strong> on the <strong>e150 card</strong>, and the <strong>female end</strong> connects to a <strong>6-pin PCIe cable</strong> from the <strong>power supply</strong>.</p>
+<p><img alt="" src="../../_images/gs_e150_kit_power.png" /></p>
+</section>
+<section id="wormhole-n150s-and-n300s-passive-cooled">
+<h4>Wormhole™ n150s and n300s (Passive Cooled)<a class="headerlink" href="#wormhole-n150s-and-n300s-passive-cooled" title="Link to this heading"></a></h4>
+<p>Connect a <strong>PCIe 6-pin plug</strong> into the <strong>6-pin female end</strong> of the harness. <em>(NOTE: You will <strong>not</strong> use the male end of the harness.)</em></p>
+</section>
+</section>
+</section>
+</section>
+
+
+                        </div>
+                    </div>
+                    <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="warp100.html" class="btn btn-neutral float-left" title="Warp 100 Bridge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../systems/index.html" class="btn btn-neutral float-right" title="Systems" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Mar 18, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+                </div>
+            </div>
+    </section>
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable({
+        {
+            'true'
+            if theme_sticky_navigation | tobool else
+            'false'
+        }
+    })
+        ;
+    });
+</script> 
+
+</body>
+</html>

@@ -1,158 +1,225 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta charset="utf-8"/><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ttnn.mse_loss &mdash; TT-NN  documentation</title>
-      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../../_static/tt_theme.css" type="text/css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ttnn.mse_loss &mdash; TT-NN  documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css"/>
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../_static/tt_theme.css" type="text/css"/>
     <link rel="shortcut icon" href="../../_static/favicon.png"/>
-    <link rel="canonical" href="/tt-metal/latest/ttnn/ttnn/api/ttnn.mse_loss.html" />
-  <!--[if lt IE 9]>
+    <link rel="canonical" href="/tt-metal/latest/ttnn/ttnn/api/ttnn.mse_loss.html"/>
+    <!--[if lt IE 9]>
     <script src="../../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="../../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../../_static/doctools.js?v=888ff710"></script>
-        <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-        <script src="../../_static/posthog.js?v=aa5946f9"></script>
+    <![endif]-->
+    
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js?v=b3ba4146"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../../_static/posthog.js?v=aa5946f9"></script>
     <script src="../../_static/js/theme.js"></script>
     <script src="../../_static/tt_signature_copy.js"></script>
     <script src="../../_static/tt_dropdown.js"></script>
     <script src="../../_static/tt_version_dropdown.js"></script>
-    <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="ttnn.argmax" href="ttnn.argmax.html" />
-    <link rel="prev" title="ttnn.l1_loss" href="ttnn.l1_loss.html" /> 
+    <link rel="index" title="Index" href="../../genindex.html"/>
+    <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="next" title="ttnn.argmax" href="ttnn.argmax.html"/>
+    <link rel="prev" title="ttnn.l1_loss" href="ttnn.l1_loss.html"/> 
 </head>
 
 <body class="wy-body-for-nav"> 
-    <!-- ===== Top Navbar (NEW) ===== -->
-  
+<!-- ===== Top Navbar (NEW) ===== -->
 
-  <header class="tt-topnav tt-topnav--fixed" role="banner">
+
+<header class="tt-topnav tt-topnav--fixed" role="banner">
 
     <!-- ===== Layer 1 (white) ===== -->
     <div class="tt-topnav__bar tt-topnav__bar--primary">
-      <div class="tt-topnav__inner">
+        <div class="tt-topnav__inner">
 
-        <!-- Logo -->
-        <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN" /></a>
+            <!-- Logo -->
+            <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="TT-NN"/></a>
 
-        <!-- Primary links (hardcoded like the mock) -->
-        <nav class="tt-topnav__links" aria-label="Primary navigation">
-          <a class="tt-topnav__link" href="../../index.html">Get Started</a>
-          <a class="tt-topnav__link" href="../../index.html">Guides</a>
+            <!-- Primary links (hardcoded like the mock) -->
+            <nav class="tt-topnav__links" aria-label="Primary navigation">
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Get Started</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Software Stack</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Installation</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Run Your First
+                            model</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Quickstart</a>
+                    </div>
+                </div>
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Guides</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Running Models</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Performance
+                            Optimizations</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Multi-Device Setup</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Debugging Workflows</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Developing Custom
+                            Ops</a>
+                    </div>
+                </div>
 
-          <!-- Hardware Guides dropdown -->
-          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
-            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware Guides</a>
-            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
-              <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Cards</a>
-              <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+                <!-- Software dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../forge/index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../forge/index.html">TT-Forge</a>
+                        <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+                    </div>
+                </div>
+
+                <!-- Hardware dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Tensix Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Memory Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Network on Chip</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Chips</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+                    </div>
+                </div>
+
+                <!-- Tools dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Tools</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">tt-smi</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Profiler</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Topology Explorer</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Visualizer</a>
+                    </div>
+                </div>
+                <a class="tt-topnav__link" href="../../index.html">Models</a>
+                <!-- Resource dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Resource</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Architecture Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Glossary</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Release Notes</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Roadmap</a>
+                    </div>
+                </div>
+                <!-- Support dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Support</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">FAQ</a>
+                        <a class="tt-topnav__dropdown-item" href="../../aibs/index.html">Troubleshooting</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Community</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA -->
+            <div class="tt-topnav__cta">
+                <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
             </div>
-          </div>
 
-          <!-- Software dropdown -->
-          <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
-            <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
-            <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
-              <a class="tt-topnav__dropdown-item" href="../../forge/index.html">TT-Forge</a>
-              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
-              <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
-              <a class="tt-topnav__dropdown-item" href="../../getting-started/manual-software-install.html">Manual Software Installation</a>
-              <a class="tt-topnav__dropdown-item" href="../../tools/index.html">Tools</a>
-            </div>
-          </div>
-
-          <a class="tt-topnav__link" href="../../index.html">Models</a>
-          <a class="tt-topnav__link" href="../../index.html">Support</a>
-        </nav>
-
-        <!-- CTA -->
-        <div class="tt-topnav__cta">
-          <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
         </div>
-
-      </div>
     </div>
 
     <!-- ===== Layer 2 (red) ===== -->
     <div class="tt-topnav__bar tt-topnav__bar--secondary">
-      <div class="tt-topnav__inner">
+        <div class="tt-topnav__inner">
 
-         <!-- Version (styled capsule dropdown) -->
-        <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
-          <button
-            class="tt-topnav__version tt-topnav__version--dropdown"
-            type="button"
-            id="tt-version-toggle"
-            aria-expanded="false"
-          ><span class="tt-topnav__version-text">
+            <!-- Version (styled capsule dropdown) -->
+            <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+                <button
+                        class="tt-topnav__version tt-topnav__version--dropdown"
+                        type="button"
+                        id="tt-version-toggle"
+                        aria-expanded="false"
+                ><span class="tt-topnav__version-text">
                     
                   </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
-              </button>
-              <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
-                <!-- Version links will be populated here by JavaScript -->
-              </div>
+                </button>
+                <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                    <!-- Version links will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Secondary links -->
+            <nav class="tt-topnav__subnav" aria-label="Section navigation">
+                <a class="tt-topnav__sublink"
+                   href="../overview.html">Overview</a>
+                <a class="tt-topnav__sublink"
+                   href="../get_started.html">Getting Started</a>
+
+                <div class="tt-topnav__dropdown">
+                    <a class="tt-topnav__sublink tt-topnav__sublink--dropdown"
+                       href="../overview.html#core-concepts">Core Concepts</a>
+                    <div class="tt-topnav__dropdown-menu">
+                        <a class="tt-topnav__dropdown-item" href="../overview.html#tensors">Tensors</a>
+                        <a class="tt-topnav__dropdown-item" href="../overview.html#operations">Operations</a>
+                        <a class="tt-topnav__dropdown-item" href="../overview.html#devices">Devices</a>
+                        <a class="tt-topnav__dropdown-item" href="../overview.html#how-tt-nn-fits-into-the-stack">Execution Model</a>
+                    </div>
+                </div>
+
+                <div class="tt-topnav__dropdown">
+                    <a class="tt-topnav__sublink tt-topnav__sublink--dropdown"
+                       href="../tensor.html">Guides</a>
+                    <div class="tt-topnav__dropdown-menu">
+                        <a class="tt-topnav__dropdown-item" href="../onboarding.html">Building Models</a>
+                        <a class="tt-topnav__dropdown-item" href="../tensor.html">Running Operations</a>
+                        <a class="tt-topnav__dropdown-item" href="../converting_torch_model_to_ttnn.html">Working with PyTorch</a>
+                        <a class="tt-topnav__dropdown-item" href="../profiling_ttnn_operations.html">Performance Tips</a>
+                    </div>
+                </div>
+
+                <div class="tt-topnav__dropdown">
+                    <a class="tt-topnav__sublink tt-topnav__sublink--dropdown"
+                       href="../tutorials.html">Tutorials</a>
+                    <div class="tt-topnav__dropdown-menu">
+                        <a class="tt-topnav__dropdown-item" href="../tutorials/tutorials/ttnn_basic_operations.html">Basic Tensor Ops</a>
+                        <a class="tt-topnav__dropdown-item" href="../tutorials/tutorials/ttnn_simplecnn_inference.html">Building a Simple Model</a>
+                        <a class="tt-topnav__dropdown-item" href="../tutorials/tutorials/ttnn_mlp_inference_mnist.html">Running Inference</a>
+                    </div>
+                </div>
+
+                <a class="tt-topnav__sublink"
+                   href="../onboarding.html">Advanced Topics</a>
+                <a class="tt-topnav__sublink tt-topnav__sublink--active"
+                   href="../api.html">API Reference</a>
+                <a class="tt-topnav__sublink"
+                   href="../../resources/support.html">Resources</a>
+            </nav>
+
+            <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+            <div class="tt-topnav__edit"><a class="tt-topnav__editlink" href="../../_sources/ttnn/api/ttnn.mse_loss.rst.txt">Edit on GitHub</a></div>
+
         </div>
-
-        <!-- Secondary links -->
-        <nav class="tt-topnav__subnav" aria-label="Section navigation">
-          <div class="tt-topnav__dropdown" style="margin-left: 230px">
-            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="../get_started.html">Getting Started</a>
-            <div class="tt-topnav__dropdown-menu">
-              <a class="tt-topnav__dropdown-item" href="../about.html">What is TT-NN?</a>
-              <a class="tt-topnav__dropdown-item" href="../get_started.html">Getting Started</a>
-              <a class="tt-topnav__dropdown-item" href="../installing.html">Install</a>
-              <a class="tt-topnav__dropdown-item" href="../tutorials/tutorials/ttnn_intro.html">TT-NN Introduction</a>
-            </div>
-          </div>
-          <a class="tt-topnav__sublink" href="../tensor.html">Guides</a>
-          <a class="tt-topnav__sublink tt-topnav__sublink--active" href="../api.html">API Reference</a>
-          <div class="tt-topnav__dropdown">
-            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="../onboarding.html">Advanced Topics</a>
-            <div class="tt-topnav__dropdown-menu">
-              <a class="tt-topnav__dropdown-item" href="../onboarding.html">Onboarding New Functionality</a>
-              <a class="tt-topnav__dropdown-item" href="../converting_torch_model_to_ttnn.html">Converting PyTorch Model to TT-NN</a>
-              <a class="tt-topnav__dropdown-item" href="../adding_new_ttnn_operation.html">Adding New TT-NN Operation</a>
-              <a class="tt-topnav__dropdown-item" href="../profiling_ttnn_operations.html">Profiling TT-NN Operations</a>
-              <a class="tt-topnav__dropdown-item" href="../demos.html">Building and Uplifting Demos</a>
-            </div>
-          </div>
-          <a class="tt-topnav__sublink" href="../tutorials.html">Tutorials</a>
-
-          <div class="tt-topnav__dropdown">
-            <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="../../resources/support.html">Resources</a>
-            <div class="tt-topnav__dropdown-menu">
-              <a class="tt-topnav__dropdown-item" href="../../resources/support.html">Support</a>
-              <a class="tt-topnav__dropdown-item" href="../../resources/contributing.html">Contributing as a Developer</a>
-            </div>
-          </div>
-          <a class="tt-topnav__sublink" href="../../tools/index.html">Tools</a>
-        </nav>
-
-        <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
-        <div class="tt-topnav__edit"><a class="tt-topnav__editlink" href="../../_sources/ttnn/api/ttnn.mse_loss.rst.txt">Edit on GitHub</a></div>
-
-      </div>
     </div>
 
-  </header>
+</header>
 
-  <!-- ===== /Top Navbar ===== -->
-  <div class="wy-grid-for-nav">
+<!-- ===== /Top Navbar ===== -->
+<div class="wy-grid-for-nav">
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search" >
 
-          
-          
+                
+                
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get" onsubmit="return ttGlobalSearchRedirect(this);">
     <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
@@ -178,8 +245,9 @@ function ttGlobalSearchRedirect(form) {
   return false;
 }
 </script>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+            </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+                 aria-label="Navigation menu">
+                <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="../api.html">APIs</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../api.html#device">Device</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../api.html#memory-config">Memory Config</a></li>
@@ -219,18 +287,18 @@ function ttGlobalSearchRedirect(form) {
 </li>
 </ul>
 
+            </div>
         </div>
-      </div>
     </nav>
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../../index.html">TT-NN</a>
-      </nav>
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="../../index.html">TT-NN</a>
+        </nav>
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
+        <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../nav/api_reference.html">API Reference</a></li>
@@ -239,9 +307,9 @@ function ttGlobalSearchRedirect(form) {
   </ul>
   <hr/>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div itemprop="articleBody">
+                            
   <section id="ttnn-mse-loss">
 <h1>ttnn.mse_loss<a class="headerlink" href="#ttnn-mse-loss" title="Permalink to this heading"></a>
 </h1>
@@ -295,9 +363,9 @@ function ttGlobalSearchRedirect(form) {
 
 
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+                        </div>
+                    </div>
+                    <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="ttnn.l1_loss.html" class="btn btn-neutral float-left" title="ttnn.l1_loss" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="ttnn.argmax.html" class="btn btn-neutral float-right" title="ttnn.argmax" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
@@ -314,15 +382,22 @@ function ttGlobalSearchRedirect(form) {
    
 
 </footer>
-        </div>
-      </div>
+                </div>
+            </div>
     </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable({
+        {
+            'true'
+            if theme_sticky_navigation | tobool else
+            'false'
+        }
+    })
+        ;
+    });
+</script> 
 
 </body>
 </html>

@@ -15,6 +15,7 @@ Welcome to TT-Metalium documentation!
 .. toctree::
    :caption: TT-Metalium
 
+   tt_metal/overview
    tt_metal/programming_model/index.rst
    tt_metal/examples/index
    tt_metal/labs/index
