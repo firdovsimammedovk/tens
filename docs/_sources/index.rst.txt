@@ -45,6 +45,13 @@ Tenstorrent
 
 .. toctree::
    :hidden:
+   :caption: Resources
+   :maxdepth: 2
+
+   resources/contributing
+
+.. toctree::
+   :hidden:
    :caption: Legal
    :maxdepth: 2
 

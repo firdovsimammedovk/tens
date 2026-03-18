@@ -1,0 +1,67 @@
+---
+myst:
+  html_meta:
+    product-name: Tenstorrent Contribution Guide
+    technology-concepts: open source, contribution workflow, GitHub, bounty program, support
+    document-type: Explanation
+---
+
+# Contribution
+
+Tenstorrent maintains an open-source software ecosystem and accepts community contributions across multiple projects.
+
+If you want to contribute code, documentation, bug fixes, performance improvements, or new features, GitHub is the primary place to get started.
+
+---
+
+## Where to Start
+
+A good starting point is the Tenstorrent GitHub organization:
+
+- [Tenstorrent on GitHub](https://github.com/tenstorrent)
+
+There you can explore active repositories, open issues, and contribution opportunities across the Tenstorrent software stack.
+
+---
+
+## Common Ways to Contribute
+
+You can contribute by:
+
+- Improving documentation
+- Fixing bugs
+- Implementing new features
+- Optimizing performance
+- Testing and validating workflows
+
+Before contributing, review the repository you want to work on and check for open issues, contribution notes, or project-specific guidance.
+
+---
+
+## Contribution Programs
+
+Some repositories may participate in Tenstorrent contribution or bounty programs.
+
+To learn more, see:
+
+- [Bounty Program Terms](https://docs.tenstorrent.com/bounty_terms.html)
+
+---
+
+## Need Help?
+
+If you need help before contributing:
+
+- Visit the [Support page](../support/README)
+- Explore Tenstorrent repositories on [GitHub](https://github.com/tenstorrent)
+
+---
+
+## Next Steps
+
+To continue:
+
+- Visit [Support](../support/README)
+- Explore the [Tenstorrent GitHub organization](https://github.com/tenstorrent)
+- Review the [Bounty Program Terms](https://docs.tenstorrent.com/bounty_terms.html)
+
