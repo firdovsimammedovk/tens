@@ -21,7 +21,7 @@ Tenstorrent
    :hidden:
    :caption: Hardware Guides
 
-   aibs/index
+   hardware/index
    systems/index
 
 .. toctree::

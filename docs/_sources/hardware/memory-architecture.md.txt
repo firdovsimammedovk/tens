@@ -1,0 +1,215 @@
+---
+myst:
+  html_meta:
+    product-name: Tenstorrent Memory Architecture
+    technology-concepts: memory hierarchy, local memory, on-chip memory, off-chip memory, data movement, NoC
+    document-type: Explanation
+---
+
+# Tenstorrent Memory Architecture
+
+The Tenstorrent memory architecture is designed to support high-throughput AI workloads by providing fast data access, efficient data movement, and scalable memory usage across cores and devices.
+
+This page explains how memory is organized, how it interacts with Tensix cores, and how data flows through the system.
+
+---
+
+## Why Memory Architecture Matters
+
+In modern AI workloads, performance is often limited not by compute, but by how fast data can be accessed and moved.
+
+Tenstorrent addresses this by:
+
+- Providing multiple levels of memory with different performance characteristics
+- Enabling explicit control over data movement
+- Optimizing for data locality and parallel access
+
+Efficient memory usage is critical for achieving high performance.
+
+---
+
+## Memory Hierarchy Overview
+
+Tenstorrent uses a hierarchical memory system with multiple levels:
+
+- Local (on-core) memory
+- On-chip shared memory
+- Off-chip memory
+
+Each level balances latency, bandwidth, and capacity.
+
+---
+
+## Local Memory (On-Core)
+
+Each Tensix core has access to local memory.
+
+Characteristics:
+
+- Very low latency
+- Limited capacity
+- Closest to compute units
+
+Local memory is used for:
+
+- Intermediate computations
+- Frequently accessed data
+- Temporary buffers during execution
+
+Efficient use of local memory is essential for performance.
+
+---
+
+## On-Chip Memory
+
+On-chip memory is shared across cores within the same chip.
+
+Characteristics:
+
+- Higher capacity than local memory
+- Moderate latency
+- Accessible via the Network-on-Chip (NoC)
+
+It is used for:
+
+- Sharing data between cores
+- Storing intermediate results
+- Coordinating multi-core workloads
+
+---
+
+## Off-Chip Memory
+
+Off-chip memory provides large storage capacity for models and datasets.
+
+Characteristics:
+
+- High capacity
+- Higher latency compared to on-chip memory
+- Accessed through memory controllers
+
+It is used for:
+
+- Model parameters
+- Large input datasets
+- Long-lived data
+
+Efficient access patterns are important to avoid bottlenecks.
+
+---
+
+## Data Movement
+
+A key feature of Tenstorrent architecture is explicit data movement.
+
+Instead of relying entirely on automatic caching:
+
+- Developers control when and how data is moved
+- Data is transferred between memory levels as needed
+- Movement is coordinated with compute execution
+
+This allows precise optimization of performance.
+
+---
+
+## Interaction with Tensix Cores
+
+Tensix cores:
+
+- Load data from local or shared memory
+- Execute compute operations
+- Write results back to memory
+
+Efficient scheduling ensures that:
+
+- Data is available when needed
+- Compute units are not idle
+- Memory bandwidth is used effectively
+
+---
+
+## Memory and Parallelism
+
+Memory architecture supports parallel execution by:
+
+- Allowing multiple cores to access memory simultaneously
+- Distributing data across memory regions
+- Reducing contention through structured data movement
+
+Proper data partitioning is key to scaling performance.
+
+---
+
+## Bandwidth vs Latency Tradeoffs
+
+Each memory level has tradeoffs:
+
+- Local memory: lowest latency, smallest size
+- On-chip memory: balanced latency and capacity
+- Off-chip memory: highest capacity, higher latency
+
+Optimizing performance involves:
+
+- Keeping frequently used data close to compute
+- Minimizing expensive memory transfers
+- Overlapping data movement with computation
+
+---
+
+## Common Optimization Strategies
+
+To achieve high performance:
+
+- Reuse data in local memory whenever possible
+- Minimize transfers to off-chip memory
+- Batch data movement operations
+- Align computation with memory layout
+
+These strategies reduce bottlenecks and improve throughput.
+
+---
+
+## Memory and Scaling
+
+As workloads scale:
+
+- Data is distributed across cores and chips
+- Memory usage must be coordinated across devices
+- Communication between memory regions becomes critical
+
+The combination of memory architecture and NoC enables scalable execution.
+
+---
+
+## Relationship to Software Stack
+
+The memory system is exposed through the software stack:
+
+- TT-Metalium provides control over memory allocation and movement
+- TT-NN abstracts memory management for high-level users
+
+Advanced users can fine-tune memory usage for maximum efficiency.
+
+---
+
+## When to Learn Memory Architecture in Depth
+
+Understanding memory architecture is important if you:
+
+- Optimize performance-critical workloads
+- Work with large models or datasets
+- Develop custom kernels
+- Analyze performance bottlenecks
+
+---
+
+## Next Steps
+
+To continue exploring Tenstorrent hardware:
+
+- Learn about Network-on-Chip (NoC)
+- Study [Tensix Architecture](tensix-architecture) in more depth
+- Explore chip-level design: [Wormhole](wormhole/index), [Blackhole](blackhole/index)
+
+Together, these components explain how data and compute interact across the system.
+

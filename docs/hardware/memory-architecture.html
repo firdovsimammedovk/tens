@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+    <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta content="Tenstorrent Memory Architecture" name="product-name" />
+<meta content="memory hierarchy, local memory, on-chip memory, off-chip memory, data movement, NoC" name="technology-concepts" />
+<meta content="Explanation" name="document-type" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Tenstorrent Memory Architecture &mdash; Home 1.0 documentation</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css"/>
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../_static/copybutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../_static/tt_theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../_static/home.css" type="text/css"/>
+    <link rel="shortcut icon" href="../_static/favicon.png"/>
+    <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=fd3dd8dd"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../_static/js/theme.js"></script>
+    <script src="../_static/tt_signature_copy.js"></script>
+    <script src="../_static/tt_dropdown.js"></script>
+    <script src="../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../genindex.html"/>
+    <link rel="search" title="Search" href="../search.html"/>
+    <link rel="next" title="Blackhole™ PCIe Cards" href="blackhole/index.html"/>
+    <link rel="prev" title="Tensix Architecture" href="tensix-architecture.html"/> 
+</head>
+
+<body class="wy-body-for-nav"> 
+<!-- ===== Top Navbar (NEW) ===== -->
+
+
+<header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+        <div class="tt-topnav__inner">
+
+            <!-- Logo -->
+            <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../_static/tt_logo.svg" alt="Home"/></a>
+
+            <!-- Primary links (hardcoded like the mock) -->
+            <nav class="tt-topnav__links" aria-label="Primary navigation">
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Get Started</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Software Stack</a>
+                        <a class="tt-topnav__dropdown-item" href="../getting-started/README.html">Installation</a>
+                        <a class="tt-topnav__dropdown-item" href="../getting-started/model-demos.html">Run Your First Model</a>
+                        <a class="tt-topnav__dropdown-item" href="../getting-started/quickstart.html">Quickstart</a>
+                    </div>
+                </div>
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Guides</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="index.html">Running Models</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Performance
+                            Optimizations</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Multi-Device Setup</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Debugging Workflows</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Developing Custom
+                            Ops</a>
+                    </div>
+                </div>
+
+                <!-- Software dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../software/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../forge/index.html">TT-Forge</a>
+                        <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+                    </div>
+                </div>
+
+                <!-- Hardware dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="tensix-architecture.html">Tensix Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="#">Memory Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Network on Chip</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Chips</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Systems</a>
+                    </div>
+                </div>
+
+                <!-- Tools dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Tools</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="index.html">tt-smi</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Profiler</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Topology Explorer</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Visualizer</a>
+                    </div>
+                </div>
+                <a class="tt-topnav__link" href="../index.html">Models</a>
+                <!-- Resource dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Resource</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="index.html">Architecture Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="index.html">Glossary</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Release Notes</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Roadmap</a>
+                    </div>
+                </div>
+                <!-- Support dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Support</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="index.html">FAQ</a>
+                        <a class="tt-topnav__dropdown-item" href="index.html">Troubleshooting</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Community</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA -->
+            <div class="tt-topnav__cta">
+                <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+        <div class="tt-topnav__inner">
+
+            <!-- Version (styled capsule dropdown) -->
+            <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+                <button
+                        class="tt-topnav__version tt-topnav__version--dropdown"
+                        type="button"
+                        id="tt-version-toggle"
+                        aria-expanded="false"
+                ><span class="tt-topnav__version-text">
+                    1.0
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+                </button>
+                <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                    <!-- Version links will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Secondary links -->
+            <nav class="tt-topnav__subnav" aria-label="Section navigation">
+                <a class="tt-topnav__sublink" href="../index.html" style="margin-left: 230px">Tutorials</a>
+                <a class="tt-topnav__sublink" href="../index.html">Guides</a>
+                <div class="tt-topnav__dropdown">
+                    <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Hardware</a>
+                    <div class="tt-topnav__dropdown-menu">
+                        <a class="tt-topnav__dropdown-item" href="index.html">Cards</a>
+                        <a class="tt-topnav__dropdown-item" href="../systems/index.html">Systems</a>
+                    </div>
+                </div>
+                <div class="tt-topnav__dropdown">
+                    <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Software</a>
+                    <div class="tt-topnav__dropdown-menu">
+                        <a class="tt-topnav__dropdown-item" href="../software/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../forge/index.html">TT-Forge</a>
+                        <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="../getting-started/manual-software-install.html">Manual Software
+                            Installation</a>
+                    </div>
+                </div>
+                <a class="tt-topnav__sublink" href="../tools/index.html">Tools</a>
+                <a class="tt-topnav__sublink" href="../index.html">API Reference</a>
+                <div class="tt-topnav__dropdown">
+                    <a class="tt-topnav__sublink tt-topnav__sublink--dropdown" href="#">Resources</a>
+                    <div class="tt-topnav__dropdown-menu">
+                        <a class="tt-topnav__dropdown-item" href="../resources/support.html">Support</a>
+                        <a class="tt-topnav__dropdown-item" href="../resources/contributing.html">Contributing
+                            as a Developer</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+            <div class="tt-topnav__edit"><span class="tt-topnav__editspacer"></span></div>
+
+        </div>
+    </div>
+
+</header>
+
+<!-- ===== /Top Navbar ===== -->
+<div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search" >
+
+                
+                
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+            </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+                 aria-label="Navigation menu">
+                <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/README.html">Installing the Tenstorrent Software Stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/quickstart.html">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/model-demos.html">Running Model Demos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/vLLM-servers.html">Deploying LLMs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Hardware</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Overview.html">Hardware Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tensix-architecture.html">Tensix Architecture</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Tenstorrent Memory Architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#why-memory-architecture-matters">Why Memory Architecture Matters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#memory-hierarchy-overview">Memory Hierarchy Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#local-memory-on-core">Local Memory (On-Core)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#on-chip-memory">On-Chip Memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#off-chip-memory">Off-Chip Memory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-movement">Data Movement</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#interaction-with-tensix-cores">Interaction with Tensix Cores</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#memory-and-parallelism">Memory and Parallelism</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bandwidth-vs-latency-tradeoffs">Bandwidth vs Latency Tradeoffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#common-optimization-strategies">Common Optimization Strategies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#memory-and-scaling">Memory and Scaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#relationship-to-software-stack">Relationship to Software Stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#when-to-learn-memory-architecture-in-depth">When to Learn Memory Architecture in Depth</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#next-steps">Next Steps</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="blackhole/index.html">Blackhole™ PCIe Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="wormhole/index.html">Wormhole™ PCIe Cards</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../systems/index.html">Systems</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Software</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../software/index.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../forge/index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting-started/manual-software-install.html">Manual Software Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tools/index.html">Tools</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Support</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../support/README.html">Support &amp; FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="../index.html">Home</a>
+        </nav>
+
+        <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Hardware</a></li>
+      <li class="breadcrumb-item active">Tenstorrent Memory Architecture</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div itemprop="articleBody">
+                            
+  <section id="tenstorrent-memory-architecture">
+<h1>Tenstorrent Memory Architecture<a class="headerlink" href="#tenstorrent-memory-architecture" title="Link to this heading"></a></h1>
+<p>The Tenstorrent memory architecture is designed to support high-throughput AI workloads by providing fast data access, efficient data movement, and scalable memory usage across cores and devices.</p>
+<p>This page explains how memory is organized, how it interacts with Tensix cores, and how data flows through the system.</p>
+<hr class="docutils" />
+<section id="why-memory-architecture-matters">
+<h2>Why Memory Architecture Matters<a class="headerlink" href="#why-memory-architecture-matters" title="Link to this heading"></a></h2>
+<p>In modern AI workloads, performance is often limited not by compute, but by how fast data can be accessed and moved.</p>
+<p>Tenstorrent addresses this by:</p>
+<ul class="simple">
+<li><p>Providing multiple levels of memory with different performance characteristics</p></li>
+<li><p>Enabling explicit control over data movement</p></li>
+<li><p>Optimizing for data locality and parallel access</p></li>
+</ul>
+<p>Efficient memory usage is critical for achieving high performance.</p>
+</section>
+<hr class="docutils" />
+<section id="memory-hierarchy-overview">
+<h2>Memory Hierarchy Overview<a class="headerlink" href="#memory-hierarchy-overview" title="Link to this heading"></a></h2>
+<p>Tenstorrent uses a hierarchical memory system with multiple levels:</p>
+<ul class="simple">
+<li><p>Local (on-core) memory</p></li>
+<li><p>On-chip shared memory</p></li>
+<li><p>Off-chip memory</p></li>
+</ul>
+<p>Each level balances latency, bandwidth, and capacity.</p>
+</section>
+<hr class="docutils" />
+<section id="local-memory-on-core">
+<h2>Local Memory (On-Core)<a class="headerlink" href="#local-memory-on-core" title="Link to this heading"></a></h2>
+<p>Each Tensix core has access to local memory.</p>
+<p>Characteristics:</p>
+<ul class="simple">
+<li><p>Very low latency</p></li>
+<li><p>Limited capacity</p></li>
+<li><p>Closest to compute units</p></li>
+</ul>
+<p>Local memory is used for:</p>
+<ul class="simple">
+<li><p>Intermediate computations</p></li>
+<li><p>Frequently accessed data</p></li>
+<li><p>Temporary buffers during execution</p></li>
+</ul>
+<p>Efficient use of local memory is essential for performance.</p>
+</section>
+<hr class="docutils" />
+<section id="on-chip-memory">
+<h2>On-Chip Memory<a class="headerlink" href="#on-chip-memory" title="Link to this heading"></a></h2>
+<p>On-chip memory is shared across cores within the same chip.</p>
+<p>Characteristics:</p>
+<ul class="simple">
+<li><p>Higher capacity than local memory</p></li>
+<li><p>Moderate latency</p></li>
+<li><p>Accessible via the Network-on-Chip (NoC)</p></li>
+</ul>
+<p>It is used for:</p>
+<ul class="simple">
+<li><p>Sharing data between cores</p></li>
+<li><p>Storing intermediate results</p></li>
+<li><p>Coordinating multi-core workloads</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="off-chip-memory">
+<h2>Off-Chip Memory<a class="headerlink" href="#off-chip-memory" title="Link to this heading"></a></h2>
+<p>Off-chip memory provides large storage capacity for models and datasets.</p>
+<p>Characteristics:</p>
+<ul class="simple">
+<li><p>High capacity</p></li>
+<li><p>Higher latency compared to on-chip memory</p></li>
+<li><p>Accessed through memory controllers</p></li>
+</ul>
+<p>It is used for:</p>
+<ul class="simple">
+<li><p>Model parameters</p></li>
+<li><p>Large input datasets</p></li>
+<li><p>Long-lived data</p></li>
+</ul>
+<p>Efficient access patterns are important to avoid bottlenecks.</p>
+</section>
+<hr class="docutils" />
+<section id="data-movement">
+<h2>Data Movement<a class="headerlink" href="#data-movement" title="Link to this heading"></a></h2>
+<p>A key feature of Tenstorrent architecture is explicit data movement.</p>
+<p>Instead of relying entirely on automatic caching:</p>
+<ul class="simple">
+<li><p>Developers control when and how data is moved</p></li>
+<li><p>Data is transferred between memory levels as needed</p></li>
+<li><p>Movement is coordinated with compute execution</p></li>
+</ul>
+<p>This allows precise optimization of performance.</p>
+</section>
+<hr class="docutils" />
+<section id="interaction-with-tensix-cores">
+<h2>Interaction with Tensix Cores<a class="headerlink" href="#interaction-with-tensix-cores" title="Link to this heading"></a></h2>
+<p>Tensix cores:</p>
+<ul class="simple">
+<li><p>Load data from local or shared memory</p></li>
+<li><p>Execute compute operations</p></li>
+<li><p>Write results back to memory</p></li>
+</ul>
+<p>Efficient scheduling ensures that:</p>
+<ul class="simple">
+<li><p>Data is available when needed</p></li>
+<li><p>Compute units are not idle</p></li>
+<li><p>Memory bandwidth is used effectively</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="memory-and-parallelism">
+<h2>Memory and Parallelism<a class="headerlink" href="#memory-and-parallelism" title="Link to this heading"></a></h2>
+<p>Memory architecture supports parallel execution by:</p>
+<ul class="simple">
+<li><p>Allowing multiple cores to access memory simultaneously</p></li>
+<li><p>Distributing data across memory regions</p></li>
+<li><p>Reducing contention through structured data movement</p></li>
+</ul>
+<p>Proper data partitioning is key to scaling performance.</p>
+</section>
+<hr class="docutils" />
+<section id="bandwidth-vs-latency-tradeoffs">
+<h2>Bandwidth vs Latency Tradeoffs<a class="headerlink" href="#bandwidth-vs-latency-tradeoffs" title="Link to this heading"></a></h2>
+<p>Each memory level has tradeoffs:</p>
+<ul class="simple">
+<li><p>Local memory: lowest latency, smallest size</p></li>
+<li><p>On-chip memory: balanced latency and capacity</p></li>
+<li><p>Off-chip memory: highest capacity, higher latency</p></li>
+</ul>
+<p>Optimizing performance involves:</p>
+<ul class="simple">
+<li><p>Keeping frequently used data close to compute</p></li>
+<li><p>Minimizing expensive memory transfers</p></li>
+<li><p>Overlapping data movement with computation</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="common-optimization-strategies">
+<h2>Common Optimization Strategies<a class="headerlink" href="#common-optimization-strategies" title="Link to this heading"></a></h2>
+<p>To achieve high performance:</p>
+<ul class="simple">
+<li><p>Reuse data in local memory whenever possible</p></li>
+<li><p>Minimize transfers to off-chip memory</p></li>
+<li><p>Batch data movement operations</p></li>
+<li><p>Align computation with memory layout</p></li>
+</ul>
+<p>These strategies reduce bottlenecks and improve throughput.</p>
+</section>
+<hr class="docutils" />
+<section id="memory-and-scaling">
+<h2>Memory and Scaling<a class="headerlink" href="#memory-and-scaling" title="Link to this heading"></a></h2>
+<p>As workloads scale:</p>
+<ul class="simple">
+<li><p>Data is distributed across cores and chips</p></li>
+<li><p>Memory usage must be coordinated across devices</p></li>
+<li><p>Communication between memory regions becomes critical</p></li>
+</ul>
+<p>The combination of memory architecture and NoC enables scalable execution.</p>
+</section>
+<hr class="docutils" />
+<section id="relationship-to-software-stack">
+<h2>Relationship to Software Stack<a class="headerlink" href="#relationship-to-software-stack" title="Link to this heading"></a></h2>
+<p>The memory system is exposed through the software stack:</p>
+<ul class="simple">
+<li><p>TT-Metalium provides control over memory allocation and movement</p></li>
+<li><p>TT-NN abstracts memory management for high-level users</p></li>
+</ul>
+<p>Advanced users can fine-tune memory usage for maximum efficiency.</p>
+</section>
+<hr class="docutils" />
+<section id="when-to-learn-memory-architecture-in-depth">
+<h2>When to Learn Memory Architecture in Depth<a class="headerlink" href="#when-to-learn-memory-architecture-in-depth" title="Link to this heading"></a></h2>
+<p>Understanding memory architecture is important if you:</p>
+<ul class="simple">
+<li><p>Optimize performance-critical workloads</p></li>
+<li><p>Work with large models or datasets</p></li>
+<li><p>Develop custom kernels</p></li>
+<li><p>Analyze performance bottlenecks</p></li>
+</ul>
+</section>
+<hr class="docutils" />
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<p>To continue exploring Tenstorrent hardware:</p>
+<ul class="simple">
+<li><p>Learn about Network-on-Chip (NoC)</p></li>
+<li><p>Study <a class="reference internal" href="tensix-architecture.html"><span class="doc std std-doc">Tensix Architecture</span></a> in more depth</p></li>
+<li><p>Explore chip-level design: <a class="reference internal" href="wormhole/index.html"><span class="doc std std-doc">Wormhole</span></a>, <a class="reference internal" href="blackhole/index.html"><span class="doc std std-doc">Blackhole</span></a></p></li>
+</ul>
+<p>Together, these components explain how data and compute interact across the system.</p>
+</section>
+</section>
+
+
+                        </div>
+                    </div>
+                    <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="tensix-architecture.html" class="btn btn-neutral float-left" title="Tensix Architecture" accesskey="p" rel="prev">
+          <span class="tt-pagination-topic">Tensix Architecture</span>
+          <span class="tt-pagination-label">Previous</span>
+        </a>
+        <a href="blackhole/index.html" class="btn btn-neutral float-right" title="Blackhole™ PCIe Cards" accesskey="n" rel="next">
+          <span class="tt-pagination-topic">Blackhole™ PCIe Cards</span>
+          <span class="tt-pagination-label">Next</span>
+        </a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Mar 18, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+
+                </div>
+            </div>
+    </section>
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable({
+        {
+            'true'
+            if theme_sticky_navigation | tobool else
+            'false'
+        }
+    })
+        ;
+    });
+</script> 
+
+</body>
+</html>

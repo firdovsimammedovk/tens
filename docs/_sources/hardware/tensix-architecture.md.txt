@@ -1,0 +1,178 @@
+---
+myst:
+  html_meta:
+    product-name: Tensix Architecture
+    technology-concepts: Tensix core, tensor computation, data movement, NoC, memory hierarchy
+    document-type: Explanation
+---
+
+# Tensix Architecture
+
+The Tensix architecture is the fundamental compute building block of Tenstorrent hardware.
+Each Tensix core is designed to execute tensor operations efficiently while managing data movement and coordination across the system.
+
+This page explains how Tensix cores are structured, how they operate, and how they contribute to overall system performance.
+
+---
+
+## What is a Tensix Core
+
+A Tensix core is a programmable compute unit responsible for executing workloads on Tenstorrent devices.
+
+Unlike traditional CPU or GPU cores, Tensix cores are designed specifically for:
+
+- Tensor computation
+- Explicit data movement
+- Parallel execution across many cores
+
+Each core operates semi-independently while coordinating with other cores through the on-chip network.
+
+---
+
+## Core Responsibilities
+
+Each Tensix core performs three primary functions:
+
+### Compute
+
+- Executes tensor operations and mathematical kernels
+- Handles arithmetic workloads required for machine learning models
+
+### Data Movement
+
+- Transfers data between memory levels
+- Coordinates input and output for compute operations
+
+### Control and Scheduling
+
+- Manages execution flow of kernels
+- Synchronizes with other cores
+
+These responsibilities are tightly integrated, allowing efficient execution without relying on external schedulers.
+
+---
+
+## Execution Model
+
+Tensix cores follow an explicit execution model where:
+
+- Workloads are broken into kernels
+- Kernels are scheduled across cores
+- Data movement is explicitly defined
+
+This model gives developers fine-grained control over performance and resource usage.
+
+Instead of abstracting hardware completely, Tensix exposes key aspects of execution to enable optimization.
+
+---
+
+## Parallelism
+
+Parallelism in Tensix is achieved through multiple levels:
+
+### Intra-core parallelism
+
+A single core can process multiple data elements in parallel.
+
+### Inter-core parallelism
+
+Multiple Tensix cores execute workloads simultaneously.
+
+### System-level parallelism
+
+Multiple chips and systems can work together.
+
+This layered parallelism allows scaling from small workloads to large distributed systems.
+
+---
+
+## Data Flow
+
+Efficient data flow is critical for performance.
+
+In Tensix architecture:
+
+- Data is moved explicitly between memory and compute units
+- Communication between cores happens via the Network-on-Chip (NoC)
+- Data locality is emphasized to reduce latency
+
+Developers can control how data flows, which enables advanced optimization strategies.
+
+---
+
+## Interaction with Memory
+
+Tensix cores interact with multiple memory layers:
+
+- Local memory for fast access
+- Shared or global memory for larger datasets
+
+Efficient use of memory is essential to avoid bottlenecks and maximize throughput.
+
+---
+
+## Interaction with Network-on-Chip
+
+The Network-on-Chip (NoC) connects Tensix cores across the chip.
+
+Through the NoC, cores can:
+
+- Exchange data
+- Synchronize execution
+- Distribute workloads
+
+This enables coordinated execution across many cores.
+
+---
+
+## Programming Model
+
+Tensix cores are typically programmed using:
+
+- TT-Metalium for low-level kernel development
+- Higher-level abstractions such as TT-NN
+
+Developers define:
+
+- Kernels (compute logic)
+- Data movement
+- Execution flow
+
+This approach allows both flexibility and performance tuning.
+
+---
+
+## Why Tensix Matters
+
+The Tensix architecture enables:
+
+- High-performance tensor computation
+- Fine-grained control over execution
+- Efficient scaling across cores and devices
+
+It is the foundation that allows Tenstorrent hardware to deliver performance for modern AI workloads.
+
+---
+
+## When to Learn Tensix in Depth
+
+You should dive deeper into Tensix architecture if you:
+
+- Optimize performance-critical workloads
+- Develop custom kernels
+- Work with memory and data movement
+- Need to understand low-level execution behavior
+
+For high-level usage, TT-NN abstracts most of these details, but deeper knowledge unlocks maximum efficiency.
+
+---
+
+## Next Steps
+
+To continue learning about hardware architecture:
+
+- Explore [Memory Architecture](memory-architecture)
+- Learn about Network-on-Chip
+- Study chip-level design: [Wormhole](wormhole/index), [Blackhole](blackhole/index)
+
+Understanding these components together provides a complete picture of how Tenstorrent hardware operates.

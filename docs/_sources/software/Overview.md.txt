@@ -104,4 +104,4 @@ To learn more about individual components of the stack:
 - [TT-Forge Documentation](../forge/index.rst) - Learn about model compilation and optimization
 - [TT-NN Overview](https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html) - Explore neural network operations
 - [TT-Metalium Overview](https://firdovsimammedovk.github.io/tens/tt-metal/) - Understand low-level hardware programming
-- [Hardware Architecture](../aibs/index.rst) - Deep dive into Tensix core design
+- [Hardware Architecture](../hardware/index.rst) - Deep dive into Tensix core design

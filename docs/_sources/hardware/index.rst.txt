@@ -1,0 +1,11 @@
+Hardware
+=======================================
+.. toctree::
+   :maxdepth: 1
+
+   Overview
+   tensix-architecture
+   memory-architecture
+   blackhole/index
+   wormhole/index
+
