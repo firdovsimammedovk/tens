@@ -6,7 +6,7 @@ myst:
     document-type: Explanation
 ---
 
-# Tenstorrent Memory Architecture
+# Memory Architecture
 
 The Tenstorrent memory architecture is designed to support high-throughput AI workloads by providing fast data access, efficient data movement, and scalable memory usage across cores and devices.
 
