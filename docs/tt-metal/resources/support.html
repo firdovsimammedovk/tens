@@ -200,12 +200,19 @@
                    href="../ttnn/onboarding.html">Advanced Topics</a>
                 <a class="tt-topnav__sublink"
                    href="../ttnn/api.html">API Reference</a>
-                <a class="tt-topnav__sublink tt-topnav__sublink--active"
-                   href="#">Resources</a>
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--active">
+                    <a class="tt-topnav__sublink tt-topnav__sublink--dropdown tt-topnav__sublink--active"
+                       href="#">Resources</a>
+                    <div class="tt-topnav__dropdown-menu">
+                        <a class="tt-topnav__dropdown-item" href="#">Support</a>
+                        <a class="tt-topnav__dropdown-item" href="contributing.html">Contributing</a>
+                        <a class="tt-topnav__dropdown-item" href="https://github.com/tenstorrent/tt-metal">GitHub</a>
+                    </div>
+                </div>
             </nav>
 
             <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
-            <div class="tt-topnav__edit"><a class="tt-topnav__editlink" href="../_sources/resources/support.rst.txt">Edit on GitHub</a></div>
+            <div class="tt-topnav__edit"><span class="tt-topnav__editspacer"></span></div>
 
         </div>
     </div>
