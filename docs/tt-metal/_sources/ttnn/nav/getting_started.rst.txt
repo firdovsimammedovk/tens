@@ -1,0 +1,12 @@
+Getting Started
+===============
+
+.. toctree::
+   :hidden:
+
+   ../overview
+   ../about
+   ../get_started
+   ../installing
+   ../tutorials/tutorials/ttnn_intro
+

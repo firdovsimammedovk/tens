@@ -1,0 +1,86 @@
+TT-Metalium Overview
+####################
+
+.. contents:: Sidebar
+   :local:
+   :depth: 2
+
+Introduction
+============
+
+TT-Metalium is the low-level programming layer used to interact directly with Tenstorrent hardware. It provides the runtime infrastructure for executing kernels, managing memory, and coordinating computation across Tensix cores.
+
+TT-Metalium is typically used for system-level development, performance optimization, and custom kernel implementation.
+
+Role in the Stack
+=================
+
+TT-Metalium operates below higher-level programming interfaces such as TT-NN.
+
+::
+
+    TT-NN
+      ↓
+    TT-Metalium
+      ↓
+    Tensix hardware
+
+While TT-NN defines neural network operations, TT-Metalium manages how those operations are executed on the device.
+
+Core Responsibilities
+=====================
+
+TT-Metalium is responsible for:
+
+* Kernel dispatch
+* Device memory management
+* Data movement across cores
+* Synchronization and scheduling
+
+These capabilities allow precise control over how workloads are executed on Tenstorrent hardware.
+
+Key Concepts
+============
+
+Devices
+-------
+
+Devices represent Tenstorrent accelerators that execute workloads.
+
+Kernels
+-------
+
+Kernels are programs executed directly on Tensix compute cores. They perform the fundamental operations required for machine learning workloads.
+
+Data Movement
+-------------
+
+Efficient data movement is critical in the Tenstorrent architecture. TT-Metalium provides mechanisms for transferring data between cores and memory regions.
+
+Programming Model
+=================
+
+TT-Metalium follows a dataflow-oriented execution model where computation and data movement are explicitly controlled. Developers can write kernels that operate on tiles of data and coordinate execution across multiple cores.
+
+When to Use TT-Metalium
+=======================
+
+TT-Metalium is typically used for:
+
+* Writing custom kernels
+* Implementing new operations
+* Optimizing performance
+* Developing low-level system components
+
+Most application developers will interact primarily with TT-NN.
+
+Next Steps
+==========
+
+To learn more about TT-Metalium:
+
+* TT-Metalium Getting Started
+* Architecture Overview
+* Kernel Programming Guide
+* API Reference
+

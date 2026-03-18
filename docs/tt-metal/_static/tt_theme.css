@@ -797,6 +797,13 @@ https://github.com/readthedocs/sphinx_rtd_theme/issues/1301
   transition: var(--transition-color);
 }
 
+.tt-topnav__bar--secondary .tt-topnav__sublink--active,
+.tt-topnav__bar--secondary .tt-topnav__dropdown--active > .tt-topnav__sublink {
+  color: #ffffff;
+  font-weight: 600;
+  box-shadow: inset 0 -2px 0 #ffffff;
+}
+
 .tt-topnav__bar--secondary .tt-topnav__sublink:hover {
   color: #ffffff;
   opacity: 1;
@@ -886,8 +893,8 @@ https://github.com/readthedocs/sphinx_rtd_theme/issues/1301
   margin-bottom: 10px;
 }
 .function section {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
 
 /* ===== Signature Copy Button ===== */
@@ -1164,4 +1171,62 @@ https://github.com/readthedocs/sphinx_rtd_theme/issues/1301
 }
 .wy-nav-side {
   background-color: #f8f8f8;
+}
+
+/* ============================================================
+   API section header icons
+   ============================================================ */
+#signature > h2::before,
+#description > h2::before,
+#parameters > h2::before,
+#returns > h2::before,
+#raises > h2::before,
+#notes > h2::before,
+#examples > h2::before,
+#see-also > h2::before {
+  display: inline-block;
+  font-style: normal;
+  line-height: 1;
+  vertical-align: middle;
+  font-size: 14px;
+}
+
+/* Signature – lambda icon */
+#signature > h2::before {
+  content: "λ";
+}
+
+/* Description – document icon */
+#description > h2::before {
+  content: "📄";
+}
+
+/* Parameters – gear icon */
+#parameters > h2::before {
+  content: "⚙";
+}
+
+/* Returns – return arrow */
+#returns > h2::before {
+  content: "↩";
+}
+
+/* Raises – warning sign */
+#raises > h2::before {
+  content: "⚠";
+}
+
+/* Notes – notepad */
+#notes > h2::before {
+  content: "📝";
+}
+
+/* Examples – play icon */
+#examples > h2::before {
+  content: "▶";
+}
+
+/* See Also – link icon */
+#see-also > h2::before {
+  content: "🔗";
 }
