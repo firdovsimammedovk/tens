@@ -16,7 +16,7 @@ Tenstorrent provides a full software stack that enables developers to run and op
 
 ## Software Stack Diagram
 
-![Tenstorrent software stack diagram](./tenstorrent_stack_diagram.svg)
+![Wormhole vs Blackhole](../images/wormhole_vs_blackhole.png)
 
 This layered architecture separates high-level model development from low-level hardware execution.
 
