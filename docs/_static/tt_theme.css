@@ -355,6 +355,77 @@ li.toctree-l1.current > a {
   margin-top: 2rem; /* give footer buttons a little bit of space */
 }
 
+.rst-footer-buttons .btn {
+  display: inline-flex !important;
+  flex-direction: column;
+  gap: 0.15rem;
+  max-width: min(42%, 20rem);
+  min-width: 10.5rem;
+  padding: 0.55rem 0.8rem;
+  line-height: 1.2;
+  white-space: normal;
+  text-transform: none;
+  background: #7c68fa !important;
+  color: #ffffff !important;
+}
+
+.rst-footer-buttons .btn.float-left,
+.rst-footer-buttons .tt-page-nav--prev,
+.rst-breadcrumbs-buttons .tt-page-nav--prev {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.rst-footer-buttons .btn.float-right,
+.rst-footer-buttons .tt-page-nav--next,
+.rst-breadcrumbs-buttons .tt-page-nav--next {
+  align-items: flex-end;
+  text-align: right;
+}
+
+.rst-footer-buttons .btn:visited,
+.rst-footer-buttons .btn:hover,
+.rst-footer-buttons .btn:focus,
+.rst-footer-buttons .btn:focus-visible,
+.rst-footer-buttons .btn:active,
+.rst-footer-buttons .tt-page-nav:visited,
+.rst-footer-buttons .tt-page-nav:hover,
+.rst-footer-buttons .tt-page-nav:focus,
+.rst-breadcrumbs-buttons .tt-page-nav:visited,
+.rst-breadcrumbs-buttons .tt-page-nav:hover,
+.rst-breadcrumbs-buttons .tt-page-nav:focus {
+  background: #7c68fa !important;
+  color: #ffffff !important;
+}
+
+.rst-footer-buttons .tt-pagination-topic {
+  order: 0;
+  font-size: 0.84rem;
+  font-weight: 650;
+  line-height: 1.22;
+  opacity: 1;
+  white-space: normal;
+}
+
+.rst-footer-buttons .tt-pagination-label {
+  order: -1;
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.82;
+}
+
+@media screen and (max-width: 768px) {
+  .rst-footer-buttons .btn,
+  .rst-footer-buttons .tt-page-nav,
+  .rst-breadcrumbs-buttons .tt-page-nav {
+    min-width: auto;
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 /* Document styling */
 
 .document * h1,
