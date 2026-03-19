@@ -1,0 +1,78 @@
+Performance
+===========
+
+Use this section to improve runtime throughput and reduce avoidable overhead in TT-XLA workloads.
+The main levers are compiler optimization level, warmup behavior, data format selection, and host-to-device execution efficiency.
+
+What to optimize
+----------------
+
+Focus on these areas first:
+
+* compiler optimization level
+* device warmup and first-run effects
+* tensor data formats
+* runtime trace behavior
+* batch size selection
+
+Optimization levels
+-------------------
+
+TT-XLA exposes multiple optimization levels to balance compile cost and runtime speed.
+
+Level 0
+   Fastest compile time and lowest optimization.
+   Useful for bring-up and quick iteration.
+
+Level 1
+   Recommended starting point for most workloads.
+   Provides a balanced trade-off between compile cost and runtime performance.
+
+Level 2
+   Highest optimization level.
+   Typically improves runtime performance further at the cost of longer compilation.
+
+Warmup
+------
+
+Always separate first-run behavior from steady-state measurements.
+The first executions may include:
+
+* model compilation and optimization
+* kernel generation
+* weight transfer to device
+* constant evaluation
+* runtime trace capture
+
+Run warmup iterations before collecting performance numbers.
+
+Data formats
+------------
+
+Lower-precision formats often improve performance and memory efficiency on Tenstorrent hardware.
+Common choices include:
+
+* ``bfloat16`` for a practical default with limited accuracy impact
+* ``bfloat8_b`` for additional memory and throughput gains when supported by the workload
+
+When changing data format, validate both correctness and performance.
+
+Measurement workflow
+--------------------
+
+A practical performance workflow is:
+
+* establish a baseline run
+* warm up the model
+* compare optimization levels
+* evaluate data-format changes
+* tune batch size for the target model and hardware
+* rerun with consistent inputs and measurement windows
+
+Related sections
+----------------
+
+* :doc:`testing`
+* :doc:`advanced/code-generation`
+* :doc:`tools/explorer`
+

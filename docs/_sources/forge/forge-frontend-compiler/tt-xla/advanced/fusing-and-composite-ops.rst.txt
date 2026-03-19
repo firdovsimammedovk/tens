@@ -1,0 +1,56 @@
+Fusing and Composite Ops
+========================
+
+TT-XLA uses both fusion and composite operations to preserve high-level intent through frontend lowering.
+Together, these mechanisms help the compiler map decomposed framework graphs to more efficient operations on Tenstorrent hardware.
+
+What each mechanism does
+------------------------
+
+Composite ops
+   Preserve selected high-level operations through StableHLO so downstream compilation can recognize them explicitly.
+
+Fusion
+   Rewrites matched graph patterns into forms that are better suited for composite handling and backend lowering.
+
+How they work together
+----------------------
+
+The two mechanisms solve different problems but are most effective together:
+
+* fusion normalizes or rewrites graph fragments into recognized patterns
+* composite ops preserve those patterns through StableHLO
+* downstream lowering can then map them to optimized implementations
+
+Why this matters
+----------------
+
+Without these mechanisms, framework execution may decompose a high-level operation into many primitive ops.
+That makes it harder for the TT-Forge stack to recover the original intent and apply optimized lowering.
+
+Configuration considerations
+----------------------------
+
+Fusion and composite handling are typically configurable at compile time.
+When adjusting them, validate:
+
+* correctness of the rewritten graph
+* stability of lowering
+* runtime performance on representative workloads
+
+When to extend this area
+------------------------
+
+Add or adjust fusion and composite behavior when you need to:
+
+* preserve a high-value operation through StableHLO
+* recognize a repeated graph pattern from user models
+* improve lowering quality for an operation that is otherwise over-decomposed
+
+Related sections
+----------------
+
+* :doc:`code-generation`
+* :doc:`../performance`
+* :doc:`../testing`
+

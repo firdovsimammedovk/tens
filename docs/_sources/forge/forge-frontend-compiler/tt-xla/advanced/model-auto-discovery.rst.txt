@@ -1,0 +1,53 @@
+Model Auto-Discovery
+====================
+
+Model auto-discovery expands TT-XLA test coverage by finding supported model definitions and generating parameterized test runs automatically.
+It is designed for scalable validation across large model inventories.
+
+What it is for
+--------------
+
+Use model auto-discovery when you need to:
+
+* standardize model coverage across many test targets
+* reduce per-model custom test boilerplate
+* validate inference and training flows at scale
+* run model matrices across different parallelism modes
+
+How it works
+------------
+
+A typical workflow includes:
+
+* scanning a model inventory
+* discovering model variants
+* generating test cases across selected run modes
+* applying configuration and status metadata during collection
+
+Parallelism and scaling
+-----------------------
+
+Auto-discovery is especially useful when validating multiple execution modes, for example:
+
+* single-device runs
+* data-parallel runs
+* tensor-parallel runs
+
+Because the collected matrix can become large, use targeted filtering during local development and broader sweeps in CI or scheduled validation runs.
+
+Practical guidance
+------------------
+
+When using model auto-discovery:
+
+* start with collection-only runs to inspect the generated matrix
+* filter aggressively by model, mode, or marker when debugging failures
+* keep model-specific requirements isolated and reproducible
+* treat discovery output as a coverage tool, not a replacement for focused debugging
+
+Related sections
+----------------
+
+* :doc:`../testing`
+* :doc:`../troubleshooting`
+

@@ -1,0 +1,49 @@
+Explorer
+========
+
+Explorer is an interactive tool for visualizing graphs, inspecting compiler stages, and understanding execution behavior on Tenstorrent hardware.
+It is aimed at development, debugging, and performance analysis workflows.
+
+What Explorer is useful for
+---------------------------
+
+Use Explorer to:
+
+* inspect MLIR-based graph representations
+* visualize how a model changes through compilation
+* compare compiler output across revisions
+* investigate performance bottlenecks and execution structure
+
+Availability
+------------
+
+Explorer is typically available in source-build workflows.
+It is intended for development environments rather than minimal runtime installations.
+
+Recommended workflow
+--------------------
+
+A practical Explorer workflow is:
+
+* build TT-XLA with the required developer features enabled
+* compile a representative model
+* inspect graph structure and lowering stages
+* compare changes after compiler or configuration updates
+
+When to use it
+--------------
+
+Explorer is especially useful when:
+
+* a model compiles but performs unexpectedly
+* graph structure does not match expectations
+* you need a visual view of the lowering pipeline
+* you are validating advanced compiler changes
+
+Related sections
+----------------
+
+* :doc:`../performance`
+* :doc:`../advanced/code-generation`
+* :doc:`../troubleshooting`
+

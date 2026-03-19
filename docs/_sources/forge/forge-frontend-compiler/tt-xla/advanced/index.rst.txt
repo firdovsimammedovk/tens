@@ -1,0 +1,13 @@
+Advanced
+========
+
+This section covers advanced TT-XLA behaviors and developer workflows.
+Use it when you need to understand internal lowering choices, large-scale model validation, or code generation outputs.
+
+.. toctree::
+   :maxdepth: 1
+
+   fusing-and-composite-ops
+   model-auto-discovery
+   code-generation
+

@@ -1,0 +1,6 @@
+tt-smi
+======
+
+TT-SMI is the Tenstorrent System Management Interface.
+It provides command-line access to device inventory, firmware information, and telemetry.
+

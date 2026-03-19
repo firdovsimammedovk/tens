@@ -1,0 +1,11 @@
+Tools
+=====
+
+TT-XLA includes tooling for graph inspection and debugging.
+These tools are most useful when you need visibility into compiler output or want to analyze runtime behavior interactively.
+
+.. toctree::
+   :maxdepth: 1
+
+   explorer
+

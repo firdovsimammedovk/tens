@@ -1,0 +1,7 @@
+Hardware Guides
+===============
+
+Use the hardware section for device architecture, chip families, and card-specific documentation.
+
+See :doc:`../hardware/index`.
+

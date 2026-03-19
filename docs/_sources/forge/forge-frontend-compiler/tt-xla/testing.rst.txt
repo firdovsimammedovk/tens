@@ -1,0 +1,74 @@
+Testing
+=======
+
+TT-XLA includes test infrastructure for operator validation, graph-level testing, model coverage, and IR-based checks.
+Use it to verify correctness, track regressions, and validate lowering behavior across frontend compiler changes.
+
+What to test
+------------
+
+Testing usually falls into four categories:
+
+* operator and graph tests
+* model tests
+* serialization and IR inspection
+* large-scale discovery-driven coverage
+
+Operator and graph tests
+------------------------
+
+Operator and graph tests are the fastest way to validate frontend compiler behavior for focused cases.
+They are useful when you want to:
+
+* isolate a single operation or pattern
+* verify lowering of a specific graph fragment
+* reproduce a regression with minimal test input
+
+Model tests
+-----------
+
+Model tests validate end-to-end behavior on realistic workloads.
+They are a good fit when you need to:
+
+* compare numerical results against a reference
+* validate training or inference paths
+* confirm frontend compiler changes against model-level behavior
+
+IR serialization and checks
+---------------------------
+
+TT-XLA can serialize intermediate artifacts for inspection and verification.
+This is useful for:
+
+* reviewing StableHLO and backend-facing IR
+* tracking compiler output across revisions
+* matching expected transformations with automated checks
+
+Model auto-discovery
+--------------------
+
+TT-XLA also supports discovery-driven model testing for broad regression coverage.
+This workflow is designed to:
+
+* find supported model definitions automatically
+* generate parameterized tests across run modes
+* scale validation as model inventories grow
+
+Because discovery can expand into a large test matrix, prefer targeted runs during local development.
+
+Recommended workflow
+--------------------
+
+A practical validation flow is:
+
+* start with a focused operator or graph test
+* validate representative model tests
+* inspect serialized IR when behavior changes unexpectedly
+* use discovery-driven coverage for broader regression sweeps
+
+Related sections
+----------------
+
+* :doc:`advanced/model-auto-discovery`
+* :doc:`troubleshooting`
+

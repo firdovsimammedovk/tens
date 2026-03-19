@@ -1,0 +1,61 @@
+Getting Started
+===============
+
+Use this section to bring up a working TT-XLA environment and run an initial model.
+For most users, the fastest path is a prebuilt runtime environment. Source builds are intended for frontend compiler development.
+
+Before you begin
+----------------
+
+Make sure you have:
+
+* supported Tenstorrent hardware set up and visible to the host
+* the Tenstorrent software stack installed
+* a Python environment suitable for the selected TT-XLA workflow
+* access to the TT-Forge repository if you plan to run examples or build from source
+
+Choose an installation path
+---------------------------
+
+TT-XLA supports three common starting points:
+
+Wheel-based runtime
+   Best when you want to run models quickly with minimal setup.
+
+Docker-based runtime
+   Best when you want an isolated environment for model execution and examples.
+
+Build from source
+   Best when you need to modify TT-XLA, enable development options, or debug compiler behavior.
+
+Recommended first run
+---------------------
+
+A practical first run usually looks like this:
+
+* prepare the host and device environment
+* choose a runtime path from :doc:`setup/index`
+* install model-specific Python dependencies if required
+* run a small example model
+* confirm that compilation completes and the model executes on Tenstorrent hardware
+
+What to expect
+--------------
+
+On the first execution, TT-XLA may spend additional time in:
+
+* frontend compilation
+* backend lowering
+* kernel compilation
+* device-side initialization
+* runtime trace preparation
+
+Subsequent runs are usually much faster once caches and device state are warm.
+
+Next steps
+----------
+
+* For environment setup, continue to :doc:`setup/index`.
+* For performance guidance after the first successful run, see :doc:`performance`.
+* For correctness and validation workflows, see :doc:`testing`.
+

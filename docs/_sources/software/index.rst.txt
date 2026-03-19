@@ -1,9 +1,7 @@
 Software
-=======================================
+========
 
 .. toctree::
-   :caption: Software
    :maxdepth: 2
 
    Overview
-

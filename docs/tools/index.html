@@ -37,8 +37,8 @@
     <script src="../_static/tt_version_dropdown.js"></script>
     <link rel="index" title="Index" href="../genindex.html"/>
     <link rel="search" title="Search" href="../search.html"/>
-    <link rel="next" title="Support &amp; FAQ" href="../support/README.html"/>
-    <link rel="prev" title="Manual Installation" href="../getting-started/manual-software-install.html"/> 
+    <link rel="next" title="tt-smi" href="tt-smi.html"/>
+    <link rel="prev" title="Software Overview" href="../software/Overview.html"/> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -204,40 +204,25 @@
 </div>
             </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
                  aria-label="Navigation menu">
-                <p class="caption" role="heading"><span class="caption-text">Software Guides</span></p>
-<ul>
+                <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../Overview.html">Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/README.html">Installing the Tenstorrent Software Stack</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/quickstart.html">Quickstart</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/model-demos.html">Running Model Demos</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/vLLM-servers.html">Deploying LLMs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/tt-software-stack.html">Understanding the Tenstorrent Software Stack</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Hardware Guides</span></p>
-<ul>
+<li class="toctree-l1"><a class="reference internal" href="../get_started/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../software/index.html">Software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../hardware/index.html">Hardware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../systems/index.html">Systems</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="tt-smi.html">tt-smi</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tt-nn-visualizer.html">TT-NN Visualizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vllm.html">vLLM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="tt-topology.html">TT-Topology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model-explorer.html">Model Explorer</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Software</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../software/index.html">Software</a></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../models/index.html">Models</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../forge/index.html">TT-Forge</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../getting-started/manual-software-install.html">Manual Software Installation</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Tools</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Support</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../support/README.html">Support &amp; FAQ</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Resources</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../resources/contributing.html">Contribution</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Legal</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://docs.tenstorrent.com/bounty_terms.html">Bounty Program Terms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../resource/index.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/index.html">Support</a></li>
 </ul>
 
             </div>
@@ -265,32 +250,13 @@
                             
   <section id="tools">
 <h1>Tools<a class="headerlink" href="#tools" title="Link to this heading"></a></h1>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-smi">tt-smi</a></p></li>
-</ul>
-<p>The Tenstorrent System Management Interface (TT-SMI) is a command-line tool that provides a comprehensive interface for interacting with Tenstorrent devices, collecting telemetry data, and displaying device and firmware information.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://docs.tenstorrent.com/ttnn-visualizer/">TT-NN Visualizer</a></p></li>
-</ul>
-<p>TT-NN Visualizer is an interactive tool for visualizing and analyzing model execution on Tenstorrent hardware. It provides detailed insights through graphs, memory plots, tensor and buffer views, operation flow diagrams, and multi-instance support via file or SSH report loading.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/tenstorrent/vllm">vllm</a></p></li>
-</ul>
-<p>Tenstorrent vLLM is a high-throughput and memory-efficient inference and serving engine for LLMs on Tenstorrent hardware.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-topology">tt-topology</a></p></li>
-</ul>
-<p>Tenstorrent Topology (TT-Topology) is a command-line utility used to flash multiple NB cards on a system for specific Ethernet routing configurations.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/tenstorrent/model-explorer">model-explorer</a></p></li>
-</ul>
-<p>Model Explorer provides an intuitive, hierarchical view of model graphs, organizing operations into nested layers that users can easily expand or collapse.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>For tools specific to individual components of the Tenstorrent software stack—such as TT-Metalium or TT-NN—please refer to their dedicated tool sections in the documentation:</p>
-<ul class="simple">
-<li><p>TT-Metalium Tools: <a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tools/index.html">https://docs.tenstorrent.com/tt-metal/latest/tt-metalium/tools/index.html</a></p></li>
-<li><p>TT-NN Tools: <a class="reference external" href="https://docs.tenstorrent.com/tt-metal/latest/ttnn/tools/index.html">https://docs.tenstorrent.com/tt-metal/latest/ttnn/tools/index.html</a></p></li>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tt-smi.html">tt-smi</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tt-nn-visualizer.html">TT-NN Visualizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vllm.html">vLLM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tt-topology.html">TT-Topology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="model-explorer.html">Model Explorer</a></li>
 </ul>
 </div>
 </section>
@@ -299,12 +265,12 @@
                         </div>
                     </div>
                     <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../getting-started/manual-software-install.html" class="btn btn-neutral float-left" title="Manual Installation" accesskey="p" rel="prev">
-          <span class="tt-pagination-topic">Manual Installation</span>
+        <a href="../software/Overview.html" class="btn btn-neutral float-left" title="Software Overview" accesskey="p" rel="prev">
+          <span class="tt-pagination-topic">Software Overview</span>
           <span class="tt-pagination-label">Previous</span>
         </a>
-        <a href="../support/README.html" class="btn btn-neutral float-right" title="Support &amp; FAQ" accesskey="n" rel="next">
-          <span class="tt-pagination-topic">Support &amp; FAQ</span>
+        <a href="tt-smi.html" class="btn btn-neutral float-right" title="tt-smi" accesskey="n" rel="next">
+          <span class="tt-pagination-topic">tt-smi</span>
           <span class="tt-pagination-label">Next</span>
         </a>
     </div>

@@ -1,0 +1,46 @@
+Docker
+======
+
+Use Docker when you want a clean TT-XLA runtime environment without mixing dependencies into an existing host setup.
+This path is commonly used for running examples and validating end-to-end execution.
+
+When to use Docker
+------------------
+
+Docker is a good fit when you want to:
+
+* keep the TT-XLA environment isolated from the host Python setup
+* share a reproducible runtime across developers or CI jobs
+* run example workloads without building the frontend compiler locally
+
+General workflow
+----------------
+
+A typical Docker workflow includes:
+
+* starting a container with access to the Tenstorrent devices
+* cloning or mounting the TT-Forge workspace inside the container
+* installing model-specific Python dependencies
+* running a small JAX or torch-xla example inside the container
+
+Device access
+-------------
+
+When running in containers, TT-XLA expects full device visibility from the runtime environment.
+Use a container setup that exposes the required Tenstorrent devices and supporting runtime interfaces consistently.
+
+Recommended validation
+----------------------
+
+After the container is up:
+
+* verify that the Tenstorrent devices are visible
+* confirm that Python dependencies import successfully
+* run a small example model
+* check that the first compile and execute cycle completes without device or runtime errors
+
+When to move on
+---------------
+
+If you need to modify compiler code, enable development-only features, or work with native debugging tools, continue to :doc:`build-from-source`.
+

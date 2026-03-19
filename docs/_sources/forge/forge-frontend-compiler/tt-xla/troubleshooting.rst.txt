@@ -1,0 +1,66 @@
+Troubleshooting
+===============
+
+Use this section to diagnose setup, compile, code generation, and runtime issues in TT-XLA workflows.
+Most failures can be narrowed down by isolating the environment, reproducing the issue with a smaller workload, and inspecting intermediate compiler output.
+
+Common issue areas
+------------------
+
+Typical problems include:
+
+* Python or toolchain version mismatches
+* incomplete source-build setup
+* missing TT-MLIR toolchain configuration
+* unsupported graph patterns
+* code generation failures
+* runtime execution errors on Tenstorrent hardware
+
+Recommended debug flow
+----------------------
+
+When a workload fails:
+
+* confirm the software environment and toolchain versions
+* reproduce the issue with the smallest possible model or test
+* determine whether the failure happens during frontend lowering, backend compilation, or runtime execution
+* inspect intermediate artifacts when available
+* rerun with focused tests instead of a full model matrix
+
+Source-build issues
+-------------------
+
+For source builds, check these first:
+
+* the selected Python version matches the build environment
+* the TT-MLIR toolchain path is set correctly
+* submodules are initialized and current
+* stale build artifacts are cleaned up after major environment changes
+
+Debugging native code
+---------------------
+
+When you need to debug native components such as the PJRT plugin:
+
+* use a debug-capable source build
+* run a focused Python integration test or unit test
+* attach a native debugger to the active process when needed
+* combine frontend and native debugging only after the basic repro is stable
+
+Code generation issues
+----------------------
+
+If code generation fails:
+
+* verify that the model compiles successfully before export
+* confirm the output path is writable
+* check that generated artifacts are present and non-empty
+* compare generated output against a known-good small example
+
+Related sections
+----------------
+
+* :doc:`testing`
+* :doc:`advanced/code-generation`
+* :doc:`tools/explorer`
+

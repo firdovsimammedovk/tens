@@ -1,0 +1,53 @@
+Code Generation
+===============
+
+TT-XLA can generate standalone Python or C++ source from supported JAX and torch-xla workloads.
+This is useful when you need inspectable output, integration into custom runtimes, or a stable artifact for further optimization work.
+
+What code generation produces
+-----------------------------
+
+Code generation typically emits:
+
+* intermediate compiler artifacts for inspection
+* generated source files that call TT-NN APIs directly
+* optional exported tensors for inputs and parameters
+
+Common use cases
+----------------
+
+Use code generation when you want to:
+
+* inspect how frontend compiler lowering maps into runtime calls
+* prototype manual optimizations on generated code
+* package model execution into a more self-contained form
+* debug differences between graph lowering and executable output
+
+Python and C++ output
+---------------------
+
+Python output
+   Easier to inspect and modify during bring-up.
+   Suitable for experimentation and understanding generated execution structure.
+
+C++ output
+   Better suited for standalone integration and production-style embedding.
+   Useful when the generated artifact must run outside the full frontend compiler environment.
+
+Recommended workflow
+--------------------
+
+A practical workflow is:
+
+* compile a supported model with code generation enabled
+* inspect the emitted intermediate representations
+* validate that source files and tensors were generated as expected
+* run the generated artifact and compare outputs with the original TT-XLA path
+
+Related sections
+----------------
+
+* :doc:`fusing-and-composite-ops`
+* :doc:`../tools/explorer`
+* :doc:`../troubleshooting`
+

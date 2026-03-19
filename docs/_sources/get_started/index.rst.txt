@@ -1,0 +1,12 @@
+Get Started
+===========
+
+.. toctree::
+   :maxdepth: 3
+
+   ../getting-started/README
+   ../getting-started/quickstart
+   ../getting-started/model-demos
+   ../getting-started/vLLM-servers
+   ../getting-started/tt-software-stack
+   ../getting-started/manual-software-install

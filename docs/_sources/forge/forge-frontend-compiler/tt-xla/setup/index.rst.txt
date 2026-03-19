@@ -1,0 +1,12 @@
+Setup
+=====
+
+This section describes how to prepare TT-XLA for execution and development.
+Choose Docker when you want isolation and repeatability. Choose a source build when you need to modify or debug the frontend compiler.
+
+.. toctree::
+   :maxdepth: 1
+
+   docker
+   build-from-source
+

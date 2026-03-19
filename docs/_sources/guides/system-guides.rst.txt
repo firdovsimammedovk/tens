@@ -1,0 +1,7 @@
+System Guides
+=============
+
+Use the systems section for workstation and rack-scale system documentation.
+
+See :doc:`../systems/index`.
+

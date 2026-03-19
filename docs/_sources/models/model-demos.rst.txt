@@ -1,0 +1,7 @@
+Model Demos
+===========
+
+Use this entry point to explore runnable model demonstrations.
+
+See :doc:`../getting-started/model-demos`.
+

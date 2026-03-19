@@ -1,0 +1,21 @@
+Getting Started
+===============
+
+Use this page as the quickest entry point into TT-Forge.
+
+Start here
+----------
+
+#. Read the :doc:`overview <index>` to understand how TT-Forge fits together.
+#. Choose a frontend in :doc:`forge-frontend-compiler/index` based on your source framework.
+#. Review the :doc:`forge-backend-compiler/index` to understand how models are lowered to Tenstorrent targets.
+#. Explore :doc:`tools/index` for validation and debugging workflows.
+
+Key sections
+------------
+
+* :doc:`Overview <index>`
+* :doc:`Frontends <forge-frontend-compiler/index>`
+* :doc:`Backend <forge-backend-compiler/index>`
+* :doc:`Tools <tools/index>`
+

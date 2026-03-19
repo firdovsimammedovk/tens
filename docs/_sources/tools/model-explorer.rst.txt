@@ -1,0 +1,5 @@
+Model Explorer
+==============
+
+Model Explorer provides a hierarchical view of model graphs and helps inspect graph structure during debugging and analysis workflows.
+

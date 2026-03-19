@@ -1,0 +1,57 @@
+Overview
+========
+
+TT-XLA is a frontend compiler in TT-Forge for XLA-based programs.
+It accepts graphs produced from JAX or torch-xla workflows and lowers them through StableHLO into the downstream TT-Forge and TT-MLIR pipeline.
+
+What TT-XLA does
+----------------
+
+TT-XLA is responsible for:
+
+* receiving framework-level programs from JAX and XLA-based execution paths
+* lowering those programs into StableHLO
+* preserving high-level intent for downstream optimization
+* passing compiler-ready graphs into TT-Forge for lowering to Tenstorrent hardware
+
+How TT-XLA fits into TT-Forge
+-----------------------------
+
+TT-XLA is one of the TT-Forge frontend compilers.
+Its role is to bridge framework execution and compiler lowering.
+
+A typical flow looks like this:
+
+* a model is traced or compiled through an XLA-compatible frontend
+* TT-XLA captures the program and lowers it to StableHLO
+* TT-Forge applies graph and backend lowering
+* TT-MLIR and runtime components generate executable code for Tenstorrent hardware
+
+Why StableHLO matters
+---------------------
+
+StableHLO is the handoff format between TT-XLA and the rest of the compilation stack.
+It provides:
+
+* a stable representation for frontend lowering
+* a point for graph inspection and testing
+* a target for composite operations and other advanced rewrites
+
+Supported workflows
+-------------------
+
+TT-XLA is primarily used for:
+
+* JAX model execution and compilation
+* torch-xla based flows for PyTorch models
+* compiler development and frontend experimentation
+* export-oriented workflows such as code generation
+
+Related sections
+----------------
+
+* :doc:`getting-started`
+* :doc:`setup/index`
+* :doc:`advanced/index`
+* :doc:`tools/index`
+

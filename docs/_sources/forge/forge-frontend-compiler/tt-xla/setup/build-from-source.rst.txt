@@ -1,0 +1,57 @@
+Build from Source
+=================
+
+Build TT-XLA from source when you need to develop the frontend compiler, enable optional developer features, or debug native components.
+This path is more involved than a wheel or Docker-based runtime, but it gives full control over the toolchain and build configuration.
+
+What you need
+-------------
+
+A source build typically requires:
+
+* a supported Linux environment
+* a compatible Python toolchain
+* a working C and C++ toolchain
+* CMake and Ninja or equivalent build tools
+* an available TT-MLIR toolchain
+
+Build flow
+----------
+
+A typical source build looks like this:
+
+* prepare the system and Python dependencies
+* build or install the TT-MLIR toolchain
+* configure the required environment variables
+* clone the TT-XLA repository and initialize submodules
+* build the PJRT plugin and related components
+* validate the installation with a small example or targeted test
+
+TT-MLIR integration
+-------------------
+
+TT-XLA depends on the TT-MLIR toolchain for downstream lowering.
+Before building TT-XLA, make sure the TT-MLIR toolchain is available and that the build environment points to it correctly.
+
+Incremental development
+-----------------------
+
+Source builds are the right choice when you need to:
+
+* iterate on frontend compiler code
+* debug PJRT and native runtime integration
+* enable optional features such as Explorer
+* run targeted unit or integration tests during development
+
+Common issues
+-------------
+
+Typical source-build issues include:
+
+* Python version mismatches
+* missing or misconfigured TT-MLIR toolchain paths
+* incomplete submodule setup
+* stale build directories after toolchain changes
+
+For diagnosis and recovery steps, see :doc:`../troubleshooting`.
+
