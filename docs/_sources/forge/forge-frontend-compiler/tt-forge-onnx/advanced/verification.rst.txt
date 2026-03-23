@@ -1,0 +1,132 @@
+Verification
+=============
+
+This page describes how TT-Forge-ONNX verifies that compiled model outputs match the original
+framework model outputs.
+
+Overview
+--------
+
+When comparing a compiled model with the framework model (e.g., a PyTorch model running on host),
+TT-Forge-ONNX verifies whether the outputs are sufficiently similar (the required degree of similarity
+is configurable).
+
+General workflow:
+
+1. Create a framework model.
+2. Run a forward pass through the framework model.
+3. Compile the framework model using Forge.
+4. Run a forward pass through the compiled model.
+5. Compare the outputs.
+
+The ``verify()`` function handles all of the above steps automatically:
+
+* Runs forward passes for both framework and compiled models.
+* Compares results using a combination of comparison methods.
+* Supports customization through the ``VerifyConfig`` class.
+
+Basic Usage
+-----------
+
+.. code-block:: python
+
+   import torch
+   import torch.nn as nn
+   import forge
+   from forge.verify import verify
+
+   class Add(nn.Module):
+       def __init__(self):
+           super().__init__()
+
+       def forward(self, a, b):
+           return a + b
+
+   inputs = [torch.rand(2, 32, 32), torch.rand(2, 32, 32)]
+
+   framework_model = Add()
+   compiled_model = forge.compile(framework_model, sample_inputs=inputs)
+
+   verify(inputs, framework_model, compiled_model)
+
+Compile and Run Without Verification
+--------------------------------------
+
+.. code-block:: python
+
+   framework_model = Add()
+   compiled_model = forge.compile(framework_model, sample_inputs=inputs)
+
+   fw_out = framework_model(*inputs)
+   co_out = compiled_model(*inputs)
+
+VerifyConfig
+------------
+
+If ``VerifyConfig`` is not passed, the default configuration is used.
+
+.. list-table::
+   :widths: 40 30 30
+   :header-rows: 1
+
+   * - Feature
+     - Name
+     - Enabled (default)
+   * - Verification as a method
+     - ``enabled``
+     - ``True``
+   * - Number of output tensors check
+     - ``verify_size``
+     - ``True``
+   * - Output tensor data type check
+     - ``verify_dtype``
+     - ``True``
+   * - Output tensor shape check
+     - ``verify_shape``
+     - ``True``
+
+For full details, see ``forge/forge/verify/config.py``.
+
+Example with custom config:
+
+.. code-block:: python
+
+   verify(inputs, framework_model, compiled_model, VerifyConfig(verify_dtype=False))
+
+Value Checkers
+--------------
+
+``VerifyConfig`` also includes a value checker. Three types are available:
+
+AutomaticValueChecker (default)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Performs tensor checks based on shape and type. For scalars, uses ``torch.allclose``.
+
+Configurable parameters: ``pcc``, ``rtol``, ``atol``, ``dissimilarity_threshold``.
+
+.. code-block:: python
+
+   # Default behavior
+   verify(inputs, framework_model, compiled_model)
+
+   # Same as default
+   verify(inputs, framework_model, compiled_model,
+          VerifyConfig(value_checker=AutomaticValueChecker()))
+
+   # Custom pcc and rtol
+   verify(inputs, framework_model, compiled_model,
+          VerifyConfig(value_checker=AutomaticValueChecker(pcc=0.95, rtol=1e-03)))
+
+AllCloseValueChecker
+~~~~~~~~~~~~~~~~~~~~
+
+Checks tensors using ``torch.allclose``.
+
+FullValueChecker
+~~~~~~~~~~~~~~~~
+
+Performs a full element-wise comparison.
+
+For details on all checkers, see ``forge/forge/verify/value_checkers.py``.
+

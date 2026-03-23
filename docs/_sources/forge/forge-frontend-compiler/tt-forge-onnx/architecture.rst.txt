@@ -1,0 +1,132 @@
+Architecture Overview
+=====================
+
+TT-Forge is a comprehensive compiler for machine learning models. This page covers the key components
+with a focus on TT-Forge-ONNX.
+
+.. contents:: Table of Contents
+   :local:
+   :depth: 2
+
+TT-Forge Overview
+-----------------
+
+TT-Forge is the end-to-end stack. TT-Forge-ONNX is the frontend that accepts ONNX, TensorFlow, and
+PaddlePaddle models and converts them into a generic IR.
+
+.. code-block:: text
+
+   Framework Model (ONNX / TF / PaddlePaddle)
+              │
+              ▼
+         TT-TVM (Relay IR)
+              │
+              ▼
+       TT-Forge-ONNX (Forge IR)
+              │
+              ▼
+           TT-MLIR
+              │
+              ▼
+       Device Binary (Flatbuffer)
+
+TT-TVM Overview
+---------------
+
+TT-TVM converts framework models into Relay IR before handing off to TT-Forge-ONNX.
+
+TVM IR
+~~~~~~
+
+*Coming soon.*
+
+TVM Compile
+~~~~~~~~~~~
+
+*Coming soon.*
+
+Relay Compile Passes
+~~~~~~~~~~~~~~~~~~~~
+
+*Coming soon.*
+
+Forge Compile Passes
+~~~~~~~~~~~~~~~~~~~~
+
+*Coming soon.*
+
+Partition Graph
+^^^^^^^^^^^^^^^
+
+*Coming soon.*
+
+Construct Inputs, Constants and Ops
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Coming soon.*
+
+Generate Forge-ONNX Module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Coming soon.*
+
+Standalone Forge-ONNX Module
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+*Coming soon.*
+
+TT-Forge-ONNX Overview
+-----------------------
+
+The TT-Forge-ONNX compilation pipeline:
+
+Initialize Compile
+~~~~~~~~~~~~~~~~~~
+
+*Coming soon.*
+
+Generate Initial Graph (TT-TVM)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*Coming soon.*
+
+Post Initial Graph Passes
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+*Coming soon.*
+
+Consteval
+~~~~~~~~~
+
+*Coming soon.*
+
+Autograd
+~~~~~~~~
+
+*Coming soon.*
+
+Post Autograd
+~~~~~~~~~~~~~
+
+*Coming soon.*
+
+Pre Lowering
+~~~~~~~~~~~~
+
+*Coming soon.*
+
+Graph Split
+~~~~~~~~~~~
+
+*Coming soon.*
+
+Compiler TTIR
+~~~~~~~~~~~~~
+
+*Coming soon.*
+
+Output Binary
+~~~~~~~~~~~~~
+
+*Coming soon.*
+

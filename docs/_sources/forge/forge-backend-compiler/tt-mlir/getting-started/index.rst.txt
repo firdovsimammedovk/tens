@@ -1,0 +1,46 @@
+Getting Started
+
+   build-from-source
+   quick-start
+   installation
+
+   :hidden:
+.. toctree::
+
+* :doc:`build-from-source` - Build TT-MLIR from source
+* :doc:`quick-start` - Run your first TT-MLIR compilation
+* :doc:`installation` - Detailed installation instructions
+
+----------
+Next Steps
+
+3. **Docker Image** (for containerized environments)
+2. **Build from Source** (for development or custom builds)
+1. **Pre-built Packages** (recommended for most users)
+
+You can install TT-MLIR in several ways:
+
+--------------------
+Installation Options
+
+* At least 16GB of RAM (32GB recommended for compilation)
+* Clang 17 (for building from source)
+* CMake 3.20 or later
+* Python 3.8 or later
+* Ubuntu 20.04 or 22.04 (recommended)
+
+Before installing TT-MLIR, ensure you have:
+
+-------------
+Prerequisites
+
+representations into optimized code for Tenstorrent hardware.
+TT-MLIR is the backend compiler in the TT-Forge stack. It compiles high-level intermediate
+
+--------
+Overview
+
+to running your first compilation.
+This section provides everything you need to get started with TT-MLIR, from installation
+
+===============

@@ -1,0 +1,45 @@
+Overview
+========
+
+**TT-Forge-ONNX** is a graph compiler designed to optimize and transform computational graphs for deep
+learning models on single-chip systems, enhancing their performance and efficiency.
+
+Built on top of the `TT-MLIR <https://docs.tenstorrent.com/tt-mlir/>`_ backend, TT-Forge-ONNX is an
+integral component of the `TT-Forge <https://docs.tenstorrent.com/tt-forge/>`_ project, which provides a
+comprehensive suite of tools for optimizing and deploying deep learning models on Tenstorrent hardware.
+
+Project Goals
+-------------
+
+* Provide abstraction of ONNX, TensorFlow, and PaddlePaddle frontend frameworks.
+* Compile many kinds of model architectures without custom modification and with great performance
+  (for example, Transformers, CNNs, etc.).
+* Abstract all Tenstorrent device architectures (for example, Wormhole, Blackhole, etc.).
+
+Key Features
+------------
+
+* **Framework-agnostic frontend** — converts any ONNX-compatible model to a generic Intermediate
+  Representation (IR).
+* **Single-chip optimization** — designed for single-chip Tenstorrent systems.
+* **TT-MLIR integration** — the generated IR is lowered through TT-MLIR to device-specific binaries.
+* **Broad model support** — Transformers, CNNs, and other common architectures compile without
+  modification.
+
+Where TT-Forge-ONNX Fits
+------------------------
+
+TT-Forge-ONNX sits inside the TT-Forge compiler stack as a frontend compiler:
+
+.. code-block:: text
+
+   ONNX / TensorFlow / PaddlePaddle
+              │
+              ▼
+       TT-Forge-ONNX  ◄── you are here
+              │
+              ▼
+           TT-MLIR
+              │
+              ▼
+     Tenstorrent Hardware

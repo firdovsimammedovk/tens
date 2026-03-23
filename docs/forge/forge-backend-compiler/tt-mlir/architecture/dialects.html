@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+    <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Dialects &mdash; Home 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/tt_theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/home.css" type="text/css"/>
+    <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
+    <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=fd3dd8dd"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../../../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <script src="../../../../_static/tt_signature_copy.js"></script>
+    <script src="../../../../_static/tt_dropdown.js"></script>
+    <script src="../../../../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html"/>
+    <link rel="search" title="Search" href="../../../../search.html"/> 
+</head>
+
+<body class="wy-body-for-nav"> 
+<!-- ===== Top Navbar (NEW) ===== -->
+
+
+<header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+        <div class="tt-topnav__inner">
+
+            <!-- Logo -->
+            <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../../../_static/tt_logo.svg" alt="Home"/></a>
+
+            <!-- Primary links (hardcoded like the mock) -->
+            <nav class="tt-topnav__links" aria-label="Primary navigation">
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Get Started</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Software Stack</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/README.html">Installation</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/model-demos.html">Run Your First Model</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/quickstart.html">Quickstart</a>
+                    </div>
+                </div>
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Guides</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Running Models</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Performance
+                            Optimizations</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Multi-Device Setup</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Debugging Workflows</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Developing Custom
+                            Ops</a>
+                    </div>
+                </div>
+
+                <!-- Software dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../software/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../index.html">TT-Forge</a>
+                        <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+                    </div>
+                </div>
+
+                <!-- Hardware dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/tensix-architecture.html">Tensix Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/memory-architecture.html">Memory Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Network on Chip</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Chips</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Systems</a>
+                    </div>
+                </div>
+
+                <!-- Tools dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Tools</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">tt-smi</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Profiler</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Topology Explorer</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Visualizer</a>
+                    </div>
+                </div>
+                <a class="tt-topnav__link" href="../../../../index.html">Models</a>
+                <!-- Resource dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Resource</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Architecture Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Glossary</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Release Notes</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Roadmap</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../support/README.html">Support</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../resources/contributing.html">Contribution</a>
+                        <a class="tt-topnav__dropdown-item" href="https://github.com/tenstorrent/tenstorrent.github.io" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+                <!-- Support dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Support</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">FAQ</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Troubleshooting</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Community</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA -->
+            <div class="tt-topnav__cta">
+                <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+        <div class="tt-topnav__inner">
+
+            <!-- Version (styled capsule dropdown) -->
+            <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+                <button
+                        class="tt-topnav__version tt-topnav__version--dropdown"
+                        type="button"
+                        id="tt-version-toggle"
+                        aria-expanded="false"
+                ><span class="tt-topnav__version-text">
+                    1.0
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+                </button>
+                <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                    <!-- Version links will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Secondary links -->
+            <nav class="tt-topnav__subnav" aria-label="Section navigation">
+                <a class="tt-topnav__sublink" href="../../../index.html" style="margin-left: 230px">Overview</a>
+                <a class="tt-topnav__sublink" href="../../../getting-started.html">Getting Started</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/index.html">Frontends</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/tt-xla/index.html">TT-XLA</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/tt-forge-onnx/index.html">TT-Forge-ONNX</a>
+                <a class="tt-topnav__sublink" href="../../index.html">Backend</a>
+                <a class="tt-topnav__sublink" href="../../../tools/index.html">Tools</a>
+            </nav>
+
+            <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+            <div class="tt-topnav__edit"><span class="tt-topnav__editspacer"></span></div>
+
+        </div>
+    </div>
+
+</header>
+
+<!-- ===== /Top Navbar ===== -->
+<div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search" >
+
+                
+                
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+            </div>
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+                 aria-label="Navigation menu">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bounty_terms.html">TENSTORRENT BOUNTY PROGRAM TERMS AND CONDITIONS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../get_started/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../software/index.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../hardware/index.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../systems/index.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../models/index.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../resource/index.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support/index.html">Support</a></li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="../../../../index.html">Home</a>
+        </nav>
+
+        <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Dialects</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div itemprop="articleBody">
+                            
+  <section id="dialects">
+<h1>Dialects<a class="headerlink" href="#dialects" title="Link to this heading"></a></h1>
+<p>TT-MLIR defines several custom MLIR dialects for different stages of compilation.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Dialects in MLIR are collections of operations, types, and attributes that define a domain-specific
+IR. TT-MLIR uses the following dialects:</p>
+<ul class="simple">
+<li><p><strong>TTIR</strong> - High-level tensor operations</p></li>
+<li><p><strong>TTNN</strong> - Neural network optimized operations</p></li>
+<li><p><strong>TTMetal</strong> - Low-level hardware operations</p></li>
+<li><p><strong>TTKernel</strong> - Kernel-level operations for Tensix cores</p></li>
+</ul>
+</section>
+<section id="standard-mlir-dialects">
+<h2>Standard MLIR Dialects<a class="headerlink" href="#standard-mlir-dialects" title="Link to this heading"></a></h2>
+<p>TT-MLIR also uses several standard MLIR dialects:</p>
+<ul class="simple">
+<li><p><strong>func</strong> - Function definitions and calls</p></li>
+<li><p><strong>tensor</strong> - Tensor types and operations</p></li>
+<li><p><strong>arith</strong> - Arithmetic operations</p></li>
+<li><p><strong>scf</strong> - Structured control flow</p></li>
+<li><p><strong>affine</strong> - Affine transformations</p></li>
+</ul>
+</section>
+<section id="ttir-dialect">
+<h2>TTIR Dialect<a class="headerlink" href="#ttir-dialect" title="Link to this heading"></a></h2>
+<section id="purpose">
+<h3>Purpose<a class="headerlink" href="#purpose" title="Link to this heading"></a></h3>
+<p>TTIR (TT Intermediate Representation) is the high-level, hardware-independent dialect.</p>
+</section>
+<section id="operations">
+<h3>Operations<a class="headerlink" href="#operations" title="Link to this heading"></a></h3>
+<p>TTIR includes operations for:</p>
+<ul class="simple">
+<li><p><strong>Tensor Operations</strong>: <code class="docutils literal notranslate"><span class="pre">ttir.add</span></code>, <code class="docutils literal notranslate"><span class="pre">ttir.multiply</span></code>, <code class="docutils literal notranslate"><span class="pre">ttir.matmul</span></code></p></li>
+<li><p><strong>Activation Functions</strong>: <code class="docutils literal notranslate"><span class="pre">ttir.relu</span></code>, <code class="docutils literal notranslate"><span class="pre">ttir.sigmoid</span></code>, <code class="docutils literal notranslate"><span class="pre">ttir.gelu</span></code></p></li>
+<li><p><strong>Convolutions</strong>: <code class="docutils literal notranslate"><span class="pre">ttir.conv2d</span></code>, <code class="docutils literal notranslate"><span class="pre">ttir.conv3d</span></code></p></li>
+<li><p><strong>Pooling</strong>: <code class="docutils literal notranslate"><span class="pre">ttir.max_pool2d</span></code>, <code class="docutils literal notranslate"><span class="pre">ttir.avg_pool2d</span></code></p></li>
+<li><p><strong>Normalization</strong>: <code class="docutils literal notranslate"><span class="pre">ttir.layer_norm</span></code>, <code class="docutils literal notranslate"><span class="pre">ttir.batch_norm</span></code></p></li>
+<li><p><strong>Reshaping</strong>: <code class="docutils literal notranslate"><span class="pre">ttir.reshape</span></code>, <code class="docutils literal notranslate"><span class="pre">ttir.transpose</span></code>, <code class="docutils literal notranslate"><span class="pre">ttir.concat</span></code></p></li>
+<li><p><strong>Reduction</strong>: <code class="docutils literal notranslate"><span class="pre">ttir.sum</span></code>, <code class="docutils literal notranslate"><span class="pre">ttir.mean</span></code>, <code class="docutils literal notranslate"><span class="pre">ttir.max</span></code></p></li>
+</ul>
+</section>
+<section id="types">
+<h3>Types<a class="headerlink" href="#types" title="Link to this heading"></a></h3>
+<p>TTIR uses standard MLIR tensor types:</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>tensor&lt;32x128xf32&gt;      // 32x128 tensor of f32
+tensor&lt;1x3x224x224xf32&gt; // 4D tensor (batch, channels, height, width)
+</pre></div>
+</div>
+</section>
+<section id="example">
+<h3>Example<a class="headerlink" href="#example" title="Link to this heading"></a></h3>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>func.func @example(%arg0: tensor&lt;128x256xf32&gt;) -&gt; tensor&lt;128x256xf32&gt; {
+  %0 = tensor.empty() : tensor&lt;128x256xf32&gt;
+  %1 = &quot;ttir.relu&quot;(%arg0, %0) : (tensor&lt;128x256xf32&gt;, tensor&lt;128x256xf32&gt;)
+    -&gt; tensor&lt;128x256xf32&gt;
+  return %1 : tensor&lt;128x256xf32&gt;
+}
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ttnn-dialect">
+<h2>TTNN Dialect<a class="headerlink" href="#ttnn-dialect" title="Link to this heading"></a></h2>
+<section id="id1">
+<h3>Purpose<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<p>TTNN (TT Neural Network) is the mid-level dialect optimized for neural network operations
+on Tenstorrent hardware.</p>
+</section>
+<section id="id2">
+<h3>Operations<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>TTNN operations are hardware-aware versions of TTIR operations:</p>
+<ul class="simple">
+<li><p><strong>Layout Operations</strong>: <code class="docutils literal notranslate"><span class="pre">ttnn.to_layout</span></code>, <code class="docutils literal notranslate"><span class="pre">ttnn.to_device</span></code></p></li>
+<li><p><strong>Optimized Compute</strong>: <code class="docutils literal notranslate"><span class="pre">ttnn.matmul</span></code>, <code class="docutils literal notranslate"><span class="pre">ttnn.conv2d</span></code>, <code class="docutils literal notranslate"><span class="pre">ttnn.linear</span></code></p></li>
+<li><p><strong>Memory Operations</strong>: <code class="docutils literal notranslate"><span class="pre">ttnn.alloc</span></code>, <code class="docutils literal notranslate"><span class="pre">ttnn.dealloc</span></code></p></li>
+<li><p><strong>Sharding</strong>: <code class="docutils literal notranslate"><span class="pre">ttnn.shard</span></code>, <code class="docutils literal notranslate"><span class="pre">ttnn.unshard</span></code></p></li>
+</ul>
+</section>
+<section id="id3">
+<h3>Types<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<p>TTNN introduces hardware-specific types:</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>!ttnn.tensor&lt;32x128xf32, #ttnn.layout&lt;row_major&gt;, #ttnn.memory&lt;dram&gt;&gt;
+!ttnn.tensor&lt;32x128xbf16, #ttnn.layout&lt;tile&gt;, #ttnn.memory&lt;l1&gt;&gt;
+</pre></div>
+</div>
+</section>
+<section id="attributes">
+<h3>Attributes<a class="headerlink" href="#attributes" title="Link to this heading"></a></h3>
+<p>TTNN operations include hardware-specific attributes:</p>
+<ul class="simple">
+<li><p><strong>Layout</strong>: <code class="docutils literal notranslate"><span class="pre">row_major</span></code>, <code class="docutils literal notranslate"><span class="pre">tile</span></code>, <code class="docutils literal notranslate"><span class="pre">width_sharded</span></code>, <code class="docutils literal notranslate"><span class="pre">height_sharded</span></code></p></li>
+<li><p><strong>Memory Space</strong>: <code class="docutils literal notranslate"><span class="pre">dram</span></code>, <code class="docutils literal notranslate"><span class="pre">l1</span></code>, <code class="docutils literal notranslate"><span class="pre">system</span></code></p></li>
+<li><p><strong>Data Type</strong>: <code class="docutils literal notranslate"><span class="pre">f32</span></code>, <code class="docutils literal notranslate"><span class="pre">bf16</span></code>, <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code></p></li>
+</ul>
+</section>
+<section id="id4">
+<h3>Example<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>func.func @ttnn_example(%arg0: !ttnn.tensor&lt;128x256xf32&gt;)
+    -&gt; !ttnn.tensor&lt;128x256xf32&gt; {
+  %0 = &quot;ttnn.relu&quot;(%arg0) {
+    memory_config = #ttnn.memory&lt;l1&gt;,
+    layout = #ttnn.layout&lt;tile&gt;
+  } : (!ttnn.tensor&lt;128x256xf32&gt;) -&gt; !ttnn.tensor&lt;128x256xf32&gt;
+  return %0 : !ttnn.tensor&lt;128x256xf32&gt;
+}
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ttmetal-dialect">
+<h2>TTMetal Dialect<a class="headerlink" href="#ttmetal-dialect" title="Link to this heading"></a></h2>
+<section id="id5">
+<h3>Purpose<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
+<p>TTMetal is the low-level dialect that maps directly to Tenstorrent hardware primitives.</p>
+</section>
+<section id="id6">
+<h3>Operations<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
+<p>TTMetal operations represent hardware-level actions:</p>
+<ul class="simple">
+<li><p><strong>Kernel Dispatch</strong>: <code class="docutils literal notranslate"><span class="pre">ttmetal.dispatch</span></code></p></li>
+<li><p><strong>DMA Operations</strong>: <code class="docutils literal notranslate"><span class="pre">ttmetal.dma</span></code>, <code class="docutils literal notranslate"><span class="pre">ttmetal.noc_read</span></code>, <code class="docutils literal notranslate"><span class="pre">ttmetal.noc_write</span></code></p></li>
+<li><p><strong>Synchronization</strong>: <code class="docutils literal notranslate"><span class="pre">ttmetal.barrier</span></code></p></li>
+<li><p><strong>Core Control</strong>: <code class="docutils literal notranslate"><span class="pre">ttmetal.launch</span></code></p></li>
+</ul>
+</section>
+<section id="id7">
+<h3>Example<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>func.func @metal_example(%arg0: !ttmetal.buffer) -&gt; !ttmetal.buffer {
+  %0 = &quot;ttmetal.dispatch&quot;(%arg0) {
+    kernel = @relu_kernel,
+    grid_size = [8, 8],
+    core_range = [[0, 0], [7, 7]]
+  } : (!ttmetal.buffer) -&gt; !ttmetal.buffer
+  return %0 : !ttmetal.buffer
+}
+</pre></div>
+</div>
+</section>
+</section>
+<section id="ttkernel-dialect">
+<h2>TTKernel Dialect<a class="headerlink" href="#ttkernel-dialect" title="Link to this heading"></a></h2>
+<section id="id8">
+<h3>Purpose<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
+<p>TTKernel represents operations that run on individual Tensix cores.</p>
+</section>
+<section id="id9">
+<h3>Operations<a class="headerlink" href="#id9" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><strong>Compute</strong>: <code class="docutils literal notranslate"><span class="pre">ttkernel.compute</span></code>, <code class="docutils literal notranslate"><span class="pre">ttkernel.binary_op</span></code></p></li>
+<li><p><strong>Memory Access</strong>: <code class="docutils literal notranslate"><span class="pre">ttkernel.cb_push</span></code>, <code class="docutils literal notranslate"><span class="pre">ttkernel.cb_pop</span></code></p></li>
+<li><p><strong>Tile Operations</strong>: <code class="docutils literal notranslate"><span class="pre">ttkernel.tile_regs_acquire</span></code>, <code class="docutils literal notranslate"><span class="pre">ttkernel.tile_regs_release</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="dialect-interoperability">
+<h2>Dialect Interoperability<a class="headerlink" href="#dialect-interoperability" title="Link to this heading"></a></h2>
+<section id="mixing-dialects">
+<h3>Mixing Dialects<a class="headerlink" href="#mixing-dialects" title="Link to this heading"></a></h3>
+<p>Different dialects can coexist in the same module:</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>module {
+  func.func @high_level(%arg0: tensor&lt;32x128xf32&gt;) -&gt; tensor&lt;32x128xf32&gt; {
+    // TTIR operations
+    %0 = tensor.empty() : tensor&lt;32x128xf32&gt;
+    %1 = &quot;ttir.relu&quot;(%arg0, %0)
+      : (tensor&lt;32x128xf32&gt;, tensor&lt;32x128xf32&gt;) -&gt; tensor&lt;32x128xf32&gt;
+    return %1 : tensor&lt;32x128xf32&gt;
+  }
+}
+</pre></div>
+</div>
+</section>
+<section id="conversion-between-dialects">
+<h3>Conversion Between Dialects<a class="headerlink" href="#conversion-between-dialects" title="Link to this heading"></a></h3>
+<p>Passes handle conversion between dialects:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">-ttir-to-ttnn-backend-pipeline</span></code> - TTIR → TTNN</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-ttnn-to-metal</span></code> - TTNN → TTMetal</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-lower-to-ttkernel</span></code> - TTMetal → TTKernel</p></li>
+</ul>
+</section>
+<section id="type-conversion">
+<h3>Type Conversion<a class="headerlink" href="#type-conversion" title="Link to this heading"></a></h3>
+<p>Type conversion is handled automatically during dialect lowering:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>tensor&lt;32x128xf32&gt;  (TTIR)
+    ↓
+!ttnn.tensor&lt;32x128xf32, #ttnn.layout&lt;tile&gt;&gt;  (TTNN)
+    ↓
+!ttmetal.buffer&lt;4096&gt;  (TTMetal)
+</pre></div>
+</div>
+</section>
+</section>
+<section id="custom-attributes">
+<h2>Custom Attributes<a class="headerlink" href="#custom-attributes" title="Link to this heading"></a></h2>
+<p>TT-MLIR defines several custom attributes:</p>
+<section id="layout-attributes">
+<h3>Layout Attributes<a class="headerlink" href="#layout-attributes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#ttnn.layout&lt;row_major&gt;</span></code> - Row-major layout</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#ttnn.layout&lt;tile&gt;</span></code> - 32x32 tile layout</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#ttnn.layout&lt;width_sharded&gt;</span></code> - Width-sharded across cores</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#ttnn.layout&lt;height_sharded&gt;</span></code> - Height-sharded across cores</p></li>
+</ul>
+</section>
+<section id="memory-attributes">
+<h3>Memory Attributes<a class="headerlink" href="#memory-attributes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#ttnn.memory&lt;dram&gt;</span></code> - DRAM storage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#ttnn.memory&lt;l1&gt;</span></code> - L1 cache storage</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#ttnn.memory&lt;system&gt;</span></code> - System memory</p></li>
+</ul>
+</section>
+<section id="grid-attributes">
+<h3>Grid Attributes<a class="headerlink" href="#grid-attributes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">#ttnn.grid&lt;8x8&gt;</span></code> - 8x8 core grid</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">#ttnn.core_range&lt;[0,0],</span> <span class="pre">[7,7]&gt;</span></code> - Core range specification</p></li>
+</ul>
+</section>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="compilation-pipeline.html"><span class="doc">Compilation Pipeline</span></a> - How dialects are used in the pipeline</p></li>
+<li><p><a class="reference internal" href="../operations/ttir-ops.html"><span class="doc">TTIR Operations</span></a> - Complete TTIR operation reference</p></li>
+<li><p><a class="reference internal" href="../operations/ttnn-ops.html"><span class="doc">&lt;no title&gt;</span></a> - Complete TTNN operation reference</p></li>
+<li><p><a class="reference internal" href="../operations/ttmetal-ops.html"><span class="doc">TTMetal Operations</span></a> - Complete TTMetal operation reference</p></li>
+</ul>
+</section>
+</section>
+
+
+                        </div>
+                    </div>
+                    <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Mar 23, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+
+                </div>
+            </div>
+    </section>
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable({
+        {
+            'true'
+            if theme_sticky_navigation | tobool else
+            'false'
+        }
+    })
+        ;
+    });
+</script> 
+
+</body>
+</html>

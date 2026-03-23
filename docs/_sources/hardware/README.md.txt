@@ -4,8 +4,8 @@ This section contains information about add-in boards and accessories.
 
 - [Grayskull™ e75/e150 AI Graph Processor](./grayskull/README.md)
 - [Wormhole™ n150s/n300s AI Graph Processor](./wormhole/README.md)
-- [Active Cooling Kit](./ack.md)
-- [Warp 100 Bridge](.\warp100.md)
+- [Active Cooling Kit](./compliance.md)
+- [Warp 100 Bridge](./memory-architecture.md)
 
 
 

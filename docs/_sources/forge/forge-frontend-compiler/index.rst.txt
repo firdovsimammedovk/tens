@@ -7,3 +7,4 @@ TT-Forge offers three frontend compilers.
    :maxdepth: 2
 
    TT-XLA <tt-xla/index>
+   TT-Forge-ONNX <tt-forge-onnx/index>

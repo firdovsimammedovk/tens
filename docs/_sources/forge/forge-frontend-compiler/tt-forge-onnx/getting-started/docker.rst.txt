@@ -1,0 +1,83 @@
+Getting Started with Docker
+===========================
+
+This section walks through running TT-Forge-ONNX inside a Docker container.
+Use this method if you want to keep the environment separate from your existing system.
+
+Prerequisites
+-------------
+
+Before starting, configure your Tenstorrent hardware:
+
+1. Run the TT-Installer script (see the :ref:`Quick Installation <getting-started/README>` section).
+2. Reboot your machine.
+3. Enable hugepages:
+
+   .. code-block:: bash
+
+      sudo systemctl enable --now 'dev-hugepages\x2d1G.mount'
+      sudo systemctl enable --now tenstorrent-hugepages.service
+
+4. Activate the virtual environment created by the installer:
+
+   .. code-block:: bash
+
+      source ~/.tenstorrent-venv/bin/activate
+
+5. Verify hardware is detected:
+
+   .. code-block:: bash
+
+      tt-smi
+
+   You should see the Tenstorrent System Management Interface with real-time stats and health info.
+
+6. Deactivate the virtual environment when done.
+
+Setting Up Docker
+-----------------
+
+**1. Install Docker** (if not already installed):
+
+.. code-block:: bash
+
+   sudo apt update
+   sudo apt install docker.io -y
+   sudo systemctl start docker
+   sudo systemctl enable docker
+
+**2. Verify installation:**
+
+.. code-block:: bash
+
+   docker --version
+
+**3. Add your user to the Docker group:**
+
+.. code-block:: bash
+
+   sudo usermod -aG docker $USER
+   newgrp docker
+
+Running the Container
+---------------------
+
+.. code-block:: bash
+
+   docker run -it --rm \
+     --device /dev/tenstorrent \
+     -v /dev/hugepages-1G:/dev/hugepages-1G \
+     ghcr.io/tenstorrent/tt-forge-slim:latest
+
+.. note::
+
+   You cannot isolate individual devices inside containers. Always pass through all devices using
+   ``--device /dev/tenstorrent``. Do **not** use ``--device /dev/tenstorrent/1`` or similar — this
+   will cause fatal errors during execution.
+
+**Verify the container is running** (open a new terminal tab):
+
+.. code-block:: bash
+
+   docker ps
+

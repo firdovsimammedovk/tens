@@ -1,0 +1,245 @@
+Dialects
+========
+
+TT-MLIR defines several custom MLIR dialects for different stages of compilation.
+
+Overview
+--------
+
+Dialects in MLIR are collections of operations, types, and attributes that define a domain-specific
+IR. TT-MLIR uses the following dialects:
+
+* **TTIR** - High-level tensor operations
+* **TTNN** - Neural network optimized operations
+* **TTMetal** - Low-level hardware operations
+* **TTKernel** - Kernel-level operations for Tensix cores
+
+Standard MLIR Dialects
+----------------------
+
+TT-MLIR also uses several standard MLIR dialects:
+
+* **func** - Function definitions and calls
+* **tensor** - Tensor types and operations
+* **arith** - Arithmetic operations
+* **scf** - Structured control flow
+* **affine** - Affine transformations
+
+TTIR Dialect
+------------
+
+Purpose
+~~~~~~~
+
+TTIR (TT Intermediate Representation) is the high-level, hardware-independent dialect.
+
+Operations
+~~~~~~~~~~
+
+TTIR includes operations for:
+
+* **Tensor Operations**: ``ttir.add``, ``ttir.multiply``, ``ttir.matmul``
+* **Activation Functions**: ``ttir.relu``, ``ttir.sigmoid``, ``ttir.gelu``
+* **Convolutions**: ``ttir.conv2d``, ``ttir.conv3d``
+* **Pooling**: ``ttir.max_pool2d``, ``ttir.avg_pool2d``
+* **Normalization**: ``ttir.layer_norm``, ``ttir.batch_norm``
+* **Reshaping**: ``ttir.reshape``, ``ttir.transpose``, ``ttir.concat``
+* **Reduction**: ``ttir.sum``, ``ttir.mean``, ``ttir.max``
+
+Types
+~~~~~
+
+TTIR uses standard MLIR tensor types:
+
+.. code-block:: mlir
+
+   tensor<32x128xf32>      // 32x128 tensor of f32
+   tensor<1x3x224x224xf32> // 4D tensor (batch, channels, height, width)
+
+Example
+~~~~~~~
+
+.. code-block:: mlir
+
+   func.func @example(%arg0: tensor<128x256xf32>) -> tensor<128x256xf32> {
+     %0 = tensor.empty() : tensor<128x256xf32>
+     %1 = "ttir.relu"(%arg0, %0) : (tensor<128x256xf32>, tensor<128x256xf32>)
+       -> tensor<128x256xf32>
+     return %1 : tensor<128x256xf32>
+   }
+
+TTNN Dialect
+------------
+
+Purpose
+~~~~~~~
+
+TTNN (TT Neural Network) is the mid-level dialect optimized for neural network operations
+on Tenstorrent hardware.
+
+Operations
+~~~~~~~~~~
+
+TTNN operations are hardware-aware versions of TTIR operations:
+
+* **Layout Operations**: ``ttnn.to_layout``, ``ttnn.to_device``
+* **Optimized Compute**: ``ttnn.matmul``, ``ttnn.conv2d``, ``ttnn.linear``
+* **Memory Operations**: ``ttnn.alloc``, ``ttnn.dealloc``
+* **Sharding**: ``ttnn.shard``, ``ttnn.unshard``
+
+Types
+~~~~~
+
+TTNN introduces hardware-specific types:
+
+.. code-block:: mlir
+
+   !ttnn.tensor<32x128xf32, #ttnn.layout<row_major>, #ttnn.memory<dram>>
+   !ttnn.tensor<32x128xbf16, #ttnn.layout<tile>, #ttnn.memory<l1>>
+
+Attributes
+~~~~~~~~~~
+
+TTNN operations include hardware-specific attributes:
+
+* **Layout**: ``row_major``, ``tile``, ``width_sharded``, ``height_sharded``
+* **Memory Space**: ``dram``, ``l1``, ``system``
+* **Data Type**: ``f32``, ``bf16``, ``int32``, ``uint32``
+
+Example
+~~~~~~~
+
+.. code-block:: mlir
+
+   func.func @ttnn_example(%arg0: !ttnn.tensor<128x256xf32>)
+       -> !ttnn.tensor<128x256xf32> {
+     %0 = "ttnn.relu"(%arg0) {
+       memory_config = #ttnn.memory<l1>,
+       layout = #ttnn.layout<tile>
+     } : (!ttnn.tensor<128x256xf32>) -> !ttnn.tensor<128x256xf32>
+     return %0 : !ttnn.tensor<128x256xf32>
+   }
+
+TTMetal Dialect
+---------------
+
+Purpose
+~~~~~~~
+
+TTMetal is the low-level dialect that maps directly to Tenstorrent hardware primitives.
+
+Operations
+~~~~~~~~~~
+
+TTMetal operations represent hardware-level actions:
+
+* **Kernel Dispatch**: ``ttmetal.dispatch``
+* **DMA Operations**: ``ttmetal.dma``, ``ttmetal.noc_read``, ``ttmetal.noc_write``
+* **Synchronization**: ``ttmetal.barrier``
+* **Core Control**: ``ttmetal.launch``
+
+Example
+~~~~~~~
+
+.. code-block:: mlir
+
+   func.func @metal_example(%arg0: !ttmetal.buffer) -> !ttmetal.buffer {
+     %0 = "ttmetal.dispatch"(%arg0) {
+       kernel = @relu_kernel,
+       grid_size = [8, 8],
+       core_range = [[0, 0], [7, 7]]
+     } : (!ttmetal.buffer) -> !ttmetal.buffer
+     return %0 : !ttmetal.buffer
+   }
+
+TTKernel Dialect
+----------------
+
+Purpose
+~~~~~~~
+
+TTKernel represents operations that run on individual Tensix cores.
+
+Operations
+~~~~~~~~~~
+
+* **Compute**: ``ttkernel.compute``, ``ttkernel.binary_op``
+* **Memory Access**: ``ttkernel.cb_push``, ``ttkernel.cb_pop``
+* **Tile Operations**: ``ttkernel.tile_regs_acquire``, ``ttkernel.tile_regs_release``
+
+Dialect Interoperability
+------------------------
+
+Mixing Dialects
+~~~~~~~~~~~~~~~
+
+Different dialects can coexist in the same module:
+
+.. code-block:: mlir
+
+   module {
+     func.func @high_level(%arg0: tensor<32x128xf32>) -> tensor<32x128xf32> {
+       // TTIR operations
+       %0 = tensor.empty() : tensor<32x128xf32>
+       %1 = "ttir.relu"(%arg0, %0)
+         : (tensor<32x128xf32>, tensor<32x128xf32>) -> tensor<32x128xf32>
+       return %1 : tensor<32x128xf32>
+     }
+   }
+
+Conversion Between Dialects
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Passes handle conversion between dialects:
+
+* ``-ttir-to-ttnn-backend-pipeline`` - TTIR → TTNN
+* ``-ttnn-to-metal`` - TTNN → TTMetal
+* ``-lower-to-ttkernel`` - TTMetal → TTKernel
+
+Type Conversion
+~~~~~~~~~~~~~~~
+
+Type conversion is handled automatically during dialect lowering:
+
+.. code-block:: text
+
+   tensor<32x128xf32>  (TTIR)
+       ↓
+   !ttnn.tensor<32x128xf32, #ttnn.layout<tile>>  (TTNN)
+       ↓
+   !ttmetal.buffer<4096>  (TTMetal)
+
+Custom Attributes
+-----------------
+
+TT-MLIR defines several custom attributes:
+
+Layout Attributes
+~~~~~~~~~~~~~~~~~
+
+* ``#ttnn.layout<row_major>`` - Row-major layout
+* ``#ttnn.layout<tile>`` - 32x32 tile layout
+* ``#ttnn.layout<width_sharded>`` - Width-sharded across cores
+* ``#ttnn.layout<height_sharded>`` - Height-sharded across cores
+
+Memory Attributes
+~~~~~~~~~~~~~~~~~
+
+* ``#ttnn.memory<dram>`` - DRAM storage
+* ``#ttnn.memory<l1>`` - L1 cache storage
+* ``#ttnn.memory<system>`` - System memory
+
+Grid Attributes
+~~~~~~~~~~~~~~~
+
+* ``#ttnn.grid<8x8>`` - 8x8 core grid
+* ``#ttnn.core_range<[0,0], [7,7]>`` - Core range specification
+
+See Also
+--------
+
+* :doc:`compilation-pipeline` - How dialects are used in the pipeline
+* :doc:`../operations/ttir-ops` - Complete TTIR operation reference
+* :doc:`../operations/ttnn-ops` - Complete TTNN operation reference
+* :doc:`../operations/ttmetal-ops` - Complete TTMetal operation reference
+

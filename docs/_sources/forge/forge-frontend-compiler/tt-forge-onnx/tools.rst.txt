@@ -1,0 +1,100 @@
+Tools
+=====
+
+This page covers development tools for TT-Forge-ONNX.
+
+.. contents::
+   :local:
+   :depth: 1
+
+Pre-commit
+----------
+
+TT-Forge-ONNX uses ``pre-commit`` hooks to check code for formatting and licensing issues.
+
+**Install pre-commit:**
+
+.. code-block:: bash
+
+   source env/activate
+   pip install pre-commit
+
+**Install hooks:**
+
+.. code-block:: bash
+
+   pre-commit install
+
+Each time you run ``git commit``, the hooks execute automatically.
+
+**Run on all files** (useful if you committed before installing hooks):
+
+.. code-block:: bash
+
+   pre-commit run --all-files
+
+For more information, visit `pre-commit.com <https://pre-commit.com/>`_.
+
+mdbook
+------
+
+TT-Forge-ONNX uses ``mdbook`` to generate documentation.
+
+**Install on Ubuntu:**
+
+.. code-block:: bash
+
+   sudo apt install cargo
+   cargo install mdbook
+
+.. note::
+
+   If you do not want to install mdbook via Cargo, consult the
+   `official mdbook installation guide <https://rust-lang.github.io/mdBook/guide/installation.html>`_.
+
+Gather Unique Ops Configuration
+---------------------------------
+
+The model's unique ops configuration can be extracted at specific compilation stages and exported as
+CSV or XLSX.
+
+Environment Variables
+~~~~~~~~~~~~~~~~~~~~~
+
+.. list-table::
+   :widths: 45 55
+   :header-rows: 1
+
+   * - Variable
+     - Description
+   * - ``FORGE_EXTRACT_UNIQUE_OP_CONFIG_AT=ALL``
+     - Extract unique op configs at every compilation stage.
+   * - ``FORGE_EXTRACT_UNIQUE_OP_CONFIG_AT=<STAGE>``
+     - Extract at a specific stage: ``GENERATE_INITIAL_GRAPH``, ``POST_INITIAL_GRAPH_PASS``,
+       ``OPTIMIZED_GRAPH``, ``AUTOGRAD``, ``POST_AUTOGRAD_PASS``, ``PRE_LOWERING_GRAPH``.
+   * - ``FORGE_PRINT_UNIQUE_OP_CONFIG=1``
+     - Print all unique configs to the console.
+   * - ``FORGE_EXPORT_UNIQUE_OP_CONFIG_FILE_TYPE=csv``
+     - Export configs as CSV.
+   * - ``FORGE_EXPORT_UNIQUE_OP_CONFIG_FILE_TYPE=xlsx``
+     - Export configs as XLSX.
+   * - ``FORGE_EXPORT_UNIQUE_OP_CONFIG_DIR_PATH=<path>``
+     - Directory for exported files (default: current directory).
+   * - ``FORGE_EXPORT_UNIQUE_OP_CONFIG_CSV_DELIMITER=<char>``
+     - Delimiter for CSV files. Default: ``/`` (slash is used to avoid conflicts with commas and hyphens
+       that appear in op shapes and attributes).
+
+Cross-Correlate Models and Ops
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+To cross-correlate models and ops and export unique op configurations as XLSX:
+
+.. code-block:: bash
+
+   python scripts/export_models_ops_correlation.py
+
+The script:
+
+1. Runs all models up to the compile depth specified by the user.
+2. Exports unique op configurations per model variant as an XLSX file.
+

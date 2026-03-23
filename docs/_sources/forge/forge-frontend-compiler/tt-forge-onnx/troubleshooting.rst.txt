@@ -1,0 +1,96 @@
+Troubleshooting
+===============
+
+This page covers common issues when using TT-Forge-ONNX and how to resolve them.
+
+Getting Help
+------------
+
+If you encounter an issue not listed here, please open a ticket on the
+`TT-Forge-ONNX Issues page <https://github.com/tenstorrent/tt-forge-onnx/issues>`_.
+
+Hardware Not Detected
+----------------------
+
+**Symptom:** ``tt-smi`` shows no devices, or compilation fails immediately.
+
+**Steps:**
+
+1. Verify the TT-Installer completed successfully and you rebooted.
+2. Check hugepages are enabled:
+
+   .. code-block:: bash
+
+      sudo systemctl status 'dev-hugepages\x2d1G.mount'
+      sudo systemctl status tenstorrent-hugepages.service
+
+3. Activate the Tenstorrent virtual environment:
+
+   .. code-block:: bash
+
+      source ~/.tenstorrent-venv/bin/activate
+
+4. Confirm the device is visible:
+
+   .. code-block:: bash
+
+      tt-smi
+
+Docker: Fatal Errors on Device Access
+--------------------------------------
+
+**Symptom:** ``fatal error`` during execution inside a Docker container.
+
+**Cause:** Attempting to pass a specific device index (e.g., ``--device /dev/tenstorrent/1``).
+
+**Fix:** Always pass all devices:
+
+.. code-block:: bash
+
+   docker run -it --rm \
+     --device /dev/tenstorrent \
+     -v /dev/hugepages-1G:/dev/hugepages-1G \
+     ghcr.io/tenstorrent/tt-forge-slim:latest
+
+Build Fails: Missing Clang 17
+-------------------------------
+
+**Symptom:** Build error referencing Clang version or missing compiler.
+
+**Fix:** Install Clang 17 explicitly:
+
+.. code-block:: bash
+
+   wget https://apt.llvm.org/llvm.sh
+   chmod u+x llvm.sh
+   sudo ./llvm.sh 17
+   sudo apt install -y libc++-17-dev libc++abi-17-dev
+   sudo ln -s /usr/bin/clang-17 /usr/bin/clang
+   sudo ln -s /usr/bin/clang++-17 /usr/bin/clang++
+
+Then verify:
+
+.. code-block:: bash
+
+   clang --version   # should show version 17
+
+Tests Not Found or Failing
+----------------------------
+
+**Symptom:** pytest cannot find tests, or all tests fail immediately.
+
+**Steps:**
+
+1. Ensure you have built the project first (see :doc:`../getting-started/build-from-source`).
+2. Activate the Python environment:
+
+   .. code-block:: bash
+
+      source ~/.tenstorrent-venv/bin/activate
+
+3. Check ``pytest.ini`` for the list of currently passing tests.
+4. Run with verbose output to diagnose:
+
+   .. code-block:: bash
+
+      pytest -svv forge/test/mlir/test_ops.py

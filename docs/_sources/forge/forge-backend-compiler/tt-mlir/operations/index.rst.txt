@@ -1,0 +1,161 @@
+Operations
+==========
+
+TT-MLIR provides operations at different abstraction levels through its dialect system.
+
+Overview
+--------
+
+Operations (ops) are the basic units of computation in TT-MLIR. Each dialect provides
+operations appropriate to its abstraction level.
+
+Dialect Levels
+--------------
+
+* **TTIR Operations** - High-level tensor operations
+* **TTNN Operations** - Hardware-optimized neural network operations
+* **TTMetal Operations** - Low-level hardware primitives
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Operation References
+
+   ttir-ops
+   ttnn-ops
+   ttmetal-ops
+
+Common Operation Categories
+---------------------------
+
+Arithmetic Operations
+~~~~~~~~~~~~~~~~~~~~~
+
+Basic arithmetic on tensors:
+
+* Addition, subtraction, multiplication, division
+* Matrix multiplication
+* Element-wise operations
+
+Activation Functions
+~~~~~~~~~~~~~~~~~~~~
+
+Neural network activations:
+
+* ReLU, LeakyReLU, PReLU
+* Sigmoid, Tanh
+* GELU, SiLU, Softmax
+
+Convolution Operations
+~~~~~~~~~~~~~~~~~~~~~~
+
+Convolutional layers:
+
+* 2D and 3D convolutions
+* Depthwise convolutions
+* Transposed convolutions
+
+Pooling Operations
+~~~~~~~~~~~~~~~~~~
+
+Downsampling operations:
+
+* Max pooling
+* Average pooling
+* Adaptive pooling
+
+Normalization Operations
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Normalization layers:
+
+* Batch normalization
+* Layer normalization
+* Group normalization
+* Instance normalization
+
+Reduction Operations
+~~~~~~~~~~~~~~~~~~~~
+
+Tensor reductions:
+
+* Sum, mean, max, min
+* Along specific dimensions
+* With or without keepdims
+
+Shape Operations
+~~~~~~~~~~~~~~~~
+
+Tensor reshaping:
+
+* Reshape, transpose, permute
+* Concat, split, slice
+* Expand, squeeze, unsqueeze
+
+Memory Operations
+~~~~~~~~~~~~~~~~~
+
+Memory management (TTNN and TTMetal):
+
+* Allocation and deallocation
+* Data movement (DMA)
+* Layout conversions
+
+Operation Naming Convention
+---------------------------
+
+Operations follow a consistent naming convention:
+
+.. code-block:: text
+
+   <dialect>.<operation_name>
+
+   Examples:
+   ttir.add
+   ttir.matmul
+   ttnn.to_layout
+   ttmetal.dispatch
+
+Operation Attributes
+--------------------
+
+Operations can have attributes that modify their behavior:
+
+.. code-block:: mlir
+
+   %result = "ttir.conv2d"(%input, %weight, %output) {
+     stride = [2, 2],
+     padding = [1, 1, 1, 1],
+     dilation = [1, 1]
+   } : (tensor<1x3x224x224xf32>, tensor<64x3x7x7xf32>, tensor<1x64x112x112xf32>)
+     -> tensor<1x64x112x112xf32>
+
+Common attributes:
+
+* **Shape parameters**: stride, padding, kernel_size
+* **Memory config**: layout, memory_space
+* **Hardware config**: grid_size, shard_spec
+* **Optimization hints**: in_place, prefer_sharded
+
+Type Constraints
+----------------
+
+Operations have type constraints on their operands and results:
+
+.. code-block:: mlir
+
+   // All operands and result must have the same shape
+   %result = "ttir.add"(%lhs, %rhs, %output)
+     : (tensor<32x128xf32>, tensor<32x128xf32>, tensor<32x128xf32>)
+     -> tensor<32x128xf32>
+
+   // Matrix multiplication has specific shape requirements
+   %result = "ttir.matmul"(%lhs, %rhs, %output)
+     : (tensor<MxK>, tensor<KxN>, tensor<MxN>) -> tensor<MxN>
+
+See Also
+--------
+
+* :doc:`../architecture/dialects` - Understanding dialects
+* :doc:`../guides/custom-ops` - Adding custom operations
+* :doc:`../api/index` - API documentation
+

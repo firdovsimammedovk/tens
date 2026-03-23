@@ -1,0 +1,187 @@
+TTIR Operations
+===============
+TTIR (TT Intermediate Representation) operations are high-level, hardware-independent tensor operations.
+Arithmetic Operations
+---------------------
+ttir.add
+~~~~~~~~
+Element-wise addition of tensors.
+**Syntax:**
+.. code-block:: mlir
+   %result = "ttir.add"(%lhs, %rhs, %output) 
+     : (tensor<...>, tensor<...>, tensor<...>) -> tensor<...>
+**Operands:**
+* ``%lhs`` - Left-hand side tensor
+* ``%rhs`` - Right-hand side tensor  
+* ``%output`` - Output tensor (destination-passing style)
+**Constraints:**
+* All tensors must have broadcastable shapes
+* Element types must match
+ttir.multiply
+~~~~~~~~~~~~~
+Element-wise multiplication.
+.. code-block:: mlir
+   %result = "ttir.multiply"(%lhs, %rhs, %output)
+     : (tensor<...>, tensor<...>, tensor<...>) -> tensor<...>
+ttir.subtract
+~~~~~~~~~~~~~
+Element-wise subtraction.
+.. code-block:: mlir
+   %result = "ttir.subtract"(%lhs, %rhs, %output)
+     : (tensor<...>, tensor<...>, tensor<...>) -> tensor<...>
+ttir.divide
+~~~~~~~~~~~
+Element-wise division.
+.. code-block:: mlir
+   %result = "ttir.divide"(%lhs, %rhs, %output)
+     : (tensor<...>, tensor<...>, tensor<...>) -> tensor<...>
+Matrix Operations
+-----------------
+ttir.matmul
+~~~~~~~~~~~
+Matrix multiplication.
+**Syntax:**
+.. code-block:: mlir
+   %result = "ttir.matmul"(%lhs, %rhs, %output)
+     : (tensor<MxK>, tensor<KxN>, tensor<MxN>) -> tensor<MxN>
+**Operands:**
+* ``%lhs`` - Left matrix (MxK)
+* ``%rhs`` - Right matrix (KxN)
+* ``%output`` - Output matrix (MxN)
+**Constraints:**
+* Inner dimensions must match (K)
+* Supports batched matrix multiplication
+ttir.linear
+~~~~~~~~~~~
+Linear layer (matmul + optional bias).
+.. code-block:: mlir
+   %result = "ttir.linear"(%input, %weight, %bias, %output)
+     : (tensor<...>, tensor<...>, tensor<...>, tensor<...>) -> tensor<...>
+Activation Functions
+--------------------
+ttir.relu
+~~~~~~~~~
+Rectified Linear Unit activation.
+.. code-block:: mlir
+   %result = "ttir.relu"(%input, %output)
+     : (tensor<...>, tensor<...>) -> tensor<...>
+ttir.gelu
+~~~~~~~~~
+Gaussian Error Linear Unit activation.
+.. code-block:: mlir
+   %result = "ttir.gelu"(%input, %output) {approximate = "none"}
+     : (tensor<...>, tensor<...>) -> tensor<...>
+ttir.sigmoid
+~~~~~~~~~~~~
+Sigmoid activation.
+.. code-block:: mlir
+   %result = "ttir.sigmoid"(%input, %output)
+     : (tensor<...>, tensor<...>) -> tensor<...>
+ttir.softmax
+~~~~~~~~~~~~
+Softmax activation.
+.. code-block:: mlir
+   %result = "ttir.softmax"(%input, %output) {dimension = 1 : si32}
+     : (tensor<...>, tensor<...>) -> tensor<...>
+Convolution Operations
+----------------------
+ttir.conv2d
+~~~~~~~~~~~
+2D convolution.
+**Syntax:**
+.. code-block:: mlir
+   %result = "ttir.conv2d"(%input, %weight, %bias, %output) {
+     stride = [1, 1],
+     padding = [0, 0, 0, 0],
+     dilation = [1, 1],
+     groups = 1 : si32
+   } : (tensor<NxCxHxW>, tensor<OxCxKHxKW>, tensor<O>, tensor<NxOxOHxOW>)
+     -> tensor<NxOxOHxOW>
+**Attributes:**
+* ``stride`` - Stride in [H, W]
+* ``padding`` - Padding [top, left, bottom, right]
+* ``dilation`` - Dilation factors [H, W]
+* ``groups`` - Number of groups
+Pooling Operations
+------------------
+ttir.max_pool2d
+~~~~~~~~~~~~~~~
+Max pooling in 2D.
+.. code-block:: mlir
+   %result = "ttir.max_pool2d"(%input, %output) {
+     kernel_size = [2, 2],
+     stride = [2, 2],
+     padding = [0, 0, 0, 0]
+   } : (tensor<...>, tensor<...>) -> tensor<...>
+ttir.avg_pool2d
+~~~~~~~~~~~~~~~
+Average pooling in 2D.
+.. code-block:: mlir
+   %result = "ttir.avg_pool2d"(%input, %output) {
+     kernel_size = [2, 2],
+     stride = [2, 2],
+     padding = [0, 0, 0, 0]
+   } : (tensor<...>, tensor<...>) -> tensor<...>
+Normalization Operations
+------------------------
+ttir.layer_norm
+~~~~~~~~~~~~~~~
+Layer normalization.
+.. code-block:: mlir
+   %result = "ttir.layer_norm"(%input, %weight, %bias, %output) {
+     epsilon = 1.0e-5 : f32
+   } : (tensor<...>, tensor<...>, tensor<...>, tensor<...>) -> tensor<...>
+ttir.batch_norm
+~~~~~~~~~~~~~~~
+Batch normalization.
+.. code-block:: mlir
+   %result = "ttir.batch_norm"(%input, %weight, %bias, %mean, %var, %output) {
+     epsilon = 1.0e-5 : f32,
+     momentum = 0.1 : f32
+   } : (tensor<...>, ...) -> tensor<...>
+Reduction Operations
+--------------------
+ttir.sum
+~~~~~~~~
+Sum reduction.
+.. code-block:: mlir
+   %result = "ttir.sum"(%input, %output) {
+     dim = [1] : array<i32>,
+     keep_dim = false
+   } : (tensor<...>, tensor<...>) -> tensor<...>
+ttir.mean
+~~~~~~~~~
+Mean reduction.
+.. code-block:: mlir
+   %result = "ttir.mean"(%input, %output) {
+     dim = [1] : array<i32>,
+     keep_dim = false
+   } : (tensor<...>, tensor<...>) -> tensor<...>
+Shape Operations
+----------------
+ttir.reshape
+~~~~~~~~~~~~
+Reshape tensor.
+.. code-block:: mlir
+   %result = "ttir.reshape"(%input, %output) {
+     shape = [32, 128]
+   } : (tensor<...>, tensor<...>) -> tensor<...>
+ttir.transpose
+~~~~~~~~~~~~~~
+Transpose tensor dimensions.
+.. code-block:: mlir
+   %result = "ttir.transpose"(%input, %output) {
+     dim0 = 0 : si32,
+     dim1 = 1 : si32
+   } : (tensor<...>, tensor<...>) -> tensor<...>
+ttir.concat
+~~~~~~~~~~~
+Concatenate tensors.
+.. code-block:: mlir
+   %result = "ttir.concat"(%input1, %input2, %output) {
+     dim = 0 : si32
+   } : (tensor<...>, tensor<...>, tensor<...>) -> tensor<...>
+See Also
+--------
+* :doc:`ttnn-ops` - TTNN operations
+* :doc:`../architecture/dialects` - Dialect documentation

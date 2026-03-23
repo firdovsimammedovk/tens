@@ -1,0 +1,262 @@
+TTNN Operations
+
+* :doc:`../architecture/dialects` - Dialect documentation
+* :doc:`ttmetal-ops` - TTMetal operations
+* :doc:`ttir-ops` - TTIR operations
+
+--------
+See Also
+
+Shards along the width dimension.
+
+   #ttnn.shard<strategy = "width", grid = [1, 8]>
+
+.. code-block:: mlir
+
+~~~~~~~~~~~~~~
+Width Sharding
+
+Shards along the height dimension.
+
+   #ttnn.shard<strategy = "height", grid = [8, 1]>
+
+.. code-block:: mlir
+
+~~~~~~~~~~~~~~~
+Height Sharding
+
+Distributes tensor in 2D blocks across a core grid.
+
+   #ttnn.shard<strategy = "block", grid = [8, 8]>
+
+.. code-block:: mlir
+
+~~~~~~~~~~~~~~
+Block Sharding
+
+-------------------
+Sharding Strategies
+
+   "ttnn.dealloc"(%buffer) : (!ttnn.buffer<...>) -> ()
+
+.. code-block:: mlir
+
+Deallocate device memory.
+
+~~~~~~~~~~~~
+ttnn.dealloc
+
+   } : () -> !ttnn.buffer<4096>
+     memory_space = #ttnn.memory<l1>
+     size = 4096 : i64,
+   %buffer = "ttnn.alloc"() {
+
+.. code-block:: mlir
+
+Allocate device memory.
+
+~~~~~~~~~~
+ttnn.alloc
+
+-----------------
+Memory Management
+
+     : (!ttnn.tensor<..., sharded>) -> !ttnn.tensor<...>
+   %result = "ttnn.unshard"(%input)
+
+.. code-block:: mlir
+
+Gather sharded tensor to single tensor.
+
+~~~~~~~~~~~~
+ttnn.unshard
+
+   } : (!ttnn.tensor<...>) -> !ttnn.tensor<..., sharded>
+     >
+       orientation = "row_major"
+       grid = [8, 8],
+       strategy = "block",
+     shard_spec = #ttnn.shard<
+   %result = "ttnn.shard"(%input) {
+
+.. code-block:: mlir
+
+Shard a tensor across cores.
+
+~~~~~~~~~~
+ttnn.shard
+
+-------------------
+Sharding Operations
+
+   } : (!ttnn.tensor<...>, !ttnn.tensor<...>) -> !ttnn.tensor<...>
+     memory_config = #ttnn.memory<l1>
+   %result = "ttnn.multiply"(%lhs, %rhs) {
+
+.. code-block:: mlir
+
+Element-wise multiplication.
+
+~~~~~~~~~~~~~
+ttnn.multiply
+
+   } : (!ttnn.tensor<...>, !ttnn.tensor<...>) -> !ttnn.tensor<...>
+     in_place = false
+     memory_config = #ttnn.memory<l1>,
+   %result = "ttnn.add"(%lhs, %rhs) {
+
+.. code-block:: mlir
+
+Element-wise addition with layout support.
+
+~~~~~~~~
+ttnn.add
+
+-----------------------
+Element-wise Operations
+
+   } : (!ttnn.tensor<...>) -> !ttnn.tensor<...>
+     memory_config = #ttnn.memory<l1>
+     dim = -1 : si32,
+   %result = "ttnn.softmax"(%input) {
+
+.. code-block:: mlir
+
+Hardware-optimized softmax.
+
+~~~~~~~~~~~~
+ttnn.softmax
+
+   } : (!ttnn.tensor<...>) -> !ttnn.tensor<...>
+     memory_config = #ttnn.memory<l1>
+     approximate = "tanh",
+   %result = "ttnn.gelu"(%input) {
+
+.. code-block:: mlir
+
+Hardware-optimized GELU.
+
+~~~~~~~~~
+ttnn.gelu
+
+   } : (!ttnn.tensor<...>) -> !ttnn.tensor<...>
+     in_place = false
+     memory_config = #ttnn.memory<l1>,
+   %result = "ttnn.relu"(%input) {
+
+.. code-block:: mlir
+
+Hardware-optimized ReLU.
+
+~~~~~~~~~
+ttnn.relu
+
+---------------------
+Activation Operations
+
+     -> !ttnn.tensor<...>
+   } : (!ttnn.tensor<...>, !ttnn.tensor<...>, !ttnn.tensor<...>)
+     shard_strategy = "height_sharded"
+     memory_config = #ttnn.memory<l1>,
+     groups = 1 : si32,
+     padding = [0, 0, 0, 0],
+     stride = [1, 1],
+   %result = "ttnn.conv2d"(%input, %weight, %bias) {
+
+.. code-block:: mlir
+
+Optimized 2D convolution.
+
+~~~~~~~~~~~
+ttnn.conv2d
+
+     -> !ttnn.tensor<...>
+   } : (!ttnn.tensor<...>, !ttnn.tensor<...>, !ttnn.tensor<...>)
+     memory_config = #ttnn.memory<l1>
+   %result = "ttnn.linear"(%input, %weight, %bias) {
+
+.. code-block:: mlir
+
+Optimized linear layer.
+
+~~~~~~~~~~~
+ttnn.linear
+
+* ``shard_spec`` - Sharding configuration
+* ``output_layout`` - Output tensor layout
+* ``memory_config`` - Output memory location
+
+**Attributes:**
+
+   } : (!ttnn.tensor<...>, !ttnn.tensor<...>) -> !ttnn.tensor<...>
+     shard_spec = #ttnn.shard<strategy = "height", grid = [8, 8]>
+     output_layout = #ttnn.layout<tile>,
+     memory_config = #ttnn.memory<l1>,
+   %result = "ttnn.matmul"(%lhs, %rhs) {
+
+.. code-block:: mlir
+
+Hardware-optimized matrix multiplication.
+
+~~~~~~~~~~~
+ttnn.matmul
+
+------------------
+Compute Operations
+
+     : (!ttnn.tensor<...>) -> tensor<...>
+   %result = "ttnn.from_device"(%input)
+
+.. code-block:: mlir
+
+Move tensor from device to host.
+
+~~~~~~~~~~~~~~~~
+ttnn.from_device
+
+   } : (tensor<...>) -> !ttnn.tensor<...>
+     memory_config = #ttnn.memory<l1>
+   %result = "ttnn.to_device"(%input) {
+
+.. code-block:: mlir
+
+Move tensor to device memory.
+
+~~~~~~~~~~~~~~
+ttnn.to_device
+
+* ``block_sharded`` - 2D block sharding
+* ``height_sharded`` - Sharded across height
+* ``width_sharded`` - Sharded across width
+* ``tile`` - 32x32 tile layout
+* ``row_major`` - Row-major layout
+
+**Layouts:**
+
+   } : (!ttnn.tensor<...>) -> !ttnn.tensor<...>
+     layout = #ttnn.layout<tile>
+   %result = "ttnn.to_layout"(%input) {
+
+.. code-block:: mlir
+
+Convert tensor to a specific memory layout.
+
+~~~~~~~~~~~~~~
+ttnn.to_layout
+
+-----------------------------
+Memory and Layout Operations
+
+* Optimized kernel selection
+* Device placement
+* Sharding strategies
+* Memory layout specifications
+
+TTNN operations extend TTIR operations with hardware-specific features:
+
+--------
+Overview
+
+TTNN (TT Neural Network) operations are hardware-optimized operations for Tenstorrent devices.
+
+===============

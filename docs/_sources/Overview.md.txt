@@ -31,7 +31,7 @@ Custom AI accelerators and systems designed for high-throughput computation.
 - Network-on-Chip (NoC)
 - Multi-chip systems
 
-Learn more: [Hardware Overview](aibs/index.rst)
+Learn more: [Hardware Overview](hardware/index.rst)
 
 ---
 

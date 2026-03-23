@@ -12,7 +12,7 @@ Documentation and support for Tenstorrent add-in boards and the Active Cooling K
 
 - [**Grayskull™ e75/e150 AI Graph Processor**](./hardware/grayskull/README.md)
 - [**Wormhole™ n150s/n300s AI Graph Processor**](./hardware/wormhole/README.md)
-- [**Active Cooling Kit**](./hardware/ack.md)
+- [**Active Cooling Kit**](./hardware/compliance.md)
 
 
 ## Workstations and Server Systems
@@ -27,9 +27,9 @@ Physical and software setup for Tenstorrent workstation and server solutions:
 
 - [**T7000 4U Workstation**](./systems/t7000/README.md)
 
-- [**QuietBox Workstation**](./systems/quietbox/README.md)
+- [**QuietBox Workstation**](./systems/quietbox/quietbox-wh/index.rst)
 
-- [**Galaxy Wormhole 4U Server**](./galaxy4U/README.md)
+- [**Galaxy Wormhole 4U Server**](./systems/index.rst)
 
   
 

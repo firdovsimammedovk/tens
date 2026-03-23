@@ -1,0 +1,279 @@
+Operations Reference
+====================
+
+This page provides a reference for all supported operations in TT-Forge-ONNX.
+
+.. contents:: Categories
+   :local:
+   :depth: 1
+
+Elementwise Operations
+----------------------
+
+Mathematical operations applied element-wise to tensors.
+
+.. list-table::
+   :widths: 25 55 20
+   :header-rows: 1
+
+   * - Operation
+     - Description
+     - Reference
+   * - Abs
+     - Elementwise absolute value.
+     - ``forge.op.Abs``
+   * - Add
+     - Elementwise addition of two tensors.
+     - ``forge.op.Add``
+   * - Atan
+     - Elementwise arctangent.
+     - ``forge.op.Atan``
+   * - BitwiseAnd
+     - Bitwise AND operation.
+     - ``forge.op.BitwiseAnd``
+   * - Cast
+     - Cast tensor type.
+     - ``forge.op.Cast``
+   * - Clip
+     - Clips tensor values between min and max.
+     - ``forge.op.Clip``
+   * - Concatenate
+     - Concatenate tensors along an axis.
+     - ``forge.op.Concatenate``
+   * - Cosine
+     - Elementwise cosine.
+     - ``forge.op.Cosine``
+   * - Divide
+     - Elementwise division of two tensors.
+     - ``forge.op.Divide``
+   * - Equal
+     - Elementwise equality check.
+     - ``forge.op.Equal``
+   * - Erf
+     - Error function.
+     - ``forge.op.Erf``
+   * - Exp
+     - Exponent operation.
+     - ``forge.op.Exp``
+   * - Greater
+     - Elementwise greater-than comparison.
+     - ``forge.op.Greater``
+   * - GreaterEqual
+     - Elementwise greater-than-or-equal comparison.
+     - ``forge.op.GreaterEqual``
+   * - Heaviside
+     - Elementwise max of two tensors.
+     - ``forge.op.Heaviside``
+   * - Identity
+     - Identity operation (pass-through).
+     - ``forge.op.Identity``
+   * - Less
+     - Elementwise less-than comparison.
+     - ``forge.op.Less``
+   * - LessEqual
+     - Elementwise less-than-or-equal comparison.
+     - ``forge.op.LessEqual``
+   * - Log
+     - Natural logarithm of elements.
+     - ``forge.op.Log``
+   * - LogicalAnd
+     - Logical AND.
+     - ``forge.op.LogicalAnd``
+   * - LogicalNot
+     - Logical NOT.
+     - ``forge.op.LogicalNot``
+   * - Max
+     - Elementwise maximum of two tensors.
+     - ``forge.op.Max``
+   * - Min
+     - Elementwise minimum of two tensors.
+     - ``forge.op.Min``
+   * - Multiply
+     - Elementwise multiplication of two tensors.
+     - ``forge.op.Multiply``
+   * - NotEqual
+     - Elementwise inequality check.
+     - ``forge.op.NotEqual``
+   * - Pow
+     - Raises operandA to a scalar power.
+     - ``forge.op.Pow``
+   * - Power
+     - Raises operandA to the power of operandB.
+     - ``forge.op.Power``
+   * - Reciprocal
+     - Elementwise reciprocal.
+     - ``forge.op.Reciprocal``
+   * - Sine
+     - Elementwise sine.
+     - ``forge.op.Sine``
+   * - Sqrt
+     - Elementwise square root.
+     - ``forge.op.Sqrt``
+   * - Stack
+     - Stack tensors along a new axis.
+     - ``forge.op.Stack``
+   * - Subtract
+     - Elementwise subtraction of two tensors.
+     - ``forge.op.Subtract``
+
+Convolution Operations
+----------------------
+
+Convolution and related spatial transformations.
+
+.. list-table::
+   :widths: 25 55 20
+   :header-rows: 1
+
+   * - Operation
+     - Description
+     - Reference
+   * - Conv2d
+     - 2D convolution.
+     - ``forge.op.Conv2d``
+   * - Conv2dTranspose
+     - Transposed 2D convolution (deconvolution).
+     - ``forge.op.Conv2dTranspose``
+
+Pooling Operations
+------------------
+
+Pooling and downsampling operations.
+
+.. list-table::
+   :widths: 25 55 20
+   :header-rows: 1
+
+   * - Operation
+     - Description
+     - Reference
+   * - AvgPool2d
+     - 2D average pooling.
+     - ``forge.op.AvgPool2d``
+   * - MaxPool2d
+     - 2D max pooling.
+     - ``forge.op.MaxPool2d``
+
+Normalization Operations
+------------------------
+
+.. list-table::
+   :widths: 25 55 20
+   :header-rows: 1
+
+   * - Operation
+     - Description
+     - Reference
+   * - BatchNorm
+     - Batch normalization.
+     - ``forge.op.BatchNorm``
+   * - LayerNorm
+     - Layer normalization.
+     - ``forge.op.LayerNorm``
+
+Tensor Manipulation
+-------------------
+
+Reshaping, slicing, and other tensor operations.
+
+.. list-table::
+   :widths: 25 55 20
+   :header-rows: 1
+
+   * - Operation
+     - Description
+     - Reference
+   * - Reshape
+     - Reshape tensor to specified shape.
+     - ``forge.op.Reshape``
+   * - Transpose
+     - Transpose tensor dimensions.
+     - ``forge.op.Transpose``
+   * - Squeeze
+     - Remove dimensions of size 1.
+     - ``forge.op.Squeeze``
+   * - Unsqueeze
+     - Add a dimension of size 1.
+     - ``forge.op.Unsqueeze``
+   * - Slice
+     - Slice tensor along an axis.
+     - ``forge.op.Slice``
+   * - Pad
+     - Pad tensor with specified values.
+     - ``forge.op.Pad``
+
+Reduction Operations
+--------------------
+
+Aggregation and reduction operations.
+
+.. list-table::
+   :widths: 25 55 20
+   :header-rows: 1
+
+   * - Operation
+     - Description
+     - Reference
+   * - ReduceSum
+     - Sum reduction along axes.
+     - ``forge.op.ReduceSum``
+   * - ReduceMean
+     - Mean reduction along axes.
+     - ``forge.op.ReduceMean``
+   * - ReduceMax
+     - Max reduction along axes.
+     - ``forge.op.ReduceMax``
+
+Linear Operations
+-----------------
+
+Matrix multiplication and linear transformations.
+
+.. list-table::
+   :widths: 25 55 20
+   :header-rows: 1
+
+   * - Operation
+     - Description
+     - Reference
+   * - Matmul
+     - Matrix multiplication.
+     - ``forge.op.Matmul``
+   * - Linear
+     - Linear transformation (y = xW^T + b).
+     - ``forge.op.Linear``
+
+Activation Functions
+--------------------
+
+Non-linear activation functions.
+
+.. list-table::
+   :widths: 25 55 20
+   :header-rows: 1
+
+   * - Operation
+     - Description
+     - Reference
+   * - Relu
+     - Rectified Linear Unit.
+     - ``forge.op.Relu``
+   * - Gelu
+     - Gaussian Error Linear Unit.
+     - ``forge.op.Gelu``
+   * - Sigmoid
+     - Sigmoid activation.
+     - ``forge.op.Sigmoid``
+   * - Softmax
+     - Softmax activation.
+     - ``forge.op.Softmax``
+   * - Tanh
+     - Hyperbolic tangent.
+     - ``forge.op.Tanh``
+   * - LeakyRelu
+     - Leaky ReLU activation.
+     - ``forge.op.LeakyRelu``
+   * - Silu
+     - Sigmoid Linear Unit (SiLU / Swish).
+     - ``forge.op.Silu``
+

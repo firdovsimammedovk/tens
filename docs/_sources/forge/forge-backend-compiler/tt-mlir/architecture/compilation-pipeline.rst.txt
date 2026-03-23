@@ -1,0 +1,435 @@
+Compilation Pipeline
+====================
+
+The TT-MLIR compilation pipeline transforms high-level operations into executable code through
+multiple stages of progressive lowering and optimization.
+
+Pipeline Overview
+-----------------
+
+The complete pipeline consists of several major phases:
+
+.. code-block:: text
+
+   Input: TTIR Module
+        ↓
+   [TTIR Optimization Passes]
+   - Constant folding
+   - Operation fusion
+   - Dead code elimination
+   - Graph simplification
+        ↓
+   [TTIR → TTNN Lowering]
+   - Layout conversion
+   - Type conversion
+   - Operation mapping
+        ↓
+   [TTNN Optimization Passes]
+   - Memory layout optimization
+   - Tile size selection
+   - Sharding strategy
+   - Op scheduling
+        ↓
+   [TTNN → TTMetal Lowering]
+   - Kernel selection
+   - Memory allocation
+   - DMA planning
+        ↓
+   [TTMetal Optimization]
+   - Kernel fusion
+   - NOC optimization
+   - Pipeline scheduling
+        ↓
+   [Code Generation]
+   - Flatbuffer serialization
+   - Binary generation
+        ↓
+   Output: Executable Binary (.ttnn)
+
+TTIR Passes
+-----------
+
+High-Level Optimizations
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Constant Folding**
+
+Evaluates constant expressions at compile time:
+
+.. code-block:: mlir
+
+   // Before
+   %c1 = arith.constant 2.0 : f32
+   %c2 = arith.constant 3.0 : f32
+   %0 = "ttir.multiply"(%c1, %c2) : (f32, f32) -> f32
+
+   // After
+   %0 = arith.constant 6.0 : f32
+
+**Operation Fusion**
+
+Combines multiple operations into fused kernels:
+
+.. code-block:: mlir
+
+   // Before
+   %0 = "ttir.matmul"(%a, %b) : (tensor<M xK>, tensor<KxN>) -> tensor<MxN>
+   %1 = "ttir.add"(%0, %bias) : (tensor<MxN>, tensor<MxN>) -> tensor<MxN>
+   %2 = "ttir.relu"(%1) : (tensor<MxN>) -> tensor<MxN>
+
+   // After (fused)
+   %0 = "ttir.fused_matmul_add_relu"(%a, %b, %bias)
+     : (tensor<MxK>, tensor<KxN>, tensor<MxN>) -> tensor<MxN>
+
+**Dead Code Elimination**
+
+Removes unused operations:
+
+.. code-block:: mlir
+
+   // Before
+   %0 = "ttir.add"(%a, %b)
+   %1 = "ttir.multiply"(%c, %d)  // Not used
+   return %0
+
+   // After
+   %0 = "ttir.add"(%a, %b)
+   return %0
+
+Graph Transformations
+~~~~~~~~~~~~~~~~~~~~~
+
+**Pattern Matching and Rewriting**
+
+Identifies and optimizes common patterns:
+
+.. code-block:: mlir
+
+   // Pattern: x * 1 → x
+   // Before
+   %c = arith.constant 1.0 : f32
+   %0 = "ttir.multiply"(%x, %c)
+
+   // After
+   // Use %x directly
+
+**Shape Inference**
+
+Propagates shape information through the graph.
+
+**Type Refinement**
+
+Narrows types to more specific representations.
+
+TTIR to TTNN Lowering
+----------------------
+
+The TTIR-to-TTNN lowering phase prepares operations for hardware execution.
+
+Layout Conversion
+~~~~~~~~~~~~~~~~~
+
+Converts tensor layouts to hardware-friendly formats:
+
+.. code-block:: mlir
+
+   // TTIR
+   func.func @example(%arg0: tensor<32x128xf32>) -> tensor<32x128xf32>
+
+   // TTNN (with tile layout)
+   func.func @example(%arg0: !ttnn.tensor<32x128xf32, #ttnn.layout<tile>>)
+     -> !ttnn.tensor<32x128xf32, #ttnn.layout<tile>>
+
+Operation Mapping
+~~~~~~~~~~~~~~~~~
+
+Maps TTIR operations to TTNN operations:
+
+.. code-block:: text
+
+   ttir.matmul    → ttnn.matmul (with grid config)
+   ttir.conv2d    → ttnn.conv2d (with sharding)
+   ttir.relu      → ttnn.relu (with memory config)
+
+System Descriptor Loading
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Loads hardware capabilities:
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --ttir-load-system-desc="path=/path/to/system_desc.ttsys" \
+     input.mlir
+
+TTNN Passes
+-----------
+
+Hardware-Specific Optimizations
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Memory Layout Optimization**
+
+Chooses optimal memory layouts:
+
+* Row-major for streaming operations
+* Tile layout for matrix operations
+* Sharded layouts for parallel execution
+
+**Sharding Strategy**
+
+Determines how tensors are distributed across cores:
+
+.. code-block:: mlir
+
+   %0 = "ttnn.matmul"(%a, %b) {
+     shard_spec = #ttnn.shard<
+       strategy = "block",
+       grid = [8, 8],
+       orientation = "row_major"
+     >
+   }
+
+**Tile Size Selection**
+
+Selects optimal tile sizes based on:
+
+* L1 cache size
+* Operation characteristics
+* Data dependencies
+
+Memory Planning
+~~~~~~~~~~~~~~~
+
+**Buffer Allocation**
+
+Allocates memory buffers:
+
+* L1 cache allocation
+* DRAM allocation
+* Interleaved vs. sharded allocation
+
+**Memory Reuse**
+
+Reuses buffers when safe:
+
+.. code-block:: mlir
+
+   // Reuse buffer for in-place operations
+   %buf = "ttnn.alloc"() : () -> !ttnn.buffer<4096>
+   %0 = "ttnn.add"(%a, %b, %buf) {in_place = true}
+   %1 = "ttnn.relu"(%0, %buf) {in_place = true}
+
+Operation Scheduling
+~~~~~~~~~~~~~~~~~~~~
+
+Schedules operations for optimal execution:
+
+* Minimize memory transfers
+* Maximize hardware utilization
+* Hide DMA latency with computation
+
+TTNN to TTMetal Lowering
+------------------------
+
+Kernel Selection
+~~~~~~~~~~~~~~~~
+
+Selects appropriate kernels for each operation:
+
+.. code-block:: mlir
+
+   // TTNN
+   %0 = "ttnn.matmul"(%a, %b)
+
+   // TTMetal
+   %0 = "ttmetal.dispatch"(%a, %b) {
+     kernel = @optimized_matmul_kernel,
+     grid_size = [8, 8]
+   }
+
+DMA Planning
+~~~~~~~~~~~~
+
+Generates data movement operations:
+
+.. code-block:: mlir
+
+   %0 = "ttmetal.noc_read"(%src) {
+     noc_id = 0,
+     src_addr = 0x1000,
+     size = 4096
+   }
+
+TTMetal Passes
+--------------
+
+Low-Level Optimizations
+~~~~~~~~~~~~~~~~~~~~~~~
+
+**Kernel Fusion**
+
+Fuses multiple kernels when beneficial.
+
+**NOC Optimization**
+
+Optimizes network-on-chip communication:
+
+* Minimize NOC congestion
+* Batch small transfers
+* Use optimal NOC routes
+
+**Pipeline Scheduling**
+
+Overlaps computation with communication.
+
+Code Generation
+---------------
+
+Flatbuffer Generation
+~~~~~~~~~~~~~~~~~~~~~
+
+Serializes the compiled program:
+
+.. code-block:: bash
+
+   ttmlir-opt --ttnn-to-flatbuffer input.mlir -o output.ttnn
+
+Binary Format
+~~~~~~~~~~~~~
+
+The output binary contains:
+
+* Kernel binaries
+* Memory allocation information
+* Execution schedule
+* Metadata for runtime
+
+Running the Pipeline
+--------------------
+
+Complete Pipeline
+~~~~~~~~~~~~~~~~~
+
+Run the full pipeline with one command:
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --ttir-load-system-desc="path=/path/to/system_desc.ttsys" \
+     --ttir-to-ttnn-backend-pipeline \
+     --ttnn-to-flatbuffer \
+     input.mlir \
+     -o output.ttnn
+
+Step-by-Step Pipeline
+~~~~~~~~~~~~~~~~~~~~~~
+
+Run individual stages:
+
+.. code-block:: bash
+
+   # Stage 1: TTIR optimizations
+   ttmlir-opt --ttir-optimize input.mlir -o ttir_opt.mlir
+
+   # Stage 2: Lower to TTNN
+   ttmlir-opt --ttir-to-ttnn ttir_opt.mlir -o ttnn.mlir
+
+   # Stage 3: TTNN optimizations
+   ttmlir-opt --ttnn-optimize ttnn.mlir -o ttnn_opt.mlir
+
+   # Stage 4: Lower to TTMetal
+   ttmlir-opt --ttnn-to-metal ttnn_opt.mlir -o metal.mlir
+
+   # Stage 5: Generate binary
+   ttmlir-opt --ttnn-to-flatbuffer metal.mlir -o output.ttnn
+
+Custom Pipeline Configuration
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Create custom pass pipelines:
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --pass-pipeline='
+       builtin.module(
+         ttir-constant-folding,
+         ttir-op-fusion,
+         ttir-to-ttnn,
+         ttnn-layout-opt,
+         ttnn-memory-planning
+       )
+     ' \
+     input.mlir
+
+Debugging the Pipeline
+----------------------
+
+Print IR After Each Pass
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --mlir-print-ir-after-all \
+     --ttir-to-ttnn-backend-pipeline \
+     input.mlir 2>&1 | tee debug.log
+
+Print IR Before and After
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --mlir-print-ir-before-all \
+     --mlir-print-ir-after-all \
+     --ttir-to-ttnn-backend-pipeline \
+     input.mlir
+
+Enable Debug Output
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --debug \
+     --ttir-to-ttnn-backend-pipeline \
+     input.mlir
+
+Pipeline Customization
+----------------------
+
+Adding Custom Passes
+~~~~~~~~~~~~~~~~~~~~
+
+See :doc:`../guides/writing-passes` for details on writing custom passes.
+
+Disabling Optimizations
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Disable specific optimization passes:
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --ttir-to-ttnn-backend-pipeline \
+     --no-ttir-op-fusion \
+     input.mlir
+
+Performance Tuning
+~~~~~~~~~~~~~~~~~~
+
+Tune pipeline for specific workloads:
+
+* Adjust fusion thresholds
+* Configure sharding strategies
+* Set memory allocation policies
+
+See Also
+--------
+
+* :doc:`dialects` - Understanding TT-MLIR dialects
+* :doc:`../guides/optimization` - Optimization techniques
+* :doc:`../tools/ttmlir-opt` - Complete tool reference
+

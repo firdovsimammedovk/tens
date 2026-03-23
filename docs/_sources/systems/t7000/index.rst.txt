@@ -4,6 +4,5 @@ T7000
    :maxdepth: 2
 
    README
-   softwaresetup
    specifications
    support

@@ -1,0 +1,210 @@
+Build from Source
+=================
+
+This guide describes how to build TT-Forge-ONNX locally. Use this method if you want to develop
+for TT-Forge-ONNX.
+
+.. note::
+
+   TT-Forge-ONNX is a framework-agnostic frontend that converts any model to a generic Intermediate
+   Representation (IR), which is then converted to a Tenstorrent-specific IR for use with Tenstorrent
+   hardware. TT-Forge-ONNX is for use with **single-chip systems only**.
+
+Topics
+------
+
+* :ref:`onnx-configure-hardware`
+* :ref:`onnx-prerequisites`
+* :ref:`onnx-build-env`
+* :ref:`onnx-build-docs`
+* :ref:`onnx-build-cleanup`
+* :ref:`onnx-build-env-vars`
+
+.. _onnx-configure-hardware:
+
+Configuring Your Hardware
+--------------------------
+
+If you already configured your hardware, skip this section.
+
+1. Configure your hardware with TT-Installer using the Quick Installation guide.
+2. Reboot your machine.
+3. Activate the virtual environment:
+
+   .. code-block:: bash
+
+      source ~/.tenstorrent-venv/bin/activate
+
+4. Verify hardware detection:
+
+   .. code-block:: bash
+
+      tt-smi
+
+.. _onnx-prerequisites:
+
+Prerequisites
+-------------
+
+.. list-table::
+   :widths: 40 60
+   :header-rows: 1
+
+   * - Dependency
+     - Version
+   * - Clang
+     - 17
+   * - Ninja
+     - latest
+   * - CMake
+     - latest
+   * - Python
+     - 3.12
+
+On Ubuntu 22.04, install dependencies as follows:
+
+.. code-block:: bash
+
+   sudo apt update -y
+   sudo apt upgrade -y
+
+Installing Clang 17
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   wget https://apt.llvm.org/llvm.sh
+   chmod u+x llvm.sh
+   sudo ./llvm.sh 17
+   sudo apt install -y libc++-17-dev libc++abi-17-dev
+   sudo ln -s /usr/bin/clang-17 /usr/bin/clang
+   sudo ln -s /usr/bin/clang++-17 /usr/bin/clang++
+
+Verify the installation:
+
+.. code-block:: bash
+
+   clang --version
+   clang++ --version
+
+If you need to switch between Clang versions:
+
+.. code-block:: bash
+
+   sudo update-alternatives --install /usr/bin/clang clang /usr/bin/clang-17 100
+   sudo update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-17 100
+
+Installing Ninja
+~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   sudo apt install ninja-build
+
+Installing CMake
+~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   sudo apt install cmake
+
+Verify:
+
+.. code-block:: bash
+
+   cmake --version
+
+Installing Python 3.12
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   python3 --version  # check existing version
+
+If Python 3.12 is not installed:
+
+.. code-block:: bash
+
+   sudo apt install python3.12
+
+.. _onnx-build-env:
+
+Building the Environment
+------------------------
+
+1. Clone the repository:
+
+   .. code-block:: bash
+
+      git clone https://github.com/tenstorrent/tt-forge-onnx.git
+      cd tt-forge-onnx
+
+2. Build the project:
+
+   .. code-block:: bash
+
+      cmake -B build -G Ninja
+      cmake --build build
+
+.. _onnx-build-docs:
+
+Building the Docs
+-----------------
+
+TT-Forge-ONNX uses ``mdbook`` for documentation. Install it:
+
+.. code-block:: bash
+
+   sudo apt install cargo
+   cargo install mdbook
+
+Then build the docs:
+
+.. code-block:: bash
+
+   mdbook build docs
+
+.. _onnx-build-cleanup:
+
+Build Cleanup
+-------------
+
+To clean the build directory:
+
+.. code-block:: bash
+
+   cmake --build build --target clean
+
+Or remove the build directory entirely:
+
+.. code-block:: bash
+
+   rm -rf build
+
+.. _onnx-build-env-vars:
+
+Useful Build Environment Variables
+------------------------------------
+
+.. list-table::
+   :widths: 40 60
+   :header-rows: 1
+
+   * - Variable
+     - Description
+   * - ``FORGE_EXTRACT_UNIQUE_OP_CONFIG_AT``
+     - Extract unique op configurations at a specific compilation stage.
+   * - ``FORGE_PRINT_UNIQUE_OP_CONFIG``
+     - Set to ``1`` to print all unique op configs to console.
+   * - ``FORGE_EXPORT_UNIQUE_OP_CONFIG_FILE_TYPE``
+     - Set to ``csv`` or ``xlsx`` to export op configs.
+   * - ``FORGE_EXPORT_UNIQUE_OP_CONFIG_DIR_PATH``
+     - Directory path for exported op config files.
+   * - ``FORGE_EXPORT_UNIQUE_OP_CONFIG_CSV_DELIMITER``
+     - Delimiter for CSV export (default: ``/``).
+
+.. note::
+
+   If you encounter issues, request assistance on the
+   `TT-Forge-ONNX Issues page <https://github.com/tenstorrent/tt-forge-onnx/issues>`_.
+

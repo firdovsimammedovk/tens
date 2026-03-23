@@ -1,4 +1,4 @@
----
+o---
 myst:
   html_meta:
     product-name: TT-QuietBox Wormhole™, Wormhole™ Networked AI Processor, Tensix core  
@@ -137,7 +137,7 @@ To install Ubuntu 22.04 LTS (Jammy Jellyfish) from a USB flash drive, first plug
 
 You can either enter the system's BIOS/UEFI setup to adjust the boot order or enter a boot menu during Power-On-Self-Test (POST):
 
-#### Option 1: Adjust Boot Order
+### Option 1: Adjust Boot Order
 
 - Power on or restart the system
 - Press the `F2` or `Delete` key during Power-On-Self-Test (POST) to enter UEFI
@@ -146,7 +146,7 @@ You can either enter the system's BIOS/UEFI setup to adjust the boot order or en
 - Select `Save Changes and Exit`; the system will restart and should now boot from your USB flash drive
 - Follow the on-screen Ubuntu installation prompts
 
-#### Option 2: Use Boot Menu
+### Option 2: Use Boot Menu
 
 - Power on or restart the system
 - Press the `F11` key during Power-On-Self-Test (POST)

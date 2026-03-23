@@ -8,4 +8,5 @@ Hardware
    tensix-architecture
    memory-architecture
    blackhole/index
+   grayskull/index
    wormhole/index

@@ -1,0 +1,181 @@
+Quick Start
+
+* :doc:`../tools/ttmlir-opt` - Complete ``ttmlir-opt`` reference
+* :doc:`../guides/index` - Advanced usage guides
+* :doc:`../operations/index` - Explore available operations
+* :doc:`../architecture/index` - Learn about TT-MLIR architecture
+
+----------
+Next Steps
+
+   }
+     return %1 : tensor<1x64x112x112xf32>
+       -> tensor<1x64x112x112xf32>
+     } : (tensor<1x3x224x224xf32>, tensor<64x3x7x7xf32>, tensor<1x64x112x112xf32>)
+       padding = [3, 3, 3, 3]
+       stride = [2, 2],
+     %1 = "ttir.conv2d"(%input, %weight, %0) {
+     %0 = tensor.empty() : tensor<1x64x112x112xf32>
+       -> tensor<1x64x112x112xf32> {
+   func.func @conv(%input: tensor<1x3x224x224xf32>, %weight: tensor<64x3x7x7xf32>)
+
+.. code-block:: mlir
+
+**Convolution:**
+
+   }
+     return %1 : tensor<128x512xf32>
+       -> tensor<128x512xf32>
+       : (tensor<128x256xf32>, tensor<256x512xf32>, tensor<128x512xf32>)
+     %1 = "ttir.matmul"(%lhs, %rhs, %0)
+     %0 = tensor.empty() : tensor<128x512xf32>
+       -> tensor<128x512xf32> {
+   func.func @matmul(%lhs: tensor<128x256xf32>, %rhs: tensor<256x512xf32>)
+
+.. code-block:: mlir
+
+**Matrix Multiplication:**
+
+--------
+Examples
+
+* ``--debug`` - Enable debug output
+* ``--mlir-print-ir-before-all`` - Print IR before each pass
+* ``--mlir-print-ir-after-all`` - Print IR after each pass
+* ``--ttir-load-system-desc="path=/path/to/system_desc.ttsys"`` - Load system descriptor
+* ``--ttir-to-ttnn-backend-pipeline`` - Run full TTIR to TTNN pipeline
+
+Common ``ttmlir-opt`` options:
+
+---------------
+Command Options
+
+     --mlir-print-ir-after-all 2>&1 | less
+   ttmlir-opt --ttir-to-ttnn-backend-pipeline example.mlir \
+
+.. code-block:: bash
+
+**TTNN Dialect:**
+
+   ttmlir-opt --ttir-to-ttnn-backend-pipeline example.mlir
+
+.. code-block:: bash
+
+**After TTIR Passes:**
+
+   ttmlir-opt example.mlir
+
+.. code-block:: bash
+
+**TTIR (Input):**
+
+View intermediate representations at each stage:
+
+------------------------------
+Inspecting Compilation Stages
+
+The TT-Forge frontend automatically generates TTIR and invokes TT-MLIR for compilation.
+
+   output = compiled_model(sample_input)
+   # Execute
+
+   )
+       module_name="simple_relu"
+       sample_inputs=[sample_input],
+       model,
+   compiled_model = forge.compile(
+
+   sample_input = torch.randn(1, 32, 128)
+   model = SimpleModel()
+   # Compile with TT-Forge
+
+           return self.relu(x)
+       def forward(self, x):
+
+           self.relu = nn.ReLU()
+           super().__init__()
+       def __init__(self):
+   class SimpleModel(nn.Module):
+   # Define a simple model
+
+   import forge
+   import torch.nn as nn
+   import torch
+
+.. code-block:: python
+
+TT-MLIR is typically used as part of the TT-Forge pipeline. Here's an example using TT-Forge-ONNX:
+
+-----------------------------
+Using with TT-Forge Frontend
+
+   ttrt execute example.ttnn
+
+.. code-block:: bash
+
+If you have Tenstorrent hardware:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 4: Execute with TTRT
+
+     -o example.ttnn
+     example_ttnn.mlir \
+     --ttnn-to-flatbuffer \
+   ttmlir-opt \
+
+.. code-block:: bash
+
+Convert to executable flatbuffer:
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 3: Generate Flatbuffer
+
+* Outputs TTNN MLIR code
+* Applies the TTIR-to-TTNN compilation pipeline
+* Loads the TTIR module
+
+This command:
+
+     -o example_ttnn.mlir
+     example.mlir \
+     --ttir-to-ttnn-backend-pipeline \
+   ttmlir-opt \
+
+.. code-block:: bash
+
+Use ``ttmlir-opt`` to compile:
+
+~~~~~~~~~~~~~~~~~~~~~~~~
+Step 2: Compile to TTNN
+
+   }
+     }
+       return %1 : tensor<32x128xf32>
+       %1 = "ttir.relu"(%arg0, %0) : (tensor<32x128xf32>, tensor<32x128xf32>) -> tensor<32x128xf32>
+       %0 = tensor.empty() : tensor<32x128xf32>
+     func.func @forward(%arg0: tensor<32x128xf32>) -> tensor<32x128xf32> {
+   module attributes {} {
+
+.. code-block:: mlir
+
+Create a sample TTIR file (``example.mlir``):
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Step 1: Prepare Your TTIR
+
+stages to produce hardware-executable code.
+TT-MLIR takes TTIR (TT Intermediate Representation) as input and lowers it through several
+
+-----------------------
+Compiling TTIR to TTNN
+
+* (Optional) Tenstorrent hardware for execution
+* Virtual environment activated
+* TT-MLIR installed (see :doc:`installation`)
+
+-------------
+Prerequisites
+
+This guide walks you through compiling your first model with TT-MLIR.
+
+===========

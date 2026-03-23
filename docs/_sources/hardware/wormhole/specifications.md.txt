@@ -10,7 +10,7 @@ The Wormhole™ n150d, n150s, n300d, and n300s Tensix Processor add-in boards ar
 
 ## Card Comparison Table
 
-**NOTE:** The **n150s and n300s add-in cards** come with a heatsink for passive cooling in systems which can provide sufficient forced airflow to the card. If your system does not (for example, a desktop workstation), installing the bundled [Active Cooling Kit](../ack.md) is **required**; we strongly recommend desktop workstations use the **n150d** and **n300d** add-in cards which are designed for desktop deployment. If the card isn’t sufficiently cooled, performance will be substantially reduced to stay in a safe operating temperature range and you risk damage to the card.
+**NOTE:** The **n150s and n300s add-in cards** come with a heatsink for passive cooling in systems which can provide sufficient forced airflow to the card. If your system does not (for example, a desktop workstation), installing the bundled [Active Cooling Kit](../compliance.md) is **required**; we strongly recommend desktop workstations use the **n150d** and **n300d** add-in cards which are designed for desktop deployment. If the card isn’t sufficiently cooled, performance will be substantially reduced to stay in a safe operating temperature range and you risk damage to the card.
 
 | Specification                       | n150d                                             | n150s                                             | n300d                                             | n300s                                             |
 | ----------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- | ------------------------------------------------- |
@@ -46,7 +46,7 @@ Wormhole™ cards include two different methods for interconnecting cards. *(n15
 
 ![](./images/wh_portspec.png)
 
-The Warp 100 notches are for attaching internal [Warp 100 bridges](..\warp100.md) between Wormhole™ cards.
+The Warp 100 notches are for attaching internal [Warp 100 bridges](../memory-architecture.md) between Wormhole™ cards.
 
 The two QSFP-DD ports are active and support 200G connectivity between cards and/or Wormhole™-based systems/servers.
 

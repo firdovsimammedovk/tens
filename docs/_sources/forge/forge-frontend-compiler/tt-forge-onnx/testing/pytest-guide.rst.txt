@@ -1,0 +1,73 @@
+Pytest Guide
+============
+
+Pytest is a powerful testing framework for Python that simplifies writing and executing test cases.
+It supports test discovery, fixtures, parameterized testing, and detailed assertions.
+
+For full details, see the `official Pytest documentation <https://docs.pytest.org/>`_.
+
+Parameterized Testing
+---------------------
+
+The ``@pytest.mark.parametrize`` decorator runs a single test function with multiple input sets:
+
+.. code-block:: python
+
+   @pytest.mark.parametrize("arg1, arg2, expected", [
+       (1, 2, 3),
+       (2, 3, 5),
+       (3, 5, 8),
+   ])
+   def test_addition(arg1, arg2, expected):
+       assert arg1 + arg2 == expected
+
+Use ``pytest.param`` to mark specific combinations with metadata such as expected failures:
+
+.. code-block:: python
+
+   @pytest.mark.parametrize("inputs", [
+       pytest.param(
+           ((1, 2, 3), (4, 5, 6)), marks=pytest.mark.xfail(reason="reason"))
+   ])
+
+Skipping Tests
+--------------
+
+Use ``@pytest.mark.skip`` to skip a test:
+
+.. code-block:: python
+
+   @pytest.mark.skip(reason="Causes segmentation fault")
+   def test_future_feature():
+       assert some_function() == "expected result"
+
+This is useful when a test causes crashes or breaks the CI pipeline.
+
+Marking Tests as Expected to Fail
+----------------------------------
+
+Use ``@pytest.mark.xfail`` for tests expected to fail:
+
+.. code-block:: python
+
+   @pytest.mark.xfail(reason="Known bug in version 1.2.3")
+   def test_known_bug():
+       assert buggy_function() == "expected"
+
+If the test passes unexpectedly, pytest reports it as ``XPASS``.
+
+.. warning::
+
+   Do **not** use ``if`` statements inside a test to call ``pytest.xfail()``:
+
+   .. code-block:: python
+
+      # BAD — will always mark the test as failing
+      @pytest.mark.parametrize("model_path", ["<path>/model1", "<path>/model2"])
+      def test_model(model_path):
+          if model_path == "<path>/model1":
+              pytest.xfail("reason")
+
+   Instead, use ``pytest.param`` with ``marks=pytest.mark.xfail(...)`` to declare expected
+   failures explicitly.
+

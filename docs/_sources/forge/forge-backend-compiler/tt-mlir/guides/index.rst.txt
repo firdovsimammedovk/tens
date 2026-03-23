@@ -1,0 +1,40 @@
+Guides
+
+* :doc:`../api/index` - API reference
+* :doc:`../tools/index` - Development tools
+* :doc:`../architecture/index` - Architecture overview
+
+--------
+See Also
+
+* Contribute to TT-MLIR development
+* Debug compilation pipelines
+* Optimize specific workloads
+* Extend TT-MLIR with new functionality
+
+These guides are primarily for developers who want to:
+
+--------------
+For Developers
+
+* **Debugging** - Debug compilation issues and performance problems
+* **Optimization** - Techniques for optimizing model performance
+* **Custom Operations** - Add new operations to TT-MLIR dialects
+* **Writing Passes** - Create custom transformation and optimization passes
+
+This section provides in-depth guides for advanced TT-MLIR usage:
+
+--------
+Overview
+
+   debugging
+   optimization
+   custom-ops
+   writing-passes
+
+   :maxdepth: 2
+.. toctree::
+
+Advanced guides for working with TT-MLIR.
+
+======

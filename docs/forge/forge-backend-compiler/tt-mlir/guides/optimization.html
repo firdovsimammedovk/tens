@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+    <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Optimization &mdash; Home 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/tt_theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/home.css" type="text/css"/>
+    <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
+    <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=fd3dd8dd"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../../../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <script src="../../../../_static/tt_signature_copy.js"></script>
+    <script src="../../../../_static/tt_dropdown.js"></script>
+    <script src="../../../../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html"/>
+    <link rel="search" title="Search" href="../../../../search.html"/> 
+</head>
+
+<body class="wy-body-for-nav"> 
+<!-- ===== Top Navbar (NEW) ===== -->
+
+
+<header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+        <div class="tt-topnav__inner">
+
+            <!-- Logo -->
+            <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../../../_static/tt_logo.svg" alt="Home"/></a>
+
+            <!-- Primary links (hardcoded like the mock) -->
+            <nav class="tt-topnav__links" aria-label="Primary navigation">
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Get Started</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Software Stack</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/README.html">Installation</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/model-demos.html">Run Your First Model</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/quickstart.html">Quickstart</a>
+                    </div>
+                </div>
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Guides</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Running Models</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Performance
+                            Optimizations</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Multi-Device Setup</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Debugging Workflows</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Developing Custom
+                            Ops</a>
+                    </div>
+                </div>
+
+                <!-- Software dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../software/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../index.html">TT-Forge</a>
+                        <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+                    </div>
+                </div>
+
+                <!-- Hardware dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/tensix-architecture.html">Tensix Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/memory-architecture.html">Memory Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Network on Chip</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Chips</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Systems</a>
+                    </div>
+                </div>
+
+                <!-- Tools dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Tools</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">tt-smi</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Profiler</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Topology Explorer</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Visualizer</a>
+                    </div>
+                </div>
+                <a class="tt-topnav__link" href="../../../../index.html">Models</a>
+                <!-- Resource dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Resource</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Architecture Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Glossary</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Release Notes</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Roadmap</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../support/README.html">Support</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../resources/contributing.html">Contribution</a>
+                        <a class="tt-topnav__dropdown-item" href="https://github.com/tenstorrent/tenstorrent.github.io" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+                <!-- Support dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Support</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">FAQ</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Troubleshooting</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Community</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA -->
+            <div class="tt-topnav__cta">
+                <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+        <div class="tt-topnav__inner">
+
+            <!-- Version (styled capsule dropdown) -->
+            <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+                <button
+                        class="tt-topnav__version tt-topnav__version--dropdown"
+                        type="button"
+                        id="tt-version-toggle"
+                        aria-expanded="false"
+                ><span class="tt-topnav__version-text">
+                    1.0
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+                </button>
+                <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                    <!-- Version links will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Secondary links -->
+            <nav class="tt-topnav__subnav" aria-label="Section navigation">
+                <a class="tt-topnav__sublink" href="../../../index.html" style="margin-left: 230px">Overview</a>
+                <a class="tt-topnav__sublink" href="../../../getting-started.html">Getting Started</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/index.html">Frontends</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/tt-xla/index.html">TT-XLA</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/tt-forge-onnx/index.html">TT-Forge-ONNX</a>
+                <a class="tt-topnav__sublink" href="../../index.html">Backend</a>
+                <a class="tt-topnav__sublink" href="../../../tools/index.html">Tools</a>
+            </nav>
+
+            <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+            <div class="tt-topnav__edit"><span class="tt-topnav__editspacer"></span></div>
+
+        </div>
+    </div>
+
+</header>
+
+<!-- ===== /Top Navbar ===== -->
+<div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search" >
+
+                
+                
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+            </div>
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+                 aria-label="Navigation menu">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bounty_terms.html">TENSTORRENT BOUNTY PROGRAM TERMS AND CONDITIONS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../get_started/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../software/index.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../hardware/index.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../systems/index.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../models/index.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../resource/index.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support/index.html">Support</a></li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="../../../../index.html">Home</a>
+        </nav>
+
+        <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Optimization</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div itemprop="articleBody">
+                            
+  <section id="optimization">
+<h1>Optimization<a class="headerlink" href="#optimization" title="Link to this heading"></a></h1>
+<p>Techniques for optimizing TT-MLIR compilation and execution performance.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>This guide covers optimization strategies at different levels of the compilation pipeline.</p>
+</section>
+<section id="high-level-optimizations-ttir">
+<h2>High-Level Optimizations (TTIR)<a class="headerlink" href="#high-level-optimizations-ttir" title="Link to this heading"></a></h2>
+<section id="operation-fusion">
+<h3>Operation Fusion<a class="headerlink" href="#operation-fusion" title="Link to this heading"></a></h3>
+<p>Combine multiple operations to reduce memory traffic:</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>// Before fusion
+%0 = &quot;ttir.matmul&quot;(%a, %b, %out1)
+%1 = &quot;ttir.add&quot;(%0, %bias, %out2)
+%2 = &quot;ttir.relu&quot;(%1, %out3)
+
+// After fusion
+%0 = &quot;ttir.fused_matmul_add_relu&quot;(%a, %b, %bias, %out)
+</pre></div>
+</div>
+<p><strong>Benefits:</strong></p>
+<ul class="simple">
+<li><p>Reduced memory bandwidth</p></li>
+<li><p>Fewer kernel launches</p></li>
+<li><p>Better cache locality</p></li>
+</ul>
+</section>
+<section id="constant-folding">
+<h3>Constant Folding<a class="headerlink" href="#constant-folding" title="Link to this heading"></a></h3>
+<p>Evaluate constant expressions at compile time:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span>--ttir-constant-fold<span class="w"> </span>input.mlir
+</pre></div>
+</div>
+</section>
+<section id="graph-simplification">
+<h3>Graph Simplification<a class="headerlink" href="#graph-simplification" title="Link to this heading"></a></h3>
+<p>Remove redundant operations:</p>
+<ul class="simple">
+<li><p>Dead code elimination</p></li>
+<li><p>Common subexpression elimination</p></li>
+<li><p>Algebraic simplifications (e.g., x * 1 → x)</p></li>
+</ul>
+</section>
+</section>
+<section id="mid-level-optimizations-ttnn">
+<h2>Mid-Level Optimizations (TTNN)<a class="headerlink" href="#mid-level-optimizations-ttnn" title="Link to this heading"></a></h2>
+<section id="layout-selection">
+<h3>Layout Selection<a class="headerlink" href="#layout-selection" title="Link to this heading"></a></h3>
+<p>Choose optimal tensor layouts:</p>
+<p><strong>Tile Layout:</strong></p>
+<p>Best for matrix operations (matmul, conv):</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>%0 = &quot;ttnn.to_layout&quot;(%input) {layout = #ttnn.layout&lt;tile&gt;}
+</pre></div>
+</div>
+<p><strong>Row-Major Layout:</strong></p>
+<p>Best for element-wise operations:</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>%0 = &quot;ttnn.to_layout&quot;(%input) {layout = #ttnn.layout&lt;row_major&gt;}
+</pre></div>
+</div>
+</section>
+<section id="sharding-strategies">
+<h3>Sharding Strategies<a class="headerlink" href="#sharding-strategies" title="Link to this heading"></a></h3>
+<p>Distribute computation across cores:</p>
+<p><strong>Height Sharding:</strong></p>
+<p>For batch parallelism:</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>%0 = &quot;ttnn.matmul&quot;(%a, %b) {
+  shard_spec = #ttnn.shard&lt;strategy = &quot;height&quot;, grid = [8, 1]&gt;
+}
+</pre></div>
+</div>
+<p><strong>Width Sharding:</strong></p>
+<p>For feature parallelism:</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>%0 = &quot;ttnn.matmul&quot;(%a, %b) {
+  shard_spec = #ttnn.shard&lt;strategy = &quot;width&quot;, grid = [1, 8]&gt;
+}
+</pre></div>
+</div>
+<p><strong>Block Sharding:</strong></p>
+<p>For 2D parallelism:</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>%0 = &quot;ttnn.matmul&quot;(%a, %b) {
+  shard_spec = #ttnn.shard&lt;strategy = &quot;block&quot;, grid = [8, 8]&gt;
+}
+</pre></div>
+</div>
+</section>
+<section id="memory-placement">
+<h3>Memory Placement<a class="headerlink" href="#memory-placement" title="Link to this heading"></a></h3>
+<p>Optimize memory allocation:</p>
+<p><strong>L1 Memory:</strong></p>
+<p>Fast, limited capacity:</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>%0 = &quot;ttnn.to_device&quot;(%input) {
+  memory_config = #ttnn.memory&lt;l1&gt;
+}
+</pre></div>
+</div>
+<p><strong>DRAM:</strong></p>
+<p>Slower, larger capacity:</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>%0 = &quot;ttnn.to_device&quot;(%input) {
+  memory_config = #ttnn.memory&lt;dram&gt;
+}
+</pre></div>
+</div>
+</section>
+</section>
+<section id="low-level-optimizations-ttmetal">
+<h2>Low-Level Optimizations (TTMetal)<a class="headerlink" href="#low-level-optimizations-ttmetal" title="Link to this heading"></a></h2>
+<section id="kernel-fusion">
+<h3>Kernel Fusion<a class="headerlink" href="#kernel-fusion" title="Link to this heading"></a></h3>
+<p>Fuse multiple kernels to reduce overhead:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span>--ttmetal-kernel-fusion<span class="w"> </span>input.mlir
+</pre></div>
+</div>
+</section>
+<section id="noc-optimization">
+<h3>NOC Optimization<a class="headerlink" href="#noc-optimization" title="Link to this heading"></a></h3>
+<p>Optimize network-on-chip communication:</p>
+<ul class="simple">
+<li><p>Minimize NOC traffic</p></li>
+<li><p>Avoid NOC congestion</p></li>
+<li><p>Use optimal routing</p></li>
+</ul>
+</section>
+<section id="pipeline-scheduling">
+<h3>Pipeline Scheduling<a class="headerlink" href="#pipeline-scheduling" title="Link to this heading"></a></h3>
+<p>Overlap computation and communication:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Core 0: [Compute A] [Compute B] [Compute C]
+Core 1:    [DMA A]     [DMA B]     [DMA C]
+</pre></div>
+</div>
+</section>
+</section>
+<section id="performance-profiling">
+<h2>Performance Profiling<a class="headerlink" href="#performance-profiling" title="Link to this heading"></a></h2>
+<section id="enable-profiling">
+<h3>Enable Profiling<a class="headerlink" href="#enable-profiling" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">TT_METAL_PROFILE</span><span class="o">=</span><span class="m">1</span>
+ttrt<span class="w"> </span>execute<span class="w"> </span>model.ttnn
+</pre></div>
+</div>
+</section>
+<section id="analyze-results">
+<h3>Analyze Results<a class="headerlink" href="#analyze-results" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># View profile data</span>
+python<span class="w"> </span>-m<span class="w"> </span>tt_metal.tools.profiler.process_ops_logs
+</pre></div>
+</div>
+</section>
+<section id="identify-bottlenecks">
+<h3>Identify Bottlenecks<a class="headerlink" href="#identify-bottlenecks" title="Link to this heading"></a></h3>
+<p>Look for:</p>
+<ul class="simple">
+<li><p>High memory bandwidth usage</p></li>
+<li><p>Long kernel execution times</p></li>
+<li><p>NOC congestion</p></li>
+<li><p>Imbalanced core utilization</p></li>
+</ul>
+</section>
+</section>
+<section id="optimization-guidelines">
+<h2>Optimization Guidelines<a class="headerlink" href="#optimization-guidelines" title="Link to this heading"></a></h2>
+<section id="memory-bandwidth">
+<h3>Memory Bandwidth<a class="headerlink" href="#memory-bandwidth" title="Link to this heading"></a></h3>
+<p><strong>Problem:</strong> Memory-bound operations</p>
+<p><strong>Solutions:</strong></p>
+<ol class="arabic simple">
+<li><p>Use operation fusion</p></li>
+<li><p>Prefer L1 memory for hot data</p></li>
+<li><p>Minimize data movement</p></li>
+<li><p>Use sharding to increase bandwidth</p></li>
+</ol>
+</section>
+<section id="computation-utilization">
+<h3>Computation Utilization<a class="headerlink" href="#computation-utilization" title="Link to this heading"></a></h3>
+<p><strong>Problem:</strong> Low core utilization</p>
+<p><strong>Solutions:</strong></p>
+<ol class="arabic simple">
+<li><p>Use appropriate sharding</p></li>
+<li><p>Increase batch size</p></li>
+<li><p>Pipeline operations</p></li>
+<li><p>Balance workload across cores</p></li>
+</ol>
+</section>
+<section id="kernel-launch-overhead">
+<h3>Kernel Launch Overhead<a class="headerlink" href="#kernel-launch-overhead" title="Link to this heading"></a></h3>
+<p><strong>Problem:</strong> Too many small kernels</p>
+<p><strong>Solutions:</strong></p>
+<ol class="arabic simple">
+<li><p>Fuse operations</p></li>
+<li><p>Batch kernel launches</p></li>
+<li><p>Use larger tile sizes</p></li>
+</ol>
+</section>
+</section>
+<section id="practical-examples">
+<h2>Practical Examples<a class="headerlink" href="#practical-examples" title="Link to this heading"></a></h2>
+<section id="example-1-optimizing-matrix-multiplication">
+<h3>Example 1: Optimizing Matrix Multiplication<a class="headerlink" href="#example-1-optimizing-matrix-multiplication" title="Link to this heading"></a></h3>
+<p><strong>Unoptimized:</strong></p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>func.func @matmul(%a: tensor&lt;1024x2048xf32&gt;, %b: tensor&lt;2048x4096xf32&gt;)
+    -&gt; tensor&lt;1024x4096xf32&gt; {
+  %0 = &quot;ttir.matmul&quot;(%a, %b, %out)
+    : (tensor&lt;1024x2048xf32&gt;, tensor&lt;2048x4096xf32&gt;, tensor&lt;1024x4096xf32&gt;)
+    -&gt; tensor&lt;1024x4096xf32&gt;
+  return %0 : tensor&lt;1024x4096xf32&gt;
+}
+</pre></div>
+</div>
+<p><strong>Optimized:</strong></p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>func.func @matmul_optimized(
+    %a: !ttnn.tensor&lt;1024x2048xf32, #ttnn.layout&lt;tile&gt;, #ttnn.memory&lt;l1&gt;&gt;,
+    %b: !ttnn.tensor&lt;2048x4096xf32, #ttnn.layout&lt;tile&gt;, #ttnn.memory&lt;l1&gt;&gt;)
+    -&gt; !ttnn.tensor&lt;1024x4096xf32, #ttnn.layout&lt;tile&gt;, #ttnn.memory&lt;l1&gt;&gt; {
+  %0 = &quot;ttnn.matmul&quot;(%a, %b) {
+    memory_config = #ttnn.memory&lt;l1&gt;,
+    output_layout = #ttnn.layout&lt;tile&gt;,
+    shard_spec = #ttnn.shard&lt;strategy = &quot;block&quot;, grid = [8, 8]&gt;
+  } : (!ttnn.tensor&lt;1024x2048xf32, #ttnn.layout&lt;tile&gt;, #ttnn.memory&lt;l1&gt;&gt;,
+       !ttnn.tensor&lt;2048x4096xf32, #ttnn.layout&lt;tile&gt;, #ttnn.memory&lt;l1&gt;&gt;)
+    -&gt; !ttnn.tensor&lt;1024x4096xf32, #ttnn.layout&lt;tile&gt;, #ttnn.memory&lt;l1&gt;&gt;
+  return %0
+}
+</pre></div>
+</div>
+<p><strong>Improvements:</strong></p>
+<ul class="simple">
+<li><p>Tile layout for matmul efficiency</p></li>
+<li><p>L1 memory for fast access</p></li>
+<li><p>Block sharding across 8x8 core grid</p></li>
+</ul>
+</section>
+<section id="example-2-optimizing-layer-norm">
+<h3>Example 2: Optimizing Layer Norm<a class="headerlink" href="#example-2-optimizing-layer-norm" title="Link to this heading"></a></h3>
+<p><strong>Before:</strong></p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>%mean = &quot;ttir.mean&quot;(%x, %out1) {dim = [-1]}
+%var = &quot;ttir.var&quot;(%x, %out2) {dim = [-1]}
+%sub = &quot;ttir.subtract&quot;(%x, %mean, %out3)
+%div = &quot;ttir.divide&quot;(%sub, %var, %out4)
+%mul = &quot;ttir.multiply&quot;(%div, %weight, %out5)
+%add = &quot;ttir.add&quot;(%mul, %bias, %out6)
+</pre></div>
+</div>
+<p><strong>After:</strong></p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>%0 = &quot;ttir.layer_norm&quot;(%x, %weight, %bias, %out) {epsilon = 1e-5 : f32}
+</pre></div>
+</div>
+</section>
+</section>
+<section id="tuning-parameters">
+<h2>Tuning Parameters<a class="headerlink" href="#tuning-parameters" title="Link to this heading"></a></h2>
+<section id="grid-size">
+<h3>Grid Size<a class="headerlink" href="#grid-size" title="Link to this heading"></a></h3>
+<p>Adjust based on workload:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Small workload</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Medium workload</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+
+<span class="c1"># Large workload</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="tile-size">
+<h3>Tile Size<a class="headerlink" href="#tile-size" title="Link to this heading"></a></h3>
+<p>Balance between L1 usage and efficiency:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Standard tile</span>
+<span class="n">tile_size</span> <span class="o">=</span> <span class="mi">32</span>
+
+<span class="c1"># Larger for memory-bound ops</span>
+<span class="n">tile_size</span> <span class="o">=</span> <span class="mi">64</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="debugging-performance-issues">
+<h2>Debugging Performance Issues<a class="headerlink" href="#debugging-performance-issues" title="Link to this heading"></a></h2>
+<section id="use-verbose-output">
+<h3>Use Verbose Output<a class="headerlink" href="#use-verbose-output" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span>--debug<span class="w"> </span>input.mlir<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>debug.log
+</pre></div>
+</div>
+</section>
+<section id="check-ir-at-each-stage">
+<h3>Check IR at Each Stage<a class="headerlink" href="#check-ir-at-each-stage" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span>--mlir-print-ir-after-all<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--ttir-to-ttnn-backend-pipeline<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>input.mlir<span class="w"> </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>less
+</pre></div>
+</div>
+</section>
+<section id="measure-execution-time">
+<h3>Measure Execution Time<a class="headerlink" href="#measure-execution-time" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">compiled_model</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+<span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Execution time: </span><span class="si">{</span><span class="p">(</span><span class="n">end</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1000</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Profile first</strong> - Measure before optimizing</p></li>
+<li><p><strong>Start high-level</strong> - Optimize TTIR before TTNN</p></li>
+<li><p><strong>Use fusion</strong> - Combine operations when possible</p></li>
+<li><p><strong>Choose layouts carefully</strong> - Match layout to operation type</p></li>
+<li><p><strong>Balance memory</strong> - Use L1 for hot data, DRAM for large buffers</p></li>
+<li><p><strong>Test incrementally</strong> - Verify correctness after each optimization</p></li>
+</ol>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="writing-passes.html"><span class="doc">Writing Passes</span></a> - Creating optimization passes</p></li>
+<li><p><a class="reference internal" href="debugging.html"><span class="doc">Debugging</span></a> - Debugging techniques</p></li>
+<li><p><a class="reference internal" href="../architecture/compilation-pipeline.html"><span class="doc">Compilation Pipeline</span></a> - Understanding the pipeline</p></li>
+</ul>
+</section>
+</section>
+
+
+                        </div>
+                    </div>
+                    <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Mar 23, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+
+                </div>
+            </div>
+    </section>
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable({
+        {
+            'true'
+            if theme_sticky_navigation | tobool else
+            'false'
+        }
+    })
+        ;
+    });
+</script> 
+
+</body>
+</html>

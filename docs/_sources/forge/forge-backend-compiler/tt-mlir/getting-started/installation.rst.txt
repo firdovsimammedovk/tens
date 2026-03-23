@@ -1,0 +1,137 @@
+Installation
+============
+
+This guide covers the installation of TT-MLIR on your system.
+
+Using TT-Installer (Recommended)
+---------------------------------
+
+The easiest way to install TT-MLIR is using the TT-Installer, which installs the entire
+TT-Forge stack including TT-MLIR:
+
+.. code-block:: bash
+
+   curl -fsSL https://github.com/tenstorrent/tt-installer/raw/main/install.sh | bash
+
+After installation:
+
+.. code-block:: bash
+
+   # Activate the virtual environment
+   source ~/.tenstorrent-venv/bin/activate
+
+   # Verify installation
+   python -c "import ttrt; print('TT-MLIR runtime installed successfully')"
+
+Using pip
+---------
+
+Install TT-MLIR Python bindings directly:
+
+.. code-block:: bash
+
+   pip install tt-mlir
+
+Docker Installation
+-------------------
+
+Pull the official Docker image:
+
+.. code-block:: bash
+
+   docker pull ghcr.io/tenstorrent/tt-forge:latest
+
+Run with device access:
+
+.. code-block:: bash
+
+   docker run -it --rm \
+     --device /dev/tenstorrent \
+     -v /dev/hugepages-1G:/dev/hugepages-1G \
+     ghcr.io/tenstorrent/tt-forge:latest
+
+System Requirements
+-------------------
+
+**Minimum Requirements:**
+
+* 4 CPU cores
+* 16GB RAM
+* 20GB free disk space
+* Ubuntu 20.04+
+
+**Recommended:**
+
+* 8+ CPU cores
+* 32GB+ RAM
+* 50GB+ free disk space
+* Ubuntu 22.04
+
+Hardware Setup
+--------------
+
+If you have Tenstorrent hardware, ensure the device is properly set up:
+
+1. **Verify Hardware Detection:**
+
+   .. code-block:: bash
+
+      tt-smi
+
+2. **Check Hugepages:**
+
+   .. code-block:: bash
+
+      cat /proc/meminfo | grep Huge
+
+3. **Verify PCIe Connection:**
+
+   .. code-block:: bash
+
+      lspci | grep Tenstorrent
+
+Verification
+------------
+
+Verify your installation:
+
+.. code-block:: bash
+
+   # Check ttmlir-opt is available
+   ttmlir-opt --version
+
+   # Check ttrt is available
+   ttrt --version
+
+   # Run a simple test (if hardware is available)
+   ttrt query
+
+Troubleshooting
+---------------
+
+**Issue: Command not found**
+
+Ensure the virtual environment is activated:
+
+.. code-block:: bash
+
+   source ~/.tenstorrent-venv/bin/activate
+
+**Issue: Import errors**
+
+Reinstall the package:
+
+.. code-block:: bash
+
+   pip install --force-reinstall tt-mlir
+
+**Issue: Device not detected**
+
+See the :doc:`../guides/debugging` guide for hardware troubleshooting.
+
+Next Steps
+----------
+
+* :doc:`quick-start` - Run your first compilation
+* :doc:`build-from-source` - Build from source for development
+

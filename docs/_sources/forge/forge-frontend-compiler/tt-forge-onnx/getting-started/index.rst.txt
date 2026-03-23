@@ -1,0 +1,22 @@
+Getting Started
+===============
+
+Choose the setup method that best fits your workflow:
+
+.. toctree::
+   :maxdepth: 1
+
+   docker
+   build-from-source
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Method
+     - When to use
+   * - :doc:`docker`
+     - Run models quickly without modifying your system environment.
+   * - :doc:`build-from-source`
+     - Develop for TT-Forge-ONNX or need full control over the build.
+

@@ -1,0 +1,322 @@
+Custom Operations
+=================
+
+Learn how to add custom operations to TT-MLIR dialects.
+
+Overview
+--------
+
+Adding custom operations allows you to extend TT-MLIR with new functionality specific to your use case.
+
+Defining an Operation
+---------------------
+
+Operations are defined using TableGen in MLIR. Create a ``.td`` file:
+
+**MyOps.td:**
+
+.. code-block:: tablegen
+
+   #ifndef MY_OPS
+   #define MY_OPS
+
+   include "mlir/IR/OpBase.td"
+   include "mlir/Interfaces/InferTypeOpInterface.td"
+
+   def MyDialect : Dialect {
+     let name = "my";
+     let summary = "My custom dialect";
+     let cppNamespace = "::mlir::my";
+   }
+
+   class My_Op<string mnemonic, list<Trait> traits = []>
+       : Op<MyDialect, mnemonic, traits>;
+
+   def My_CustomOp : My_Op<"custom", [Pure]> {
+     let summary = "My custom operation";
+     let description = [{
+       This operation performs a custom computation.
+     }];
+
+     let arguments = (ins
+       TensorOf<[F32]>:$input,
+       F32Attr:$alpha
+     );
+
+     let results = (outs
+       TensorOf<[F32]>:$output
+     );
+
+     let assemblyFormat = [{
+       $input attr-dict `:` type($input) `->` type($output)
+     }];
+   }
+
+   #endif // MY_OPS
+
+Building the Operation
+----------------------
+
+CMakeLists.txt
+~~~~~~~~~~~~~~
+
+.. code-block:: cmake
+
+   add_mlir_dialect(MyOps my)
+   add_mlir_interface(MyOpsInterfaces)
+
+   add_library(MyDialect
+     MyDialect.cpp
+     MyOps.cpp
+   )
+
+   target_link_libraries(MyDialect
+     PUBLIC
+     MLIRIR
+   )
+
+Implementing the Operation
+--------------------------
+
+Header File (MyOps.h)
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: cpp
+
+   #ifndef MY_OPS_H
+   #define MY_OPS_H
+
+   #include "mlir/IR/Dialect.h"
+   #include "mlir/IR/OpDefinition.h"
+
+   #include "MyOpsDialect.h.inc"
+   #define GET_OP_CLASSES
+   #include "MyOps.h.inc"
+
+   #endif // MY_OPS_H
+
+Source File (MyOps.cpp)
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: cpp
+
+   #include "MyOps.h"
+   #include "mlir/IR/OpImplementation.h"
+   #include "mlir/IR/Builders.h"
+
+   using namespace mlir;
+   using namespace mlir::my;
+
+   #define GET_OP_CLASSES
+   #include "MyOps.cpp.inc"
+
+   // Custom verification logic
+   LogicalResult My_CustomOp::verify() {
+     auto inputType = getInput().getType().cast<RankedTensorType>();
+     auto outputType = getOutput().getType().cast<RankedTensorType>();
+
+     if (inputType.getShape() != outputType.getShape()) {
+       return emitOpError("input and output shapes must match");
+     }
+
+     return success();
+   }
+
+Adding Type Inference
+---------------------
+
+Implement type inference interface:
+
+.. code-block:: cpp
+
+   LogicalResult My_CustomOp::inferReturnTypes(
+       MLIRContext *context,
+       Optional<Location> location,
+       ValueRange operands,
+       DictionaryAttr attributes,
+       RegionRange regions,
+       SmallVectorImpl<Type> &inferredReturnTypes) {
+
+     // Input type determines output type
+     auto inputType = operands[0].getType();
+     inferredReturnTypes.push_back(inputType);
+
+     return success();
+   }
+
+Lowering Custom Operations
+---------------------------
+
+Create a lowering pass:
+
+.. code-block:: cpp
+
+   struct LowerMyCustomOpPattern : public OpRewritePattern<my::CustomOp> {
+     using OpRewritePattern<my::CustomOp>::OpRewritePattern;
+
+     LogicalResult matchAndRewrite(my::CustomOp op,
+                                    PatternRewriter &rewriter) const override {
+       // Lower to TTIR operations
+       auto input = op.getInput();
+       auto alpha = op.getAlpha();
+
+       // Example: custom_op(x, alpha) -> x * alpha + x
+       auto mul = rewriter.create<ttir::MultiplyOp>(
+         op.getLoc(),
+         input,
+         /* constant alpha */
+       );
+
+       auto add = rewriter.create<ttir::AddOp>(
+         op.getLoc(),
+         mul.getResult(),
+         input
+       );
+
+       rewriter.replaceOp(op, add.getResult());
+       return success();
+     }
+   };
+
+Registering the Pattern
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: cpp
+
+   void populateMyCustomOpLoweringPatterns(RewritePatternSet &patterns) {
+     patterns.add<LowerMyCustomOpPattern>(patterns.getContext());
+   }
+
+Python Bindings
+---------------
+
+Create Python bindings for your operation:
+
+**my_ops.py:**
+
+.. code-block:: python
+
+   from mlir.ir import *
+   from mlir.dialects import my
+
+   def create_custom_op(input_tensor, alpha):
+       """Create a custom operation."""
+       with InsertionPoint.at_block_begin(Block.current()):
+           return my.CustomOp(input_tensor, alpha)
+
+Testing Custom Operations
+--------------------------
+
+FileCheck Test
+~~~~~~~~~~~~~~
+
+.. code-block:: mlir
+
+   // RUN: ttmlir-opt %s --lower-my-custom-op | FileCheck %s
+
+   func.func @test_custom_op(%arg0: tensor<32xf32>) -> tensor<32xf32> {
+     // CHECK: %[[MUL:.*]] = ttir.multiply
+     // CHECK: %[[ADD:.*]] = ttir.add
+     %0 = "my.custom"(%arg0) {alpha = 2.0 : f32}
+       : (tensor<32xf32>) -> tensor<32xf32>
+     return %0 : tensor<32xf32>
+   }
+
+Unit Test
+~~~~~~~~~
+
+.. code-block:: cpp
+
+   TEST(MyOpsTest, CustomOpCreation) {
+     MLIRContext context;
+     context.loadDialect<my::MyDialect>();
+
+     OpBuilder builder(&context);
+     auto loc = builder.getUnknownLoc();
+
+     auto tensorType = RankedTensorType::get({32}, builder.getF32Type());
+
+     // Create operation
+     auto op = builder.create<my::CustomOp>(
+       loc,
+       tensorType,
+       /* operands */,
+       builder.getF32FloatAttr(2.0)
+     );
+
+     EXPECT_TRUE(succeeded(op.verify()));
+   }
+
+Complete Example
+----------------
+
+Here's a complete example of a custom "fused" operation:
+
+**FusedOps.td:**
+
+.. code-block:: tablegen
+
+   def TTIR_FusedMatMulAddOp : TTIR_Op<"fused_matmul_add", [Pure]> {
+     let summary = "Fused matrix multiplication and addition";
+
+     let arguments = (ins
+       TensorOf<[F32]>:$lhs,
+       TensorOf<[F32]>:$rhs,
+       TensorOf<[F32]>:$bias,
+       TensorOf<[F32]>:$output
+     );
+
+     let results = (outs TensorOf<[F32]>:$result);
+
+     let assemblyFormat = [{
+       $lhs `,` $rhs `,` $bias `,` $output attr-dict
+       `:` `(` type($lhs) `,` type($rhs) `,` type($bias) `,` type($output) `)`
+       `->` type($result)
+     }];
+
+     let hasVerifier = 1;
+   }
+
+**Verification:**
+
+.. code-block:: cpp
+
+   LogicalResult FusedMatMulAddOp::verify() {
+     auto lhsType = getLhs().getType().cast<RankedTensorType>();
+     auto rhsType = getRhs().getType().cast<RankedTensorType>();
+     auto biasType = getBias().getType().cast<RankedTensorType>();
+     auto resultType = getResult().getType().cast<RankedTensorType>();
+
+     // Check matmul compatibility
+     if (lhsType.getShape()[1] != rhsType.getShape()[0]) {
+       return emitOpError("incompatible matmul dimensions");
+     }
+
+     // Check bias broadcasting
+     auto resultShape = resultType.getShape();
+     auto biasShape = biasType.getShape();
+
+     if (!areBroadcastCompatible(resultShape, biasShape)) {
+       return emitOpError("bias not broadcast compatible");
+     }
+
+     return success();
+   }
+
+Best Practices
+--------------
+
+1. **Use TableGen** - Define operations declaratively
+2. **Implement verification** - Catch errors early
+3. **Add type inference** - Make operations easier to use
+4. **Document thoroughly** - Include examples in descriptions
+5. **Test extensively** - Both FileCheck and unit tests
+6. **Follow naming conventions** - Use dialect prefix (e.g., ``ttir.my_op``)
+
+See Also
+--------
+
+* :doc:`writing-passes` - Writing transformation passes
+* :doc:`optimization` - Optimizing custom operations
+* `MLIR Operation Definition <https://mlir.llvm.org/docs/DefiningDialects/Operations/>`_
+

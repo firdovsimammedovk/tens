@@ -8,6 +8,7 @@ Getting Started
 .. toctree::
    :maxdepth: 1
    
+   README
    installation
    Software Setup </getting-started/README>
 

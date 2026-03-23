@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+    <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Custom Operations &mdash; Home 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/tt_theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/home.css" type="text/css"/>
+    <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
+    <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=fd3dd8dd"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../../../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <script src="../../../../_static/tt_signature_copy.js"></script>
+    <script src="../../../../_static/tt_dropdown.js"></script>
+    <script src="../../../../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html"/>
+    <link rel="search" title="Search" href="../../../../search.html"/> 
+</head>
+
+<body class="wy-body-for-nav"> 
+<!-- ===== Top Navbar (NEW) ===== -->
+
+
+<header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+        <div class="tt-topnav__inner">
+
+            <!-- Logo -->
+            <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../../../_static/tt_logo.svg" alt="Home"/></a>
+
+            <!-- Primary links (hardcoded like the mock) -->
+            <nav class="tt-topnav__links" aria-label="Primary navigation">
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Get Started</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Software Stack</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/README.html">Installation</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/model-demos.html">Run Your First Model</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/quickstart.html">Quickstart</a>
+                    </div>
+                </div>
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Guides</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Running Models</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Performance
+                            Optimizations</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Multi-Device Setup</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Debugging Workflows</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Developing Custom
+                            Ops</a>
+                    </div>
+                </div>
+
+                <!-- Software dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../software/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../index.html">TT-Forge</a>
+                        <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+                    </div>
+                </div>
+
+                <!-- Hardware dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/tensix-architecture.html">Tensix Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/memory-architecture.html">Memory Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Network on Chip</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Chips</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Systems</a>
+                    </div>
+                </div>
+
+                <!-- Tools dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Tools</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">tt-smi</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Profiler</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Topology Explorer</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Visualizer</a>
+                    </div>
+                </div>
+                <a class="tt-topnav__link" href="../../../../index.html">Models</a>
+                <!-- Resource dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Resource</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Architecture Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Glossary</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Release Notes</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Roadmap</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../support/README.html">Support</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../resources/contributing.html">Contribution</a>
+                        <a class="tt-topnav__dropdown-item" href="https://github.com/tenstorrent/tenstorrent.github.io" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+                <!-- Support dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Support</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">FAQ</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Troubleshooting</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Community</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA -->
+            <div class="tt-topnav__cta">
+                <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+        <div class="tt-topnav__inner">
+
+            <!-- Version (styled capsule dropdown) -->
+            <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+                <button
+                        class="tt-topnav__version tt-topnav__version--dropdown"
+                        type="button"
+                        id="tt-version-toggle"
+                        aria-expanded="false"
+                ><span class="tt-topnav__version-text">
+                    1.0
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+                </button>
+                <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                    <!-- Version links will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Secondary links -->
+            <nav class="tt-topnav__subnav" aria-label="Section navigation">
+                <a class="tt-topnav__sublink" href="../../../index.html" style="margin-left: 230px">Overview</a>
+                <a class="tt-topnav__sublink" href="../../../getting-started.html">Getting Started</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/index.html">Frontends</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/tt-xla/index.html">TT-XLA</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/tt-forge-onnx/index.html">TT-Forge-ONNX</a>
+                <a class="tt-topnav__sublink" href="../../index.html">Backend</a>
+                <a class="tt-topnav__sublink" href="../../../tools/index.html">Tools</a>
+            </nav>
+
+            <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+            <div class="tt-topnav__edit"><span class="tt-topnav__editspacer"></span></div>
+
+        </div>
+    </div>
+
+</header>
+
+<!-- ===== /Top Navbar ===== -->
+<div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search" >
+
+                
+                
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+            </div>
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+                 aria-label="Navigation menu">
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bounty_terms.html">TENSTORRENT BOUNTY PROGRAM TERMS AND CONDITIONS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../get_started/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../software/index.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../hardware/index.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../systems/index.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../models/index.html">Models</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../index.html">TT-Forge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../resource/index.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support/index.html">Support</a></li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="../../../../index.html">Home</a>
+        </nav>
+
+        <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Custom Operations</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div itemprop="articleBody">
+                            
+  <section id="custom-operations">
+<h1>Custom Operations<a class="headerlink" href="#custom-operations" title="Link to this heading"></a></h1>
+<p>Learn how to add custom operations to TT-MLIR dialects.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>Adding custom operations allows you to extend TT-MLIR with new functionality specific to your use case.</p>
+</section>
+<section id="defining-an-operation">
+<h2>Defining an Operation<a class="headerlink" href="#defining-an-operation" title="Link to this heading"></a></h2>
+<p>Operations are defined using TableGen in MLIR. Create a <code class="docutils literal notranslate"><span class="pre">.td</span></code> file:</p>
+<p><strong>MyOps.td:</strong></p>
+<div class="highlight-tablegen notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef</span><span class="w"> </span><span class="n">MY_OPS</span>
+<span class="cp">#define</span><span class="w"> </span><span class="n">MY_OPS</span>
+
+<span class="k">include</span><span class="w"> </span><span class="s">&quot;mlir/IR/OpBase.td&quot;</span>
+<span class="k">include</span><span class="w"> </span><span class="s">&quot;mlir/Interfaces/InferTypeOpInterface.td&quot;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="n">MyDialect</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">Dialect</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;my&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;My custom dialect&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">cppNamespace</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;::mlir::my&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">class</span><span class="w"> </span><span class="n">My_Op</span><span class="p">&lt;</span><span class="kt">string</span><span class="w"> </span><span class="n">mnemonic</span><span class="p">,</span><span class="w"> </span><span class="kt">list</span><span class="p">&lt;</span><span class="n">Trait</span><span class="p">&gt;</span><span class="w"> </span><span class="n">traits</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">[]&gt;</span>
+<span class="w">    </span><span class="p">:</span><span class="w"> </span><span class="n">Op</span><span class="p">&lt;</span><span class="n">MyDialect</span><span class="p">,</span><span class="w"> </span><span class="n">mnemonic</span><span class="p">,</span><span class="w"> </span><span class="n">traits</span><span class="p">&gt;;</span>
+
+<span class="k">def</span><span class="w"> </span><span class="n">My_CustomOp</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">My_Op</span><span class="p">&lt;</span><span class="s">&quot;custom&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">Pure</span><span class="p">]&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;My custom operation&quot;</span><span class="p">;</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">description</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>[{
+<span class="w">    </span><span class="n">This</span><span class="w"> </span><span class="n">operation</span><span class="w"> </span><span class="n">performs</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">custom</span><span class="w"> </span><span class="n">computation</span><span class="p">.</span>
+<span class="w">  </span>}]<span class="p">;</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">ins</span>
+<span class="w">    </span><span class="n">TensorOf</span><span class="p">&lt;[</span><span class="n">F32</span><span class="p">]&gt;:</span><span class="nv">$input</span><span class="p">,</span>
+<span class="w">    </span><span class="n">F32Attr</span><span class="p">:</span><span class="nv">$alpha</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">outs</span>
+<span class="w">    </span><span class="n">TensorOf</span><span class="p">&lt;[</span><span class="n">F32</span><span class="p">]&gt;:</span><span class="nv">$output</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">assemblyFormat</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>[{
+<span class="w">    </span><span class="n">$input</span><span class="w"> </span><span class="n">attr</span><span class="o">-</span><span class="n">dict</span><span class="w"> </span><span class="err">`</span><span class="o">:</span><span class="err">`</span><span class="w"> </span><span class="n">type</span><span class="p">(</span><span class="n">$input</span><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="o">-&gt;</span><span class="err">`</span><span class="w"> </span><span class="n">type</span><span class="p">(</span><span class="n">$output</span><span class="p">)</span>
+<span class="w">  </span>}]<span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">#endif</span><span class="w"> </span><span class="c c-SingleLine">// MY_OPS</span>
+</pre></div>
+</div>
+</section>
+<section id="building-the-operation">
+<h2>Building the Operation<a class="headerlink" href="#building-the-operation" title="Link to this heading"></a></h2>
+<section id="cmakelists-txt">
+<h3>CMakeLists.txt<a class="headerlink" href="#cmakelists-txt" title="Link to this heading"></a></h3>
+<div class="highlight-cmake notranslate"><div class="highlight"><pre><span></span><span class="nb">add_mlir_dialect</span><span class="p">(</span><span class="s">MyOps</span><span class="w"> </span><span class="s">my</span><span class="p">)</span>
+<span class="nb">add_mlir_interface</span><span class="p">(</span><span class="s">MyOpsInterfaces</span><span class="p">)</span>
+
+<span class="nb">add_library</span><span class="p">(</span><span class="s">MyDialect</span>
+<span class="w">  </span><span class="s">MyDialect.cpp</span>
+<span class="w">  </span><span class="s">MyOps.cpp</span>
+<span class="p">)</span>
+
+<span class="nb">target_link_libraries</span><span class="p">(</span><span class="s">MyDialect</span>
+<span class="w">  </span><span class="s">PUBLIC</span>
+<span class="w">  </span><span class="s">MLIRIR</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="implementing-the-operation">
+<h2>Implementing the Operation<a class="headerlink" href="#implementing-the-operation" title="Link to this heading"></a></h2>
+<section id="header-file-myops-h">
+<h3>Header File (MyOps.h)<a class="headerlink" href="#header-file-myops-h" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef MY_OPS_H</span>
+<span class="cp">#define MY_OPS_H</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mlir/IR/Dialect.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mlir/IR/OpDefinition.h&quot;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;MyOpsDialect.h.inc&quot;</span>
+<span class="cp">#define GET_OP_CLASSES</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;MyOps.h.inc&quot;</span>
+
+<span class="cp">#endif </span><span class="c1">// MY_OPS_H</span>
+</pre></div>
+</div>
+</section>
+<section id="source-file-myops-cpp">
+<h3>Source File (MyOps.cpp)<a class="headerlink" href="#source-file-myops-cpp" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;MyOps.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mlir/IR/OpImplementation.h&quot;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;mlir/IR/Builders.h&quot;</span>
+
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">mlir</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">mlir</span><span class="o">::</span><span class="nn">my</span><span class="p">;</span>
+
+<span class="cp">#define GET_OP_CLASSES</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;MyOps.cpp.inc&quot;</span>
+
+<span class="c1">// Custom verification logic</span>
+<span class="n">LogicalResult</span><span class="w"> </span><span class="nf">My_CustomOp::verify</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">inputType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getInput</span><span class="p">().</span><span class="n">getType</span><span class="p">().</span><span class="n">cast</span><span class="o">&lt;</span><span class="n">RankedTensorType</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">outputType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getOutput</span><span class="p">().</span><span class="n">getType</span><span class="p">().</span><span class="n">cast</span><span class="o">&lt;</span><span class="n">RankedTensorType</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">inputType</span><span class="p">.</span><span class="n">getShape</span><span class="p">()</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">outputType</span><span class="p">.</span><span class="n">getShape</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">emitOpError</span><span class="p">(</span><span class="s">&quot;input and output shapes must match&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">success</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="adding-type-inference">
+<h2>Adding Type Inference<a class="headerlink" href="#adding-type-inference" title="Link to this heading"></a></h2>
+<p>Implement type inference interface:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">LogicalResult</span><span class="w"> </span><span class="nf">My_CustomOp::inferReturnTypes</span><span class="p">(</span>
+<span class="w">    </span><span class="n">MLIRContext</span><span class="w"> </span><span class="o">*</span><span class="n">context</span><span class="p">,</span>
+<span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Location</span><span class="o">&gt;</span><span class="w"> </span><span class="n">location</span><span class="p">,</span>
+<span class="w">    </span><span class="n">ValueRange</span><span class="w"> </span><span class="n">operands</span><span class="p">,</span>
+<span class="w">    </span><span class="n">DictionaryAttr</span><span class="w"> </span><span class="n">attributes</span><span class="p">,</span>
+<span class="w">    </span><span class="n">RegionRange</span><span class="w"> </span><span class="n">regions</span><span class="p">,</span>
+<span class="w">    </span><span class="n">SmallVectorImpl</span><span class="o">&lt;</span><span class="n">Type</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="n">inferredReturnTypes</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">  </span><span class="c1">// Input type determines output type</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">inputType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">operands</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">getType</span><span class="p">();</span>
+<span class="w">  </span><span class="n">inferredReturnTypes</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">inputType</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">success</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="lowering-custom-operations">
+<h2>Lowering Custom Operations<a class="headerlink" href="#lowering-custom-operations" title="Link to this heading"></a></h2>
+<p>Create a lowering pass:</p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">struct</span><span class="w"> </span><span class="nc">LowerMyCustomOpPattern</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="k">public</span><span class="w"> </span><span class="n">OpRewritePattern</span><span class="o">&lt;</span><span class="n">my</span><span class="o">::</span><span class="n">CustomOp</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="n">OpRewritePattern</span><span class="o">&lt;</span><span class="n">my</span><span class="o">::</span><span class="n">CustomOp</span><span class="o">&gt;::</span><span class="n">OpRewritePattern</span><span class="p">;</span>
+
+<span class="w">  </span><span class="n">LogicalResult</span><span class="w"> </span><span class="nf">matchAndRewrite</span><span class="p">(</span><span class="n">my</span><span class="o">::</span><span class="n">CustomOp</span><span class="w"> </span><span class="n">op</span><span class="p">,</span>
+<span class="w">                                 </span><span class="n">PatternRewriter</span><span class="w"> </span><span class="o">&amp;</span><span class="n">rewriter</span><span class="p">)</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Lower to TTIR operations</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">input</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">op</span><span class="p">.</span><span class="n">getInput</span><span class="p">();</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">op</span><span class="p">.</span><span class="n">getAlpha</span><span class="p">();</span>
+
+<span class="w">    </span><span class="c1">// Example: custom_op(x, alpha) -&gt; x * alpha + x</span>
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">mul</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rewriter</span><span class="p">.</span><span class="n">create</span><span class="o">&lt;</span><span class="n">ttir</span><span class="o">::</span><span class="n">MultiplyOp</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">      </span><span class="n">op</span><span class="p">.</span><span class="n">getLoc</span><span class="p">(),</span>
+<span class="w">      </span><span class="n">input</span><span class="p">,</span>
+<span class="w">      </span><span class="cm">/* constant alpha */</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="k">auto</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">rewriter</span><span class="p">.</span><span class="n">create</span><span class="o">&lt;</span><span class="n">ttir</span><span class="o">::</span><span class="n">AddOp</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">      </span><span class="n">op</span><span class="p">.</span><span class="n">getLoc</span><span class="p">(),</span>
+<span class="w">      </span><span class="n">mul</span><span class="p">.</span><span class="n">getResult</span><span class="p">(),</span>
+<span class="w">      </span><span class="n">input</span>
+<span class="w">    </span><span class="p">);</span>
+
+<span class="w">    </span><span class="n">rewriter</span><span class="p">.</span><span class="n">replaceOp</span><span class="p">(</span><span class="n">op</span><span class="p">,</span><span class="w"> </span><span class="n">add</span><span class="p">.</span><span class="n">getResult</span><span class="p">());</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">success</span><span class="p">();</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">};</span>
+</pre></div>
+</div>
+<section id="registering-the-pattern">
+<h3>Registering the Pattern<a class="headerlink" href="#registering-the-pattern" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span><span class="w"> </span><span class="nf">populateMyCustomOpLoweringPatterns</span><span class="p">(</span><span class="n">RewritePatternSet</span><span class="w"> </span><span class="o">&amp;</span><span class="n">patterns</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">patterns</span><span class="p">.</span><span class="n">add</span><span class="o">&lt;</span><span class="n">LowerMyCustomOpPattern</span><span class="o">&gt;</span><span class="p">(</span><span class="n">patterns</span><span class="p">.</span><span class="n">getContext</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-bindings">
+<h2>Python Bindings<a class="headerlink" href="#python-bindings" title="Link to this heading"></a></h2>
+<p>Create Python bindings for your operation:</p>
+<p><strong>my_ops.py:</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">mlir.ir</span><span class="w"> </span><span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mlir.dialects</span><span class="w"> </span><span class="kn">import</span> <span class="n">my</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">create_custom_op</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a custom operation.&quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">InsertionPoint</span><span class="o">.</span><span class="n">at_block_begin</span><span class="p">(</span><span class="n">Block</span><span class="o">.</span><span class="n">current</span><span class="p">()):</span>
+        <span class="k">return</span> <span class="n">my</span><span class="o">.</span><span class="n">CustomOp</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="testing-custom-operations">
+<h2>Testing Custom Operations<a class="headerlink" href="#testing-custom-operations" title="Link to this heading"></a></h2>
+<section id="filecheck-test">
+<h3>FileCheck Test<a class="headerlink" href="#filecheck-test" title="Link to this heading"></a></h3>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>// RUN: ttmlir-opt %s --lower-my-custom-op | FileCheck %s
+
+func.func @test_custom_op(%arg0: tensor&lt;32xf32&gt;) -&gt; tensor&lt;32xf32&gt; {
+  // CHECK: %[[MUL:.*]] = ttir.multiply
+  // CHECK: %[[ADD:.*]] = ttir.add
+  %0 = &quot;my.custom&quot;(%arg0) {alpha = 2.0 : f32}
+    : (tensor&lt;32xf32&gt;) -&gt; tensor&lt;32xf32&gt;
+  return %0 : tensor&lt;32xf32&gt;
+}
+</pre></div>
+</div>
+</section>
+<section id="unit-test">
+<h3>Unit Test<a class="headerlink" href="#unit-test" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">TEST</span><span class="p">(</span><span class="n">MyOpsTest</span><span class="p">,</span><span class="w"> </span><span class="n">CustomOpCreation</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">MLIRContext</span><span class="w"> </span><span class="n">context</span><span class="p">;</span>
+<span class="w">  </span><span class="n">context</span><span class="p">.</span><span class="n">loadDialect</span><span class="o">&lt;</span><span class="n">my</span><span class="o">::</span><span class="n">MyDialect</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">  </span><span class="n">OpBuilder</span><span class="w"> </span><span class="nf">builder</span><span class="p">(</span><span class="o">&amp;</span><span class="n">context</span><span class="p">);</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">loc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">builder</span><span class="p">.</span><span class="n">getUnknownLoc</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">tensorType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">RankedTensorType</span><span class="o">::</span><span class="n">get</span><span class="p">({</span><span class="mi">32</span><span class="p">},</span><span class="w"> </span><span class="n">builder</span><span class="p">.</span><span class="n">getF32Type</span><span class="p">());</span>
+
+<span class="w">  </span><span class="c1">// Create operation</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">op</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">builder</span><span class="p">.</span><span class="n">create</span><span class="o">&lt;</span><span class="n">my</span><span class="o">::</span><span class="n">CustomOp</span><span class="o">&gt;</span><span class="p">(</span>
+<span class="w">    </span><span class="n">loc</span><span class="p">,</span>
+<span class="w">    </span><span class="n">tensorType</span><span class="p">,</span>
+<span class="w">    </span><span class="cm">/* operands */</span><span class="p">,</span>
+<span class="w">    </span><span class="n">builder</span><span class="p">.</span><span class="n">getF32FloatAttr</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">EXPECT_TRUE</span><span class="p">(</span><span class="n">succeeded</span><span class="p">(</span><span class="n">op</span><span class="p">.</span><span class="n">verify</span><span class="p">()));</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="complete-example">
+<h2>Complete Example<a class="headerlink" href="#complete-example" title="Link to this heading"></a></h2>
+<p>Here’s a complete example of a custom “fused” operation:</p>
+<p><strong>FusedOps.td:</strong></p>
+<div class="highlight-tablegen notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="n">TTIR_FusedMatMulAddOp</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">TTIR_Op</span><span class="p">&lt;</span><span class="s">&quot;fused_matmul_add&quot;</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="n">Pure</span><span class="p">]&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">summary</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Fused matrix multiplication and addition&quot;</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">arguments</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">ins</span>
+<span class="w">    </span><span class="n">TensorOf</span><span class="p">&lt;[</span><span class="n">F32</span><span class="p">]&gt;:</span><span class="nv">$lhs</span><span class="p">,</span>
+<span class="w">    </span><span class="n">TensorOf</span><span class="p">&lt;[</span><span class="n">F32</span><span class="p">]&gt;:</span><span class="nv">$rhs</span><span class="p">,</span>
+<span class="w">    </span><span class="n">TensorOf</span><span class="p">&lt;[</span><span class="n">F32</span><span class="p">]&gt;:</span><span class="nv">$bias</span><span class="p">,</span>
+<span class="w">    </span><span class="n">TensorOf</span><span class="p">&lt;[</span><span class="n">F32</span><span class="p">]&gt;:</span><span class="nv">$output</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">results</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="p">(</span><span class="n">outs</span><span class="w"> </span><span class="n">TensorOf</span><span class="p">&lt;[</span><span class="n">F32</span><span class="p">]&gt;:</span><span class="nv">$result</span><span class="p">);</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">assemblyFormat</span><span class="w"> </span><span class="p">=</span><span class="w"> </span>[{
+<span class="w">    </span><span class="n">$lhs</span><span class="w"> </span><span class="err">`</span><span class="p">,</span><span class="err">`</span><span class="w"> </span><span class="n">$rhs</span><span class="w"> </span><span class="err">`</span><span class="p">,</span><span class="err">`</span><span class="w"> </span><span class="n">$bias</span><span class="w"> </span><span class="err">`</span><span class="p">,</span><span class="err">`</span><span class="w"> </span><span class="n">$output</span><span class="w"> </span><span class="n">attr</span><span class="o">-</span><span class="n">dict</span>
+<span class="w">    </span><span class="err">`</span><span class="o">:</span><span class="err">`</span><span class="w"> </span><span class="err">`</span><span class="p">(</span><span class="err">`</span><span class="w"> </span><span class="n">type</span><span class="p">(</span><span class="n">$lhs</span><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="p">,</span><span class="err">`</span><span class="w"> </span><span class="n">type</span><span class="p">(</span><span class="n">$rhs</span><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="p">,</span><span class="err">`</span><span class="w"> </span><span class="n">type</span><span class="p">(</span><span class="n">$bias</span><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="p">,</span><span class="err">`</span><span class="w"> </span><span class="n">type</span><span class="p">(</span><span class="n">$output</span><span class="p">)</span><span class="w"> </span><span class="err">`</span><span class="p">)</span><span class="err">`</span>
+<span class="w">    </span><span class="err">`</span><span class="o">-&gt;</span><span class="err">`</span><span class="w"> </span><span class="n">type</span><span class="p">(</span><span class="n">$result</span><span class="p">)</span>
+<span class="w">  </span>}]<span class="p">;</span>
+
+<span class="w">  </span><span class="k">let</span><span class="w"> </span><span class="n">hasVerifier</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Verification:</strong></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="n">LogicalResult</span><span class="w"> </span><span class="nf">FusedMatMulAddOp::verify</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">lhsType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getLhs</span><span class="p">().</span><span class="n">getType</span><span class="p">().</span><span class="n">cast</span><span class="o">&lt;</span><span class="n">RankedTensorType</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">rhsType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getRhs</span><span class="p">().</span><span class="n">getType</span><span class="p">().</span><span class="n">cast</span><span class="o">&lt;</span><span class="n">RankedTensorType</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">biasType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getBias</span><span class="p">().</span><span class="n">getType</span><span class="p">().</span><span class="n">cast</span><span class="o">&lt;</span><span class="n">RankedTensorType</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">resultType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">getResult</span><span class="p">().</span><span class="n">getType</span><span class="p">().</span><span class="n">cast</span><span class="o">&lt;</span><span class="n">RankedTensorType</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Check matmul compatibility</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">lhsType</span><span class="p">.</span><span class="n">getShape</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">rhsType</span><span class="p">.</span><span class="n">getShape</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">emitOpError</span><span class="p">(</span><span class="s">&quot;incompatible matmul dimensions&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Check bias broadcasting</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">resultShape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resultType</span><span class="p">.</span><span class="n">getShape</span><span class="p">();</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">biasShape</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">biasType</span><span class="p">.</span><span class="n">getShape</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">areBroadcastCompatible</span><span class="p">(</span><span class="n">resultShape</span><span class="p">,</span><span class="w"> </span><span class="n">biasShape</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">emitOpError</span><span class="p">(</span><span class="s">&quot;bias not broadcast compatible&quot;</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">success</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading"></a></h2>
+<ol class="arabic simple">
+<li><p><strong>Use TableGen</strong> - Define operations declaratively</p></li>
+<li><p><strong>Implement verification</strong> - Catch errors early</p></li>
+<li><p><strong>Add type inference</strong> - Make operations easier to use</p></li>
+<li><p><strong>Document thoroughly</strong> - Include examples in descriptions</p></li>
+<li><p><strong>Test extensively</strong> - Both FileCheck and unit tests</p></li>
+<li><p><strong>Follow naming conventions</strong> - Use dialect prefix (e.g., <code class="docutils literal notranslate"><span class="pre">ttir.my_op</span></code>)</p></li>
+</ol>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="writing-passes.html"><span class="doc">Writing Passes</span></a> - Writing transformation passes</p></li>
+<li><p><a class="reference internal" href="optimization.html"><span class="doc">Optimization</span></a> - Optimizing custom operations</p></li>
+<li><p><a class="reference external" href="https://mlir.llvm.org/docs/DefiningDialects/Operations/">MLIR Operation Definition</a></p></li>
+</ul>
+</section>
+</section>
+
+
+                        </div>
+                    </div>
+                    <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Mar 23, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+
+                </div>
+            </div>
+    </section>
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable({
+        {
+            'true'
+            if theme_sticky_navigation | tobool else
+            'false'
+        }
+    })
+        ;
+    });
+</script> 
+
+</body>
+</html>

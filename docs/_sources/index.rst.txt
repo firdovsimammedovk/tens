@@ -11,6 +11,9 @@ Tenstorrent
    :maxdepth: 1
 
    Overview
+   overview/index
+   README
+   bounty_terms
    get_started/index
    guides/index
    software/index

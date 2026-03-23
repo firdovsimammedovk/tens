@@ -1,0 +1,395 @@
+IR Structure
+============
+
+Understanding the structure of TT-MLIR's Intermediate Representation.
+
+MLIR Fundamentals
+-----------------
+
+TT-MLIR is built on MLIR, which provides a flexible IR framework. Key concepts:
+
+Operations
+~~~~~~~~~~
+
+Operations are the basic units of computation:
+
+.. code-block:: mlir
+
+   %result = "dialect.operation"(%operand1, %operand2) {attr = value}
+     : (type1, type2) -> result_type
+
+Components:
+
+* **Name**: ``dialect.operation`` (namespace.operation)
+* **Operands**: ``%operand1, %operand2`` (SSA values)
+* **Attributes**: ``{attr = value}`` (compile-time constants)
+* **Type signature**: ``(type1, type2) -> result_type``
+* **Result**: ``%result`` (SSA value produced)
+
+SSA Form
+~~~~~~~~
+
+TT-MLIR uses Static Single Assignment (SSA):
+
+* Every value is defined exactly once
+* Values are immutable after definition
+* Control flow uses block arguments
+
+.. code-block:: mlir
+
+   func.func @ssa_example(%arg0: tensor<32xf32>) -> tensor<32xf32> {
+     %0 = "ttir.add"(%arg0, %arg0) : (tensor<32xf32>, tensor<32xf32>) -> tensor<32xf32>
+     %1 = "ttir.multiply"(%0, %0) : (tensor<32xf32>, tensor<32xf32>) -> tensor<32xf32>
+     return %1 : tensor<32xf32>
+   }
+
+Regions and Blocks
+~~~~~~~~~~~~~~~~~~
+
+Operations can contain regions with multiple blocks:
+
+.. code-block:: mlir
+
+   scf.if %condition -> tensor<32xf32> {
+     // "then" block
+     %0 = "ttir.add"(%a, %b) : (tensor<32xf32>, tensor<32xf32>) -> tensor<32xf32>
+     scf.yield %0 : tensor<32xf32>
+   } else {
+     // "else" block
+     %1 = "ttir.multiply"(%a, %b) : (tensor<32xf32>, tensor<32xf32>) -> tensor<32xf32>
+     scf.yield %1 : tensor<32xf32>
+   }
+
+Module Structure
+----------------
+
+Top-Level Module
+~~~~~~~~~~~~~~~~
+
+Every TT-MLIR program is a module:
+
+.. code-block:: mlir
+
+   module attributes {tt.system_desc = #tt.system_desc<...>} {
+     // Functions and globals
+   }
+
+Modules can have attributes describing the target system.
+
+Functions
+~~~~~~~~~
+
+Functions contain the computation:
+
+.. code-block:: mlir
+
+   func.func @function_name(
+     %arg0: tensor<32x128xf32> {ttir.name = "input"},
+     %arg1: tensor<128x256xf32> {ttir.name = "weight"}
+   ) -> (tensor<32x256xf32> {ttir.name = "output"}) {
+     // Function body
+     %0 = "ttir.matmul"(%arg0, %arg1, ...)
+       : (tensor<32x128xf32>, tensor<128x256xf32>, tensor<32x256xf32>)
+       -> tensor<32x256xf32>
+     return %0 : tensor<32x256xf32>
+   }
+
+Function components:
+
+* **Name**: ``@function_name``
+* **Arguments**: With types and attributes
+* **Return types**: Specified after ``->``
+* **Body**: Sequence of operations
+* **Terminator**: ``return`` or ``func.return``
+
+Type System
+-----------
+
+Built-in Types
+~~~~~~~~~~~~~~
+
+Standard MLIR types:
+
+.. code-block:: mlir
+
+   f32, f64, f16, bf16          // Floating point
+   i32, i64, i16, i8            // Integers
+   tensor<32x128xf32>           // Tensors
+   memref<32x128xf32>           // Memory references
+
+TTNN Types
+~~~~~~~~~~
+
+Hardware-aware types:
+
+.. code-block:: mlir
+
+   !ttnn.tensor<
+     32x128xf32,                // Shape and element type
+     #ttnn.layout<tile>,        // Memory layout
+     #ttnn.memory<l1>           // Memory space
+   >
+
+TTMetal Types
+~~~~~~~~~~~~~
+
+Low-level types:
+
+.. code-block:: mlir
+
+   !ttmetal.buffer<4096>        // Raw buffer
+   !ttmetal.kernel              // Kernel handle
+   !ttmetal.device              // Device handle
+
+Attributes
+----------
+
+Attributes are compile-time constants attached to operations.
+
+Standard Attributes
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: mlir
+
+   // Integer
+   {value = 42 : i32}
+
+   // Float
+   {alpha = 1.0 : f32}
+
+   // String
+   {name = "matmul"}
+
+   // Array
+   {shape = [32, 128]}
+
+   // Boolean
+   {transpose = true}
+
+Custom Attributes
+~~~~~~~~~~~~~~~~~
+
+TT-MLIR defines custom attributes:
+
+.. code-block:: mlir
+
+   // Layout attribute
+   #ttnn.layout<tile>
+   #ttnn.layout<row_major>
+   #ttnn.layout<width_sharded>
+
+   // Memory attribute
+   #ttnn.memory<l1>
+   #ttnn.memory<dram>
+
+   // Grid attribute
+   #ttnn.grid<8x8>
+
+   // Shard spec
+   #ttnn.shard<
+     strategy = "block",
+     grid = [8, 8],
+     orientation = "row_major"
+   >
+
+Operation Format
+----------------
+
+Generic Format
+~~~~~~~~~~~~~~
+
+The verbose, generic format:
+
+.. code-block:: mlir
+
+   %result = "ttir.add"(%lhs, %rhs, %output) {
+     operand_segment_sizes = array<i32: 2, 1>
+   } : (tensor<32xf32>, tensor<32xf32>, tensor<32xf32>) -> tensor<32xf32>
+
+Custom Format
+~~~~~~~~~~~~~
+
+Many operations define custom, more readable syntax:
+
+.. code-block:: mlir
+
+   %result = ttir.add %lhs, %rhs : tensor<32xf32>
+
+Both formats are equivalent.
+
+Example Programs
+----------------
+
+Simple Computation
+~~~~~~~~~~~~~~~~~~
+
+.. code-block:: mlir
+
+   module {
+     func.func @simple(%arg0: tensor<32xf32>) -> tensor<32xf32> {
+       %0 = tensor.empty() : tensor<32xf32>
+       %1 = "ttir.relu"(%arg0, %0)
+         : (tensor<32xf32>, tensor<32xf32>) -> tensor<32xf32>
+       return %1 : tensor<32xf32>
+     }
+   }
+
+Matrix Multiplication
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: mlir
+
+   module {
+     func.func @matmul(
+       %arg0: tensor<128x256xf32>,
+       %arg1: tensor<256x512xf32>
+     ) -> tensor<128x512xf32> {
+       %0 = tensor.empty() : tensor<128x512xf32>
+       %1 = "ttir.matmul"(%arg0, %arg1, %0)
+         : (tensor<128x256xf32>, tensor<256x512xf32>, tensor<128x512xf32>)
+         -> tensor<128x512xf32>
+       return %1 : tensor<128x512xf32>
+     }
+   }
+
+Neural Network Layer
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: mlir
+
+   module {
+     func.func @linear_relu(
+       %input: tensor<32x128xf32>,
+       %weight: tensor<128x256xf32>,
+       %bias: tensor<256xf32>
+     ) -> tensor<32x256xf32> {
+       // Matrix multiplication
+       %0 = tensor.empty() : tensor<32x256xf32>
+       %1 = "ttir.matmul"(%input, %weight, %0)
+         : (tensor<32x128xf32>, tensor<128x256xf32>, tensor<32x256xf32>)
+         -> tensor<32x256xf32>
+
+       // Add bias
+       %2 = tensor.empty() : tensor<32x256xf32>
+       %3 = "ttir.add"(%1, %bias, %2)
+         : (tensor<32x256xf32>, tensor<256xf32>, tensor<32x256xf32>)
+         -> tensor<32x256xf32>
+
+       // ReLU activation
+       %4 = tensor.empty() : tensor<32x256xf32>
+       %5 = "ttir.relu"(%3, %4)
+         : (tensor<32x256xf32>, tensor<32x256xf32>) -> tensor<32x256xf32>
+
+       return %5 : tensor<32x256xf32>
+     }
+   }
+
+TTNN Example
+~~~~~~~~~~~~
+
+.. code-block:: mlir
+
+   module attributes {
+     tt.system_desc = #tt.system_desc<
+       [#tt.chip_desc<
+         arch = <wormhole_b0>,
+         grid = [8, 8],
+         l1_size = 1499136,
+         num_dram_channels = 12
+       >]
+     >
+   } {
+     func.func @ttnn_matmul(
+       %arg0: !ttnn.tensor<32x128xf32, #ttnn.layout<tile>, #ttnn.memory<l1>>,
+       %arg1: !ttnn.tensor<128x256xf32, #ttnn.layout<tile>, #ttnn.memory<l1>>
+     ) -> !ttnn.tensor<32x256xf32, #ttnn.layout<tile>, #ttnn.memory<l1>> {
+       %0 = "ttnn.matmul"(%arg0, %arg1) {
+         grid = #ttnn.grid<8x8>,
+         shard_spec = #ttnn.shard<strategy = "height", grid = [8, 8]>
+       } : (!ttnn.tensor<32x128xf32, #ttnn.layout<tile>, #ttnn.memory<l1>>,
+            !ttnn.tensor<128x256xf32, #ttnn.layout<tile>, #ttnn.memory<l1>>)
+         -> !ttnn.tensor<32x256xf32, #ttnn.layout<tile>, #ttnn.memory<l1>>
+       return %0 : !ttnn.tensor<32x256xf32, #ttnn.layout<tile>, #ttnn.memory<l1>>
+     }
+   }
+
+Textual Format
+--------------
+
+Reading IR
+~~~~~~~~~~
+
+IR can be read from files:
+
+.. code-block:: bash
+
+   ttmlir-opt input.mlir
+
+Writing IR
+~~~~~~~~~~
+
+IR can be written to files:
+
+.. code-block:: bash
+
+   ttmlir-opt input.mlir -o output.mlir
+
+Pretty Printing
+~~~~~~~~~~~~~~~
+
+Format IR for readability:
+
+.. code-block:: bash
+
+   ttmlir-opt --mlir-print-op-generic=false input.mlir
+
+Binary Format
+~~~~~~~~~~~~~
+
+IR can also be in binary format (bytecode):
+
+.. code-block:: bash
+
+   # Write bytecode
+   ttmlir-opt input.mlir --emit-bytecode -o output.mlirbc
+
+   # Read bytecode
+   ttmlir-opt output.mlirbc
+
+Common Patterns
+---------------
+
+Destination-Passing Style
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Many TT operations use destination-passing style:
+
+.. code-block:: mlir
+
+   %dest = tensor.empty() : tensor<32xf32>
+   %result = "ttir.add"(%lhs, %rhs, %dest)
+     : (tensor<32xf32>, tensor<32xf32>, tensor<32xf32>) -> tensor<32xf32>
+
+The destination tensor is preallocated and passed as an operand.
+
+Named Inputs/Outputs
+~~~~~~~~~~~~~~~~~~~~
+
+Operations can have named inputs:
+
+.. code-block:: mlir
+
+   func.func @example(
+     %arg0: tensor<32xf32> {ttir.name = "input"},
+     %arg1: tensor<32xf32> {ttir.name = "weight"}
+   ) -> (tensor<32xf32> {ttir.name = "output"})
+
+This preserves meaningful names through compilation.
+
+See Also
+--------
+
+* :doc:`dialects` - TT-MLIR dialects
+* :doc:`../operations/index` - Operation references
+* `MLIR Language Reference <https://mlir.llvm.org/docs/LangRef/>`_ - MLIR documentation
+

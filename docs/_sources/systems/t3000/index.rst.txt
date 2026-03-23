@@ -4,6 +4,5 @@ TT-LoudBox (Wormhole)
    :maxdepth: 2
 
    README
-   softwaresetup
    specifications
    support

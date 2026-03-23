@@ -1,0 +1,143 @@
+Docstring Standard
+==================
+
+This document defines the standard structure for Forge operation docstrings. All operation functions
+in ``forge/forge/op/*.py`` should follow this format to enable automatic documentation generation.
+
+Standard Structure
+------------------
+
+.. code-block:: python
+
+   def OperationName(
+       name: str,
+       operandA: Tensor,
+       param1: Type = default,
+       ...
+   ) -> Tensor:
+       """
+       Brief one-line description of what the operation does.
+
+       Detailed description providing more context about the operation,
+       its use cases, and any important behavior notes.
+
+       Parameters
+       ----------
+       name : str
+           Name identifier for this operation in the computation graph.
+           Use empty string to auto-generate.
+
+       operandA : Tensor
+           Input tensor of shape `(N, C, H, W)` where:
+           - `N` is the batch size
+           - `C` is the number of channels
+           - `H` is the height
+           - `W` is the width
+
+       param1 : Type, optional
+           Description of the parameter including valid values.
+           Default: `default_value`
+
+       Returns
+       -------
+       Tensor
+           Output tensor of shape `(N, C, H_out, W_out)`.
+
+       Mathematical Definition
+       -----------------------
+       For each element x in the input:
+           output[i] = f(x[i])
+
+       Notes
+       -----
+       - Important implementation detail
+       - Constraint or limitation
+
+       Examples
+       --------
+       >>> import forge
+       >>> input_tensor = forge.Tensor(...)
+       >>> result = forge.op.OperationName("op1", input_tensor, param1=value)
+
+       See Also
+       --------
+       forge.op.RelatedOp1 : Description of related operation
+       """
+
+Required Sections
+-----------------
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Section
+     - Requirement
+   * - Brief Description
+     - **Required.** First line, one sentence. Should be informative, not just the name.
+   * - Detailed Description
+     - **Required** for complex operations. Explains use cases and behavior.
+   * - Parameters
+     - **Required.** NumPy-style format ``name : type``. Include tensor shapes and defaults.
+   * - Returns
+     - **Required.** Document return type, shape, and what the output represents.
+   * - Mathematical Definition
+     - **Recommended** for mathematical operations.
+   * - Notes
+     - **When applicable.** Implementation details, constraints, performance notes.
+   * - Examples
+     - **Recommended.** Working code examples showing common use cases.
+   * - See Also
+     - **Recommended.** Links to related operations with brief descriptions.
+
+Complete Example
+----------------
+
+.. code-block:: python
+
+   def Resize2d(
+       name: str,
+       operandA: Tensor,
+       sizes: Union[List[int], Tuple[int, int]],
+       mode: str = "nearest",
+       align_corners: bool = False,
+   ) -> Tensor:
+       """
+       Resize a 2D tensor to the specified spatial dimensions.
+
+       Supports nearest-neighbor and bilinear interpolation modes.
+       Commonly used in upsampling stages of encoder-decoder architectures.
+
+       Parameters
+       ----------
+       name : str
+           Name identifier for this operation. Use empty string to auto-generate.
+
+       operandA : Tensor
+           Input tensor of shape `(N, C, H, W)`.
+
+       sizes : list or tuple of int
+           Target output size ``(H_out, W_out)``.
+
+       mode : str, optional
+           Interpolation mode. One of ``"nearest"``, ``"bilinear"``.
+           Default: ``"nearest"``
+
+       align_corners : bool, optional
+           If True, aligns corner pixels. Only applicable for ``"bilinear"`` mode.
+           Default: ``False``
+
+       Returns
+       -------
+       Tensor
+           Resized tensor of shape `(N, C, H_out, W_out)`.
+
+       Examples
+       --------
+       >>> result = forge.op.Resize2d("resize1", input_tensor, sizes=[64, 64], mode="bilinear")
+
+       See Also
+       --------
+       forge.op.AvgPool2d : Downsampling via average pooling.
+       """
+

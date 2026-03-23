@@ -1,0 +1,240 @@
+TTMetal Operations
+==================
+
+TTMetal operations are low-level operations that map directly to Tenstorrent hardware primitives.
+
+Overview
+--------
+
+TTMetal operations provide fine-grained control over:
+
+* Kernel dispatch and execution
+* Data movement via NoC (Network-on-Chip)
+* Core allocation and synchronization
+* DMA operations
+
+Kernel Operations
+-----------------
+
+ttmetal.dispatch
+~~~~~~~~~~~~~~~~
+
+Dispatch a kernel for execution.
+
+.. code-block:: mlir
+
+   %result = "ttmetal.dispatch"(%input) {
+     kernel = @kernel_name,
+     grid_size = [8, 8],
+     core_range = [[0, 0], [7, 7]]
+   } : (!ttmetal.buffer) -> !ttmetal.buffer
+
+**Attributes:**
+
+* ``kernel`` - Reference to kernel function
+* ``grid_size`` - Logical grid dimensions
+* ``core_range`` - Physical core range
+
+ttmetal.launch
+~~~~~~~~~~~~~~
+
+Launch kernel on specific cores.
+
+.. code-block:: mlir
+
+   "ttmetal.launch"(%buffer) {
+     kernel = @compute_kernel,
+     cores = [[0, 0], [0, 1], [1, 0], [1, 1]]
+   } : (!ttmetal.buffer) -> ()
+
+Data Movement Operations
+------------------------
+
+ttmetal.dma
+~~~~~~~~~~~
+
+Initiate DMA transfer.
+
+.. code-block:: mlir
+
+   "ttmetal.dma"(%src, %dst) {
+     size = 4096 : i64,
+     direction = "device_to_device"
+   } : (!ttmetal.buffer, !ttmetal.buffer) -> ()
+
+**Directions:**
+
+* ``host_to_device`` - Upload to device
+* ``device_to_host`` - Download from device
+* ``device_to_device`` - Device-internal transfer
+
+ttmetal.noc_read
+~~~~~~~~~~~~~~~~
+
+Read data via NoC (Network-on-Chip).
+
+.. code-block:: mlir
+
+   %data = "ttmetal.noc_read"(%buffer) {
+     noc_id = 0 : i32,
+     src_addr = 0x1000 : i64,
+     size = 2048 : i64
+   } : (!ttmetal.buffer) -> !ttmetal.buffer
+
+ttmetal.noc_write
+~~~~~~~~~~~~~~~~~
+
+Write data via NoC.
+
+.. code-block:: mlir
+
+   "ttmetal.noc_write"(%data, %buffer) {
+     noc_id = 0 : i32,
+     dst_addr = 0x2000 : i64,
+     size = 2048 : i64
+   } : (!ttmetal.buffer, !ttmetal.buffer) -> ()
+
+Synchronization Operations
+---------------------------
+
+ttmetal.barrier
+~~~~~~~~~~~~~~~
+
+Insert synchronization barrier.
+
+.. code-block:: mlir
+
+   "ttmetal.barrier"() {
+     scope = "global"
+   } : () -> ()
+
+**Scopes:**
+
+* ``global`` - All cores
+* ``grid`` - Cores in grid
+* ``local`` - Single core
+
+ttmetal.wait
+~~~~~~~~~~~~
+
+Wait for operation completion.
+
+.. code-block:: mlir
+
+   "ttmetal.wait"(%event) : (!ttmetal.event) -> ()
+
+Memory Operations
+-----------------
+
+ttmetal.alloc_buffer
+~~~~~~~~~~~~~~~~~~~~
+
+Allocate low-level buffer.
+
+.. code-block:: mlir
+
+   %buffer = "ttmetal.alloc_buffer"() {
+     size = 8192 : i64,
+     memory_space = "l1",
+     alignment = 32 : i32
+   } : () -> !ttmetal.buffer<8192>
+
+ttmetal.dealloc_buffer
+~~~~~~~~~~~~~~~~~~~~~~
+
+Deallocate buffer.
+
+.. code-block:: mlir
+
+   "ttmetal.dealloc_buffer"(%buffer) : (!ttmetal.buffer) -> ()
+
+Core Control Operations
+-----------------------
+
+ttmetal.get_core_id
+~~~~~~~~~~~~~~~~~~~
+
+Get current core ID.
+
+.. code-block:: mlir
+
+   %core_id = "ttmetal.get_core_id"() : () -> !ttmetal.core_id
+
+ttmetal.get_grid_size
+~~~~~~~~~~~~~~~~~~~~~
+
+Get grid dimensions.
+
+.. code-block:: mlir
+
+   %grid_size = "ttmetal.get_grid_size"() : () -> !ttmetal.grid_size
+
+Device Management
+-----------------
+
+ttmetal.create_device
+~~~~~~~~~~~~~~~~~~~~~
+
+Create device handle.
+
+.. code-block:: mlir
+
+   %device = "ttmetal.create_device"() {
+     device_id = 0 : i32
+   } : () -> !ttmetal.device
+
+ttmetal.close_device
+~~~~~~~~~~~~~~~~~~~~
+
+Close device handle.
+
+.. code-block:: mlir
+
+   "ttmetal.close_device"(%device) : (!ttmetal.device) -> ()
+
+Buffer Types
+------------
+
+TTMetal uses typed buffers:
+
+.. code-block:: mlir
+
+   !ttmetal.buffer<4096>           // 4KB buffer
+   !ttmetal.buffer<8192, "l1">     // L1 buffer
+   !ttmetal.buffer<16384, "dram">  // DRAM buffer
+
+Low-Level Example
+-----------------
+
+Complete example with kernel dispatch and data movement:
+
+.. code-block:: mlir
+
+   func.func @metal_example(%arg0: !ttmetal.buffer<4096>)
+       -> !ttmetal.buffer<4096> {
+     // Allocate output buffer
+     %out = "ttmetal.alloc_buffer"() {
+       size = 4096 : i64,
+       memory_space = "l1"
+     } : () -> !ttmetal.buffer<4096>
+
+     // Dispatch kernel
+     "ttmetal.dispatch"(%arg0, %out) {
+       kernel = @relu_kernel,
+       grid_size = [8, 8],
+       core_range = [[0, 0], [7, 7]]
+     } : (!ttmetal.buffer<4096>, !ttmetal.buffer<4096>) -> ()
+
+     // Synchronize
+     "ttmetal.barrier"() {scope = "grid"} : () -> ()
+
+     return %out : !ttmetal.buffer<4096>
+   }
+
+See Also
+--------
+
+* :doc:`ttnn-ops` - TTNN operations
+* :doc:`../architecture/dialects` - Dialect documentation
+* :doc:`../guides/optimization` - Low-level optimization
+

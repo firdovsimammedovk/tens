@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+    <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Troubleshooting &mdash; Home 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../_static/togglebutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../_static/tt_theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../_static/home.css" type="text/css"/>
+    <link rel="shortcut icon" href="../../../_static/favicon.png"/>
+    <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=fd3dd8dd"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <script src="../../../_static/tt_signature_copy.js"></script>
+    <script src="../../../_static/tt_dropdown.js"></script>
+    <script src="../../../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html"/>
+    <link rel="search" title="Search" href="../../../search.html"/>
+    <link rel="next" title="TT-Forge Backend Compiler" href="../../forge-backend-compiler/index.html"/>
+    <link rel="prev" title="Docstring Standard" href="advanced/docstring-standard.html"/> 
+</head>
+
+<body class="wy-body-for-nav"> 
+<!-- ===== Top Navbar (NEW) ===== -->
+
+
+<header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+        <div class="tt-topnav__inner">
+
+            <!-- Logo -->
+            <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../../_static/tt_logo.svg" alt="Home"/></a>
+
+            <!-- Primary links (hardcoded like the mock) -->
+            <nav class="tt-topnav__links" aria-label="Primary navigation">
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Get Started</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Software Stack</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../getting-started/README.html">Installation</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../getting-started/model-demos.html">Run Your First Model</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../getting-started/quickstart.html">Quickstart</a>
+                    </div>
+                </div>
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Guides</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../hardware/index.html">Running Models</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Performance
+                            Optimizations</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Multi-Device Setup</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Debugging Workflows</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Developing Custom
+                            Ops</a>
+                    </div>
+                </div>
+
+                <!-- Software dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../software/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../index.html">TT-Forge</a>
+                        <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+                    </div>
+                </div>
+
+                <!-- Hardware dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../hardware/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../hardware/tensix-architecture.html">Tensix Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../hardware/memory-architecture.html">Memory Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Network on Chip</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Chips</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Systems</a>
+                    </div>
+                </div>
+
+                <!-- Tools dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Tools</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../hardware/index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../hardware/index.html">tt-smi</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Profiler</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Topology Explorer</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Visualizer</a>
+                    </div>
+                </div>
+                <a class="tt-topnav__link" href="../../../index.html">Models</a>
+                <!-- Resource dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Resource</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../hardware/index.html">Architecture Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../hardware/index.html">Glossary</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Release Notes</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Roadmap</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../support/README.html">Support</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../resources/contributing.html">Contribution</a>
+                        <a class="tt-topnav__dropdown-item" href="https://github.com/tenstorrent/tenstorrent.github.io" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+                <!-- Support dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Support</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../hardware/index.html">FAQ</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../hardware/index.html">Troubleshooting</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Community</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../systems/index.html">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA -->
+            <div class="tt-topnav__cta">
+                <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+        <div class="tt-topnav__inner">
+
+            <!-- Version (styled capsule dropdown) -->
+            <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+                <button
+                        class="tt-topnav__version tt-topnav__version--dropdown"
+                        type="button"
+                        id="tt-version-toggle"
+                        aria-expanded="false"
+                ><span class="tt-topnav__version-text">
+                    1.0
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+                </button>
+                <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                    <!-- Version links will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Secondary links -->
+            <nav class="tt-topnav__subnav" aria-label="Section navigation">
+                <a class="tt-topnav__sublink" href="overview.html" style="margin-left: 230px">Overview</a>
+                <a class="tt-topnav__sublink" href="getting-started.html">Getting Started</a>
+                <a class="tt-topnav__sublink" href="setup/index.html">Setup</a>
+                <a class="tt-topnav__sublink" href="performance.html">Performance</a>
+                <a class="tt-topnav__sublink" href="testing.html">Testing</a>
+                <a class="tt-topnav__sublink" href="advanced/index.html">Advanced</a>
+                <a class="tt-topnav__sublink" href="tools/index.html">Tools</a>
+                <a class="tt-topnav__sublink" href="#">Troubleshooting</a>
+            </nav>
+
+            <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+            <div class="tt-topnav__edit"><span class="tt-topnav__editspacer"></span></div>
+
+        </div>
+    </div>
+
+</header>
+
+<!-- ===== /Top Navbar ===== -->
+<div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search" >
+
+                
+                
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+            </div>
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+                 aria-label="Navigation menu">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../README.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../bounty_terms.html">TENSTORRENT BOUNTY PROGRAM TERMS AND CONDITIONS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../get_started/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../software/index.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../hardware/index.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../systems/index.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models/index.html">Models</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../index.html">TT-Forge</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../getting-started.html">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../index.html">TT-Forge Frontend Compiler</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../tt-xla/index.html">TT-XLA</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="index.html">TT-Forge-ONNX</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="getting-started/index.html">Getting Started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="architecture.html">Architecture Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="testing/index.html">Testing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="tools.html">Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="operations.html">Operations Reference</a></li>
+<li class="toctree-l4"><a class="reference internal" href="advanced/index.html">Advanced</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../forge-backend-compiler/index.html">TT-Forge Backend Compiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../resource/index.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../support/index.html">Support</a></li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="../../../index.html">Home</a>
+        </nav>
+
+        <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">TT-Forge</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">TT-Forge Frontend Compiler</a></li>
+          <li class="breadcrumb-item"><a href="index.html">TT-Forge-ONNX</a></li>
+      <li class="breadcrumb-item active">Troubleshooting</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div itemprop="articleBody">
+                            
+  <section id="troubleshooting">
+<h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h1>
+<p>This page covers common issues when using TT-Forge-ONNX and how to resolve them.</p>
+<section id="getting-help">
+<h2>Getting Help<a class="headerlink" href="#getting-help" title="Link to this heading"></a></h2>
+<p>If you encounter an issue not listed here, please open a ticket on the
+<a class="reference external" href="https://github.com/tenstorrent/tt-forge-onnx/issues">TT-Forge-ONNX Issues page</a>.</p>
+</section>
+<section id="hardware-not-detected">
+<h2>Hardware Not Detected<a class="headerlink" href="#hardware-not-detected" title="Link to this heading"></a></h2>
+<p><strong>Symptom:</strong> <code class="docutils literal notranslate"><span class="pre">tt-smi</span></code> shows no devices, or compilation fails immediately.</p>
+<p><strong>Steps:</strong></p>
+<ol class="arabic">
+<li><p>Verify the TT-Installer completed successfully and you rebooted.</p></li>
+<li><p>Check hugepages are enabled:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span><span class="s1">&#39;dev-hugepages\x2d1G.mount&#39;</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span>status<span class="w"> </span>tenstorrent-hugepages.service
+</pre></div>
+</div>
+</li>
+<li><p>Activate the Tenstorrent virtual environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>~/.tenstorrent-venv/bin/activate
+</pre></div>
+</div>
+</li>
+<li><p>Confirm the device is visible:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tt-smi
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="docker-fatal-errors-on-device-access">
+<h2>Docker: Fatal Errors on Device Access<a class="headerlink" href="#docker-fatal-errors-on-device-access" title="Link to this heading"></a></h2>
+<p><strong>Symptom:</strong> <code class="docutils literal notranslate"><span class="pre">fatal</span> <span class="pre">error</span></code> during execution inside a Docker container.</p>
+<p><strong>Cause:</strong> Attempting to pass a specific device index (e.g., <code class="docutils literal notranslate"><span class="pre">--device</span> <span class="pre">/dev/tenstorrent/1</span></code>).</p>
+<p><strong>Fix:</strong> Always pass all devices:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--rm<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--device<span class="w"> </span>/dev/tenstorrent<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-v<span class="w"> </span>/dev/hugepages-1G:/dev/hugepages-1G<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ghcr.io/tenstorrent/tt-forge-slim:latest
+</pre></div>
+</div>
+</section>
+<section id="build-fails-missing-clang-17">
+<h2>Build Fails: Missing Clang 17<a class="headerlink" href="#build-fails-missing-clang-17" title="Link to this heading"></a></h2>
+<p><strong>Symptom:</strong> Build error referencing Clang version or missing compiler.</p>
+<p><strong>Fix:</strong> Install Clang 17 explicitly:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget<span class="w"> </span>https://apt.llvm.org/llvm.sh
+chmod<span class="w"> </span>u+x<span class="w"> </span>llvm.sh
+sudo<span class="w"> </span>./llvm.sh<span class="w"> </span><span class="m">17</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>libc++-17-dev<span class="w"> </span>libc++abi-17-dev
+sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/bin/clang-17<span class="w"> </span>/usr/bin/clang
+sudo<span class="w"> </span>ln<span class="w"> </span>-s<span class="w"> </span>/usr/bin/clang++-17<span class="w"> </span>/usr/bin/clang++
+</pre></div>
+</div>
+<p>Then verify:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>clang<span class="w"> </span>--version<span class="w">   </span><span class="c1"># should show version 17</span>
+</pre></div>
+</div>
+</section>
+<section id="tests-not-found-or-failing">
+<h2>Tests Not Found or Failing<a class="headerlink" href="#tests-not-found-or-failing" title="Link to this heading"></a></h2>
+<p><strong>Symptom:</strong> pytest cannot find tests, or all tests fail immediately.</p>
+<p><strong>Steps:</strong></p>
+<ol class="arabic">
+<li><p>Ensure you have built the project first (see <span class="xref std std-doc">../getting-started/build-from-source</span>).</p></li>
+<li><p>Activate the Python environment:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>~/.tenstorrent-venv/bin/activate
+</pre></div>
+</div>
+</li>
+<li><p>Check <code class="docutils literal notranslate"><span class="pre">pytest.ini</span></code> for the list of currently passing tests.</p></li>
+<li><p>Run with verbose output to diagnose:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest<span class="w"> </span>-svv<span class="w"> </span>forge/test/mlir/test_ops.py
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+</section>
+
+
+                        </div>
+                    </div>
+                    <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="advanced/docstring-standard.html" class="btn btn-neutral float-left" title="Docstring Standard" accesskey="p" rel="prev">
+          <span class="tt-pagination-topic">Docstring Standard</span>
+          <span class="tt-pagination-label">Previous</span>
+        </a>
+        <a href="../../forge-backend-compiler/index.html" class="btn btn-neutral float-right" title="TT-Forge Backend Compiler" accesskey="n" rel="next">
+          <span class="tt-pagination-topic">TT-Forge Backend Compiler</span>
+          <span class="tt-pagination-label">Next</span>
+        </a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Mar 23, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+
+                </div>
+            </div>
+    </section>
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable({
+        {
+            'true'
+            if theme_sticky_navigation | tobool else
+            'false'
+        }
+    })
+        ;
+    });
+</script> 
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+Architecture
+
+* :doc:`../guides/optimization` - Optimization strategies
+* :doc:`../guides/writing-passes` - How to write custom passes
+* :doc:`../operations/index` - Available operations in each dialect
+
+--------
+See Also
+
+   ir-structure
+   compilation-pipeline
+   dialects
+
+   :maxdepth: 1
+.. toctree::
+
+----------
+Components
+
+* Easy to support new hardware generations
+* Target-specific lowering happens at TTNN and TTMetal levels
+* TTIR level is target-independent
+
+~~~~~~~~~~~~~~~~~~~
+Target Independence
+
+* Custom dialects only for TT-specific operations
+* Standard MLIR dialects (func, tensor, arith) are used where appropriate
+* Leverages MLIR infrastructure (SSA, type system, pass management)
+
+~~~~~~~~~~~
+Reusability
+
+* Easy to extend with new operations or optimizations
+* Passes can be added without modifying existing code
+* Each dialect is independent and composable
+
+TT-MLIR is designed with modularity in mind:
+
+~~~~~~~~~~
+Modularity
+
+* Transformations preserve semantics across levels
+* Lower levels expose hardware-specific details
+* Higher levels are easier to optimize at a coarse grain
+
+Each dialect level progressively lowers abstractions:
+
+~~~~~~~~~~~~~~~~~~~~
+Progressive Lowering
+
+-----------------
+Design Principles
+
+* **Optimization**: Register allocation, scheduling, hardware-specific tuning
+* **Operations**: Direct hardware primitives
+* **Purpose**: Low-level hardware operations
+
+~~~~~~~
+TTMetal
+
+* **Optimization**: Memory layout optimization, tile sizing, sharding
+* **Operations**: Optimized NN kernels specific to TT hardware
+* **Purpose**: Neural network optimized operations
+
+~~~~~~~~~~~~~~~~~~~~~~~~~
+TTNN (TT Neural Network)
+
+* **Optimization**: Graph-level optimizations, fusion, constant folding
+* **Operations**: Standard ML operations (matmul, conv, relu, etc.)
+* **Purpose**: High-level, hardware-agnostic operations
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TTIR (TT Intermediate Representation)
+
+TT-MLIR uses three primary dialect levels:
+
+---------------------
+Multi-Level IR Design
+
+   TTRT Runtime Execution
+            ↓
+   Flatbuffer Binary (.ttnn)
+            ↓
+   TTMetal Code Generation
+            ↓
+      TTMetal Dialect (Low-Level IR)
+            ↓
+   TTNN Optimization Passes
+            ↓
+       TTNN Dialect (NN-Optimized IR)
+            ↓
+   TTIR Optimization Passes
+            ↓
+       TTIR Dialect (High-Level IR)
+            ↓
+   Frontend (PyTorch/ONNX/JAX)
+
+.. code-block:: text
+
+The compilation process follows this general flow:
+
+----------------
+Compilation Flow
+
+* **System Description** - Hardware configuration and capabilities
+* **Runtime** - Execute compiled programs on hardware
+* **Passes** - Transform and optimize IR at each level
+* **Dialects** - Define operations and types at different abstraction levels
+
+TT-MLIR consists of several key components:
+
+--------------
+Key Components
+
+a flexible, multi-stage compilation pipeline for Tenstorrent hardware.
+TT-MLIR is built on the MLIR (Multi-Level Intermediate Representation) framework and provides
+
+------------------------------
+TT-MLIR Architecture Overview
+
+============

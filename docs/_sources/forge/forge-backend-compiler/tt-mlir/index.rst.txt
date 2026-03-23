@@ -1,0 +1,93 @@
+TT-MLIR
+=======
+
+TT-MLIR is the backend compiler for TT-Forge. It takes a Tenstorrent-specific graph intermediate
+representation (IR) that was created by one of the TT-Forge frontends (TT-Forge-FE, TT-Torch, or
+TT-XLA) and lowers it into Tenstorrent hardware-specific code using the MLIR framework.
+
+TT-MLIR leverages the Multi-Level Intermediate Representation (MLIR) infrastructure to provide a
+flexible, extensible compiler backend that can target various Tenstorrent hardware architectures
+including Grayskull, Wormhole, and Blackhole.
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Getting Started
+
+   getting-started/index
+   getting-started/installation
+   getting-started/quick-start
+   getting-started/build-from-source
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Architecture
+
+   architecture/index
+   architecture/dialects
+   architecture/compilation-pipeline
+   architecture/ir-structure
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Operations
+
+   operations/index
+   operations/ttir-ops
+   operations/ttnn-ops
+   operations/ttmetal-ops
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Guides
+
+   guides/index
+   guides/writing-passes
+   guides/custom-ops
+   guides/optimization
+   guides/debugging
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Tools
+
+   tools/index
+   tools/ttmlir-opt
+   tools/ttrt
+   tools/visualization
+
+.. toctree::
+   :maxdepth: 2
+   :caption: API Reference
+
+   api/index
+   api/python-bindings
+   api/cpp-api
+
+Key Features
+------------
+
+* **MLIR-Based Infrastructure**: Built on top of the MLIR framework for modularity and extensibility
+* **Multi-Target Support**: Targets Grayskull, Wormhole, and Blackhole architectures
+* **Optimized Compilation**: Advanced optimization passes for Tenstorrent hardware
+* **Flexible IR**: Multiple dialect levels (TTIR, TTNN, TTMetal) for progressive lowering
+* **Runtime Integration**: Seamless integration with TTRT (Tenstorrent Runtime)
+
+Architecture Overview
+---------------------
+
+TT-MLIR employs a multi-stage compilation pipeline:
+
+1. **TTIR (TT Intermediate Representation)**: High-level operations that are target-independent
+2. **TTNN (TT Neural Network)**: Mid-level operations optimized for neural network workloads
+3. **TTMetal**: Low-level operations that map directly to Tenstorrent hardware primitives
+
+Each stage includes optimization passes specific to that abstraction level.
+
+Quick Links
+-----------
+
+* `GitHub Repository <https://github.com/tenstorrent/tt-mlir>`_
+* `Issue Tracker <https://github.com/tenstorrent/tt-mlir/issues>`_
+* :doc:`Installation Guide <getting-started/installation>`
+* :doc:`Quick Start <getting-started/quick-start>`
+

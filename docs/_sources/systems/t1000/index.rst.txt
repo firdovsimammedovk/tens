@@ -5,6 +5,5 @@ T1000
    :maxdepth: 2
 
    README
-   softwaresetup
    specifications
    support

@@ -1,0 +1,102 @@
+Testing
+=======
+
+This section covers how to run tests in TT-Forge-ONNX.
+
+.. toctree::
+   :maxdepth: 1
+
+   pytest-guide
+   performance
+
+Unit Tests
+----------
+
+Build unit tests:
+
+.. code-block:: bash
+
+   cmake --build build -- build_unit_tests
+
+Run unit tests:
+
+.. code-block:: bash
+
+   cmake --build build -- run_unit_tests
+
+Unit tests are built in ``build/forge/csrc/test/``. Run targeted tests directly:
+
+.. code-block:: bash
+
+   ./build/forge/csrc/test/test_passes
+
+Filter tests with ``--gtest_filter``:
+
+.. code-block:: bash
+
+   ./build/forge/csrc/test/test_passes --gtest_filter=MMFuseBias/MMFuseBias.mm_fuse_bias/3
+
+End-to-End Tests
+----------------
+
+End-to-end tests use the ``pytest`` framework and require a machine with a Tenstorrent Wormhole device.
+
+.. note::
+
+   Activate the Python environment before running any tests:
+
+   .. code-block:: bash
+
+      source ~/.tenstorrent-venv/bin/activate
+
+Run all tests in a file:
+
+.. code-block:: bash
+
+   pytest -svv forge/test/mlir/test_ops.py
+
+Run a specific test:
+
+.. code-block:: bash
+
+   pytest -svv forge/test/mlir/test_ops.py::test_add
+
+The ``-svv`` flag is optional and shows more detail about the test run.
+
+For a list of currently passing tests, consult ``pytest.ini``.
+
+Single Operator E2E Tests
+--------------------------
+
+Single operator E2E tests are pre-configured collections of in-depth tests for each operator.
+Load helper commands:
+
+.. code-block:: bash
+
+   source forge/test/operators/pytorch/test_commands.sh
+
+Available commands:
+
+.. list-table::
+   :widths: 30 70
+   :header-rows: 1
+
+   * - Command
+     - Description
+   * - ``print_help``
+     - Print commands and current query parameters.
+   * - ``print_query_docs``
+     - Print docs for all available query parameters.
+   * - ``print_params``
+     - Print current query parameter values.
+   * - ``select_test_query``
+     - Select ``test_query`` pytest function.
+   * - ``select_test_push``
+     - Select ``test_push`` pytest function.
+   * - ``pytest``
+     - Run all tests or a subset based on query parameters.
+   * - ``with-params pytest``
+     - Print params before and after test run.
+   * - ``export_tests``
+     - Export tests from test plan to JSON file.
+

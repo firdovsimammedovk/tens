@@ -37,7 +37,7 @@
     <script src="../_static/tt_version_dropdown.js"></script>
     <link rel="index" title="Index" href="../genindex.html"/>
     <link rel="search" title="Search" href="../search.html"/>
-    <link rel="next" title="Hardware" href="../hardware/index.html"/>
+    <link rel="next" title="Hardware Guides" href="hardware-guides.html"/>
     <link rel="prev" title="Manual Installation" href="../getting-started/manual-software-install.html"/> 
 </head>
 
@@ -202,14 +202,18 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-            </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+            </div>
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
                  aria-label="Navigation menu">
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../README.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../bounty_terms.html">TENSTORRENT BOUNTY PROGRAM TERMS AND CONDITIONS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../get_started/index.html">Get Started</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Guides</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../hardware/index.html">Hardware</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../systems/index.html">Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="hardware-guides.html">Hardware Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="system-guides.html">System Guides</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../software/index.html">Software</a></li>
@@ -249,84 +253,8 @@
 <h1>Guides<a class="headerlink" href="#guides" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../hardware/index.html">Hardware</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../hardware/Overview.html">Hardware Overview</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/Overview.html#what-makes-tenstorrent-hardware-different">What Makes Tenstorrent Hardware Different</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/Overview.html#core-architectural-components">Core Architectural Components</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/Overview.html#chips">Chips</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/Overview.html#systems">Systems</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/Overview.html#scaling-across-devices">Scaling Across Devices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/Overview.html#how-hardware-fits-into-the-stack">How Hardware Fits Into the Stack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/Overview.html#when-to-use-hardware-level-knowledge">When to Use Hardware-Level Knowledge</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/Overview.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../hardware/tensix-architecture.html">Tensix Architecture</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/tensix-architecture.html#what-is-a-tensix-core">What is a Tensix Core</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/tensix-architecture.html#core-responsibilities">Core Responsibilities</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/tensix-architecture.html#execution-model">Execution Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/tensix-architecture.html#parallelism">Parallelism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/tensix-architecture.html#data-flow">Data Flow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/tensix-architecture.html#interaction-with-memory">Interaction with Memory</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/tensix-architecture.html#interaction-with-network-on-chip">Interaction with Network-on-Chip</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/tensix-architecture.html#programming-model">Programming Model</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/tensix-architecture.html#why-tensix-matters">Why Tensix Matters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/tensix-architecture.html#when-to-learn-tensix-in-depth">When to Learn Tensix in Depth</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/tensix-architecture.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../hardware/memory-architecture.html">Memory Architecture</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#why-memory-architecture-matters">Why Memory Architecture Matters</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#memory-hierarchy-overview">Memory Hierarchy Overview</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#local-memory-on-core">Local Memory (On-Core)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#on-chip-memory">On-Chip Memory</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#off-chip-memory">Off-Chip Memory</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#data-movement">Data Movement</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#interaction-with-tensix-cores">Interaction with Tensix Cores</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#memory-and-parallelism">Memory and Parallelism</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#bandwidth-vs-latency-tradeoffs">Bandwidth vs Latency Tradeoffs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#common-optimization-strategies">Common Optimization Strategies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#memory-and-scaling">Memory and Scaling</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#relationship-to-software-stack">Relationship to Software Stack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#when-to-learn-memory-architecture-in-depth">When to Learn Memory Architecture in Depth</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/memory-architecture.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../hardware/blackhole/index.html">Blackhole™ PCIe Cards</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/blackhole/index.html#getting-started">Getting Started</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/blackhole/index.html#reference-materials">Reference Materials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/blackhole/index.html#accessories">Accessories</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../hardware/wormhole/index.html">Wormhole™ PCIe Cards</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/wormhole/index.html#getting-started">Getting Started</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/wormhole/index.html#reference-materials">Reference Materials</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../hardware/wormhole/index.html#accessories">Accessories</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../systems/index.html">Systems</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../systems/quietbox/quietbox-bh/index.html">TT-QuietBox (Blackhole)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../systems/quietbox/quietbox-bh/specifications.html">Specifications and Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../systems/quietbox/quietbox-bh/setup.html">Receiving, Unboxing, and Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../systems/quietbox/common/support.html">Troubleshooting Common Hardware Issues</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../systems/quietbox/quietbox-wh/index.html">TT-QuietBox (Wormhole)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../systems/quietbox/quietbox-wh/specifications.html">Specifications and Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../systems/quietbox/quietbox-wh/setup.html">Receiving, Unboxing, and Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../systems/quietbox/common/support.html">Troubleshooting Common Hardware Issues</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../systems/t3000/index.html">TT-LoudBox (Wormhole)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../systems/t3000/README.html">TT-LoudBox Desktop Workstation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../systems/t3000/specifications.html">Specifications, Requirements, and Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../systems/t3000/support.html">Support</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="hardware-guides.html">Hardware Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="system-guides.html">System Guides</a></li>
 </ul>
 </div>
 </section>
@@ -339,8 +267,8 @@
           <span class="tt-pagination-topic">Manual Installation</span>
           <span class="tt-pagination-label">Previous</span>
         </a>
-        <a href="../hardware/index.html" class="btn btn-neutral float-right" title="Hardware" accesskey="n" rel="next">
-          <span class="tt-pagination-topic">Hardware</span>
+        <a href="hardware-guides.html" class="btn btn-neutral float-right" title="Hardware Guides" accesskey="n" rel="next">
+          <span class="tt-pagination-topic">Hardware Guides</span>
           <span class="tt-pagination-label">Next</span>
         </a>
     </div>
@@ -349,7 +277,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2025, Tenstorrent.
-      <span class="lastupdated">Last updated on Mar 19, 2026.
+      <span class="lastupdated">Last updated on Mar 23, 2026.
       </span></p>
   </div>
 

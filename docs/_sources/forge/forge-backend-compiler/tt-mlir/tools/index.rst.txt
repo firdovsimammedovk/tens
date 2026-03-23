@@ -1,0 +1,94 @@
+Tools
+=====
+
+Development and debugging tools for TT-MLIR.
+
+.. toctree::
+   :maxdepth: 2
+
+   ttmlir-opt
+   ttrt
+   visualization
+
+Overview
+--------
+
+TT-MLIR provides several command-line tools:
+
+* **ttmlir-opt** - MLIR optimizer and transformation tool
+* **ttrt** - Tenstorrent runtime for executing compiled binaries
+* **Visualization tools** - For analyzing IR and execution
+
+Primary Tools
+-------------
+
+ttmlir-opt
+~~~~~~~~~~
+
+The main compilation and transformation tool. See :doc:`ttmlir-opt` for details.
+
+**Common usage:**
+
+.. code-block:: bash
+
+   # Run full pipeline
+   ttmlir-opt --ttir-to-ttnn-backend-pipeline input.mlir -o output.mlir
+
+   # Run specific pass
+   ttmlir-opt --ttir-constant-fold input.mlir
+
+   # Debug transformations
+   ttmlir-opt --mlir-print-ir-after-all input.mlir
+
+ttrt
+~~~~
+
+Tenstorrent runtime for executing compiled models. See :doc:`ttrt` for details.
+
+**Common usage:**
+
+.. code-block:: bash
+
+   # Execute model
+   ttrt execute model.ttnn
+
+   # Query device
+   ttrt query
+
+   # Save system descriptor
+   ttrt query --save-artifacts
+
+Utility Tools
+-------------
+
+ttmlir-translate
+~~~~~~~~~~~~~~~~
+
+Translate between different IR formats:
+
+.. code-block:: bash
+
+   # MLIR to flatbuffer
+   ttmlir-translate --mlir-to-flatbuffer input.mlir -o output.ttnn
+
+   # Flatbuffer to MLIR (if supported)
+   ttmlir-translate --flatbuffer-to-mlir input.ttnn -o output.mlir
+
+mlir-tblgen
+~~~~~~~~~~~
+
+Generate dialect definitions from TableGen:
+
+.. code-block:: bash
+
+   mlir-tblgen -gen-op-defs MyOps.td -o MyOps.cpp.inc
+
+Development Tools
+-----------------
+
+See Also
+--------
+
+* :doc:`../guides/debugging` - Debugging techniques
+* :doc:`../guides/writing-passes` - Pass development
+

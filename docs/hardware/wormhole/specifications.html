@@ -202,10 +202,14 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-            </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+            </div>
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
                  aria-label="Navigation menu">
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bounty_terms.html">TENSTORRENT BOUNTY PROGRAM TERMS AND CONDITIONS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../get_started/index.html">Get Started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">Guides</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../software/index.html">Software</a></li>
@@ -214,7 +218,9 @@
 <li class="toctree-l2"><a class="reference internal" href="../tensix-architecture.html">Tensix Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../memory-architecture.html">Memory Architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../blackhole/index.html">Blackhole™ PCIe Cards</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../grayskull/index.html">Grayskull™ e75/e150 Tensix Processor</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="index.html">Wormhole™ PCIe Cards</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="README.html">Wormhole™ PCIe Cards</a></li>
 <li class="toctree-l3"><a class="reference internal" href="installation.html">Hardware Installation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../getting-started/README.html">Software Setup</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Specifications/Requirements</a></li>
@@ -247,7 +253,6 @@
                     <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../../guides/index.html">Guides</a></li>
           <li class="breadcrumb-item"><a href="../index.html">Hardware</a></li>
           <li class="breadcrumb-item"><a href="index.html">Wormhole™ PCIe Cards</a></li>
       <li class="breadcrumb-item active">Specifications/Requirements</li>
@@ -272,7 +277,7 @@
 </section>
 <section id="card-comparison-table">
 <h2>Card Comparison Table<a class="headerlink" href="#card-comparison-table" title="Link to this heading"></a></h2>
-<p><strong>NOTE:</strong> The <strong>n150s and n300s add-in cards</strong> come with a heatsink for passive cooling in systems which can provide sufficient forced airflow to the card. If your system does not (for example, a desktop workstation), installing the bundled <a class="reference internal" href="#../ack.md"><span class="xref myst">Active Cooling Kit</span></a> is <strong>required</strong>; we strongly recommend desktop workstations use the <strong>n150d</strong> and <strong>n300d</strong> add-in cards which are designed for desktop deployment. If the card isn’t sufficiently cooled, performance will be substantially reduced to stay in a safe operating temperature range and you risk damage to the card.</p>
+<p><strong>NOTE:</strong> The <strong>n150s and n300s add-in cards</strong> come with a heatsink for passive cooling in systems which can provide sufficient forced airflow to the card. If your system does not (for example, a desktop workstation), installing the bundled <a class="reference internal" href="../compliance.html"><span class="std std-doc">Active Cooling Kit</span></a> is <strong>required</strong>; we strongly recommend desktop workstations use the <strong>n150d</strong> and <strong>n300d</strong> add-in cards which are designed for desktop deployment. If the card isn’t sufficiently cooled, performance will be substantially reduced to stay in a safe operating temperature range and you risk damage to the card.</p>
 <table class="docutils align-default">
 <thead>
 <tr class="row-odd"><th class="head"><p>Specification</p></th>
@@ -407,7 +412,7 @@
 <h2>Connectivity<a class="headerlink" href="#connectivity" title="Link to this heading"></a></h2>
 <p>Wormhole™ cards include two different methods for interconnecting cards. <em>(n150s/n300s pictured; n150d and n300d will have the same ports and bridges.)</em></p>
 <p><img alt="" src="../../_images/wh_portspec.png" /></p>
-<p>The Warp 100 notches are for attaching internal <a class="reference internal" href="#..%5Cwarp100.md"><span class="xref myst">Warp 100 bridges</span></a> between Wormhole™ cards.</p>
+<p>The Warp 100 notches are for attaching internal <a class="reference internal" href="../memory-architecture.html"><span class="std std-doc">Warp 100 bridges</span></a> between Wormhole™ cards.</p>
 <p>The two QSFP-DD ports are active and support 200G connectivity between cards and/or Wormhole™-based systems/servers.</p>
 </section>
 <section id="data-precision-formats">
@@ -527,7 +532,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2025, Tenstorrent.
-      <span class="lastupdated">Last updated on Mar 19, 2026.
+      <span class="lastupdated">Last updated on Mar 23, 2026.
       </span></p>
   </div>
 

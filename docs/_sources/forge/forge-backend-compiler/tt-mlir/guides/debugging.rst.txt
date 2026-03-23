@@ -1,0 +1,485 @@
+Debugging
+=========
+
+Techniques for debugging TT-MLIR compilation and execution issues.
+
+Overview
+--------
+
+This guide covers debugging strategies for various types of issues in TT-MLIR.
+
+Compilation Issues
+------------------
+
+Viewing Intermediate IR
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Print IR at each compilation stage:
+
+.. code-block:: bash
+
+   ttmlir-opt --mlir-print-ir-after-all \
+     --ttir-to-ttnn-backend-pipeline \
+     input.mlir 2>&1 | tee debug.log
+
+Print IR for specific passes:
+
+.. code-block:: bash
+
+   ttmlir-opt --mlir-print-ir-after=ttir-to-ttnn \
+     input.mlir
+
+Verifying IR
+~~~~~~~~~~~~
+
+Check IR validity:
+
+.. code-block:: bash
+
+   ttmlir-opt --verify-diagnostics input.mlir
+
+Enable verbose verification:
+
+.. code-block:: bash
+
+   ttmlir-opt --verify-each=true input.mlir
+
+Type Errors
+~~~~~~~~~~~
+
+Common type mismatches:
+
+.. code-block:: mlir
+
+   // Error: shape mismatch
+   %0 = "ttir.add"(%a, %b, %out)
+     : (tensor<32x64xf32>, tensor<32x128xf32>, tensor<32x64xf32>)
+     -> tensor<32x64xf32>
+   // Fix: ensure shapes are broadcastable
+
+Debug with:
+
+.. code-block:: bash
+
+   ttmlir-opt --debug-only=type-inference input.mlir
+
+Pass Failures
+~~~~~~~~~~~~~
+
+Identify failing passes:
+
+.. code-block:: bash
+
+   ttmlir-opt --debug input.mlir
+
+Skip problematic passes:
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --pass-pipeline='builtin.module(ttir-constant-fold)' \
+     input.mlir
+
+Runtime Issues
+--------------
+
+Enable Runtime Logging
+~~~~~~~~~~~~~~~~~~~~~~
+
+Set logging level:
+
+.. code-block:: bash
+
+   export TT_METAL_LOGGER_LEVEL=DEBUG
+   ttrt execute model.ttnn
+
+Log categories:
+
+.. code-block:: bash
+
+   export TT_METAL_LOGGER_TYPES=Op,Device,Runtime
+   ttrt execute model.ttnn
+
+Device Not Detected
+~~~~~~~~~~~~~~~~~~~
+
+Check device status:
+
+.. code-block:: bash
+
+   tt-smi
+   tt-smi --reset  # Reset if needed
+
+Verify hugepages:
+
+.. code-block:: bash
+
+   cat /proc/meminfo | grep Huge
+
+Memory Issues
+~~~~~~~~~~~~~
+
+**Symptom:** Out of memory errors
+
+**Debug:**
+
+.. code-block:: bash
+
+   # Check memory usage
+   tt-smi -m
+
+   # Enable memory profiling
+   export TT_METAL_PROFILE_MEMORY=1
+   ttrt execute model.ttnn
+
+**Solutions:**
+
+1. Reduce batch size
+2. Use DRAM instead of L1 for large tensors
+3. Enable gradient checkpointing
+
+Kernel Failures
+~~~~~~~~~~~~~~~
+
+**Symptom:** Kernel execution errors
+
+**Debug:**
+
+.. code-block:: bash
+
+   # Enable kernel debugging
+   export TT_METAL_KERNEL_DEBUG=1
+   ttrt execute model.ttnn
+
+Check kernel logs:
+
+.. code-block:: bash
+
+   ls -la generated/kernels/
+   cat generated/kernels/*/kernel.log
+
+Performance Issues
+------------------
+
+Profiling
+~~~~~~~~~
+
+Enable profiling:
+
+.. code-block:: bash
+
+   export TT_METAL_PROFILE=1
+   ttrt execute model.ttnn
+
+Analyze profile:
+
+.. code-block:: bash
+
+   python -m tt_metal.tools.profiler.process_ops_logs
+
+Bottleneck Identification
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Check operation times:
+
+.. code-block:: bash
+
+   # View op-by-op timing
+   export TT_METAL_PROFILE_OP=1
+   ttrt execute model.ttnn
+
+Visualize execution:
+
+.. code-block:: bash
+
+   python -m tt_metal.tools.profiler.visualize
+
+Common Issues and Solutions
+---------------------------
+
+Issue: Compilation Hangs
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Symptom:** ``ttmlir-opt`` hangs indefinitely
+
+**Causes:**
+
+* Infinite loop in pass
+* Extremely large IR
+* Resource exhaustion
+
+**Solutions:**
+
+.. code-block:: bash
+
+   # Limit compilation time
+   timeout 300 ttmlir-opt input.mlir
+
+   # Reduce optimization level
+   ttmlir-opt --ttir-to-ttnn-backend-pipeline='no-opt' input.mlir
+
+Issue: Shape Mismatch
+~~~~~~~~~~~~~~~~~~~~~
+
+**Symptom:** Shape inference errors
+
+**Debug:**
+
+.. code-block:: bash
+
+   ttmlir-opt --debug-only=shape-inference input.mlir
+
+**Solution:**
+
+Add explicit shape information:
+
+.. code-block:: mlir
+
+   %0 = "ttir.reshape"(%input, %output) {shape = [32, 128]}
+     : (tensor<?x?xf32>, tensor<32x128xf32>) -> tensor<32x128xf32>
+
+Issue: Incorrect Results
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Symptom:** Output values are wrong
+
+**Debug steps:**
+
+1. Verify input data:
+
+   .. code-block:: python
+
+      import torch
+      print(f"Input range: [{input.min()}, {input.max()}]")
+      print(f"Input mean: {input.mean()}")
+
+2. Check intermediate values:
+
+   .. code-block:: bash
+
+      export TT_METAL_DUMP_TENSORS=1
+      ttrt execute model.ttnn
+
+3. Compare with reference:
+
+   .. code-block:: python
+
+      torch_output = reference_model(input)
+      tt_output = compiled_model(input)
+      diff = torch.abs(torch_output - tt_output)
+      print(f"Max diff: {diff.max()}")
+      print(f"Mean diff: {diff.mean()}")
+
+Issue: Slow Compilation
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Symptom:** Compilation takes too long
+
+**Solutions:**
+
+1. Cache compiled artifacts:
+
+   .. code-block:: bash
+
+      export TT_METAL_CACHE_PATH=/path/to/cache
+      ttrt execute model.ttnn
+
+2. Disable expensive optimizations:
+
+   .. code-block:: bash
+
+      ttmlir-opt --ttir-to-ttnn-backend-pipeline='fast' input.mlir
+
+3. Use incremental compilation
+
+Debugging Tools
+---------------
+
+MLIR Debugger
+~~~~~~~~~~~~~
+
+Use LLDB with MLIR:
+
+.. code-block:: bash
+
+   lldb -- ttmlir-opt input.mlir
+   (lldb) breakpoint set -n MyPass::runOnOperation
+   (lldb) run
+
+GDB Integration
+~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   gdb --args ttmlir-opt input.mlir
+   (gdb) break mlir::OpBuilder::create
+   (gdb) run
+
+Print Debugging
+~~~~~~~~~~~~~~~
+
+Add debug prints in passes:
+
+.. code-block:: cpp
+
+   #include "llvm/Support/Debug.h"
+
+   #define DEBUG_TYPE "my-pass"
+
+   void runOnOperation() override {
+     LLVM_DEBUG(llvm::dbgs() << "Running MyPass\n");
+
+     getOperation().walk([&](Operation *op) {
+       LLVM_DEBUG(llvm::dbgs() << "Processing: " << *op << "\n");
+     });
+   }
+
+Run with debug output:
+
+.. code-block:: bash
+
+   ttmlir-opt --debug-only=my-pass input.mlir
+
+Visualization Tools
+-------------------
+
+Visualize IR
+~~~~~~~~~~~~
+
+Generate dot graph:
+
+.. code-block:: bash
+
+   ttmlir-opt --view-cfg input.mlir
+
+Convert to image:
+
+.. code-block:: bash
+
+   dot -Tpng graph.dot -o graph.png
+
+Visualize Execution
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   python -m tt_metal.tools.profiler.visualize \
+     --input profile.json \
+     --output timeline.html
+
+Testing and Validation
+----------------------
+
+Unit Tests
+~~~~~~~~~~
+
+Test individual operations:
+
+.. code-block:: cpp
+
+   TEST(TTIRTest, AddOperation) {
+     MLIRContext context;
+     context.loadDialect<ttir::TTIRDialect>();
+
+     OpBuilder builder(&context);
+     // Create and test operation
+   }
+
+Integration Tests
+~~~~~~~~~~~~~~~~~
+
+Test full pipelines:
+
+.. code-block:: bash
+
+   # Run all tests
+   ctest -V
+
+   # Run specific test
+   ctest -R ttir-add-test -V
+
+FileCheck Tests
+~~~~~~~~~~~~~~~
+
+Verify transformations:
+
+.. code-block:: mlir
+
+   // RUN: ttmlir-opt %s --ttir-constant-fold | FileCheck %s
+
+   // CHECK-LABEL: func @test
+   func.func @test() -> tensor<2xf32> {
+     %c1 = arith.constant dense<[1.0, 2.0]> : tensor<2xf32>
+     %c2 = arith.constant dense<[3.0, 4.0]> : tensor<2xf32>
+     // CHECK: %[[RESULT:.*]] = arith.constant dense<[4.0, 6.0]>
+     %0 = "ttir.add"(%c1, %c2, %out)
+     // CHECK: return %[[RESULT]]
+     return %0 : tensor<2xf32>
+   }
+
+Collecting Debug Information
+-----------------------------
+
+Full Debug Bundle
+~~~~~~~~~~~~~~~~~
+
+Collect all debug info:
+
+.. code-block:: bash
+
+   #!/bin/bash
+
+   # Enable all logging
+   export TT_METAL_LOGGER_LEVEL=DEBUG
+   export TT_METAL_PROFILE=1
+   export TT_METAL_DUMP_TENSORS=1
+
+   # Run with debug output
+   ttmlir-opt --mlir-print-ir-after-all \
+     --ttir-to-ttnn-backend-pipeline \
+     input.mlir 2>&1 | tee mlir_debug.log
+
+   ttrt execute model.ttnn 2>&1 | tee runtime_debug.log
+
+   # Collect system info
+   tt-smi > smi_info.txt
+   uname -a > system_info.txt
+
+   # Package for reporting
+   tar czf debug_bundle.tar.gz \
+     mlir_debug.log \
+     runtime_debug.log \
+     smi_info.txt \
+     system_info.txt
+
+Getting Help
+------------
+
+When reporting issues:
+
+1. Include MLIR version:
+
+   .. code-block:: bash
+
+      ttmlir-opt --version
+
+2. Provide minimal reproducer:
+
+   .. code-block:: mlir
+
+      // Minimal example that shows the issue
+      func.func @reproduce_issue(%arg0: tensor<32xf32>) -> tensor<32xf32> {
+        // ...
+      }
+
+3. Include error messages and logs
+
+4. Describe expected vs. actual behavior
+
+See Also
+--------
+
+* :doc:`optimization` - Performance optimization
+* :doc:`writing-passes` - Custom pass development
+* `MLIR Debugging Guide <https://mlir.llvm.org/docs/Debugging/>`_
+

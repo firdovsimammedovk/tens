@@ -1,0 +1,246 @@
+Writing Passes
+==============
+
+Learn how to write custom transformation and optimization passes for TT-MLIR.
+
+Overview
+--------
+
+Passes are the primary mechanism for transforming IR in MLIR. TT-MLIR provides infrastructure
+for writing passes at different dialect levels.
+
+Pass Types
+----------
+
+Operation Passes
+~~~~~~~~~~~~~~~~
+
+Operate on a specific operation type (e.g., ``func.func``):
+
+.. code-block:: cpp
+
+   class MyFunctionPass : public PassWrapper<MyFunctionPass,
+                                             OperationPass<func::FuncOp>> {
+   public:
+     void runOnOperation() override {
+       func::FuncOp func = getOperation();
+       // Transform the function
+     }
+   };
+
+Module Passes
+~~~~~~~~~~~~~
+
+Operate on the entire module:
+
+.. code-block:: cpp
+
+   class MyModulePass : public PassWrapper<MyModulePass,
+                                           OperationPass<ModuleOp>> {
+   public:
+     void runOnOperation() override {
+       ModuleOp module = getOperation();
+       // Transform the module
+     }
+   };
+
+Creating a Pass
+---------------
+
+Basic Structure
+~~~~~~~~~~~~~~~
+
+.. code-block:: cpp
+
+   #include "mlir/Pass/Pass.h"
+   #include "mlir/IR/PatternMatch.h"
+
+   namespace {
+   class MyCustomPass : public PassWrapper<MyCustomPass,
+                                           OperationPass<func::FuncOp>> {
+   public:
+     StringRef getArgument() const final { return "my-custom-pass"; }
+     StringRef getDescription() const final {
+       return "Description of my custom pass";
+     }
+
+     void runOnOperation() override {
+       func::FuncOp func = getOperation();
+
+       // Walk through operations
+       func.walk([&](Operation *op) {
+         // Process each operation
+         if (auto addOp = dyn_cast<ttir::AddOp>(op)) {
+           // Handle add operation
+         }
+       });
+     }
+   };
+   } // namespace
+
+   std::unique_ptr<Pass> createMyCustomPass() {
+     return std::make_unique<MyCustomPass>();
+   }
+
+Pattern Rewriting
+-----------------
+
+Simple Pattern
+~~~~~~~~~~~~~~
+
+Use pattern rewriting for local transformations:
+
+.. code-block:: cpp
+
+   #include "mlir/IR/PatternMatch.h"
+   #include "mlir/Transforms/GreedyPatternRewriteDriver.h"
+
+   struct FuseAddMulPattern : public OpRewritePattern<ttir::MultiplyOp> {
+     using OpRewritePattern<ttir::MultiplyOp>::OpRewritePattern;
+
+     LogicalResult matchAndRewrite(ttir::MultiplyOp mulOp,
+                                    PatternRewriter &rewriter) const override {
+       // Check if input is from AddOp
+       auto addOp = mulOp.getOperand(0).getDefiningOp<ttir::AddOp>();
+       if (!addOp || !addOp->hasOneUse())
+         return failure();
+
+       // Create fused operation
+       auto fusedOp = rewriter.create<ttir::FusedAddMulOp>(
+         mulOp.getLoc(),
+         addOp.getOperand(0),
+         addOp.getOperand(1),
+         mulOp.getOperand(1)
+       );
+
+       rewriter.replaceOp(mulOp, fusedOp.getResult());
+       return success();
+     }
+   };
+
+Applying Patterns
+~~~~~~~~~~~~~~~~~
+
+.. code-block:: cpp
+
+   void runOnOperation() override {
+     RewritePatternSet patterns(&getContext());
+     patterns.add<FuseAddMulPattern>(&getContext());
+
+     if (failed(applyPatternsAndFoldGreedily(getOperation(),
+                                              std::move(patterns)))) {
+       signalPassFailure();
+     }
+   }
+
+Pass Infrastructure
+-------------------
+
+Pass Registration
+~~~~~~~~~~~~~~~~~
+
+Register your pass:
+
+.. code-block:: cpp
+
+   void registerMyPasses() {
+     PassRegistration<MyCustomPass>();
+   }
+
+Pass Dependencies
+~~~~~~~~~~~~~~~~~
+
+Declare pass dependencies:
+
+.. code-block:: cpp
+
+   void getDependentDialects(DialectRegistry &registry) const override {
+     registry.insert<ttir::TTIRDialect>();
+     registry.insert<func::FuncDialect>();
+   }
+
+Example: Constant Folding Pass
+-------------------------------
+
+Complete example:
+
+.. code-block:: cpp
+
+   class ConstantFoldingPass : public PassWrapper<ConstantFoldingPass,
+                                                   OperationPass<func::FuncOp>> {
+   public:
+     StringRef getArgument() const final { return "ttir-constant-fold"; }
+
+     void runOnOperation() override {
+       func::FuncOp func = getOperation();
+       OpBuilder builder(&getContext());
+
+       func.walk([&](ttir::AddOp addOp) {
+         // Check if both operands are constants
+         auto lhs = addOp.getLhs().getDefiningOp<arith::ConstantOp>();
+         auto rhs = addOp.getRhs().getDefiningOp<arith::ConstantOp>();
+
+         if (!lhs || !rhs)
+           return;
+
+         // Fold the constant addition
+         auto lhsAttr = lhs.getValue().cast<DenseElementsAttr>();
+         auto rhsAttr = rhs.getValue().cast<DenseElementsAttr>();
+
+         // Compute result
+         SmallVector<float> result;
+         for (auto [l, r] : llvm::zip(lhsAttr.getValues<float>(),
+                                       rhsAttr.getValues<float>())) {
+           result.push_back(l + r);
+         }
+
+         // Create new constant
+         builder.setInsertionPoint(addOp);
+         auto resultAttr = DenseElementsAttr::get(
+           addOp.getType().cast<RankedTensorType>(),
+           llvm::ArrayRef(result)
+         );
+         auto newConst = builder.create<arith::ConstantOp>(
+           addOp.getLoc(), resultAttr
+         );
+
+         addOp.replaceAllUsesWith(newConst);
+         addOp.erase();
+       });
+     }
+   };
+
+Testing Passes
+--------------
+
+Use FileCheck tests:
+
+.. code-block:: mlir
+
+   // RUN: ttmlir-opt %s --ttir-constant-fold | FileCheck %s
+
+   func.func @test_constant_fold() -> tensor<2xf32> {
+     %c1 = arith.constant dense<[1.0, 2.0]> : tensor<2xf32>
+     %c2 = arith.constant dense<[3.0, 4.0]> : tensor<2xf32>
+     %0 = "ttir.add"(%c1, %c2) : (tensor<2xf32>, tensor<2xf32>) -> tensor<2xf32>
+     // CHECK: %[[RESULT:.*]] = arith.constant dense<[4.0, 6.0]> : tensor<2xf32>
+     // CHECK: return %[[RESULT]]
+     return %0 : tensor<2xf32>
+   }
+
+Best Practices
+--------------
+
+1. **Keep passes focused** - Each pass should do one thing well
+2. **Use pattern rewriting** - More maintainable than manual IR manipulation
+3. **Test thoroughly** - Write comprehensive FileCheck tests
+4. **Document intent** - Add comments explaining transformations
+5. **Check validity** - Verify IR remains valid after transformation
+
+See Also
+--------
+
+* :doc:`custom-ops` - Adding custom operations
+* :doc:`optimization` - Optimization techniques
+* `MLIR Pass Infrastructure <https://mlir.llvm.org/docs/PassManagement/>`_
+
