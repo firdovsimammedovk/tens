@@ -1,0 +1,26 @@
+Ops Documentation
+=================
+
+.. note::
+
+   TT-Torch is deprecated. To work with PyTorch and the various features available in TT-Torch, please see the documentation for `TT-XLA <../tt-xla/index.html>`_.
+
+This section contains documentation for operations supported by TT-Torch.
+
+TT-Torch lowers PyTorch operations through two paths:
+
+- **StableHLO ops** — operations expressed at the StableHLO dialect level after lowering through torch-mlir
+- **TTNN ops** — operations as lowered to the TTNN backend dialect in TT-MLIR
+
+.. toctree::
+   :maxdepth: 1
+   :caption: StableHLO Ops
+
+   stablehlo/index
+
+.. toctree::
+   :maxdepth: 1
+   :caption: TTNN Ops
+
+   ttnn/index
+

@@ -36,7 +36,9 @@
     <script src="../../../../_static/tt_dropdown.js"></script>
     <script src="../../../../_static/tt_version_dropdown.js"></script>
     <link rel="index" title="Index" href="../../../../genindex.html"/>
-    <link rel="search" title="Search" href="../../../../search.html"/> 
+    <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="next" title="ttmlir-opt" href="ttmlir-opt.html"/>
+    <link rel="prev" title="Debugging" href="../guides/debugging.html"/> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -204,7 +206,7 @@
             </div>
             <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
                  aria-label="Navigation menu">
-                <ul>
+                <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../../../../Overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../README.html">Home</a></li>
@@ -216,7 +218,35 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../../systems/index.html">Systems</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../tools/index.html">Tools</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../models/index.html">Models</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../index.html">TT-Forge</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">TT-Forge</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forge-frontend-compiler/index.html">TT-Forge Frontend Compiler</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">TT-Forge Backend Compiler</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">TT-MLIR</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../getting-started/installation.html">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting-started/build-from-source.html">Build from Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture/dialects.html">Dialects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture/compilation-pipeline.html">Compilation Pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture/ir-structure.html">IR Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../operations/index.html">Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../operations/ttir-ops.html">TTIR Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../operations/ttmetal-ops.html">TTMetal Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/writing-passes.html">Writing Passes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/custom-ops.html">Custom Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/optimization.html">Optimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/debugging.html">Debugging</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttmlir-opt.html">ttmlir-opt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttrt.html">ttrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/index.html">API Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tools/index.html">Tools</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../resource/index.html">Resource</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../../support/index.html">Support</a></li>
 </ul>
@@ -235,6 +265,9 @@
                     <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">TT-Forge</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">TT-Forge Backend Compiler</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">TT-MLIR</a></li>
       <li class="breadcrumb-item active">Tools</li>
       <li class="wy-breadcrumbs-aside">
       </li>
@@ -248,6 +281,46 @@
 <h1>Tools<a class="headerlink" href="#tools" title="Link to this heading"></a></h1>
 <p>Development and debugging tools for TT-MLIR.</p>
 <div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ttmlir-opt.html">ttmlir-opt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ttmlir-opt.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttmlir-opt.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttmlir-opt.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttmlir-opt.html#common-workflows">Common Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttmlir-opt.html#pass-list">Pass List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttmlir-opt.html#performance-tuning">Performance Tuning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttmlir-opt.html#advanced-features">Advanced Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttmlir-opt.html#environment-variables">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttmlir-opt.html#exit-codes">Exit Codes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttmlir-opt.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttmlir-opt.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttmlir-opt.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ttrt.html">ttrt</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="ttrt.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttrt.html#basic-usage">Basic Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttrt.html#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttrt.html#common-workflows">Common Workflows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttrt.html#input-output-format">Input/Output Format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttrt.html#environment-variables">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttrt.html#python-api">Python API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttrt.html#performance-profiling">Performance Profiling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttrt.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttrt.html#advanced-usage">Advanced Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ttrt.html#see-also">See Also</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">Visualization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html#ir-visualization">IR Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html#execution-visualization">Execution Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html#third-party-tools">Third-Party Tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html#custom-visualization">Custom Visualization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="visualization.html#see-also">See Also</a></li>
+</ul>
+</li>
+</ul>
 </div>
 <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
@@ -262,7 +335,7 @@
 <h2>Primary Tools<a class="headerlink" href="#primary-tools" title="Link to this heading"></a></h2>
 <section id="ttmlir-opt">
 <h3>ttmlir-opt<a class="headerlink" href="#ttmlir-opt" title="Link to this heading"></a></h3>
-<p>The main compilation and transformation tool. See <span class="xref std std-doc">ttmlir-opt</span> for details.</p>
+<p>The main compilation and transformation tool. See <a class="reference internal" href="ttmlir-opt.html"><span class="doc">ttmlir-opt</span></a> for details.</p>
 <p><strong>Common usage:</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Run full pipeline</span>
 ttmlir-opt<span class="w"> </span>--ttir-to-ttnn-backend-pipeline<span class="w"> </span>input.mlir<span class="w"> </span>-o<span class="w"> </span>output.mlir
@@ -277,7 +350,7 @@ ttmlir-opt<span class="w"> </span>--mlir-print-ir-after-all<span class="w"> </sp
 </section>
 <section id="ttrt">
 <h3>ttrt<a class="headerlink" href="#ttrt" title="Link to this heading"></a></h3>
-<p>Tenstorrent runtime for executing compiled models. See <span class="xref std std-doc">ttrt</span> for details.</p>
+<p>Tenstorrent runtime for executing compiled models. See <a class="reference internal" href="ttrt.html"><span class="doc">ttrt</span></a> for details.</p>
 <p><strong>Common usage:</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Execute model</span>
 ttrt<span class="w"> </span>execute<span class="w"> </span>model.ttnn
@@ -327,13 +400,22 @@ ttmlir-translate<span class="w"> </span>--flatbuffer-to-mlir<span class="w"> </s
 
                         </div>
                     </div>
-                    <footer>
+                    <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../guides/debugging.html" class="btn btn-neutral float-left" title="Debugging" accesskey="p" rel="prev">
+          <span class="tt-pagination-topic">Debugging</span>
+          <span class="tt-pagination-label">Previous</span>
+        </a>
+        <a href="ttmlir-opt.html" class="btn btn-neutral float-right" title="ttmlir-opt" accesskey="n" rel="next">
+          <span class="tt-pagination-topic">ttmlir-opt</span>
+          <span class="tt-pagination-label">Next</span>
+        </a>
+    </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2025, Tenstorrent.
-      <span class="lastupdated">Last updated on Mar 23, 2026.
+      <span class="lastupdated">Last updated on Mar 24, 2026.
       </span></p>
   </div>
 

@@ -1,0 +1,38 @@
+TTNN Ops
+========
+
+This section lists TTNN operations supported by TT-Torch as lowered to the TTNN backend dialect.
+
+.. note::
+
+   The upstream TT-Torch TTNN op pages are auto-generated and updated frequently. The operation coverage is
+   listed below, and detailed per-op pages are available in the TT-Torch repository.
+
+Supported operations
+--------------------
+
+- ``ttnn.add``
+- ``ttnn.arange``
+- ``ttnn.concat``
+- ``ttnn.constant``
+- ``ttnn.conv2d``
+- ``ttnn.embedding``
+- ``ttnn.from_device``
+- ``ttnn.full``
+- ``ttnn.get_device``
+- ``ttnn.matmul``
+- ``ttnn.max_pool2d``
+- ``ttnn.maximum``
+- ``ttnn.multiply``
+- ``ttnn.permute``
+- ``ttnn.reshape``
+- ``ttnn.slice``
+- ``ttnn.to_device``
+- ``ttnn.to_layout``
+- ``ttnn.typecast``
+- ``ttnn.where``
+
+Source pages
+------------
+
+- `TTNN ops docs directory <https://github.com/tenstorrent/tt-torch/tree/main/docs/src/ops/ttnn>`_

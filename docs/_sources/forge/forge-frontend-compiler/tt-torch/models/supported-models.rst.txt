@@ -1,0 +1,34 @@
+Supported Models
+================
+
+.. note::
+
+   TT-Torch is deprecated. To work with PyTorch and the various features available in TT-Torch, please see the documentation for `TT-XLA <../../tt-xla/index.html>`_.
+
+This page summarizes model tests that were listed in TT-Torch documentation.
+
+Representative model entrypoints
+--------------------------------
+
+- ``tests/models/torchvision/test_torchvision_image_classification.py::test_torchvision_image_classification[single_device-full-mobilenet_v3_large]``
+- ``tests/models/openpose/test_openpose_v2.py::test_openpose_v2[full-eval]``
+- ``tests/models/perceiver_io/test_perceiver_io.py::test_perceiver_io[full-eval]``
+- ``tests/models/resnet/test_resnet.py::test_resnet[single_device-full-eval]``
+- ``tests/models/resnet50/test_resnet50.py::test_resnet[single_device-full-eval]``
+- ``tests/models/yolov3/test_yolov3.py::test_yolov3[full-eval]``
+
+TorchVision coverage examples
+-----------------------------
+
+- ``resnet18``, ``resnet34``, ``resnet50``, ``resnet101``, ``resnet152``
+- ``wide_resnet50_2``, ``wide_resnet101_2``
+- ``resnext50_32x4d``, ``resnext101_32x8d``, ``resnext101_64x4d``
+- ``regnet_y_400mf``, ``regnet_y_800mf``, ``regnet_y_1_6gf``, ``regnet_y_3_2gf``, ``regnet_y_8gf``, ``regnet_y_16gf``, ``regnet_y_32gf``
+- ``regnet_x_400mf``, ``regnet_x_800mf``, ``regnet_x_1_6gf``, ``regnet_x_3_2gf``, ``regnet_x_8gf``, ``regnet_x_16gf``, ``regnet_x_32gf``
+
+Source page
+-----------
+
+- `Supported models source (tt-torch) <https://github.com/tenstorrent/tt-torch/blob/main/docs/src/models/supported_models.md>`_
+- `Model tests directory <https://github.com/tenstorrent/tt-torch/tree/main/tests/models>`_
+

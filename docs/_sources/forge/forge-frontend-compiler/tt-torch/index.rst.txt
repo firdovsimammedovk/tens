@@ -1,0 +1,22 @@
+TT-Torch
+========
+
+.. note::
+
+   TT-Torch is deprecated. To work with PyTorch and the various features available in TT-Torch, please see the documentation for `TT-XLA <../tt-xla/index.html>`_.
+
+TT-Torch is a TT-Forge frontend compiler that enables running PyTorch models on Tenstorrent hardware
+via ``torch.compile``. It lowers PyTorch FX graphs through torch-mlir, StableHLO, and TT-MLIR
+to produce executables for Tenstorrent devices.
+
+.. toctree::
+   :maxdepth: 2
+
+   overview
+   getting-started
+   testing
+   profiling
+   pre-commit
+   ops/index
+   models/index
+

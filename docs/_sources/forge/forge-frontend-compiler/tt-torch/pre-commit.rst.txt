@@ -1,0 +1,35 @@
+Pre-Commit
+==========
+
+.. note::
+
+   TT-Torch is deprecated. To work with PyTorch and the various features available in TT-Torch, please see the documentation for `TT-XLA <../tt-xla/index.html>`_.
+
+Pre-Commit applies a Git hook to the local repository, ensuring linting is checked and applied
+on every ``git commit`` action.
+
+Install
+-------
+
+Install pre-commit from the root of the repository:
+
+.. code-block:: bash
+
+   source env/activate
+   pre-commit install
+
+Catching Up on Existing Commits
+--------------------------------
+
+If you have already made commits before installing the pre-commit hooks, you can run the
+following to "catch up":
+
+.. code-block:: bash
+
+   pre-commit run --all-files
+
+More Information
+----------------
+
+For more information visit `pre-commit.com <https://pre-commit.com/>`_.
+

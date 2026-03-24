@@ -1,0 +1,366 @@
+ttmlir-opt
+==========
+
+The TT-MLIR optimizer and transformation tool.
+
+Overview
+--------
+
+``ttmlir-opt`` is the primary tool for transforming and optimizing MLIR programs in TT-MLIR.
+It applies passes to transform IR from high-level representations to hardware-executable code.
+
+Basic Usage
+-----------
+
+.. code-block:: bash
+
+   ttmlir-opt [options] input.mlir
+
+Options
+-------
+
+Input/Output
+~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   -o <filename>              # Output file (default: stdout)
+   --emit-bytecode            # Output MLIR bytecode instead of text
+   input.mlir                 # Input MLIR file
+
+Pass Pipeline Options
+~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   --ttir-to-ttnn-backend-pipeline    # Run complete TTIR→TTNN pipeline
+   --ttir-constant-fold               # Fold constant expressions
+   --ttir-op-fusion                   # Fuse operations
+   --ttnn-layout-opt                  # Optimize tensor layouts
+   --ttnn-memory-planning             # Plan memory allocation
+   --ttnn-to-flatbuffer               # Generate flatbuffer output
+
+Custom Pipeline
+~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   --pass-pipeline='builtin.module(
+     ttir-constant-fold,
+     ttir-to-ttnn,
+     ttnn-layout-opt
+   )'
+
+System Configuration
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   --ttir-load-system-desc="path=/path/to/system_desc.ttsys"
+   --target-arch=wormhole_b0          # Target architecture
+   --num-chips=1                      # Number of chips
+
+Debug Options
+~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   --debug                            # Enable debug output
+   --mlir-print-ir-after-all         # Print IR after each pass
+   --mlir-print-ir-before-all        # Print IR before each pass
+   --mlir-print-ir-after=<pass>      # Print IR after specific pass
+   --mlir-print-debuginfo            # Include debug info in output
+   --verify-each=true                # Verify IR after each pass
+   --debug-only=<tag>                # Debug specific component
+
+Other Options
+~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   --mlir-print-op-generic=false     # Use custom assembly format
+   --mlir-timing                     # Report pass execution times
+   --mlir-timing-display=tree        # Display timing as tree
+   --allow-unregistered-dialects     # Allow unknown dialects
+   --split-input-file                # Split input on '// -----' markers
+
+Common Workflows
+----------------
+
+Complete Compilation
+~~~~~~~~~~~~~~~~~~~~
+
+Compile TTIR to executable:
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --ttir-load-system-desc="path=/path/to/system_desc.ttsys" \
+     --ttir-to-ttnn-backend-pipeline \
+     --ttnn-to-flatbuffer \
+     input.mlir \
+     -o output.ttnn
+
+Step-by-Step Compilation
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Run pipeline stages separately:
+
+.. code-block:: bash
+
+   # Stage 1: TTIR optimizations
+   ttmlir-opt --ttir-constant-fold --ttir-op-fusion \
+     input.mlir -o ttir_opt.mlir
+
+   # Stage 2: Lower to TTNN
+   ttmlir-opt --ttir-to-ttnn ttir_opt.mlir -o ttnn.mlir
+
+   # Stage 3: TTNN optimizations
+   ttmlir-opt --ttnn-layout-opt --ttnn-memory-planning \
+     ttnn.mlir -o ttnn_opt.mlir
+
+   # Stage 4: Generate binary
+   ttmlir-opt --ttnn-to-flatbuffer ttnn_opt.mlir -o output.ttnn
+
+Debugging Compilation
+~~~~~~~~~~~~~~~~~~~~~
+
+Debug pass execution:
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --mlir-print-ir-after-all \
+     --mlir-timing \
+     --ttir-to-ttnn-backend-pipeline \
+     input.mlir \
+     2>&1 | tee debug.log
+
+View specific pass:
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --mlir-print-ir-after=ttir-constant-fold \
+     --ttir-constant-fold \
+     input.mlir
+
+Testing Transformations
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Use with FileCheck for testing:
+
+.. code-block:: bash
+
+   ttmlir-opt --ttir-constant-fold input.mlir | FileCheck input.mlir
+
+Example input.mlir with checks:
+
+.. code-block:: mlir
+
+   // RUN: ttmlir-opt --ttir-constant-fold %s | FileCheck %s
+
+   func.func @test() -> tensor<2xf32> {
+     %c1 = arith.constant dense<[1.0, 2.0]> : tensor<2xf32>
+     %c2 = arith.constant dense<[3.0, 4.0]> : tensor<2xf32>
+     // CHECK: arith.constant dense<[4.0, 6.0]>
+     %0 = "ttir.add"(%c1, %c2, %out)
+       : (tensor<2xf32>, tensor<2xf32>, tensor<2xf32>) -> tensor<2xf32>
+     return %0 : tensor<2xf32>
+   }
+
+Pass List
+---------
+
+TTIR Passes
+~~~~~~~~~~~
+
+* ``--ttir-constant-fold`` - Fold constant operations
+* ``--ttir-op-fusion`` - Fuse compatible operations
+* ``--ttir-dce`` - Dead code elimination
+* ``--ttir-canonicalize`` - Canonicalize operations
+* ``--ttir-to-ttnn`` - Lower TTIR to TTNN dialect
+
+TTNN Passes
+~~~~~~~~~~~
+
+* ``--ttnn-layout-opt`` - Optimize tensor layouts
+* ``--ttnn-memory-planning`` - Plan memory allocation
+* ``--ttnn-sharding`` - Configure sharding strategies
+* ``--ttnn-optimize`` - Apply TTNN optimizations
+* ``--ttnn-to-metal`` - Lower TTNN to TTMetal
+
+TTMetal Passes
+~~~~~~~~~~~~~~
+
+* ``--ttmetal-kernel-fusion`` - Fuse kernels
+* ``--ttmetal-noc-opt`` - Optimize NoC communication
+* ``--ttmetal-schedule`` - Schedule operations
+
+Code Generation
+~~~~~~~~~~~~~~~
+
+* ``--ttnn-to-flatbuffer`` - Generate flatbuffer binary
+* ``--serialize`` - Serialize to binary format
+
+Performance Tuning
+------------------
+
+Optimization Levels
+~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   # No optimization (fast compile)
+   ttmlir-opt --ttir-to-ttnn-backend-pipeline='O0' input.mlir
+
+   # Standard optimization
+   ttmlir-opt --ttir-to-ttnn-backend-pipeline='O2' input.mlir
+
+   # Aggressive optimization (slow compile)
+   ttmlir-opt --ttir-to-ttnn-backend-pipeline='O3' input.mlir
+
+Parallel Compilation
+~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   # Enable parallel pass execution
+   ttmlir-opt --mlir-pass-pipeline-parallel input.mlir
+
+Memory Usage
+~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   # Limit memory usage
+   ulimit -v 8388608  # 8GB
+   ttmlir-opt input.mlir
+
+Advanced Features
+-----------------
+
+Split Input Files
+~~~~~~~~~~~~~~~~~
+
+Process multiple test cases in one file:
+
+.. code-block:: mlir
+
+   // test1.mlir
+   func.func @test1() { ... }
+
+   // -----
+
+   // test2.mlir
+   func.func @test2() { ... }
+
+Run with:
+
+.. code-block:: bash
+
+   ttmlir-opt --split-input-file tests.mlir
+
+Custom Pass Registration
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+Run with custom passes:
+
+.. code-block:: bash
+
+   ttmlir-opt --load=libMyCustomPass.so --my-custom-pass input.mlir
+
+Environment Variables
+---------------------
+
+.. code-block:: bash
+
+   MLIR_RUNNER_UTILS_LIB    # Path to MLIR runner utilities
+   TT_METAL_HOME            # TT-Metal installation path
+   MLIR_ENABLE_DUMP         # Enable IR dumping
+
+Exit Codes
+----------
+
+* ``0`` - Success
+* ``1`` - General error
+* ``2`` - IR verification failure
+* ``3`` - Pass failure
+
+Examples
+--------
+
+Example 1: Simple Optimization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   # Input: unoptimized TTIR
+   # Output: optimized TTIR
+   ttmlir-opt --ttir-constant-fold --ttir-op-fusion input.mlir
+
+Example 2: Full Pipeline with Debug
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --ttir-load-system-desc="path=./system_desc.ttsys" \
+     --ttir-to-ttnn-backend-pipeline \
+     --mlir-print-ir-after-all \
+     --mlir-timing \
+     --verify-each=true \
+     input.mlir \
+     -o output.mlir \
+     2>&1 | tee compilation.log
+
+Example 3: Custom Pipeline
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code-block:: bash
+
+   ttmlir-opt \
+     --pass-pipeline='
+       builtin.module(
+         ttir-constant-fold,
+         ttir-op-fusion{aggressive=true},
+         ttir-to-ttnn,
+         func.func(ttnn-layout-opt),
+         ttnn-memory-planning
+       )
+     ' \
+     input.mlir
+
+Troubleshooting
+---------------
+
+Error: Unknown Pass
+~~~~~~~~~~~~~~~~~~~
+
+Ensure the pass is registered:
+
+.. code-block:: bash
+
+   ttmlir-opt --help | grep <pass-name>
+
+Error: Verification Failed
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Check IR validity:
+
+.. code-block:: bash
+
+   ttmlir-opt --verify-diagnostics input.mlir
+
+Error: Out of Memory
+~~~~~~~~~~~~~~~~~~~~
+
+Reduce optimization level or use --mlir-pass-pipeline-parallel
+
+See Also
+--------
+
+* :doc:`ttrt` - Runtime execution tool
+* :doc:`../guides/writing-passes` - Writing custom passes
+* :doc:`../guides/debugging` - Debugging guide
+

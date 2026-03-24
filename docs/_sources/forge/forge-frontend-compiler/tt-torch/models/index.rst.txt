@@ -1,0 +1,14 @@
+Models
+======
+
+.. note::
+
+   TT-Torch is deprecated. To work with PyTorch and the various features available in TT-Torch, please see the documentation for `TT-XLA <../../tt-xla/index.html>`_.
+
+This section provides an overview of model coverage and test entrypoints for TT-Torch.
+
+.. toctree::
+   :maxdepth: 1
+
+   supported-models
+

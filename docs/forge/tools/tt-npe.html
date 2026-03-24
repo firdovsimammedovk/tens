@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+    <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>TT-NPE &mdash; Home 1.0 documentation</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css"/>
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../_static/tt_theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../_static/home.css" type="text/css"/>
+    <link rel="shortcut icon" href="../../_static/favicon.png"/>
+    <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=fd3dd8dd"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <script src="../../_static/tt_signature_copy.js"></script>
+    <script src="../../_static/tt_dropdown.js"></script>
+    <script src="../../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html"/>
+    <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="next" title="Resource" href="../../resource/index.html"/>
+    <link rel="prev" title="Tools" href="index.html"/> 
+</head>
+
+<body class="wy-body-for-nav"> 
+<!-- ===== Top Navbar (NEW) ===== -->
+
+
+<header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+        <div class="tt-topnav__inner">
+
+            <!-- Logo -->
+            <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../_static/tt_logo.svg" alt="Home"/></a>
+
+            <!-- Primary links (hardcoded like the mock) -->
+            <nav class="tt-topnav__links" aria-label="Primary navigation">
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Get Started</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Software Stack</a>
+                        <a class="tt-topnav__dropdown-item" href="../../getting-started/README.html">Installation</a>
+                        <a class="tt-topnav__dropdown-item" href="../../getting-started/model-demos.html">Run Your First Model</a>
+                        <a class="tt-topnav__dropdown-item" href="../../getting-started/quickstart.html">Quickstart</a>
+                    </div>
+                </div>
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Guides</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../hardware/index.html">Running Models</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Performance
+                            Optimizations</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Multi-Device Setup</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Debugging Workflows</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Developing Custom
+                            Ops</a>
+                    </div>
+                </div>
+
+                <!-- Software dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../software/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../index.html">TT-Forge</a>
+                        <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+                    </div>
+                </div>
+
+                <!-- Hardware dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../hardware/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../hardware/tensix-architecture.html">Tensix Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../hardware/memory-architecture.html">Memory Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Network on Chip</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Chips</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Systems</a>
+                    </div>
+                </div>
+
+                <!-- Tools dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Tools</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../hardware/index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../hardware/index.html">tt-smi</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Profiler</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Topology Explorer</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Visualizer</a>
+                    </div>
+                </div>
+                <a class="tt-topnav__link" href="../../index.html">Models</a>
+                <!-- Resource dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Resource</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../hardware/index.html">Architecture Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../hardware/index.html">Glossary</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Release Notes</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Roadmap</a>
+                        <a class="tt-topnav__dropdown-item" href="../../support/README.html">Support</a>
+                        <a class="tt-topnav__dropdown-item" href="../../resources/contributing.html">Contribution</a>
+                        <a class="tt-topnav__dropdown-item" href="https://github.com/tenstorrent/tenstorrent.github.io" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+                <!-- Support dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Support</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../hardware/index.html">FAQ</a>
+                        <a class="tt-topnav__dropdown-item" href="../../hardware/index.html">Troubleshooting</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Community</a>
+                        <a class="tt-topnav__dropdown-item" href="../../systems/index.html">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA -->
+            <div class="tt-topnav__cta">
+                <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+        <div class="tt-topnav__inner">
+
+            <!-- Version (styled capsule dropdown) -->
+            <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+                <button
+                        class="tt-topnav__version tt-topnav__version--dropdown"
+                        type="button"
+                        id="tt-version-toggle"
+                        aria-expanded="false"
+                ><span class="tt-topnav__version-text">
+                    1.0
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+                </button>
+                <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                    <!-- Version links will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Secondary links -->
+            <nav class="tt-topnav__subnav" aria-label="Section navigation">
+                <a class="tt-topnav__sublink" href="../index.html" style="margin-left: 230px">Overview</a>
+                <a class="tt-topnav__sublink" href="../getting-started.html">Getting Started</a>
+                <a class="tt-topnav__sublink" href="../forge-frontend-compiler/index.html">Frontends</a>
+                <a class="tt-topnav__sublink" href="../forge-frontend-compiler/tt-xla/index.html">TT-XLA</a>
+                <a class="tt-topnav__sublink" href="../forge-frontend-compiler/tt-forge-onnx/index.html">TT-Forge-ONNX</a>
+                <a class="tt-topnav__sublink" href="../forge-backend-compiler/index.html">Backend</a>
+                <a class="tt-topnav__sublink" href="index.html">Tools</a>
+            </nav>
+
+            <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+            <div class="tt-topnav__edit"><span class="tt-topnav__editspacer"></span></div>
+
+        </div>
+    </div>
+
+</header>
+
+<!-- ===== /Top Navbar ===== -->
+<div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search" >
+
+                
+                
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+            </div>
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+                 aria-label="Navigation menu">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../README.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../bounty_terms.html">TENSTORRENT BOUNTY PROGRAM TERMS AND CONDITIONS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../get_started/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../software/index.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../hardware/index.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../systems/index.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models/index.html">Models</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">TT-Forge</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../getting-started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forge-frontend-compiler/index.html">TT-Forge Frontend Compiler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../forge-backend-compiler/index.html">TT-Forge Backend Compiler</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="index.html">Tools</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">TT-NPE</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../resource/index.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../support/index.html">Support</a></li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="../../index.html">Home</a>
+        </nav>
+
+        <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">TT-Forge</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Tools</a></li>
+      <li class="breadcrumb-item active">TT-NPE</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div itemprop="articleBody">
+                            
+  <section id="tt-npe">
+<h1>TT-NPE<a class="headerlink" href="#tt-npe" title="Link to this heading"></a></h1>
+<p>Lightweight Network-on-Chip Performance Estimator.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p><strong>tt-npe</strong> is a lightweight Network-on-Chip (NoC) Performance Estimator developed by Tenstorrent to simulate and analyze NoC workloads on Tensix-based devices. It supports profiling, visualization, and integration with tt-metal, enabling developers to optimize NoC communication performance through trace-driven or synthetic simulations.</p>
+<p>tt-npe supports <code class="docutils literal notranslate"><span class="pre">wormhole_b0</span></code> and <code class="docutils literal notranslate"><span class="pre">blackhole</span></code> devices.</p>
+</section>
+<section id="quick-start">
+<h2>Quick Start<a class="headerlink" href="#quick-start" title="Link to this heading"></a></h2>
+<section id="install">
+<h3>Install<a class="headerlink" href="#install" title="Link to this heading"></a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>git@github.com:tenstorrent/tt-npe.git
+<span class="nb">cd</span><span class="w"> </span>tt-npe/
+./build-npe.sh
+</pre></div>
+</div>
+</section>
+<section id="update">
+<h3>Update<a class="headerlink" href="#update" title="Link to this heading"></a></h3>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>tt-npe/<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>git<span class="w"> </span>pull<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>./build-npe.sh
+</pre></div>
+</div>
+</section>
+<section id="setup">
+<h3>Setup<a class="headerlink" href="#setup" title="Link to this heading"></a></h3>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">ENV_SETUP</span></code> must be <code class="docutils literal notranslate"><span class="pre">source</span></code>’d <strong>after</strong> sourcing tt-metal Python virtualenv setup.</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>ENV_SETUP
+</pre></div>
+</div>
+</section>
+</section>
+<section id="what-is-tt-npe">
+<h2>What is tt-npe?<a class="headerlink" href="#what-is-tt-npe" title="Link to this heading"></a></h2>
+<p>tt-npe simulates the behavior of an abstract NoC “workload” running on a simulated Tenstorrent device. A workload corresponds closely to a trace of all calls to the dataflow_api (i.e. <code class="docutils literal notranslate"><span class="pre">noc_async_read</span></code>, <code class="docutils literal notranslate"><span class="pre">noc_async_write</span></code>, …).</p>
+<p>tt-npe can also act as a profiler/debugger for NoC traces, integrating with tt-metal profiler’s device NoC trace capture feature and the ttnn-visualizer’s NPE mode.</p>
+<p>tt-npe can work with:</p>
+<ul class="simple">
+<li><p>Predefined workloads defined in files such as:</p>
+<ul>
+<li><p>NoC trace JSON files extracted using tt-metal profiler’s noc event capture feature</p></li>
+<li><p>Workload files with a simplified format more amenable to generation by other tools</p></li>
+</ul>
+</li>
+<li><p>Programmatically constructed workloads using Python bindings</p></li>
+</ul>
+</section>
+<section id="tt-npe-profiler-mode">
+<h2>tt-npe Profiler Mode<a class="headerlink" href="#tt-npe-profiler-mode" title="Link to this heading"></a></h2>
+<section id="ttnn-noc-trace-integration">
+<h3>ttnn NoC Trace Integration<a class="headerlink" href="#ttnn-noc-trace-integration" title="Link to this heading"></a></h3>
+<p>tt-metal device profiler can collect detailed traces of all noc events for analysis by tt-npe. This will work out of the box for <em>regular ttnn models/ops</em>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Set <code class="docutils literal notranslate"><span class="pre">TT_METAL_PROFILER_PROGRAM_SUPPORT_COUNT=10000</span></code> when running NoC tracing. This provides enough room on device to store all the NoC event data in DRAM for a small op graph.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Minimize the number of ops profiled at once. The number of ops that can be sampled before running out of device DRAM for events is approximately 5–100 ops. Keep <code class="docutils literal notranslate"><span class="pre">iterations=1</span></code> if you can, or profile different subgraphs separately.</p>
+</div>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">TT_METAL_PROFILER_PROGRAM_SUPPORT_COUNT</span><span class="o">=</span><span class="m">10000</span><span class="w"> </span>tt_metal/tools/profiler/profile_this.py<span class="w"> </span>--collect-noc-traces<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;pytest command/to/trace.py&#39;</span><span class="w"> </span>-o<span class="w"> </span>output_dir
+</pre></div>
+</div>
+<p>Tracing will produce multiple outputs, all in the specified output directory:</p>
+<ul class="simple">
+<li><p>Ops perf report CSV in <code class="docutils literal notranslate"><span class="pre">output_dir/reports/&lt;timestamp&gt;/</span></code>, with NoC, DRAM, and Ethernet Utilization columns.</p></li>
+<li><p>Raw noc traces in <code class="docutils literal notranslate"><span class="pre">output_dir/.logs/</span></code>.</p></li>
+<li><p>ttnn-visualizer timeline files located in <code class="docutils literal notranslate"><span class="pre">output_dir/reports/&lt;timestamp&gt;/npe_viz/</span></code>.</p></li>
+</ul>
+</section>
+<section id="manually-generating-ttnn-visualizer-timelines-from-noc-files">
+<h3>Manually Generating ttnn-visualizer Timelines from NoC Files<a class="headerlink" href="#manually-generating-ttnn-visualizer-timelines-from-noc-files" title="Link to this heading"></a></h3>
+<p>Running <code class="docutils literal notranslate"><span class="pre">profile_this.py</span></code> or <code class="docutils literal notranslate"><span class="pre">tracy.py</span></code> with noc tracing enabled should produce a <code class="docutils literal notranslate"><span class="pre">npe_viz/</span></code> folder within the output directory automatically. If not, the visualizer timeline files can be manually generated as follows:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>npe_analyze_noc_trace_dir.py<span class="w"> </span>my_output_directory/.logs/<span class="w"> </span>-e
+</pre></div>
+</div>
+<p>Note these simulation timeline files are also JSON format internally, but are a different format than the noc trace JSON extracted by the metal profiler.</p>
+</section>
+<section id="visualizing-npe-timelines">
+<h3>Visualizing NPE Timelines<a class="headerlink" href="#visualizing-npe-timelines" title="Link to this heading"></a></h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>The visualizer is available as a web-app with no installation required:</strong>
+<a class="reference external" href="https://ttnn-visualizer.tenstorrent.com/npe">https://ttnn-visualizer.tenstorrent.com/npe</a></p>
+</div>
+<p>To use the ttnn-visualizer with npe, simply open it and click on the <strong>NPE</strong> button on the top bar. Then load a timeline file generated earlier to begin visualizing!</p>
+<p>The ttnn visualizer can also be installed and used locally; see <a class="reference external" href="https://github.com/tenstorrent/ttnn-visualizer/">ttnn-visualizer</a> for more details on installation and use.</p>
+</section>
+</section>
+<section id="advanced">
+<h2>Advanced<a class="headerlink" href="#advanced" title="Link to this heading"></a></h2>
+<section id="noc-tracing-raw-tt-metal-executables">
+<h3>NoC Tracing Raw tt-metal Executables<a class="headerlink" href="#noc-tracing-raw-tt-metal-executables" title="Link to this heading"></a></h3>
+<p>It is possible to trigger noc trace profiling for raw metal executables (no TTNN) without using any wrappers. This is usually not recommended, as TTNN provides useful features (Op IDs), but can be useful for microbenchmarking analysis.</p>
+<p>First compile tt-metal with <code class="docutils literal notranslate"><span class="pre">./build_metal.sh</span> <span class="pre">--enable-profiler</span> <span class="pre">...</span></code>. tt-metal executables must call <code class="docutils literal notranslate"><span class="pre">tt::tt_metal::DumpDeviceProfileResults(device,</span> <span class="pre">program)</span></code>.</p>
+<p>Then run your tt-metal executable with the following env variables set:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nv">TT_METAL_PROFILER_PROGRAM_SUPPORT_COUNT</span><span class="o">=</span><span class="m">10000</span><span class="w"> </span><span class="nv">TT_METAL_DEVICE_PROFILER_NOC_EVENTS</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">TT_METAL_DEVICE_PROFILER</span><span class="o">=</span><span class="m">1</span><span class="w"> </span>./path/to/tt-metal/executable
+</pre></div>
+</div>
+<p>The raw noc traces are dumped to <code class="docutils literal notranslate"><span class="pre">path/to/tt-metal/generated/profiler/.logs/</span></code>, and can be further analyzed without additional profiler runs.</p>
+</section>
+</section>
+<section id="api-and-developer-guide">
+<h2>API and Developer Guide<a class="headerlink" href="#api-and-developer-guide" title="Link to this heading"></a></h2>
+<section id="install-directory-structure">
+<h3>Install Directory Structure<a class="headerlink" href="#install-directory-structure" title="Link to this heading"></a></h3>
+<p>Everything is installed to <code class="docutils literal notranslate"><span class="pre">tt-npe/install/</span></code>, including:</p>
+<ul class="simple">
+<li><p>Shared library (<code class="docutils literal notranslate"><span class="pre">install/lib/libtt_npe.so</span></code>)</p></li>
+<li><p>Headers C++ API (<code class="docutils literal notranslate"><span class="pre">install/include/</span></code>)</p></li>
+<li><p>Python CLI using pybind11 (<code class="docutils literal notranslate"><span class="pre">install/bin/tt_npe.py</span></code>)</p></li>
+<li><p>C++ CLI (<code class="docutils literal notranslate"><span class="pre">install/bin/tt_npe_run</span></code>)</p></li>
+</ul>
+</section>
+<section id="unit-tests">
+<h3>Unit Tests<a class="headerlink" href="#unit-tests" title="Link to this heading"></a></h3>
+<p>tt-npe has two unit test suites; one for C++ code and one for Python.</p>
+<p><strong>Run All Tests:</strong></p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tt_npe/scripts/run_ut.sh<span class="w">  </span><span class="c1"># can be run from any pwd</span>
+</pre></div>
+</div>
+</section>
+<section id="simulating-predefined-workloads-using-tt-npe-py">
+<h3>Simulating Predefined Workloads Using tt_npe.py<a class="headerlink" href="#simulating-predefined-workloads-using-tt-npe-py" title="Link to this heading"></a></h3>
+<section id="environment-setup">
+<h4>Environment Setup<a class="headerlink" href="#environment-setup" title="Link to this heading"></a></h4>
+<p>Run the following to add tt-npe install dir to your <code class="docutils literal notranslate"><span class="pre">$PATH</span></code>:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span><span class="w"> </span>tt-npe/
+<span class="nb">source</span><span class="w"> </span>ENV_SETUP<span class="w">  </span><span class="c1"># add &lt;tt_npe_root&gt;/install/bin/ to $PATH</span>
+</pre></div>
+</div>
+<p>Now run the following:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>tt_npe.py<span class="w"> </span>-w<span class="w"> </span>tt_npe/workload/example_wl.json
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ul class="simple">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">-w</span></code> argument is <em>required</em>, and specifies the JSON workload file to load.</p></li>
+<li><p>For a multichip workload, the individual device traces have to be merged and pre-processed using the <code class="docutils literal notranslate"><span class="pre">fabric_post_process.py</span></code> script.</p></li>
+</ul>
+</div>
+</section>
+<section id="other-important-options">
+<h4>Other Important Options<a class="headerlink" href="#other-important-options" title="Link to this heading"></a></h4>
+<p>Bandwidth derating caused by congestion between concurrent transfers is modelled <strong>by default</strong>. Congestion modelling can be <em>disabled</em> using <code class="docutils literal notranslate"><span class="pre">--cong-model</span> <span class="pre">none</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">-e</span></code> option dumps detailed information about simulation timeline (e.g. congestion and transfer state for each timestep) into a JSON file located at <code class="docutils literal notranslate"><span class="pre">npe_timeline.json</span></code> (by default). This timeline file can be used with TT-NN Visualizer to visualize the congestion and transfer states.</p>
+<p>See <code class="docutils literal notranslate"><span class="pre">tt_npe.py</span> <span class="pre">--help</span></code> for more information about available options.</p>
+</section>
+</section>
+<section id="constructing-workloads-programmatically">
+<h3>Constructing Workloads Programmatically<a class="headerlink" href="#constructing-workloads-programmatically" title="Link to this heading"></a></h3>
+<p>tt-npe workloads are comprised as collections of <code class="docutils literal notranslate"><span class="pre">Transfers</span></code>. Each <code class="docutils literal notranslate"><span class="pre">Transfer</span></code> represents a <em>series of back-to-back packets from one source to one or more destinations</em>. This is roughly equivalent to a single call to the dataflow APIs <code class="docutils literal notranslate"><span class="pre">noc_async_read</span></code> and <code class="docutils literal notranslate"><span class="pre">noc_async_write</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Transfers</span></code> are grouped <em>hierarchically</em>. Each workload is a collection of <code class="docutils literal notranslate"><span class="pre">Phases</span></code>, and each <code class="docutils literal notranslate"><span class="pre">Phase</span></code> is a group of <code class="docutils literal notranslate"><span class="pre">Transfers</span></code>.</p>
+<p>For most modelling scenarios, putting all <code class="docutils literal notranslate"><span class="pre">Transfers</span></code> in a single monolithic <code class="docutils literal notranslate"><span class="pre">Phase</span></code> is the correct approach. The purpose of multiple <code class="docutils literal notranslate"><span class="pre">Phases</span></code> is to express data dependencies and synchronization common in real workloads. However full support for this is not yet complete.</p>
+<p><strong>Example — Constructing a Random Workload using Python API:</strong></p>
+<p>See the example script <code class="docutils literal notranslate"><span class="pre">install/bin/programmatic_workload_generation.py</span></code> for an annotated example of generating and simulating a tt-npe NoC workload via Python bindings.</p>
+</section>
+<section id="python-api-documentation">
+<h3>Python API Documentation<a class="headerlink" href="#python-api-documentation" title="Link to this heading"></a></h3>
+<p>Open <code class="docutils literal notranslate"><span class="pre">tt_npe/doc/tt_npe_pybind.html</span></code> to see full documentation of the tt-npe Python API.</p>
+</section>
+<section id="c-api">
+<h3>C++ API<a class="headerlink" href="#c-api" title="Link to this heading"></a></h3>
+<p>The C++ API requires:</p>
+<ol class="arabic simple">
+<li><p>Including the header <code class="docutils literal notranslate"><span class="pre">install/include/npeAPI.hpp</span></code></p></li>
+<li><p>Linking to the shared lib <code class="docutils literal notranslate"><span class="pre">libtt_npe.so</span></code></p></li>
+</ol>
+<p><strong>Reference Example — C++ CLI (tt_npe_run):</strong></p>
+<p>See the example C++ based CLI source code within <code class="docutils literal notranslate"><span class="pre">tt-npe/tt_npe/cli/</span></code>. This links <code class="docutils literal notranslate"><span class="pre">libtt_npe.so</span></code> as a shared library, and serves as a reference for interacting with the API.</p>
+</section>
+</section>
+<section id="modelling-limitations">
+<h2>Modelling Limitations<a class="headerlink" href="#modelling-limitations" title="Link to this heading"></a></h2>
+<p>tt-npe <strong>does not</strong> currently model the following (features with * are being prioritized):</p>
+<ul class="simple">
+<li><p>*Blackhole device support</p></li>
+<li><p>User defined data dependencies</p></li>
+<li><p>Ethernet</p></li>
+<li><p>Multichip traffic</p></li>
+</ul>
+</section>
+<section id="related-tenstorrent-projects">
+<h2>Related Tenstorrent Projects<a class="headerlink" href="#related-tenstorrent-projects" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-forge-fe">tt-forge-fe</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-xla">tt-xla</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-torch">tt-torch</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-mlir">tt-mlir</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-metal">tt-metalium</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-tvm">tt-tvm</a></p></li>
+</ul>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-npe">tt-npe GitHub Repository</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/ttnn-visualizer/">ttnn-visualizer</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tenstorrent/tt-npe/blob/main/tt_npe/doc/noc_trace_format.md">NoC Trace Format</a></p></li>
+</ul>
+</section>
+</section>
+
+
+                        </div>
+                    </div>
+                    <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Tools" accesskey="p" rel="prev">
+          <span class="tt-pagination-topic">Tools</span>
+          <span class="tt-pagination-label">Previous</span>
+        </a>
+        <a href="../../resource/index.html" class="btn btn-neutral float-right" title="Resource" accesskey="n" rel="next">
+          <span class="tt-pagination-topic">Resource</span>
+          <span class="tt-pagination-label">Next</span>
+        </a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Mar 24, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+
+                </div>
+            </div>
+    </section>
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable({
+        {
+            'true'
+            if theme_sticky_navigation | tobool else
+            'false'
+        }
+    })
+        ;
+    });
+</script> 
+
+</body>
+</html>

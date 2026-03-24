@@ -1,0 +1,165 @@
+Visualization
+=============
+
+Tools for visualizing TT-MLIR IR and execution.
+
+Overview
+--------
+
+Visualization tools help understand IR structure and execution behavior.
+
+IR Visualization
+----------------
+
+View Control Flow Graph
+~~~~~~~~~~~~~~~~~~~~~~~
+
+Generate CFG visualization:
+
+.. code-block:: bash
+
+   ttmlir-opt --view-cfg input.mlir
+
+This creates a ``.dot`` file that can be converted to an image:
+
+.. code-block:: bash
+
+   dot -Tpng cfg.dot -o cfg.png
+
+View Operation Graph
+~~~~~~~~~~~~~~~~~~~~
+
+Visualize operation dependencies:
+
+.. code-block:: bash
+
+   ttmlir-opt --view-op-graph input.mlir
+   dot -Tsvg op_graph.dot -o op_graph.svg
+
+Execution Visualization
+-----------------------
+
+Timeline View
+~~~~~~~~~~~~~
+
+Visualize execution timeline:
+
+.. code-block:: bash
+
+   # Enable profiling
+   export TT_METAL_PROFILE=1
+   ttrt execute model.ttnn
+
+   # Generate timeline
+   python -m tt_metal.tools.profiler.visualize \
+     --input profile.json \
+     --output timeline.html
+
+Open ``timeline.html`` in a browser to see:
+
+* Operation execution times
+* Memory transfers
+* Core utilization
+* NOC traffic
+
+Memory Usage
+~~~~~~~~~~~~
+
+Visualize memory allocation:
+
+.. code-block:: bash
+
+   export TT_METAL_PROFILE_MEMORY=1
+   ttrt execute model.ttnn
+
+   python -m tt_metal.tools.profiler.memory_view \
+     --input memory_profile.json \
+     --output memory.html
+
+Op-Level Profiling
+~~~~~~~~~~~~~~~~~~
+
+View operation-level performance:
+
+.. code-block:: bash
+
+   export TT_METAL_PROFILE_OP=1
+   ttrt execute model.ttnn
+
+   python -m tt_metal.tools.profiler.op_view \
+     --input op_profile.json
+
+Output shows:
+
+* Op name
+* Execution time
+* Memory usage
+* Percentage of total time
+
+Third-Party Tools
+-----------------
+
+Netron
+~~~~~~
+
+View model graphs with Netron:
+
+.. code-block:: bash
+
+   pip install netron
+   netron model.ttnn
+
+Graphviz
+~~~~~~~~
+
+For custom graph rendering:
+
+.. code-block:: python
+
+   import graphviz
+
+   dot = graphviz.Digraph()
+   dot.node('A', 'Input')
+   dot.node('B', 'MatMul')
+   dot.node('C', 'ReLU')
+   dot.edges(['AB', 'BC'])
+   dot.render('model_graph', format='png')
+
+Custom Visualization
+--------------------
+
+Python Script
+~~~~~~~~~~~~~
+
+Create custom visualizations:
+
+.. code-block:: python
+
+   import mlir
+   import matplotlib.pyplot as plt
+
+   # Parse MLIR
+   module = mlir.parse_file("input.mlir")
+
+   # Extract op counts
+   op_counts = {}
+   for op in module.walk():
+       op_type = op.operation.name
+       op_counts[op_type] = op_counts.get(op_type, 0) + 1
+
+   # Plot
+   plt.bar(op_counts.keys(), op_counts.values())
+   plt.xlabel('Operation Type')
+   plt.ylabel('Count')
+   plt.title('Operation Distribution')
+   plt.xticks(rotation=45, ha='right')
+   plt.tight_layout()
+   plt.savefig('op_distribution.png')
+
+See Also
+--------
+
+* :doc:`ttmlir-opt` - Compilation tool
+* :doc:`ttrt` - Runtime tool
+* :doc:`../guides/debugging` - Debugging guide
+

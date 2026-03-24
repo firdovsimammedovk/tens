@@ -1,0 +1,63 @@
+Overview
+========
+
+.. note::
+
+   TT-Torch is deprecated. To work with PyTorch and the various features available in TT-Torch, please see the documentation for `TT-XLA <../tt-xla/index.html>`_.
+
+TT-Torch is a ``torch.compile`` backend that lowers PyTorch models to run on Tenstorrent hardware.
+
+How TT-Torch Works
+------------------
+
+When a model is compiled using ``torch.compile(model, backend="tt-legacy")``, TT-Torch performs the following steps:
+
+1. Receives the model as a PyTorch FX graph
+2. Applies PyTorch decompositions to the FX graph
+3. Converts to torch-mlir → torch-backend-mlir → StableHLO through torch-mlir
+4. Converts to TTIR → TTNN → flatbuffer through TT-MLIR
+5. Creates an executor with the flatbuffer and passes it back to the user
+6. Copies inputs to device and executes the flatbuffer through TT-MLIR on each user invocation
+
+Op-by-Op Compilation
+--------------------
+
+To speed up model bring-up, users have the option of compiling models op-by-op. This allows
+in-parallel testing of the model since compilation does not stop at the first error.
+
+If enabled (see `Testing <testing.html>`_), after step 2, compilation stops and the FX graph is
+passed to the executor which is returned to the user. Upon execution, whenever a new, unique op
+is seen (based on op-type and shape on inputs), a new FX graph is created with just one operation,
+inputs, and outputs. This small graph then proceeds through steps 3–4 and is executed in place.
+
+Results of each unique op execution are stored in a JSON file to be later parsed into either
+a spreadsheet, or uploaded to a database.
+
+Op-by-op execution is currently performed on the PyTorch FX graph. Support for op-by-op on
+the StableHLO graph will be added soon to allow op-by-op bring-up of ONNX models.
+
+How TT-Torch Fits into TT-Forge
+--------------------------------
+
+TT-Torch is one of the TT-Forge frontend compilers. Its role is to bridge PyTorch-based
+model execution and compiler lowering:
+
+* A model is traced or compiled via ``torch.compile``
+* TT-Torch captures the FX graph and lowers it to StableHLO
+* TT-Forge applies graph and backend lowering
+* TT-MLIR and runtime components generate executable code for Tenstorrent hardware
+
+Supported Devices
+-----------------
+
+TT-Torch supports Tenstorrent Wormhole and Blackhole devices.
+
+Related Tenstorrent Projects
+-----------------------------
+
+- `tt-xla <https://github.com/tenstorrent/tt-xla>`_
+- `tt-forge <https://github.com/tenstorrent/tt-forge>`_
+- `tt-mlir <https://github.com/tenstorrent/tt-mlir>`_
+- `tt-metalium <https://github.com/tenstorrent/tt-metal>`_
+- `tt-tvm <https://github.com/tenstorrent/tt-tvm>`_
+

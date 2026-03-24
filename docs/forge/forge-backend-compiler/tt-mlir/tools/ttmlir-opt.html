@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+    <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ttmlir-opt &mdash; Home 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/tt_theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/home.css" type="text/css"/>
+    <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
+    <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=fd3dd8dd"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../../../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <script src="../../../../_static/tt_signature_copy.js"></script>
+    <script src="../../../../_static/tt_dropdown.js"></script>
+    <script src="../../../../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html"/>
+    <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="next" title="ttrt" href="ttrt.html"/>
+    <link rel="prev" title="Tools" href="index.html"/> 
+</head>
+
+<body class="wy-body-for-nav"> 
+<!-- ===== Top Navbar (NEW) ===== -->
+
+
+<header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+        <div class="tt-topnav__inner">
+
+            <!-- Logo -->
+            <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../../../_static/tt_logo.svg" alt="Home"/></a>
+
+            <!-- Primary links (hardcoded like the mock) -->
+            <nav class="tt-topnav__links" aria-label="Primary navigation">
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Get Started</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Software Stack</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/README.html">Installation</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/model-demos.html">Run Your First Model</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/quickstart.html">Quickstart</a>
+                    </div>
+                </div>
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Guides</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Running Models</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Performance
+                            Optimizations</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Multi-Device Setup</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Debugging Workflows</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Developing Custom
+                            Ops</a>
+                    </div>
+                </div>
+
+                <!-- Software dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../software/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../index.html">TT-Forge</a>
+                        <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+                    </div>
+                </div>
+
+                <!-- Hardware dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/tensix-architecture.html">Tensix Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/memory-architecture.html">Memory Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Network on Chip</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Chips</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Systems</a>
+                    </div>
+                </div>
+
+                <!-- Tools dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Tools</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">tt-smi</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Profiler</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Topology Explorer</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Visualizer</a>
+                    </div>
+                </div>
+                <a class="tt-topnav__link" href="../../../../index.html">Models</a>
+                <!-- Resource dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Resource</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Architecture Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Glossary</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Release Notes</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Roadmap</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../support/README.html">Support</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../resources/contributing.html">Contribution</a>
+                        <a class="tt-topnav__dropdown-item" href="https://github.com/tenstorrent/tenstorrent.github.io" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+                <!-- Support dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Support</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">FAQ</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Troubleshooting</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Community</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA -->
+            <div class="tt-topnav__cta">
+                <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+        <div class="tt-topnav__inner">
+
+            <!-- Version (styled capsule dropdown) -->
+            <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+                <button
+                        class="tt-topnav__version tt-topnav__version--dropdown"
+                        type="button"
+                        id="tt-version-toggle"
+                        aria-expanded="false"
+                ><span class="tt-topnav__version-text">
+                    1.0
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+                </button>
+                <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                    <!-- Version links will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Secondary links -->
+            <nav class="tt-topnav__subnav" aria-label="Section navigation">
+                <a class="tt-topnav__sublink" href="../../../index.html" style="margin-left: 230px">Overview</a>
+                <a class="tt-topnav__sublink" href="../../../getting-started.html">Getting Started</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/index.html">Frontends</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/tt-xla/index.html">TT-XLA</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/tt-forge-onnx/index.html">TT-Forge-ONNX</a>
+                <a class="tt-topnav__sublink" href="../../index.html">Backend</a>
+                <a class="tt-topnav__sublink" href="../../../tools/index.html">Tools</a>
+            </nav>
+
+            <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+            <div class="tt-topnav__edit"><span class="tt-topnav__editspacer"></span></div>
+
+        </div>
+    </div>
+
+</header>
+
+<!-- ===== /Top Navbar ===== -->
+<div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search" >
+
+                
+                
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+            </div>
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+                 aria-label="Navigation menu">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bounty_terms.html">TENSTORRENT BOUNTY PROGRAM TERMS AND CONDITIONS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../get_started/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../software/index.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../hardware/index.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../systems/index.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../models/index.html">Models</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">TT-Forge</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forge-frontend-compiler/index.html">TT-Forge Frontend Compiler</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">TT-Forge Backend Compiler</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">TT-MLIR</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../getting-started/installation.html">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting-started/build-from-source.html">Build from Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture/dialects.html">Dialects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture/compilation-pipeline.html">Compilation Pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture/ir-structure.html">IR Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../operations/index.html">Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../operations/ttir-ops.html">TTIR Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../operations/ttmetal-ops.html">TTMetal Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/writing-passes.html">Writing Passes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/custom-ops.html">Custom Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/optimization.html">Optimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/debugging.html">Debugging</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Tools</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ttmlir-opt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttrt.html">ttrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/index.html">API Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tools/index.html">Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../resource/index.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support/index.html">Support</a></li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="../../../../index.html">Home</a>
+        </nav>
+
+        <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">TT-Forge</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">TT-Forge Backend Compiler</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">TT-MLIR</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Tools</a></li>
+      <li class="breadcrumb-item active">ttmlir-opt</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div itemprop="articleBody">
+                            
+  <section id="ttmlir-opt">
+<h1>ttmlir-opt<a class="headerlink" href="#ttmlir-opt" title="Link to this heading"></a></h1>
+<p>The TT-MLIR optimizer and transformation tool.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ttmlir-opt</span></code> is the primary tool for transforming and optimizing MLIR programs in TT-MLIR.
+It applies passes to transform IR from high-level representations to hardware-executable code.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span><span class="o">[</span>options<span class="o">]</span><span class="w"> </span>input.mlir
+</pre></div>
+</div>
+</section>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Link to this heading"></a></h2>
+<section id="input-output">
+<h3>Input/Output<a class="headerlink" href="#input-output" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>-o<span class="w"> </span>&lt;filename&gt;<span class="w">              </span><span class="c1"># Output file (default: stdout)</span>
+--emit-bytecode<span class="w">            </span><span class="c1"># Output MLIR bytecode instead of text</span>
+input.mlir<span class="w">                 </span><span class="c1"># Input MLIR file</span>
+</pre></div>
+</div>
+</section>
+<section id="pass-pipeline-options">
+<h3>Pass Pipeline Options<a class="headerlink" href="#pass-pipeline-options" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--ttir-to-ttnn-backend-pipeline<span class="w">    </span><span class="c1"># Run complete TTIR→TTNN pipeline</span>
+--ttir-constant-fold<span class="w">               </span><span class="c1"># Fold constant expressions</span>
+--ttir-op-fusion<span class="w">                   </span><span class="c1"># Fuse operations</span>
+--ttnn-layout-opt<span class="w">                  </span><span class="c1"># Optimize tensor layouts</span>
+--ttnn-memory-planning<span class="w">             </span><span class="c1"># Plan memory allocation</span>
+--ttnn-to-flatbuffer<span class="w">               </span><span class="c1"># Generate flatbuffer output</span>
+</pre></div>
+</div>
+</section>
+<section id="custom-pipeline">
+<h3>Custom Pipeline<a class="headerlink" href="#custom-pipeline" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--pass-pipeline<span class="o">=</span><span class="s1">&#39;builtin.module(</span>
+<span class="s1">  ttir-constant-fold,</span>
+<span class="s1">  ttir-to-ttnn,</span>
+<span class="s1">  ttnn-layout-opt</span>
+<span class="s1">)&#39;</span>
+</pre></div>
+</div>
+</section>
+<section id="system-configuration">
+<h3>System Configuration<a class="headerlink" href="#system-configuration" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--ttir-load-system-desc<span class="o">=</span><span class="s2">&quot;path=/path/to/system_desc.ttsys&quot;</span>
+--target-arch<span class="o">=</span>wormhole_b0<span class="w">          </span><span class="c1"># Target architecture</span>
+--num-chips<span class="o">=</span><span class="m">1</span><span class="w">                      </span><span class="c1"># Number of chips</span>
+</pre></div>
+</div>
+</section>
+<section id="debug-options">
+<h3>Debug Options<a class="headerlink" href="#debug-options" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--debug<span class="w">                            </span><span class="c1"># Enable debug output</span>
+--mlir-print-ir-after-all<span class="w">         </span><span class="c1"># Print IR after each pass</span>
+--mlir-print-ir-before-all<span class="w">        </span><span class="c1"># Print IR before each pass</span>
+--mlir-print-ir-after<span class="o">=</span>&lt;pass&gt;<span class="w">      </span><span class="c1"># Print IR after specific pass</span>
+--mlir-print-debuginfo<span class="w">            </span><span class="c1"># Include debug info in output</span>
+--verify-each<span class="o">=</span><span class="nb">true</span><span class="w">                </span><span class="c1"># Verify IR after each pass</span>
+--debug-only<span class="o">=</span>&lt;tag&gt;<span class="w">                </span><span class="c1"># Debug specific component</span>
+</pre></div>
+</div>
+</section>
+<section id="other-options">
+<h3>Other Options<a class="headerlink" href="#other-options" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>--mlir-print-op-generic<span class="o">=</span><span class="nb">false</span><span class="w">     </span><span class="c1"># Use custom assembly format</span>
+--mlir-timing<span class="w">                     </span><span class="c1"># Report pass execution times</span>
+--mlir-timing-display<span class="o">=</span>tree<span class="w">        </span><span class="c1"># Display timing as tree</span>
+--allow-unregistered-dialects<span class="w">     </span><span class="c1"># Allow unknown dialects</span>
+--split-input-file<span class="w">                </span><span class="c1"># Split input on &#39;// -----&#39; markers</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="common-workflows">
+<h2>Common Workflows<a class="headerlink" href="#common-workflows" title="Link to this heading"></a></h2>
+<section id="complete-compilation">
+<h3>Complete Compilation<a class="headerlink" href="#complete-compilation" title="Link to this heading"></a></h3>
+<p>Compile TTIR to executable:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--ttir-load-system-desc<span class="o">=</span><span class="s2">&quot;path=/path/to/system_desc.ttsys&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--ttir-to-ttnn-backend-pipeline<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--ttnn-to-flatbuffer<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>input.mlir<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span>output.ttnn
+</pre></div>
+</div>
+</section>
+<section id="step-by-step-compilation">
+<h3>Step-by-Step Compilation<a class="headerlink" href="#step-by-step-compilation" title="Link to this heading"></a></h3>
+<p>Run pipeline stages separately:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Stage 1: TTIR optimizations</span>
+ttmlir-opt<span class="w"> </span>--ttir-constant-fold<span class="w"> </span>--ttir-op-fusion<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>input.mlir<span class="w"> </span>-o<span class="w"> </span>ttir_opt.mlir
+
+<span class="c1"># Stage 2: Lower to TTNN</span>
+ttmlir-opt<span class="w"> </span>--ttir-to-ttnn<span class="w"> </span>ttir_opt.mlir<span class="w"> </span>-o<span class="w"> </span>ttnn.mlir
+
+<span class="c1"># Stage 3: TTNN optimizations</span>
+ttmlir-opt<span class="w"> </span>--ttnn-layout-opt<span class="w"> </span>--ttnn-memory-planning<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>ttnn.mlir<span class="w"> </span>-o<span class="w"> </span>ttnn_opt.mlir
+
+<span class="c1"># Stage 4: Generate binary</span>
+ttmlir-opt<span class="w"> </span>--ttnn-to-flatbuffer<span class="w"> </span>ttnn_opt.mlir<span class="w"> </span>-o<span class="w"> </span>output.ttnn
+</pre></div>
+</div>
+</section>
+<section id="debugging-compilation">
+<h3>Debugging Compilation<a class="headerlink" href="#debugging-compilation" title="Link to this heading"></a></h3>
+<p>Debug pass execution:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--mlir-print-ir-after-all<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--mlir-timing<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--ttir-to-ttnn-backend-pipeline<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>input.mlir<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>debug.log
+</pre></div>
+</div>
+<p>View specific pass:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--mlir-print-ir-after<span class="o">=</span>ttir-constant-fold<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--ttir-constant-fold<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>input.mlir
+</pre></div>
+</div>
+</section>
+<section id="testing-transformations">
+<h3>Testing Transformations<a class="headerlink" href="#testing-transformations" title="Link to this heading"></a></h3>
+<p>Use with FileCheck for testing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span>--ttir-constant-fold<span class="w"> </span>input.mlir<span class="w"> </span><span class="p">|</span><span class="w"> </span>FileCheck<span class="w"> </span>input.mlir
+</pre></div>
+</div>
+<p>Example input.mlir with checks:</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>// RUN: ttmlir-opt --ttir-constant-fold %s | FileCheck %s
+
+func.func @test() -&gt; tensor&lt;2xf32&gt; {
+  %c1 = arith.constant dense&lt;[1.0, 2.0]&gt; : tensor&lt;2xf32&gt;
+  %c2 = arith.constant dense&lt;[3.0, 4.0]&gt; : tensor&lt;2xf32&gt;
+  // CHECK: arith.constant dense&lt;[4.0, 6.0]&gt;
+  %0 = &quot;ttir.add&quot;(%c1, %c2, %out)
+    : (tensor&lt;2xf32&gt;, tensor&lt;2xf32&gt;, tensor&lt;2xf32&gt;) -&gt; tensor&lt;2xf32&gt;
+  return %0 : tensor&lt;2xf32&gt;
+}
+</pre></div>
+</div>
+</section>
+</section>
+<section id="pass-list">
+<h2>Pass List<a class="headerlink" href="#pass-list" title="Link to this heading"></a></h2>
+<section id="ttir-passes">
+<h3>TTIR Passes<a class="headerlink" href="#ttir-passes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttir-constant-fold</span></code> - Fold constant operations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttir-op-fusion</span></code> - Fuse compatible operations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttir-dce</span></code> - Dead code elimination</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttir-canonicalize</span></code> - Canonicalize operations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttir-to-ttnn</span></code> - Lower TTIR to TTNN dialect</p></li>
+</ul>
+</section>
+<section id="ttnn-passes">
+<h3>TTNN Passes<a class="headerlink" href="#ttnn-passes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttnn-layout-opt</span></code> - Optimize tensor layouts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttnn-memory-planning</span></code> - Plan memory allocation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttnn-sharding</span></code> - Configure sharding strategies</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttnn-optimize</span></code> - Apply TTNN optimizations</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttnn-to-metal</span></code> - Lower TTNN to TTMetal</p></li>
+</ul>
+</section>
+<section id="ttmetal-passes">
+<h3>TTMetal Passes<a class="headerlink" href="#ttmetal-passes" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttmetal-kernel-fusion</span></code> - Fuse kernels</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttmetal-noc-opt</span></code> - Optimize NoC communication</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttmetal-schedule</span></code> - Schedule operations</p></li>
+</ul>
+</section>
+<section id="code-generation">
+<h3>Code Generation<a class="headerlink" href="#code-generation" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--ttnn-to-flatbuffer</span></code> - Generate flatbuffer binary</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--serialize</span></code> - Serialize to binary format</p></li>
+</ul>
+</section>
+</section>
+<section id="performance-tuning">
+<h2>Performance Tuning<a class="headerlink" href="#performance-tuning" title="Link to this heading"></a></h2>
+<section id="optimization-levels">
+<h3>Optimization Levels<a class="headerlink" href="#optimization-levels" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># No optimization (fast compile)</span>
+ttmlir-opt<span class="w"> </span>--ttir-to-ttnn-backend-pipeline<span class="o">=</span><span class="s1">&#39;O0&#39;</span><span class="w"> </span>input.mlir
+
+<span class="c1"># Standard optimization</span>
+ttmlir-opt<span class="w"> </span>--ttir-to-ttnn-backend-pipeline<span class="o">=</span><span class="s1">&#39;O2&#39;</span><span class="w"> </span>input.mlir
+
+<span class="c1"># Aggressive optimization (slow compile)</span>
+ttmlir-opt<span class="w"> </span>--ttir-to-ttnn-backend-pipeline<span class="o">=</span><span class="s1">&#39;O3&#39;</span><span class="w"> </span>input.mlir
+</pre></div>
+</div>
+</section>
+<section id="parallel-compilation">
+<h3>Parallel Compilation<a class="headerlink" href="#parallel-compilation" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable parallel pass execution</span>
+ttmlir-opt<span class="w"> </span>--mlir-pass-pipeline-parallel<span class="w"> </span>input.mlir
+</pre></div>
+</div>
+</section>
+<section id="memory-usage">
+<h3>Memory Usage<a class="headerlink" href="#memory-usage" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Limit memory usage</span>
+<span class="nb">ulimit</span><span class="w"> </span>-v<span class="w"> </span><span class="m">8388608</span><span class="w">  </span><span class="c1"># 8GB</span>
+ttmlir-opt<span class="w"> </span>input.mlir
+</pre></div>
+</div>
+</section>
+</section>
+<section id="advanced-features">
+<h2>Advanced Features<a class="headerlink" href="#advanced-features" title="Link to this heading"></a></h2>
+<section id="split-input-files">
+<h3>Split Input Files<a class="headerlink" href="#split-input-files" title="Link to this heading"></a></h3>
+<p>Process multiple test cases in one file:</p>
+<div class="highlight-mlir notranslate"><div class="highlight"><pre><span></span>// test1.mlir
+func.func @test1() { ... }
+
+// -----
+
+// test2.mlir
+func.func @test2() { ... }
+</pre></div>
+</div>
+<p>Run with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span>--split-input-file<span class="w"> </span>tests.mlir
+</pre></div>
+</div>
+</section>
+<section id="custom-pass-registration">
+<h3>Custom Pass Registration<a class="headerlink" href="#custom-pass-registration" title="Link to this heading"></a></h3>
+<p>Run with custom passes:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span>--load<span class="o">=</span>libMyCustomPass.so<span class="w"> </span>--my-custom-pass<span class="w"> </span>input.mlir
+</pre></div>
+</div>
+</section>
+</section>
+<section id="environment-variables">
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>MLIR_RUNNER_UTILS_LIB<span class="w">    </span><span class="c1"># Path to MLIR runner utilities</span>
+TT_METAL_HOME<span class="w">            </span><span class="c1"># TT-Metal installation path</span>
+MLIR_ENABLE_DUMP<span class="w">         </span><span class="c1"># Enable IR dumping</span>
+</pre></div>
+</div>
+</section>
+<section id="exit-codes">
+<h2>Exit Codes<a class="headerlink" href="#exit-codes" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> - Success</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> - General error</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> - IR verification failure</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> - Pass failure</p></li>
+</ul>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<section id="example-1-simple-optimization">
+<h3>Example 1: Simple Optimization<a class="headerlink" href="#example-1-simple-optimization" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Input: unoptimized TTIR</span>
+<span class="c1"># Output: optimized TTIR</span>
+ttmlir-opt<span class="w"> </span>--ttir-constant-fold<span class="w"> </span>--ttir-op-fusion<span class="w"> </span>input.mlir
+</pre></div>
+</div>
+</section>
+<section id="example-2-full-pipeline-with-debug">
+<h3>Example 2: Full Pipeline with Debug<a class="headerlink" href="#example-2-full-pipeline-with-debug" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--ttir-load-system-desc<span class="o">=</span><span class="s2">&quot;path=./system_desc.ttsys&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--ttir-to-ttnn-backend-pipeline<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--mlir-print-ir-after-all<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--mlir-timing<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--verify-each<span class="o">=</span><span class="nb">true</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>input.mlir<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>-o<span class="w"> </span>output.mlir<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="m">2</span>&gt;<span class="p">&amp;</span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>compilation.log
+</pre></div>
+</div>
+</section>
+<section id="example-3-custom-pipeline">
+<h3>Example 3: Custom Pipeline<a class="headerlink" href="#example-3-custom-pipeline" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--pass-pipeline<span class="o">=</span><span class="s1">&#39;</span>
+<span class="s1">    builtin.module(</span>
+<span class="s1">      ttir-constant-fold,</span>
+<span class="s1">      ttir-op-fusion{aggressive=true},</span>
+<span class="s1">      ttir-to-ttnn,</span>
+<span class="s1">      func.func(ttnn-layout-opt),</span>
+<span class="s1">      ttnn-memory-planning</span>
+<span class="s1">    )</span>
+<span class="s1">  &#39;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>input.mlir
+</pre></div>
+</div>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="error-unknown-pass">
+<h3>Error: Unknown Pass<a class="headerlink" href="#error-unknown-pass" title="Link to this heading"></a></h3>
+<p>Ensure the pass is registered:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span>--help<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>&lt;pass-name&gt;
+</pre></div>
+</div>
+</section>
+<section id="error-verification-failed">
+<h3>Error: Verification Failed<a class="headerlink" href="#error-verification-failed" title="Link to this heading"></a></h3>
+<p>Check IR validity:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttmlir-opt<span class="w"> </span>--verify-diagnostics<span class="w"> </span>input.mlir
+</pre></div>
+</div>
+</section>
+<section id="error-out-of-memory">
+<h3>Error: Out of Memory<a class="headerlink" href="#error-out-of-memory" title="Link to this heading"></a></h3>
+<p>Reduce optimization level or use –mlir-pass-pipeline-parallel</p>
+</section>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="ttrt.html"><span class="doc">ttrt</span></a> - Runtime execution tool</p></li>
+<li><p><a class="reference internal" href="../guides/writing-passes.html"><span class="doc">Writing Passes</span></a> - Writing custom passes</p></li>
+<li><p><a class="reference internal" href="../guides/debugging.html"><span class="doc">Debugging</span></a> - Debugging guide</p></li>
+</ul>
+</section>
+</section>
+
+
+                        </div>
+                    </div>
+                    <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Tools" accesskey="p" rel="prev">
+          <span class="tt-pagination-topic">Tools</span>
+          <span class="tt-pagination-label">Previous</span>
+        </a>
+        <a href="ttrt.html" class="btn btn-neutral float-right" title="ttrt" accesskey="n" rel="next">
+          <span class="tt-pagination-topic">ttrt</span>
+          <span class="tt-pagination-label">Next</span>
+        </a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Mar 24, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+
+                </div>
+            </div>
+    </section>
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable({
+        {
+            'true'
+            if theme_sticky_navigation | tobool else
+            'false'
+        }
+    })
+        ;
+    });
+</script> 
+
+</body>
+</html>

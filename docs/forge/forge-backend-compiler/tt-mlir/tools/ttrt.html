@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+    <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>ttrt &mdash; Home 1.0 documentation</title>
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/copybutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/togglebutton.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/tt_theme.css" type="text/css"/>
+    <link rel="stylesheet" href="../../../../_static/home.css" type="text/css"/>
+    <link rel="shortcut icon" href="../../../../_static/favicon.png"/>
+    <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+    <![endif]-->
+    
+    <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../../../_static/documentation_options.js?v=f2a433a1"></script>
+    <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../../_static/copybutton.js?v=fd3dd8dd"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../../../../_static/custom.js?v=0ccd5bc4"></script>
+    <script src="../../../../_static/posthog.js?v=a97abc7e"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <script src="../../../../_static/tt_signature_copy.js"></script>
+    <script src="../../../../_static/tt_dropdown.js"></script>
+    <script src="../../../../_static/tt_version_dropdown.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html"/>
+    <link rel="search" title="Search" href="../../../../search.html"/>
+    <link rel="next" title="Visualization" href="visualization.html"/>
+    <link rel="prev" title="ttmlir-opt" href="ttmlir-opt.html"/> 
+</head>
+
+<body class="wy-body-for-nav"> 
+<!-- ===== Top Navbar (NEW) ===== -->
+
+
+<header class="tt-topnav tt-topnav--fixed" role="banner">
+
+    <!-- ===== Layer 1 (white) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--primary">
+        <div class="tt-topnav__inner">
+
+            <!-- Logo -->
+            <a class="tt-topnav__logo" href="/tens" aria-label="Home"><img class="tt-topnav__logo-img" src="../../../../_static/tt_logo.svg" alt="Home"/></a>
+
+            <!-- Primary links (hardcoded like the mock) -->
+            <nav class="tt-topnav__links" aria-label="Primary navigation">
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Get Started</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Software Stack</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/README.html">Installation</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/model-demos.html">Run Your First Model</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../getting-started/quickstart.html">Quickstart</a>
+                    </div>
+                </div>
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Guides</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Running Models</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Performance
+                            Optimizations</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Multi-Device Setup</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Debugging Workflows</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Developing Custom
+                            Ops</a>
+                    </div>
+                </div>
+
+                <!-- Software dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Software</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../software/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../index.html">TT-Forge</a>
+                        <a class="tt-topnav__dropdown-item" href="https://firdovsimammedovk.github.io/tens/tt-metal/">TT-Metalium</a>
+                        <a class="tt-topnav__dropdown-item"
+                           href="https://firdovsimammedovk.github.io/tens/tt-metal/ttnn/about.html">TT-NN</a>
+                    </div>
+                </div>
+
+                <!-- Hardware dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Hardware</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/Overview.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/tensix-architecture.html">Tensix Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/memory-architecture.html">Memory Architecture</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Network on Chip</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Chips</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Systems</a>
+                    </div>
+                </div>
+
+                <!-- Tools dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Tools</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">tt-smi</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Profiler</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Topology Explorer</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Visualizer</a>
+                    </div>
+                </div>
+                <a class="tt-topnav__link" href="../../../../index.html">Models</a>
+                <!-- Resource dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Resource</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Architecture Overview</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Glossary</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Release Notes</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Roadmap</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../support/README.html">Support</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../resources/contributing.html">Contribution</a>
+                        <a class="tt-topnav__dropdown-item" href="https://github.com/tenstorrent/tenstorrent.github.io" rel="noopener">GitHub</a>
+                    </div>
+                </div>
+                <!-- Support dropdown -->
+                <div class="tt-topnav__dropdown tt-topnav__dropdown--primary">
+                    <a class="tt-topnav__link tt-topnav__link--dropdown" href="#">Support</a>
+                    <div class="tt-topnav__dropdown-menu tt-topnav__dropdown-menu--primary">
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">FAQ</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../hardware/index.html">Troubleshooting</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Community</a>
+                        <a class="tt-topnav__dropdown-item" href="../../../../systems/index.html">Contact</a>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- CTA -->
+            <div class="tt-topnav__cta">
+                <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ===== Layer 2 (red) ===== -->
+    <div class="tt-topnav__bar tt-topnav__bar--secondary">
+        <div class="tt-topnav__inner">
+
+            <!-- Version (styled capsule dropdown) -->
+            <div class="tt-topnav__dropdown tt-topnav__version-dropdown">
+                <button
+                        class="tt-topnav__version tt-topnav__version--dropdown"
+                        type="button"
+                        id="tt-version-toggle"
+                        aria-expanded="false"
+                ><span class="tt-topnav__version-text">
+                    1.0
+                  </span><span class="tt-topnav__chev" aria-hidden="true">▼</span>
+                </button>
+                <div class="tt-topnav__dropdown-menu tt-topnav__version-menu" id="tt-version-menu">
+                    <!-- Version links will be populated here by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Secondary links -->
+            <nav class="tt-topnav__subnav" aria-label="Section navigation">
+                <a class="tt-topnav__sublink" href="../../../index.html" style="margin-left: 230px">Overview</a>
+                <a class="tt-topnav__sublink" href="../../../getting-started.html">Getting Started</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/index.html">Frontends</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/tt-xla/index.html">TT-XLA</a>
+                <a class="tt-topnav__sublink" href="../../../forge-frontend-compiler/tt-forge-onnx/index.html">TT-Forge-ONNX</a>
+                <a class="tt-topnav__sublink" href="../../index.html">Backend</a>
+                <a class="tt-topnav__sublink" href="../../../tools/index.html">Tools</a>
+            </nav>
+
+            <!-- Edit on GitHub (uses "Edit on GitHub" URL if present, else hides) -->
+            <div class="tt-topnav__edit"><span class="tt-topnav__editspacer"></span></div>
+
+        </div>
+    </div>
+
+</header>
+
+<!-- ===== /Top Navbar ===== -->
+<div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+        <div class="wy-side-scroll">
+            <div class="wy-side-nav-search" >
+
+                
+                
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+            </div>
+            <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
+                 aria-label="Navigation menu">
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../../Overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../README.html">Home</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../bounty_terms.html">TENSTORRENT BOUNTY PROGRAM TERMS AND CONDITIONS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../get_started/index.html">Get Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../software/index.html">Software</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../hardware/index.html">Hardware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../systems/index.html">Systems</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../models/index.html">Models</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../index.html">TT-Forge</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../getting-started.html">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../forge-frontend-compiler/index.html">TT-Forge Frontend Compiler</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../index.html">TT-Forge Backend Compiler</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="../index.html">TT-MLIR</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="../getting-started/installation.html">Installation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../getting-started/build-from-source.html">Build from Source</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture/dialects.html">Dialects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture/compilation-pipeline.html">Compilation Pipeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../architecture/ir-structure.html">IR Structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../operations/index.html">Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../operations/ttir-ops.html">TTIR Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../operations/ttmetal-ops.html">TTMetal Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/writing-passes.html">Writing Passes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/custom-ops.html">Custom Operations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/optimization.html">Optimization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../guides/debugging.html">Debugging</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="index.html">Tools</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ttmlir-opt.html">ttmlir-opt</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ttrt</a></li>
+<li class="toctree-l4"><a class="reference internal" href="visualization.html">Visualization</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../api/index.html">API Reference</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../tools/index.html">Tools</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../resource/index.html">Resource</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../support/index.html">Support</a></li>
+</ul>
+
+            </div>
+        </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+            <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+            <a href="../../../../index.html">Home</a>
+        </nav>
+
+        <div class="wy-nav-content">
+                <div class="rst-content">
+                    <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">TT-Forge</a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">TT-Forge Backend Compiler</a></li>
+          <li class="breadcrumb-item"><a href="../index.html">TT-MLIR</a></li>
+          <li class="breadcrumb-item"><a href="index.html">Tools</a></li>
+      <li class="breadcrumb-item active">ttrt</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+                    <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+                        <div itemprop="articleBody">
+                            
+  <section id="ttrt">
+<h1>ttrt<a class="headerlink" href="#ttrt" title="Link to this heading"></a></h1>
+<p>Tenstorrent Runtime - Execute compiled TT-MLIR binaries on hardware.</p>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">ttrt</span></code> (Tenstorrent Runtime) executes compiled TT-MLIR programs on Tenstorrent hardware.
+It handles device initialization, memory management, and kernel execution.</p>
+</section>
+<section id="basic-usage">
+<h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttrt<span class="w"> </span>&lt;command&gt;<span class="w"> </span><span class="o">[</span>options<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Link to this heading"></a></h2>
+<section id="execute">
+<h3>execute<a class="headerlink" href="#execute" title="Link to this heading"></a></h3>
+<p>Execute a compiled model:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttrt<span class="w"> </span>execute<span class="w"> </span>model.ttnn<span class="w"> </span><span class="o">[</span>--input<span class="w"> </span>input.bin<span class="o">]</span><span class="w"> </span><span class="o">[</span>--output<span class="w"> </span>output.bin<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Options:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--input</span> <span class="pre">&lt;file&gt;</span></code> - Input tensor file (binary format)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--output</span> <span class="pre">&lt;file&gt;</span></code> - Output tensor file (binary format)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--device</span> <span class="pre">&lt;id&gt;</span></code> - Device ID (default: 0)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--verify</span></code> - Verify results against reference</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--iterations</span> <span class="pre">&lt;n&gt;</span></code> - Run N iterations for benchmarking</p></li>
+</ul>
+</section>
+<section id="query">
+<h3>query<a class="headerlink" href="#query" title="Link to this heading"></a></h3>
+<p>Query device information:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttrt<span class="w"> </span>query<span class="w"> </span><span class="o">[</span>--device<span class="w"> </span>&lt;id&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Output:</strong></p>
+<ul class="simple">
+<li><p>Device architecture</p></li>
+<li><p>Number of cores</p></li>
+<li><p>Memory capacity</p></li>
+<li><p>PCIe information</p></li>
+</ul>
+<p><strong>Save artifacts:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttrt<span class="w"> </span>query<span class="w"> </span>--save-artifacts
+</pre></div>
+</div>
+<p>This saves <code class="docutils literal notranslate"><span class="pre">system_desc.ttsys</span></code> for use during compilation.</p>
+</section>
+<section id="reset">
+<h3>reset<a class="headerlink" href="#reset" title="Link to this heading"></a></h3>
+<p>Reset device:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttrt<span class="w"> </span>reset<span class="w"> </span><span class="o">[</span>--device<span class="w"> </span>&lt;id&gt;<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="info">
+<h3>info<a class="headerlink" href="#info" title="Link to this heading"></a></h3>
+<p>Display TTRT version and configuration:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttrt<span class="w"> </span>info
+</pre></div>
+</div>
+</section>
+</section>
+<section id="common-workflows">
+<h2>Common Workflows<a class="headerlink" href="#common-workflows" title="Link to this heading"></a></h2>
+<section id="basic-execution">
+<h3>Basic Execution<a class="headerlink" href="#basic-execution" title="Link to this heading"></a></h3>
+<p>Execute a model with default inputs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttrt<span class="w"> </span>execute<span class="w"> </span>model.ttnn
+</pre></div>
+</div>
+</section>
+<section id="with-custom-inputs">
+<h3>With Custom Inputs<a class="headerlink" href="#with-custom-inputs" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Prepare input</span>
+python<span class="w"> </span>prepare_input.py<span class="w"> </span>--output<span class="w"> </span>input.bin
+
+<span class="c1"># Execute</span>
+ttrt<span class="w"> </span>execute<span class="w"> </span>model.ttnn<span class="w"> </span>--input<span class="w"> </span>input.bin<span class="w"> </span>--output<span class="w"> </span>result.bin
+
+<span class="c1"># Process output</span>
+python<span class="w"> </span>process_output.py<span class="w"> </span>--input<span class="w"> </span>result.bin
+</pre></div>
+</div>
+</section>
+<section id="benchmarking">
+<h3>Benchmarking<a class="headerlink" href="#benchmarking" title="Link to this heading"></a></h3>
+<p>Run multiple iterations for timing:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttrt<span class="w"> </span>execute<span class="w"> </span>model.ttnn<span class="w"> </span>--iterations<span class="w"> </span><span class="m">100</span>
+</pre></div>
+</div>
+<p>Output shows:</p>
+<ul class="simple">
+<li><p>Average execution time</p></li>
+<li><p>Min/max times</p></li>
+<li><p>Throughput</p></li>
+</ul>
+</section>
+<section id="device-management">
+<h3>Device Management<a class="headerlink" href="#device-management" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Query all devices</span>
+tt-smi
+
+<span class="c1"># Get device info</span>
+ttrt<span class="w"> </span>query<span class="w"> </span>--device<span class="w"> </span><span class="m">0</span>
+
+<span class="c1"># Reset if needed</span>
+ttrt<span class="w"> </span>reset<span class="w"> </span>--device<span class="w"> </span><span class="m">0</span>
+</pre></div>
+</div>
+</section>
+<section id="multi-device-execution">
+<h3>Multi-Device Execution<a class="headerlink" href="#multi-device-execution" title="Link to this heading"></a></h3>
+<p>Execute on specific device:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Device 0</span>
+ttrt<span class="w"> </span>execute<span class="w"> </span>model.ttnn<span class="w"> </span>--device<span class="w"> </span><span class="m">0</span>
+
+<span class="c1"># Device 1</span>
+ttrt<span class="w"> </span>execute<span class="w"> </span>model.ttnn<span class="w"> </span>--device<span class="w"> </span><span class="m">1</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="input-output-format">
+<h2>Input/Output Format<a class="headerlink" href="#input-output-format" title="Link to this heading"></a></h2>
+<section id="binary-tensor-format">
+<h3>Binary Tensor Format<a class="headerlink" href="#binary-tensor-format" title="Link to this heading"></a></h3>
+<p>Tensors are stored as raw binary data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Save tensor</span>
+<span class="n">tensor</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">tensor</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="s1">&#39;input.bin&#39;</span><span class="p">)</span>
+
+<span class="c1"># Load tensor</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="s1">&#39;output.bin&#39;</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">128</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="environment-variables">
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h2>
+<section id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable debug logging</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TT_METAL_LOGGER_LEVEL</span><span class="o">=</span>DEBUG
+
+<span class="c1"># Log specific components</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TT_METAL_LOGGER_TYPES</span><span class="o">=</span>Op,Device,Runtime
+</pre></div>
+</div>
+</section>
+<section id="profiling">
+<h3>Profiling<a class="headerlink" href="#profiling" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable profiling</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TT_METAL_PROFILE</span><span class="o">=</span><span class="m">1</span>
+
+<span class="c1"># Profile memory</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TT_METAL_PROFILE_MEMORY</span><span class="o">=</span><span class="m">1</span>
+
+<span class="c1"># Profile ops</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TT_METAL_PROFILE_OP</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+</section>
+<section id="cache">
+<h3>Cache<a class="headerlink" href="#cache" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable kernel cache</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TT_METAL_CACHE_PATH</span><span class="o">=</span>/path/to/cache
+</pre></div>
+</div>
+</section>
+<section id="debug">
+<h3>Debug<a class="headerlink" href="#debug" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable kernel debugging</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TT_METAL_KERNEL_DEBUG</span><span class="o">=</span><span class="m">1</span>
+
+<span class="c1"># Dump tensors</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TT_METAL_DUMP_TENSORS</span><span class="o">=</span><span class="m">1</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="python-api">
+<h2>Python API<a class="headerlink" href="#python-api" title="Link to this heading"></a></h2>
+<p>Execute from Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ttrt</span>
+
+<span class="c1"># Load model</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">ttrt</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;model.ttnn&quot;</span><span class="p">)</span>
+
+<span class="c1"># Execute</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">)</span>
+
+<span class="c1"># Multiple inputs</span>
+<span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">execute</span><span class="p">([</span><span class="n">input1</span><span class="p">,</span> <span class="n">input2</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>With options:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Benchmarking</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Avg time: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">avg_time_ms</span><span class="si">}</span><span class="s2"> ms&quot;</span><span class="p">)</span>
+
+<span class="c1"># Profiling</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">result</span><span class="o">.</span><span class="n">print_profile</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="performance-profiling">
+<h2>Performance Profiling<a class="headerlink" href="#performance-profiling" title="Link to this heading"></a></h2>
+<section id="enable-profiling">
+<h3>Enable Profiling<a class="headerlink" href="#enable-profiling" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">TT_METAL_PROFILE</span><span class="o">=</span><span class="m">1</span>
+ttrt<span class="w"> </span>execute<span class="w"> </span>model.ttnn
+</pre></div>
+</div>
+</section>
+<section id="view-profile-data">
+<h3>View Profile Data<a class="headerlink" href="#view-profile-data" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>tt_metal.tools.profiler.process_ops_logs
+</pre></div>
+</div>
+<p>Output includes:</p>
+<ul class="simple">
+<li><p>Op-by-op execution time</p></li>
+<li><p>Memory bandwidth usage</p></li>
+<li><p>Kernel execution time</p></li>
+<li><p>DMA transfer time</p></li>
+</ul>
+</section>
+<section id="visualize-profile">
+<h3>Visualize Profile<a class="headerlink" href="#visualize-profile" title="Link to this heading"></a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>tt_metal.tools.profiler.visualize<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--input<span class="w"> </span>profile.json<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--output<span class="w"> </span>timeline.html
+</pre></div>
+</div>
+</section>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="device-not-found">
+<h3>Device Not Found<a class="headerlink" href="#device-not-found" title="Link to this heading"></a></h3>
+<p><strong>Symptom:</strong> <code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">No</span> <span class="pre">devices</span> <span class="pre">found</span></code></p>
+<p><strong>Solutions:</strong></p>
+<ol class="arabic">
+<li><p>Check device status:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tt-smi
+</pre></div>
+</div>
+</li>
+<li><p>Verify drivers:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lsmod<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>tenstorrent
+</pre></div>
+</div>
+</li>
+<li><p>Reset device:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttrt<span class="w"> </span>reset
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="execution-fails">
+<h3>Execution Fails<a class="headerlink" href="#execution-fails" title="Link to this heading"></a></h3>
+<p><strong>Symptom:</strong> Runtime errors during execution</p>
+<p><strong>Debug:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Enable debug logging</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">TT_METAL_LOGGER_LEVEL</span><span class="o">=</span>DEBUG
+ttrt<span class="w"> </span>execute<span class="w"> </span>model.ttnn
+</pre></div>
+</div>
+</section>
+<section id="out-of-memory">
+<h3>Out of Memory<a class="headerlink" href="#out-of-memory" title="Link to this heading"></a></h3>
+<p><strong>Symptom:</strong> <code class="docutils literal notranslate"><span class="pre">Error:</span> <span class="pre">Out</span> <span class="pre">of</span> <span class="pre">memory</span></code></p>
+<p><strong>Solutions:</strong></p>
+<ol class="arabic">
+<li><p>Check memory usage:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>tt-smi<span class="w"> </span>-m
+</pre></div>
+</div>
+</li>
+<li><p>Reduce batch size</p></li>
+<li><p>Use DRAM instead of L1</p></li>
+<li><p>Enable memory profiling to identify leaks</p></li>
+</ol>
+</section>
+<section id="incorrect-results">
+<h3>Incorrect Results<a class="headerlink" href="#incorrect-results" title="Link to this heading"></a></h3>
+<p><strong>Symptom:</strong> Wrong output values</p>
+<p><strong>Debug:</strong></p>
+<ol class="arabic">
+<li><p>Dump intermediate tensors:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">TT_METAL_DUMP_TENSORS</span><span class="o">=</span><span class="m">1</span>
+ttrt<span class="w"> </span>execute<span class="w"> </span>model.ttnn
+</pre></div>
+</div>
+</li>
+<li><p>Verify against reference:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ttrt<span class="w"> </span>execute<span class="w"> </span>model.ttnn<span class="w"> </span>--verify
+</pre></div>
+</div>
+</li>
+<li><p>Check input data format</p></li>
+</ol>
+</section>
+</section>
+<section id="advanced-usage">
+<h2>Advanced Usage<a class="headerlink" href="#advanced-usage" title="Link to this heading"></a></h2>
+<section id="custom-memory-configuration">
+<h3>Custom Memory Configuration<a class="headerlink" href="#custom-memory-configuration" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ttrt</span>
+
+<span class="n">config</span> <span class="o">=</span> <span class="n">ttrt</span><span class="o">.</span><span class="n">MemoryConfig</span><span class="p">(</span>
+    <span class="n">l1_size</span><span class="o">=</span><span class="mi">1024</span><span class="o">*</span><span class="mi">1024</span><span class="p">,</span>  <span class="c1"># 1MB L1</span>
+    <span class="n">dram_channels</span><span class="o">=</span><span class="mi">12</span>
+<span class="p">)</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">ttrt</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;model.ttnn&quot;</span><span class="p">,</span> <span class="n">memory_config</span><span class="o">=</span><span class="n">config</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3>Multi-Device Execution<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ttrt</span>
+
+<span class="c1"># Load on multiple devices</span>
+<span class="n">model0</span> <span class="o">=</span> <span class="n">ttrt</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;model.ttnn&quot;</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">model1</span> <span class="o">=</span> <span class="n">ttrt</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;model.ttnn&quot;</span><span class="p">,</span> <span class="n">device_id</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Execute in parallel</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">concurrent.futures</span>
+
+<span class="k">with</span> <span class="n">concurrent</span><span class="o">.</span><span class="n">futures</span><span class="o">.</span><span class="n">ThreadPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+    <span class="n">future0</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">model0</span><span class="o">.</span><span class="n">execute</span><span class="p">,</span> <span class="n">input0</span><span class="p">)</span>
+    <span class="n">future1</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">model1</span><span class="o">.</span><span class="n">execute</span><span class="p">,</span> <span class="n">input1</span><span class="p">)</span>
+
+    <span class="n">result0</span> <span class="o">=</span> <span class="n">future0</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+    <span class="n">result1</span> <span class="o">=</span> <span class="n">future1</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="see-also">
+<h2>See Also<a class="headerlink" href="#see-also" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="ttmlir-opt.html"><span class="doc">ttmlir-opt</span></a> - Compilation tool</p></li>
+<li><p><a class="reference internal" href="../guides/debugging.html"><span class="doc">Debugging</span></a> - Debugging guide</p></li>
+<li><p><a class="reference internal" href="../guides/optimization.html"><span class="doc">Optimization</span></a> - Performance optimization</p></li>
+</ul>
+</section>
+</section>
+
+
+                        </div>
+                    </div>
+                    <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ttmlir-opt.html" class="btn btn-neutral float-left" title="ttmlir-opt" accesskey="p" rel="prev">
+          <span class="tt-pagination-topic">ttmlir-opt</span>
+          <span class="tt-pagination-label">Previous</span>
+        </a>
+        <a href="visualization.html" class="btn btn-neutral float-right" title="Visualization" accesskey="n" rel="next">
+          <span class="tt-pagination-topic">Visualization</span>
+          <span class="tt-pagination-label">Next</span>
+        </a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Tenstorrent.
+      <span class="lastupdated">Last updated on Mar 24, 2026.
+      </span></p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+
+                </div>
+            </div>
+    </section>
+</div>
+<script>
+    jQuery(function () {
+        SphinxRtdTheme.Navigation.enable({
+        {
+            'true'
+            if theme_sticky_navigation | tobool else
+            'false'
+        }
+    })
+        ;
+    });
+</script> 
+
+</body>
+</html>

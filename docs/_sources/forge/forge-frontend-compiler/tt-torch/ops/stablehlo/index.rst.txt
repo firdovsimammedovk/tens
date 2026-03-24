@@ -1,0 +1,52 @@
+StableHLO Ops
+=============
+
+This section lists StableHLO operations supported by TT-Torch after lowering through torch-mlir.
+
+.. note::
+
+   The upstream TT-Torch ops pages are auto-generated and very large. The operation coverage is listed below,
+   and source pages are available in the TT-Torch repository.
+
+Supported operations
+--------------------
+
+- ``stablehlo.cosine``
+- ``stablehlo.divide``
+- ``stablehlo.dot_general``
+- ``stablehlo.dynamic_iota``
+- ``stablehlo.exponential``
+- ``stablehlo.floor``
+- ``stablehlo.gather``
+- ``stablehlo.iota``
+- ``stablehlo.log``
+- ``stablehlo.logistic``
+- ``stablehlo.maximum``
+- ``stablehlo.minimum``
+- ``stablehlo.multiply``
+- ``stablehlo.negate``
+- ``stablehlo.not``
+- ``stablehlo.power``
+- ``stablehlo.reduce_stablehlo.add``
+- ``stablehlo.reduce_stablehlo.and``
+- ``stablehlo.reduce_stablehlo.maximum``
+- ``stablehlo.reduce_window_stablehlo.add``
+- ``stablehlo.remainder``
+- ``stablehlo.reshape``
+- ``stablehlo.reverse``
+- ``stablehlo.rng``
+- ``stablehlo.rsqrt``
+- ``stablehlo.scatter``
+- ``stablehlo.select``
+- ``stablehlo.sine``
+- ``stablehlo.slice``
+- ``stablehlo.sqrt``
+- ``stablehlo.subtract``
+- ``stablehlo.tanh``
+- ``stablehlo.transpose``
+- ``tensor.empty``
+
+Source pages
+------------
+
+- `StableHLO ops docs directory <https://github.com/tenstorrent/tt-torch/tree/main/docs/src/ops/stablehlo>`_

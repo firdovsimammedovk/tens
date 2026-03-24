@@ -1,0 +1,74 @@
+API Reference
+=============
+
+TT-MLIR API documentation.
+
+.. toctree::
+   :maxdepth: 2
+
+   python-bindings
+   cpp-api
+
+Overview
+--------
+
+TT-MLIR provides APIs for:
+
+* **Python** - High-level interface for model compilation and execution
+* **C++** - Low-level interface for dialect and pass development
+
+Python API
+----------
+
+See :doc:`python-bindings` for Python API documentation.
+
+C++ API
+-------
+
+See :doc:`cpp-api` for C++ API documentation.
+
+Quick Start
+-----------
+
+Python
+~~~~~~
+
+.. code-block:: python
+
+   import ttrt
+   import numpy as np
+
+   # Load compiled model
+   model = ttrt.load("model.ttnn")
+
+   # Prepare input
+   input_data = np.random.randn(1, 32, 128).astype(np.float32)
+
+   # Execute
+   output = model.execute(input_data)
+
+   print(f"Output shape: {output.shape}")
+
+C++
+~~~
+
+.. code-block:: cpp
+
+   #include "TTIR/TTIRDialect.h"
+   #include "mlir/IR/MLIRContext.h"
+
+   int main() {
+     mlir::MLIRContext context;
+     context.loadDialect<mlir::ttir::TTIRDialect>();
+
+     // Create operations, passes, etc.
+
+     return 0;
+   }
+
+See Also
+--------
+
+* :doc:`../getting-started/quick-start` - Getting started guide
+* :doc:`../guides/index` - Development guides
+

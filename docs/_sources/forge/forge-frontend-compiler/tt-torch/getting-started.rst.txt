@@ -1,0 +1,117 @@
+Getting Started
+===============
+
+.. note::
+
+   TT-Torch is deprecated. To work with PyTorch and the various features available in TT-Torch, please see the documentation for `TT-XLA <../tt-xla/index.html>`_.
+
+This guide walks you through installing and setting up TT-Torch.
+
+Prerequisites
+-------------
+
+- Python 3.10+
+- A supported Tenstorrent device (Wormhole or Blackhole)
+- TT-Metalium runtime installed
+
+Installing from Wheel
+---------------------
+
+The easiest way to install TT-Torch is via a pre-built wheel:
+
+.. code-block:: bash
+
+   pip install tt-torch
+
+Building from Source
+--------------------
+
+Clone the repository and build:
+
+.. code-block:: bash
+
+   git clone https://github.com/tenstorrent/tt-torch.git
+   cd tt-torch
+   source env/activate
+   cmake -G Ninja -B build
+   ninja -C build
+
+Activate Environment
+--------------------
+
+Always activate the environment before using TT-Torch:
+
+.. code-block:: bash
+
+   source env/activate
+
+Quick Example
+-------------
+
+Once installed, compile and run a simple PyTorch model on Tenstorrent hardware:
+
+.. code-block:: python
+
+   import torch
+   import tt_torch
+
+   class AddTensors(torch.nn.Module):
+       def forward(self, x, y):
+           return x + y
+
+   model = AddTensors()
+   tt_model = torch.compile(model, backend="tt-legacy")
+
+   x = torch.ones(5, 5)
+   y = torch.ones(5, 5)
+   print(tt_model(x, y))
+
+Experimental Backend
+--------------------
+
+TT-Torch also provides an experimental ``torch-xla``-based backend:
+
+.. code-block:: python
+
+   import torch
+   import tt_torch
+
+   class AddTensors(torch.nn.Module):
+       def forward(self, x, y):
+           return x + y
+
+   model = AddTensors()
+   tt_model = torch.compile(model, backend="tt-experimental")
+
+   x = torch.ones(5, 5)
+   y = torch.ones(5, 5)
+   print(tt_model(x, y))
+
+Experimental Eager Execution
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``torch-xla`` also allows executing PyTorch models eagerly using the ``.to(device)`` infrastructure:
+
+.. code-block:: python
+
+   import torch
+   import tt_torch
+
+   class AddTensors(torch.nn.Module):
+       def forward(self, x, y):
+           return x + y
+
+   model = AddTensors()
+   model = model.to("xla")
+
+   x = torch.ones(5, 5, device="xla")
+   y = torch.ones(5, 5, device="xla")
+   print(model(x, y).to("cpu"))
+
+Next Steps
+----------
+
+- See `Testing <testing.html>`_ for running unit tests and model tests
+- See `Profiling <profiling.html>`_ for performance analysis
+- See `Models <models/index.html>`_ for the supported model zoo
+
