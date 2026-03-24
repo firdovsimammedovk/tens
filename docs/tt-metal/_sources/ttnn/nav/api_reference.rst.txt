@@ -4,5 +4,9 @@ API Reference
 .. toctree::
    :hidden:
 
-   ../api
-
+   ../api_device
+   ../api_memory_config
+   ../api_operations
+   ../api_model_conversion
+   ../api_reports
+   ../api_operation_hooks

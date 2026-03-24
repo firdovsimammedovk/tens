@@ -1,0 +1,11 @@
+Operation Hooks
+###############
+
+.. autosummary::
+   :toctree: api
+   :nosignatures:
+   :template: function.rst
+
+   ttnn.register_pre_operation_hook
+   ttnn.register_post_operation_hook
+

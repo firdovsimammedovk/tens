@@ -1,0 +1,10 @@
+Memory Config
+#############
+
+.. autosummary::
+   :toctree: api
+   :nosignatures:
+   :template: function.rst
+
+   ttnn.create_sharded_memory_config
+

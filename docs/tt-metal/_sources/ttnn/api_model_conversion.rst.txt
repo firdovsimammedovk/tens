@@ -1,0 +1,11 @@
+Model Conversion
+################
+
+.. autosummary::
+   :toctree: api
+   :nosignatures:
+   :template: function.rst
+
+   ttnn.model_preprocessing.preprocess_model
+   ttnn.model_preprocessing.preprocess_model_parameters
+

@@ -1,0 +1,10 @@
+Reports
+#######
+
+.. autosummary::
+   :toctree: api
+   :nosignatures:
+   :template: function.rst
+
+   ttnn.set_printoptions
+
