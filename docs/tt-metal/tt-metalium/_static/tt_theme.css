@@ -827,6 +827,383 @@ https://github.com/readthedocs/sphinx_rtd_theme/issues/1301
   color: var(--color-foreground);
 }
 
+/* ===== Responsive ===== */
+@media screen and (max-width: 1024px) {
+  .tt-topnav__links {
+    display: none; /* hide top links on smaller screens */
+  }
+  .tt-topnav__subnav {
+    gap: 14px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    --tt-topnav-h1: 52px;
+    --tt-topnav-h2: 44px;
+  }
+  .tt-topnav__subnav {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .tt-topnav__subnav::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* ===== Grid Layout with Flexbox ===== */
+/* ===== Navbar Link Colors ===== */
+
+/* WHITE NAVBAR (Primary bar) - Black text colors */
+.tt-topnav__bar--primary .tt-topnav__link {
+  color: var(--color-foreground);
+  transition: var(--transition-color);
+}
+
+.tt-topnav__bar--primary .tt-topnav__link:hover {
+  color: var(--color-foreground);
+  opacity: 0.7;
+}
+
+.tt-topnav__bar--primary .tt-topnav__link:visited {
+  color: var(--color-foreground);
+}
+
+.tt-topnav__bar--primary .tt-topnav__link:active {
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+
+/* ORANGE NAVBAR (Secondary bar) - White text colors */
+.tt-topnav__bar--secondary .tt-topnav__sublink {
+  color: rgba(255, 255, 255, 0.92);
+  transition: var(--transition-color);
+}
+
+.tt-topnav__bar--secondary .tt-topnav__sublink:hover {
+  color: #ffffff;
+  opacity: 1;
+}
+
+.tt-topnav__bar--secondary .tt-topnav__sublink:visited {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.tt-topnav__bar--secondary .tt-topnav__sublink:active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.tt-topnav__bar--secondary .tt-topnav__version {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.tt-topnav__bar--secondary .tt-topnav__version:hover {
+  color: #ffffff;
+}
+
+/* SIDE NAV LINKS */
+.wy-nav-side .wy-menu-vertical a {
+  color: var(--color-foreground);
+  transition: var(--transition-color);
+}
+
+.wy-nav-side .wy-menu-vertical a:hover {
+  color: var(--color-foreground);
+  background-color: var(--color-background-alt2);
+}
+
+.wy-nav-side .wy-menu-vertical a:visited {
+  color: var(--color-foreground);
+}
+
+.wy-nav-side .wy-menu-vertical a:active {
+  color: var(--color-foreground);
+  font-weight: 600;
+}
+
+
+/* ===== Grid Layout with Flexbox ===== */
+.wy-grid-for-nav {
+  display: flex;
+  width: 100%;
+}
+
+.wy-nav-side {
+  flex: 0 0 auto;
+  width: 300px;
+  margin-top: 130px;
+}
+
+.wy-nav-content-wrap {
+  flex: 1 1 auto;
+  width: 1px; /* Ensures the flex item doesn't overflow */
+}
+
+.rst-content dl dd {
+    margin-left: 0;
+}
+.rst-content dl dt {
+    margin-left: 40px;
+}
+
+.rst-content dl dd {
+    margin-left: 0;
+}
+.rst-content dl dt {
+    margin-left: 40px;
+}
+
+
+.function * h1, .function * h2, .function * h3, .function * h4 {
+  font-size: 20px;
+  background-color: #D9D9D9;
+  padding: 2px 9px;
+  border-radius: 2px;
+  margin-bottom: 0;
+}
+
+.function .simple li {
+  margin-left: 40px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.function section {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* ===== Signature Copy Button ===== */
+.tt-signature .highlight {
+  position: relative;
+}
+
+.tt-signature .tt-copy-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ffffff;
+  color: #202020;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.tt-signature .tt-copy-btn:hover {
+  background: #f2f2f2;
+}
+
+.function .sig-object {
+  display: none !important;
+}
+
+/* =========================
+   Advanced Topics dropdown
+   ========================= */
+
+/* anchor for absolute menu */
+.tt-topnav__dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* show a caret (optional) */
+.tt-topnav__sublink--dropdown::after {
+  content: "▾";
+  display: inline-block;
+  margin-left: 0.5rem;
+  transform: translateY(-1px);
+  font-size: 0.9em;
+  opacity: 0.9;
+}
+
+/* menu base */
+.tt-topnav__dropdown-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+
+  min-width: 320px;
+  max-width: min(520px, 90vw);
+
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-radius: 10px;
+
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
+  padding: 10px;
+
+  z-index: 1000;
+
+  /* hidden by default */
+  transform: translateY(-6px);
+}
+
+/* small "arrow" */
+.tt-topnav__dropdown-menu::before {
+  content: "";
+  position: absolute;
+  top: -8px;
+  left: 18px;
+  width: 14px;
+  height: 14px;
+  background: #ffffff;
+  border-left: 1px solid rgba(0, 0, 0, 0.10);
+  border-top: 1px solid rgba(0, 0, 0, 0.10);
+  transform: rotate(45deg);
+}
+
+/* show on hover OR focus (keyboard accessible) */
+.tt-topnav__dropdown:hover .tt-topnav__dropdown-menu,
+.tt-topnav__dropdown:focus-within .tt-topnav__dropdown-menu {
+  display: block;
+  transform: translateY(0);
+  transition-delay: 0s;
+}
+
+/* items */
+.tt-topnav__dropdown-item {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+
+  color: var(--color-foreground);
+  text-decoration: none;
+
+  line-height: 1.25;
+  white-space: normal; /* allow wrap */
+}
+
+/* hover/focus states */
+.tt-topnav__dropdown-item:hover,
+.tt-topnav__dropdown-item:focus {
+  background: var(--color-background-alt2);
+  outline: none;
+}
+
+/* keep dropdown open while moving mouse from trigger to menu */
+.tt-topnav__dropdown::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100%;
+  height: 14px; /* hover-bridge */
+}
+
+/* =========================
+   Primary Bar (White) Dropdown Styles
+   ========================= */
+
+/* Primary dropdown container */
+.tt-topnav__dropdown--primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Primary link with dropdown indicator */
+.tt-topnav__link--dropdown {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.tt-topnav__link--dropdown::after {
+  content: "▼";
+  font-size: 10px;
+  transition: transform 0.2s ease;
+  opacity: 0.7;
+}
+
+.tt-topnav__dropdown--primary:hover .tt-topnav__link--dropdown::after {
+  transform: rotate(180deg);
+}
+
+/* Primary dropdown menu */
+.tt-topnav__dropdown-menu--primary {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%);
+
+  min-width: 200px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.10);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+
+  padding: 8px;
+  z-index: 10000;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+}
+
+.tt-topnav__dropdown--primary:hover .tt-topnav__dropdown-menu--primary {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Arrow indicator for primary menu */
+.tt-topnav__dropdown-menu--primary::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 6px solid #ffffff;
+}
+
+/* Primary dropdown items styling */
+.tt-topnav__dropdown-menu--primary .tt-topnav__dropdown-item {
+  display: block;
+  padding: 10px 16px;
+  border-radius: 6px;
+
+  color: var(--color-foreground);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+
+  transition: background-color 0.15s ease;
+  border-left: 3px solid transparent;
+}
+
+.tt-topnav__dropdown-menu--primary .tt-topnav__dropdown-item:hover {
+  background-color: var(--color-background);
+  border-left-color: var(--color-accent);
+}
+
+.tt-topnav__dropdown-menu--primary .tt-topnav__dropdown-item:visited {
+  color: var(--color-foreground);
+}
+
+/* Invisible bridge for primary dropdown */
+.tt-topnav__dropdown--primary::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: transparent;
+  z-index: 9999;
+}
+
 /* =========================
    Mobile / touch behavior
    ========================= */
