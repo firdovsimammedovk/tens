@@ -8,5 +8,3 @@ Advanced Topics
    ../converting_torch_model_to_ttnn
    ../adding_new_ttnn_operation
    ../profiling_ttnn_operations
-   ../demos
-

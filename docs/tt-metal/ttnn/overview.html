@@ -26,9 +26,7 @@
     <script src="../_static/tt_dropdown.js"></script>
     <script src="../_static/tt_version_dropdown.js"></script>
     <link rel="index" title="Index" href="../genindex.html"/>
-    <link rel="search" title="Search" href="../search.html"/>
-    <link rel="next" title="What is TT-NN?" href="about.html"/>
-    <link rel="prev" title="Getting Started" href="nav/getting_started.html"/> 
+    <link rel="search" title="Search" href="../search.html"/> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -159,21 +157,8 @@
 
             <!-- Secondary links -->
             <nav class="tt-topnav__subnav" aria-label="Section navigation">
-                <a class="tt-topnav__sublink tt-topnav__sublink--active"
-                   href="#">Overview</a>
                 <a class="tt-topnav__sublink"
-                   href="get_started.html">Getting Started</a>
-
-                <div class="tt-topnav__dropdown tt-topnav__dropdown--active">
-                    <a class="tt-topnav__sublink tt-topnav__sublink--dropdown tt-topnav__sublink--active"
-                       href="##core-concepts">Core Concepts</a>
-                    <div class="tt-topnav__dropdown-menu">
-                        <a class="tt-topnav__dropdown-item" href="##tensors">Tensors</a>
-                        <a class="tt-topnav__dropdown-item" href="##operations">Operations</a>
-                        <a class="tt-topnav__dropdown-item" href="##devices">Devices</a>
-                        <a class="tt-topnav__dropdown-item" href="##how-tt-nn-fits-into-the-stack">Execution Model</a>
-                    </div>
-                </div>
+                   href="../index.html">Getting Started</a>
 
                 <div class="tt-topnav__dropdown">
                     <a class="tt-topnav__sublink tt-topnav__sublink--dropdown"
@@ -197,7 +182,7 @@
                 </div>
 
                 <a class="tt-topnav__sublink"
-                   href="onboarding.html">Advanced Topics</a>
+                   href="advanced_topics.html">Advanced Topics</a>
                 <a class="tt-topnav__sublink"
                    href="api.html">API Reference</a>
                 <div class="tt-topnav__dropdown">
@@ -253,28 +238,11 @@ function ttGlobalSearchRedirect(form) {
 </script>
             </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
                  aria-label="Navigation menu">
-                <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">TT-NN Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#what-tt-nn-provides">What TT-NN Provides</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#core-concepts">Core Concepts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#tensors">Tensors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#operations">Operations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#devices">Devices</a></li>
+                <!-- Local TOC -->
+                <div class="local-toc"><ul>
+<li><a class="reference internal" href="#">TT-NN Overview</a></li>
 </ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#how-tt-nn-fits-into-the-stack">How TT-NN Fits into the Stack</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#typical-workflow">Typical Workflow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#when-to-use-tt-nn">When to Use TT-NN</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#next-steps">Next Steps</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="about.html">What is TT-NN?</a></li>
-<li class="toctree-l1"><a class="reference internal" href="get_started.html">Getting Started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installing.html">Install</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tutorials/tutorials/ttnn_intro.html">TT-NN Introduction</a></li>
-</ul>
-
+</div>
             </div>
         </div>
     </nav>
@@ -291,7 +259,6 @@ function ttGlobalSearchRedirect(form) {
 <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="nav/getting_started.html">Getting Started</a></li>
       <li class="breadcrumb-item active">TT-NN Overview</li>
   </ul>
   <hr/>
@@ -302,138 +269,7 @@ function ttGlobalSearchRedirect(form) {
   <section id="tt-nn-overview">
 <h1>TT-NN Overview<a class="headerlink" href="#tt-nn-overview" title="Permalink to this heading"></a>
 </h1>
-<nav class="contents local" id="sidebar">
-<p class="topic-title">Sidebar</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
-<li><p><a class="reference internal" href="#what-tt-nn-provides" id="id2">What TT-NN Provides</a></p></li>
-<li>
-<p><a class="reference internal" href="#core-concepts" id="id3">Core Concepts</a></p>
-<ul>
-<li><p><a class="reference internal" href="#tensors" id="id4">Tensors</a></p></li>
-<li><p><a class="reference internal" href="#operations" id="id5">Operations</a></p></li>
-<li><p><a class="reference internal" href="#devices" id="id6">Devices</a></p></li>
-</ul>
-</li>
-<li><p><a class="reference internal" href="#how-tt-nn-fits-into-the-stack" id="id7">How TT-NN Fits into the Stack</a></p></li>
-<li><p><a class="reference internal" href="#typical-workflow" id="id8">Typical Workflow</a></p></li>
-<li><p><a class="reference internal" href="#when-to-use-tt-nn" id="id9">When to Use TT-NN</a></p></li>
-<li><p><a class="reference internal" href="#next-steps" id="id10">Next Steps</a></p></li>
-</ul>
-</nav>
-<section id="introduction">
-<h2>
-<a class="toc-backref" href="#id1" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a>
-</h2>
-<p>TT-NN is the primary programming interface for running neural network workloads on Tenstorrent hardware. It provides a high-level API for working with tensors, executing operations, and building machine learning models. TT-NN abstracts many low-level details of hardware execution while still allowing efficient utilization of the Tenstorrent architecture.</p>
-</section>
-<section id="what-tt-nn-provides">
-<h2>
-<a class="toc-backref" href="#id2" role="doc-backlink">What TT-NN Provides</a><a class="headerlink" href="#what-tt-nn-provides" title="Permalink to this heading"></a>
-</h2>
-<p>TT-NN enables developers to:</p>
-<ul class="simple">
-<li><p>Create and manipulate tensors</p></li>
-<li><p>Execute neural network operations</p></li>
-<li><p>Run machine learning models</p></li>
-<li><p>Integrate with existing frameworks such as PyTorch</p></li>
-</ul>
-<p>The API is designed to resemble familiar deep learning frameworks while exposing capabilities specific to Tenstorrent hardware.</p>
-</section>
-<section id="core-concepts">
-<h2>
-<a class="toc-backref" href="#id3" role="doc-backlink">Core Concepts</a><a class="headerlink" href="#core-concepts" title="Permalink to this heading"></a>
-</h2>
-<p>TT-NN revolves around several key concepts:</p>
-<section id="tensors">
-<h3>
-<a class="toc-backref" href="#id4" role="doc-backlink">Tensors</a><a class="headerlink" href="#tensors" title="Permalink to this heading"></a>
-</h3>
-<p>Tensors represent multidimensional arrays that store model data and intermediate results.</p>
-</section>
-<section id="operations">
-<h3>
-<a class="toc-backref" href="#id5" role="doc-backlink">Operations</a><a class="headerlink" href="#operations" title="Permalink to this heading"></a>
-</h3>
-<p>Operations perform computations on tensors. Examples include:</p>
-<ul class="simple">
-<li><p>Matmul</p></li>
-<li><p>Convolution</p></li>
-<li><p>Softmax</p></li>
-<li><p>Layer normalization</p></li>
-</ul>
-</section>
-<section id="devices">
-<h3>
-<a class="toc-backref" href="#id6" role="doc-backlink">Devices</a><a class="headerlink" href="#devices" title="Permalink to this heading"></a>
-</h3>
-<p>A device represents a Tenstorrent accelerator capable of executing neural network workloads. TT-NN operations are executed on one or more devices.</p>
-</section>
-</section>
-<section id="how-tt-nn-fits-into-the-stack">
-<h2>
-<a class="toc-backref" href="#id7" role="doc-backlink">How TT-NN Fits into the Stack</a><a class="headerlink" href="#how-tt-nn-fits-into-the-stack" title="Permalink to this heading"></a>
-</h2>
-<p>TT-NN sits between the model compiler and the device runtime.</p>
-<div class="highlight-default notranslate">
-<div class="highlight"><pre><span></span>framework
-    ↓
-  TT-Forge
-    ↓
-   TT-NN
-    ↓
-TT-Metalium
-    ↓
-  hardware
-</pre></div>
-</div>
-<p>It translates neural network operations into executable workloads that are scheduled by the runtime.</p>
-</section>
-<section id="typical-workflow">
-<h2>
-<a class="toc-backref" href="#id8" role="doc-backlink">Typical Workflow</a><a class="headerlink" href="#typical-workflow" title="Permalink to this heading"></a>
-</h2>
-<p>A typical TT-NN workflow includes:</p>
-<ol class="arabic simple">
-<li><p>Initialize device</p></li>
-<li><p>Create tensors</p></li>
-<li><p>Execute operations</p></li>
-<li><p>Retrieve results</p></li>
-</ol>
-<p>Example:</p>
-<div class="highlight-default notranslate">
-<div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ttnn</span>
-
-<span class="n">device</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">open_device</span><span class="p">()</span>
-<span class="n">a</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">from_torch</span><span class="p">(</span><span class="n">tensor_a</span><span class="p">)</span>
-<span class="n">b</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">from_torch</span><span class="p">(</span><span class="n">tensor_b</span><span class="p">)</span>
-<span class="n">result</span> <span class="o">=</span> <span class="n">ttnn</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
-</pre></div>
-</div>
-</section>
-<section id="when-to-use-tt-nn">
-<h2>
-<a class="toc-backref" href="#id9" role="doc-backlink">When to Use TT-NN</a><a class="headerlink" href="#when-to-use-tt-nn" title="Permalink to this heading"></a>
-</h2>
-<p>TT-NN is recommended for:</p>
-<ul class="simple">
-<li><p>Running machine learning models</p></li>
-<li><p>Implementing neural network operations</p></li>
-<li><p>Developing inference workloads</p></li>
-</ul>
-<p>Developers who need direct control over kernel execution or hardware resources may use TT-Metalium instead.</p>
-</section>
-<section id="next-steps">
-<h2>
-<a class="toc-backref" href="#id10" role="doc-backlink">Next Steps</a><a class="headerlink" href="#next-steps" title="Permalink to this heading"></a>
-</h2>
-<p>To continue learning TT-NN:</p>
-<ul class="simple">
-<li><p><a class="reference internal" href="get_started.html"><span class="doc">TT-NN Getting Started</span></a></p></li>
-<li><p><a class="reference internal" href="tutorials.html"><span class="doc">TT-NN Tutorials</span></a></p></li>
-<li><p><a class="reference internal" href="api.html"><span class="doc">TT-NN API Reference</span></a></p></li>
-</ul>
-</section>
+<p>This page has moved to <a class="reference internal" href="../index.html"><span class="doc">Getting Started</span></a>.</p>
 </section>
 
 
@@ -441,26 +277,6 @@ TT-Metalium
                         </div>
                     </div>
                     <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="nav/getting_started.html"
-           class="btn btn-neutral tt-page-nav tt-page-nav--prev float-left"
-           title="Getting Started"
-           aria-label="Previous: Getting Started"
-           accesskey="p"
-           rel="prev">
-          <span class="tt-page-nav__eyebrow">Previous</span>
-          <span class="tt-page-nav__title">Getting Started</span>
-        </a>
-        <a href="about.html"
-           class="btn btn-neutral tt-page-nav tt-page-nav--next float-right"
-           title="What is TT-NN?"
-           aria-label="Next: What is TT-NN?"
-           accesskey="n"
-           rel="next">
-          <span class="tt-page-nav__eyebrow">Next</span>
-          <span class="tt-page-nav__title">What is TT-NN?</span>
-        </a>
-    </div>
 
   <hr/>
 

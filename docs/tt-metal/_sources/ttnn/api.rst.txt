@@ -1,8 +1,5 @@
-APIs
-####
-
 Device
-******
+######
 
 .. autosummary::
    :toctree: api
@@ -18,7 +15,7 @@ Device
    ttnn.pad_to_tile_shape
 
 Memory Config
-*************
+#############
 
 .. autosummary::
    :toctree: api
@@ -29,7 +26,7 @@ Memory Config
 
 
 Operations
-**********
+##########
 
 Core
 ====
@@ -702,7 +699,7 @@ Backward operations
    ttnn.xlogy_bw
 
 Model Conversion
-****************
+################
 
 .. autosummary::
    :toctree: api
@@ -714,7 +711,7 @@ Model Conversion
 
 
 Reports
-*******
+#######
 
 .. autosummary::
    :toctree: api
@@ -725,7 +722,7 @@ Reports
 
 
 Operation Hooks
-***************
+###############
 
 .. autosummary::
    :toctree: api

@@ -163,20 +163,7 @@
             <!-- Secondary links -->
             <nav class="tt-topnav__subnav" aria-label="Section navigation">
                 <a class="tt-topnav__sublink"
-                   href="../../overview.html">Overview</a>
-                <a class="tt-topnav__sublink"
-                   href="../../get_started.html">Getting Started</a>
-
-                <div class="tt-topnav__dropdown">
-                    <a class="tt-topnav__sublink tt-topnav__sublink--dropdown"
-                       href="../../overview.html#core-concepts">Core Concepts</a>
-                    <div class="tt-topnav__dropdown-menu">
-                        <a class="tt-topnav__dropdown-item" href="../../overview.html#tensors">Tensors</a>
-                        <a class="tt-topnav__dropdown-item" href="../../overview.html#operations">Operations</a>
-                        <a class="tt-topnav__dropdown-item" href="../../overview.html#devices">Devices</a>
-                        <a class="tt-topnav__dropdown-item" href="../../overview.html#how-tt-nn-fits-into-the-stack">Execution Model</a>
-                    </div>
-                </div>
+                   href="../../../index.html">Getting Started</a>
 
                 <div class="tt-topnav__dropdown">
                     <a class="tt-topnav__sublink tt-topnav__sublink--dropdown"
@@ -200,7 +187,7 @@
                 </div>
 
                 <a class="tt-topnav__sublink"
-                   href="../../onboarding.html">Advanced Topics</a>
+                   href="../../advanced_topics.html">Advanced Topics</a>
                 <a class="tt-topnav__sublink"
                    href="../../api.html">API Reference</a>
                 <div class="tt-topnav__dropdown">
@@ -256,53 +243,51 @@ function ttGlobalSearchRedirect(form) {
 </script>
             </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation"
                  aria-label="Navigation menu">
+                <p class="caption" role="heading"><span class="caption-text">Tutorials</span></p>
                 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../../tutorials.html">Tutorials</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="ttnn_add_tensors.html">Add Tensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn_basic_operations.html">Basic Tensor Operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn_basic_matrix_multiplication.html">Matrix Multiplication</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn_mlp_inference_mnist.html">MLP Inference</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn_multihead_attention.html">Multi-Head Attention</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn_basic_conv.html">Basic Convolution</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn_simplecnn_inference.html">Running a Simple CNN Inference on CIFAR-10</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Building CLIP Model for Zero-Shot Image Classification with TT-NN</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#What-CLIP-Does">What CLIP Does</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Imports-and-Dependencies">Imports and Dependencies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#TT-NN-Device-Management-and-Utility-Functions">TT-NN Device Management and Utility Functions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Model-Weight-Conversion">Model Weight Conversion</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Generic-Transformer-Implementation">Generic Transformer Implementation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Transformer-Architecture">Transformer Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_add_tensors.html">Add Tensors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_basic_operations.html">Basic Tensor Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_basic_matrix_multiplication.html">Matrix Multiplication</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_mlp_inference_mnist.html">MLP Inference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_multihead_attention.html">Multi-Head Attention</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_basic_conv.html">Basic Convolution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_simplecnn_inference.html">Running a Simple CNN Inference on CIFAR-10</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building CLIP Model for Zero-Shot Image Classification with TT-NN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#What-CLIP-Does">What CLIP Does</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Imports-and-Dependencies">Imports and Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#TT-NN-Device-Management-and-Utility-Functions">TT-NN Device Management and Utility Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Model-Weight-Conversion">Model Weight Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Generic-Transformer-Implementation">Generic Transformer Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Transformer-Architecture">Transformer Architecture</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Vision-Transformer-Implementation">Vision Transformer Implementation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Vision-Processing-Pipeline">Vision Processing Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Vision-Transformer-Implementation">Vision Transformer Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Vision-Processing-Pipeline">Vision Processing Pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Complete-CLIP-Model-Implementation">Complete CLIP Model Implementation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#CLIP-Architecture-Components">CLIP Architecture Components</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Key-Methods">Key Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Complete-CLIP-Model-Implementation">Complete CLIP Model Implementation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#CLIP-Architecture-Components">CLIP Architecture Components</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Key-Methods">Key Methods</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Image-Preprocessing">Image Preprocessing</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Preprocessing-Pipeline">Preprocessing Pipeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Image-Preprocessing">Image Preprocessing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Preprocessing-Pipeline">Preprocessing Pipeline</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#Image-Download-Utility">Image Download Utility</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Model-and-Tokenizer-downloading">Model and Tokenizer downloading</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Running-CLIP-Inference">Running CLIP Inference</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#Inference-Pipeline:">Inference Pipeline:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#Text-Tokenization">Text Tokenization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Image-Download-Utility">Image Download Utility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Model-and-Tokenizer-downloading">Model and Tokenizer downloading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Running-CLIP-Inference">Running CLIP Inference</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Inference-Pipeline:">Inference Pipeline:</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Text-Tokenization">Text Tokenization</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn_visualizer.html">TT-NN Visualizer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn_tracer_model.html">TT-NN Tracer and BERT Model Visualization Tutorial</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn_tracer_model.html#Example-1:-Tracing-PyTorch-Operations">Example 1: Tracing PyTorch Operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn_tracer_model.html#Example-2:-Tracing-TT-NN-Tensor-Operations">Example 2: Tracing TT-NN Tensor Operations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ttnn_tracer_model.html#Example-3:-Tracing-a-BERT-Layer">Example 3: Tracing a BERT Layer</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_visualizer.html">TT-NN Visualizer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_tracer_model.html">TT-NN Tracer and BERT Model Visualization Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_tracer_model.html#Example-1:-Tracing-PyTorch-Operations">Example 1: Tracing PyTorch Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_tracer_model.html#Example-2:-Tracing-TT-NN-Tensor-Operations">Example 2: Tracing TT-NN Tensor Operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ttnn_tracer_model.html#Example-3:-Tracing-a-BERT-Layer">Example 3: Tracing a BERT Layer</a></li>
 </ul>
 
             </div>
@@ -322,7 +307,6 @@ function ttGlobalSearchRedirect(form) {
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../nav/tutorials.html">Tutorials</a></li>
-          <li class="breadcrumb-item"><a href="../../tutorials.html">Tutorials</a></li>
       <li class="breadcrumb-item active">Building CLIP Model for Zero-Shot Image Classification with TT-NN</li>
   </ul>
   <hr/>

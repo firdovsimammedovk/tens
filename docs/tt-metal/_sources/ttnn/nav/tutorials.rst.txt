@@ -4,5 +4,13 @@ Tutorials
 .. toctree::
    :hidden:
 
-   ../tutorials
-
+   ../tutorials/tutorials/ttnn_add_tensors
+   ../tutorials/tutorials/ttnn_basic_operations
+   ../tutorials/tutorials/ttnn_basic_matrix_multiplication
+   ../tutorials/tutorials/ttnn_mlp_inference_mnist
+   ../tutorials/tutorials/ttnn_multihead_attention
+   ../tutorials/tutorials/ttnn_basic_conv
+   ../tutorials/tutorials/ttnn_simplecnn_inference
+   ../tutorials/tutorials/ttnn_clip_zero_shot_classification
+   ../tutorials/tutorials/ttnn_visualizer
+   ../tutorials/tutorials/ttnn_tracer_model
