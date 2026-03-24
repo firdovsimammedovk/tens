@@ -6,6 +6,6 @@ TT-Forge offers three frontend compilers.
 .. toctree::
    :maxdepth: 2
 
-   TT-Torch <tt-torch/index>
+   TT-Torch (deprecated) <tt-torch/index>
    TT-XLA <tt-xla/index>
    TT-Forge-ONNX <tt-forge-onnx/index>

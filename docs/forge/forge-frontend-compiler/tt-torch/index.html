@@ -4,7 +4,7 @@
     <meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>TT-Torch &mdash; Home 1.0 documentation</title>
+    <title>TT-Torch (deprecated) &mdash; Home 1.0 documentation</title>
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css"/>
     <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css"/>
     <link rel="stylesheet" href="../../../_static/copybutton.css" type="text/css"/>
@@ -37,7 +37,7 @@
     <script src="../../../_static/tt_version_dropdown.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html"/>
     <link rel="search" title="Search" href="../../../search.html"/>
-    <link rel="next" title="Overview" href="overview.html"/>
+    <link rel="next" title="TT-XLA" href="../tt-xla/index.html"/>
     <link rel="prev" title="TT-Forge Frontend Compiler" href="../index.html"/> 
 </head>
 
@@ -221,16 +221,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="../../index.html">TT-Forge</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../../getting-started.html">Getting Started</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../index.html">TT-Forge Frontend Compiler</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">TT-Torch</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="overview.html">Overview</a></li>
-<li class="toctree-l4"><a class="reference internal" href="getting-started.html">Getting Started</a></li>
-<li class="toctree-l4"><a class="reference internal" href="testing.html">Testing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="profiling.html">Profiling</a></li>
-<li class="toctree-l4"><a class="reference internal" href="pre-commit.html">Pre-Commit</a></li>
-<li class="toctree-l4"><a class="reference internal" href="ops/index.html">Ops Documentation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="models/index.html">Models</a></li>
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">TT-Torch (deprecated)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tt-xla/index.html">TT-XLA</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../tt-forge-onnx/index.html">TT-Forge-ONNX</a></li>
 </ul>
@@ -259,7 +250,7 @@
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../index.html">TT-Forge</a></li>
           <li class="breadcrumb-item"><a href="../index.html">TT-Forge Frontend Compiler</a></li>
-      <li class="breadcrumb-item active">TT-Torch</li>
+      <li class="breadcrumb-item active">TT-Torch (deprecated)</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -268,70 +259,20 @@
                     <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
                         <div itemprop="articleBody">
                             
-  <section id="tt-torch">
-<h1>TT-Torch<a class="headerlink" href="#tt-torch" title="Link to this heading"></a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>TT-Torch is deprecated. To work with PyTorch and the various features available in TT-Torch, please see the documentation for <a class="reference external" href="../tt-xla/index.html">TT-XLA</a>.</p>
+  <section id="tt-torch-deprecated">
+<h1>TT-Torch (deprecated)<a class="headerlink" href="#tt-torch-deprecated" title="Link to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>TT-Torch is deprecated.
+For PyTorch workflows, use <a class="reference internal" href="../tt-xla/index.html"><span class="doc">TT-XLA</span></a>.</p>
 </div>
-<p>TT-Torch is a TT-Forge frontend compiler that enables running PyTorch models on Tenstorrent hardware
-via <code class="docutils literal notranslate"><span class="pre">torch.compile</span></code>. It lowers PyTorch FX graphs through torch-mlir, StableHLO, and TT-MLIR
-to produce executables for Tenstorrent devices.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#how-tt-torch-works">How TT-Torch Works</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#op-by-op-compilation">Op-by-Op Compilation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#how-tt-torch-fits-into-tt-forge">How TT-Torch Fits into TT-Forge</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#supported-devices">Supported Devices</a></li>
-<li class="toctree-l2"><a class="reference internal" href="overview.html#related-tenstorrent-projects">Related Tenstorrent Projects</a></li>
+<p>This page is kept for navigation compatibility.</p>
+<section id="next-step">
+<h2>Next Step<a class="headerlink" href="#next-step" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Use <a class="reference internal" href="../tt-xla/index.html"><span class="doc">TT-XLA</span></a> for active frontend compiler documentation.</p></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="getting-started.html">Getting Started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#installing-from-wheel">Installing from Wheel</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#building-from-source">Building from Source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#activate-environment">Activate Environment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#quick-example">Quick Example</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#experimental-backend">Experimental Backend</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting-started.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="testing.html">Testing</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#infrastructure">Infrastructure</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#unit-tests">Unit Tests</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#running-the-resnet-demo">Running the ResNet Demo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#compiling-and-running-a-model">Compiling and Running a Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#example-add-two-tensors">Example — Add Two Tensors</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#model-zoo">Model Zoo</a></li>
-<li class="toctree-l2"><a class="reference internal" href="testing.html#testing-with-experimental-flow">Testing With Experimental Flow</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="profiling.html">Profiling</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="profiling.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="profiling.html#prerequisites">Prerequisites</a></li>
-<li class="toctree-l2"><a class="reference internal" href="profiling.html#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="profiling.html#limitations">Limitations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="profiling.html#troubleshooting">Troubleshooting</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pre-commit.html">Pre-Commit</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pre-commit.html#install">Install</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pre-commit.html#catching-up-on-existing-commits">Catching Up on Existing Commits</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pre-commit.html#more-information">More Information</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="ops/index.html">Ops Documentation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ops/stablehlo/index.html">StableHLO Ops</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ops/ttnn/index.html">TTNN Ops</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="models/index.html">Models</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="models/supported-models.html">Supported Models</a></li>
-</ul>
-</li>
-</ul>
-</div>
+</section>
 </section>
 
 
@@ -342,8 +283,8 @@ to produce executables for Tenstorrent devices.</p>
           <span class="tt-pagination-topic">TT-Forge Frontend Compiler</span>
           <span class="tt-pagination-label">Previous</span>
         </a>
-        <a href="overview.html" class="btn btn-neutral float-right" title="Overview" accesskey="n" rel="next">
-          <span class="tt-pagination-topic">Overview</span>
+        <a href="../tt-xla/index.html" class="btn btn-neutral float-right" title="TT-XLA" accesskey="n" rel="next">
+          <span class="tt-pagination-topic">TT-XLA</span>
           <span class="tt-pagination-label">Next</span>
         </a>
     </div>
