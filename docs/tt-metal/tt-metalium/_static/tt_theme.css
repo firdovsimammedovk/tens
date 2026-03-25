@@ -1306,36 +1306,3 @@ https://github.com/readthedocs/sphinx_rtd_theme/issues/1301
 #see-also > h2::before {
   content: "🔗";
 }
-
-/* API sidebar: when a section is expanded, show its full subtree */
-.wy-menu-vertical.tt-api-nav-tree li.toctree-l2.current ul,
-.wy-menu-vertical.tt-api-nav-tree li.toctree-l2.on ul {
-  display: block;
-}
-
-/* API sidebar: explicit +/− toggle so expand buttons stay visible */
-.wy-menu-vertical.tt-api-nav-tree li button.toctree-expand {
-  display: inline-flex !important;
-  float: none;
-  width: 1rem;
-  margin: 0 0.35rem 0 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--color-foreground);
-  font-size: 0.95rem;
-  line-height: 1;
-  vertical-align: middle;
-}
-
-.wy-menu-vertical.tt-api-nav-tree li button.toctree-expand::before {
-  content: "+";
-  font-family: var(--font-mono);
-  font-weight: 700;
-}
-
-.wy-menu-vertical.tt-api-nav-tree li.current > a button.toctree-expand::before,
-.wy-menu-vertical.tt-api-nav-tree li.on > a button.toctree-expand::before {
-  content: "-";
-}
-

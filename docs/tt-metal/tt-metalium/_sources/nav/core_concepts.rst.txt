@@ -1,0 +1,8 @@
+Core Concepts
+=============
+
+.. toctree::
+   :hidden:
+
+   ../tt_metal/overview
+

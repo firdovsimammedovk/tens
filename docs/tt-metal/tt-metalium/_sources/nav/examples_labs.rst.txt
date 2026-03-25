@@ -1,0 +1,9 @@
+Examples and Labs
+=================
+
+.. toctree::
+   :caption: Examples and Labs
+
+   ../tt_metal/examples/index
+   ../tt_metal/labs/index
+

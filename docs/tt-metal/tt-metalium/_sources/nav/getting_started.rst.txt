@@ -1,0 +1,10 @@
+Getting Started
+===============
+
+.. toctree::
+   :caption: Getting Started
+
+   ../get_started/get_started
+   ../installing
+   ../tt_metal/examples/dram_loopback
+

@@ -1,0 +1,8 @@
+Tools and Debug
+===============
+
+.. toctree::
+   :caption: Tools and Debug
+
+   ../tools/index
+

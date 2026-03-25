@@ -4,7 +4,7 @@
     <meta charset="utf-8"/><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>Welcome to TT-Metalium documentation! &mdash; TT-Metalium  documentation</title>
+    <title>TT-Metalium Overview &mdash; TT-Metalium  documentation</title>
     <link rel="stylesheet" href="_static/pygments.css" type="text/css"/>
     <link rel="stylesheet" href="_static/css/theme.css" type="text/css"/>
     <link rel="stylesheet" href="_static/tt_theme.css" type="text/css"/>
@@ -130,7 +130,7 @@
 
             <!-- CTA -->
             <div class="tt-topnav__cta">
-                <a class="tt-topnav__btn" href="#" rel="noopener">JOIN</a>
+                <a class="tt-topnav__btn" href="resources/join.html" rel="noopener">JOIN</a>
             </div>
 
         </div>
@@ -158,7 +158,6 @@
 
             <!-- Secondary links (TT-Metalium specific) -->
             <nav class="tt-topnav__subnav" aria-label="Section navigation">
-                <a class="tt-topnav__sublink" href="tt_metal/overview.html">Overview</a>
 
                 <div class="tt-topnav__dropdown">
                     <a class="tt-topnav__sublink tt-topnav__sublink--dropdown"
@@ -172,8 +171,7 @@
                     </div>
                 </div>
 
-                <a class="tt-topnav__sublink" href="tt_metal/advanced_topics/index.html">Architecture</a>
-                <a class="tt-topnav__sublink" href="tt_metal/overview.html#key-concepts">Core Concepts</a>
+                <a class="tt-topnav__sublink" href="tt_metal/advanced_topics/index.html">Advanced Topics</a>
                 <a class="tt-topnav__sublink" href="tt_metal/programming_model/index.html">Programming Guide</a>
 
                 <div class="tt-topnav__dropdown">
@@ -268,7 +266,6 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">TT-Metalium</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="tt_metal/overview.html">TT-Metalium Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tt_metal/programming_model/index.html">Programming Model</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tt_metal/examples/index.html">Programming Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tt_metal/labs/index.html">Lab Exercises</a></li>
@@ -281,8 +278,17 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="resources/support.html">Support</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources/contributing.html">Contributing as a developer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources/join.html">Join Tenstorrent</a></li>
 </ul>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="nav/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav/getting_started.html">Getting Started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav/architecture.html">Architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav/core_concepts.html">Core Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav/programming_guide.html">Programming Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav/examples_labs.html">Examples and Labs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav/tools_debug.html">Tools and Debug</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nav/api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="resources/nav/index.html">Resources</a></li>
 </ul>
 
@@ -302,17 +308,125 @@
 <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Welcome to TT-Metalium documentation!</li>
+      <li class="breadcrumb-item"><a href="#">TT-Metalium</a></li>
+      <li class="breadcrumb-item active">TT-Metalium Overview</li>
   </ul>
   <hr/>
 </div>
-
                     <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
                         <div itemprop="articleBody">
                             
-  <section id="welcome-to-tt-metalium-documentation">
-<h1>Welcome to TT-Metalium documentation!<a class="headerlink" href="#welcome-to-tt-metalium-documentation" title="Permalink to this heading"></a>
+  <section id="tt-metalium-overview">
+<h1>TT-Metalium Overview<a class="headerlink" href="#tt-metalium-overview" title="Permalink to this heading"></a>
 </h1>
+<nav class="contents local" id="sidebar">
+<p class="topic-title">Sidebar</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#introduction" id="id1">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#role-in-the-stack" id="id2">Role in the Stack</a></p></li>
+<li><p><a class="reference internal" href="#core-responsibilities" id="id3">Core Responsibilities</a></p></li>
+<li>
+<p><a class="reference internal" href="#key-concepts" id="id4">Key Concepts</a></p>
+<ul>
+<li><p><a class="reference internal" href="#devices" id="id5">Devices</a></p></li>
+<li><p><a class="reference internal" href="#kernels" id="id6">Kernels</a></p></li>
+<li><p><a class="reference internal" href="#data-movement" id="id7">Data Movement</a></p></li>
+</ul>
+</li>
+<li><p><a class="reference internal" href="#programming-model" id="id8">Programming Model</a></p></li>
+<li><p><a class="reference internal" href="#when-to-use-tt-metalium" id="id9">When to Use TT-Metalium</a></p></li>
+<li><p><a class="reference internal" href="#next-steps" id="id10">Next Steps</a></p></li>
+<li><p><a class="reference internal" href="#indices-and-tables" id="id11">Indices and tables</a></p></li>
+</ul>
+</nav>
+<section id="introduction">
+<h2>
+<a class="toc-backref" href="#id1" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading"></a>
+</h2>
+<p>TT-Metalium is the low-level programming layer used to interact directly with Tenstorrent hardware. It provides the runtime infrastructure for executing kernels, managing memory, and coordinating computation across Tensix cores.</p>
+<p>TT-Metalium is typically used for system-level development, performance optimization, and custom kernel implementation.</p>
+</section>
+<section id="role-in-the-stack">
+<h2>
+<a class="toc-backref" href="#id2" role="doc-backlink">Role in the Stack</a><a class="headerlink" href="#role-in-the-stack" title="Permalink to this heading"></a>
+</h2>
+<p>TT-Metalium operates below higher-level programming interfaces such as TT-NN.</p>
+<div class="highlight-default notranslate">
+<div class="highlight"><pre><span></span>TT-NN
+  ↓
+TT-Metalium
+  ↓
+Tensix hardware
+</pre></div>
+</div>
+<p>While TT-NN defines neural network operations, TT-Metalium manages how those operations are executed on the device.</p>
+</section>
+<section id="core-responsibilities">
+<h2>
+<a class="toc-backref" href="#id3" role="doc-backlink">Core Responsibilities</a><a class="headerlink" href="#core-responsibilities" title="Permalink to this heading"></a>
+</h2>
+<p>TT-Metalium is responsible for:</p>
+<ul class="simple">
+<li><p>Kernel dispatch</p></li>
+<li><p>Device memory management</p></li>
+<li><p>Data movement across cores</p></li>
+<li><p>Synchronization and scheduling</p></li>
+</ul>
+<p>These capabilities allow precise control over how workloads are executed on Tenstorrent hardware.</p>
+</section>
+<section id="key-concepts">
+<h2>
+<a class="toc-backref" href="#id4" role="doc-backlink">Key Concepts</a><a class="headerlink" href="#key-concepts" title="Permalink to this heading"></a>
+</h2>
+<section id="devices">
+<h3>
+<a class="toc-backref" href="#id5" role="doc-backlink">Devices</a><a class="headerlink" href="#devices" title="Permalink to this heading"></a>
+</h3>
+<p>Devices represent Tenstorrent accelerators that execute workloads.</p>
+</section>
+<section id="kernels">
+<h3>
+<a class="toc-backref" href="#id6" role="doc-backlink">Kernels</a><a class="headerlink" href="#kernels" title="Permalink to this heading"></a>
+</h3>
+<p>Kernels are programs executed directly on Tensix compute cores. They perform the fundamental operations required for machine learning workloads.</p>
+</section>
+<section id="data-movement">
+<h3>
+<a class="toc-backref" href="#id7" role="doc-backlink">Data Movement</a><a class="headerlink" href="#data-movement" title="Permalink to this heading"></a>
+</h3>
+<p>Efficient data movement is critical in the Tenstorrent architecture. TT-Metalium provides mechanisms for transferring data between cores and memory regions.</p>
+</section>
+</section>
+<section id="programming-model">
+<h2>
+<a class="toc-backref" href="#id8" role="doc-backlink">Programming Model</a><a class="headerlink" href="#programming-model" title="Permalink to this heading"></a>
+</h2>
+<p>TT-Metalium follows a dataflow-oriented execution model where computation and data movement are explicitly controlled. Developers can write kernels that operate on tiles of data and coordinate execution across multiple cores.</p>
+</section>
+<section id="when-to-use-tt-metalium">
+<h2>
+<a class="toc-backref" href="#id9" role="doc-backlink">When to Use TT-Metalium</a><a class="headerlink" href="#when-to-use-tt-metalium" title="Permalink to this heading"></a>
+</h2>
+<p>TT-Metalium is typically used for:</p>
+<ul class="simple">
+<li><p>Writing custom kernels</p></li>
+<li><p>Implementing new operations</p></li>
+<li><p>Optimizing performance</p></li>
+<li><p>Developing low-level system components</p></li>
+</ul>
+<p>Most application developers will interact primarily with TT-NN.</p>
+</section>
+<section id="next-steps">
+<h2>
+<a class="toc-backref" href="#id10" role="doc-backlink">Next Steps</a><a class="headerlink" href="#next-steps" title="Permalink to this heading"></a>
+</h2>
+<p>To learn more about TT-Metalium:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="get_started/get_started.html"><span class="doc">TT-Metalium Getting Started</span></a></p></li>
+<li><p><a class="reference internal" href="tt_metal/advanced_topics/index.html"><span class="doc">Advanced Topics</span></a></p></li>
+<li><p><a class="reference internal" href="tt_metal/programming_model/index.html"><span class="doc">Kernel Programming Guide</span></a></p></li>
+<li><p><a class="reference internal" href="tt_metal/apis/index.html"><span class="doc">API Reference</span></a></p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Get Started</span></p>
 <ul>
@@ -398,23 +512,6 @@
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">TT-Metalium</span></p>
 <ul>
-<li class="toctree-l1">
-<a class="reference internal" href="tt_metal/overview.html">TT-Metalium Overview</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="tt_metal/overview.html#introduction">Introduction</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tt_metal/overview.html#role-in-the-stack">Role in the Stack</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tt_metal/overview.html#core-responsibilities">Core Responsibilities</a></li>
-<li class="toctree-l2">
-<a class="reference internal" href="tt_metal/overview.html#key-concepts">Key Concepts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tt_metal/overview.html#devices">Devices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tt_metal/overview.html#kernels">Kernels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tt_metal/overview.html#data-movement">Data Movement</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="tt_metal/overview.html#programming-model">Programming Model</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tt_metal/overview.html#when-to-use-tt-metalium">When to Use TT-Metalium</a></li>
-<li class="toctree-l2"><a class="reference internal" href="tt_metal/overview.html#next-steps">Next Steps</a></li>
-</ul>
-</li>
 <li class="toctree-l1">
 <a class="reference internal" href="tt_metal/programming_model/index.html">Programming Model</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="tt_metal/programming_model/index.html#executive-summary">Executive Summary</a></li>
@@ -1393,20 +1490,30 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="resources/contributing.html">Contributing as a developer</a></li>
+<li class="toctree-l1">
+<a class="reference internal" href="resources/join.html">Join Tenstorrent</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="resources/join.html#get-involved">Get Involved</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources/join.html#contribute-code">Contribute Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources/join.html#get-support">Get Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources/join.html#stay-updated">Stay Updated</a></li>
+<li class="toctree-l2"><a class="reference internal" href="resources/join.html#quick-links">Quick Links</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="toctree-wrapper compound">
 </div>
 </section>
-
 <section id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a>
-</h1>
+<h2>
+<a class="toc-backref" href="#id11" role="doc-backlink">Indices and tables</a><a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a>
+</h2>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
+</section>
 </section>
 
 

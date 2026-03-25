@@ -1,0 +1,8 @@
+Programming Guide
+=================
+
+.. toctree::
+   :caption: Programming Guide
+
+   ../tt_metal/programming_model/index
+

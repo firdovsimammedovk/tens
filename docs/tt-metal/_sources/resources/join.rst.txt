@@ -1,0 +1,37 @@
+Join Tenstorrent
+================
+
+.. contents:: On this page
+   :local:
+   :depth: 2
+
+Get Involved
+------------
+
+Join the Tenstorrent developer community and help shape the software stack.
+
+Contribute Code
+---------------
+
+- Read the contribution guide: :doc:`Contributing <contributing>`
+- Browse open work and discussions: `tt-metal on GitHub <https://github.com/tenstorrent/tt-metal>`_
+
+Get Support
+-----------
+
+- Start with the support page: :doc:`Support <support>`
+- Open a bug report for reproducible issues: `GitHub Issues <https://github.com/tenstorrent/tt-metal/issues>`_
+
+Stay Updated
+------------
+
+- Follow releases in the repository: `Releases <https://github.com/tenstorrent/tt-metal/releases>`_
+- Watch repository activity for updates: `Repository Watch <https://github.com/tenstorrent/tt-metal>`_
+
+Quick Links
+-----------
+
+- `Join discussion on GitHub <https://github.com/tenstorrent/tt-metal/discussions>`_
+- `Contributing guide <https://github.com/tenstorrent/tt-metal/blob/main/CONTRIBUTING.md>`_
+- `Report an issue <https://github.com/tenstorrent/tt-metal/issues/new/choose>`_
+
